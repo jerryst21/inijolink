@@ -3,27 +3,20 @@ export default function handler(req, res) {
     {
       category: "TUGAS HARIAN",
       links: [
-        { title: "PEMBUKUAN", url: "#", icon: "fi fi-sr-book", iconColor: "#ff4757" },
-        { title: "BCA - VPN", url: "#", icon: "fi fi-sr-vpn", iconColor: "#1e90ff" },
+        { title: "Pembukuan", url: "#", icon: "fi fi-sr-book", iconColor: "#ff4757" },
+        { title: "BCA - VPN", url: "#", icon: "fi fi-rs-vpn", iconColor: "#1e90ff" },
         { title: "BNIDIRECT CASH", url: "#", icon: "BNI" },
         { title: "QLOLA BY BRI", url: "#", icon: "BRI" },
         { title: "KOPRA BY MANDIRI", url: "#", icon: "MDR" },
-        { 
-          title: "KAS KANTOR", 
-          url: "#", 
-          icon: "📗", 
-          status: "🟢",
+        { title: "KAS KANTOR", url: "#", icon: "📗", status: "🟢",
           subLinks: [
             { label: "2025", url: "#" },
             { label: "2026", url: "#" }
           ]
         },
-        { title: "ARSIP NOTA", url: "#", icon: "📁" },
+        { title: "Arsip Nota", url: "#", icon: "📁" },
         { 
-          title: "REKAP SALES", 
-          url: "#", 
-          icon: "📗", 
-          status: "🔵",
+          title: "Rekap Sales", url: "#", icon: "📗", status: "🔵",
           subLinks: [
             { label: "2025", url: "#" },
             { label: "2026", url: "#" }
@@ -34,12 +27,8 @@ export default function handler(req, res) {
     {
       category: "TUGAS BULANAN",
       links: [
-        { title: "BPJS KETENAGAKERJAAN", url: "#", icon: "⚙️", info: "Jatuh tempo tgl 10" },
-        { 
-          title: "PERHITUNGAN GAJI", 
-          url: "#", 
-          icon: "📗", 
-          status: "🔵",
+        { title: "BPJS Ketenagakerjaan", url: "#", icon: "fi fi-rs-insurance", iconColor: "#80EF80", info: "Jatuh tempo tgl 10" },
+        { title: "Perhitungan Gaji", url: "#", icon: "📗", status: "🔵",
           subLinks: [
             { label: "2025", url: "#" },
             { label: "2026", url: "#" }
