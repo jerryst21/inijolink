@@ -5,85 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Kerja CV. KSB</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Update CDN Flaticon ke versi yang lebih stabil -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    
+    <!-- Flaticon All-in-One CDN -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css'>
+    
+    <!-- Google Font: Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-color: #0d0d0d;
-            --card-bg: #161616;
-            --accent: #eab308; /* yellow-500 */
+            --bg-main: #000000;
+            --card-surface: #121214;
+            --accent-yellow: #FACC15; /* Tailwind yellow-400 */
         }
+        
         body { 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-color: var(--bg-color); 
-            color: #a3a3a3;
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: #FFFFFF;
             -webkit-font-smoothing: antialiased;
         }
-        .mono { font-family: 'JetBrains Mono', monospace; }
-        
-        /* Smooth UI Elements */
-        .glass-card { 
-            background-color: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-card:hover {
-            border-color: rgba(234, 179, 8, 0.3);
-            transform: translateY(-2px);
-            background-color: #1c1c1c;
-        }
-        
-        .sub-link { 
-            background: rgba(255, 255, 255, 0.03); 
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.2s ease; 
-        }
-        .sub-link:hover { 
-            background: var(--accent); 
-            color: black;
-            border-color: var(--accent);
+
+        /* Card Style - Lebih Bold & Solid */
+        .work-card {
+            background-color: var(--card-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease-out;
         }
 
-        /* Fix for Flaticon */
+        .work-card:active {
+            transform: scale(0.97);
+            background-color: #1a1a1c;
+        }
+
+        /* Sub-link - Diperbesar & lebih jelas */
+        .pill-link {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1d1d6;
+            font-size: 13px; /* Ukuran font ditingkatkan */
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .pill-link:hover {
+            background: var(--accent-yellow);
+            color: #000000;
+            border-color: var(--accent-yellow);
+        }
+
+        /* Badge Nomor - Bold & Terbaca */
+        .num-badge {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #3a3a3c;
+            font-size: 20px; /* Diperbesar signifikan */
+            letter-spacing: -0.05em;
+        }
+
+        /* Kategori - Dipertebal */
+        .category-header {
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: #FFFFFF;
+            font-size: 14px;
+        }
+
+        /* Ikon Fix */
         i[class^="fi-"] {
             display: flex !important;
             align-items: center;
             justify-content: center;
-            line-height: 1;
+            line-height: 0;
         }
     </style>
 </head>
-<body class="p-5 md:p-12">
+<body class="p-6 md:p-12 pb-24">
 
     <div class="max-w-xl mx-auto">
-        <!-- Brand Header -->
-        <div class="flex items-center justify-between mb-12">
+        <!-- Header Modern -->
+        <header class="mb-12 flex items-center gap-4">
+            <div class="bg-yellow-400 h-14 w-14 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgb(250,204,21,0.3)] rotate-3">
+                <span class="font-extrabold text-black text-2xl">XO</span>
+            </div>
             <div>
-                <h1 class="text-white text-xl font-bold tracking-tight">Dashboard Kerja</h1>
-                <p class="text-[11px] mono text-yellow-500/80 tracking-widest uppercase mt-1">CV. KARYA SEMESTA BERSAMA</p>
+                <h1 class="text-2xl font-extrabold tracking-tight">Dashboard Kerja</h1>
+                <p class="text-yellow-400 font-bold text-xs uppercase tracking-widest opacity-80">CV. Karya Semesta Bersama</p>
             </div>
-            <div class="h-12 w-12 bg-yellow-500 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(234,179,8,0.2)]">
-                <span class="font-black text-black text-lg">XO</span>
+        </header>
+
+        <!-- Container Utama -->
+        <div id="link-container" class="space-y-12">
+            <!-- Loading State -->
+            <div class="py-20 text-center">
+                <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent"></div>
             </div>
         </div>
 
-        <!-- Links Container -->
-        <div id="link-container" class="space-y-10">
-            <div class="flex flex-col items-center py-20 space-y-4">
-                <div class="w-6 h-6 border-2 border-yellow-500/20 border-t-yellow-500 rounded-full animate-spin"></div>
-                <p class="text-[10px] mono tracking-widest text-gray-600">MENYIAPKAN AKSES...</p>
-            </div>
-        </div>
-
-        <!-- System Footer -->
-        <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-[9px] mono text-gray-600 tracking-tighter">INIJO LINK V2.0 // STABLE_BUILD_2026</p>
-            <div class="flex gap-4">
-                <div class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
-                <span class="text-[9px] mono text-gray-600">SYSTEM_ONLINE</span>
-            </div>
-        </div>
+        <!-- Footer -->
+        <footer class="mt-20 pt-8 border-t border-white/10 text-center">
+            <p class="text-[11px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO • Management System</p>
+        </footer>
     </div>
 
     <script>
@@ -100,58 +122,58 @@
                 categories.forEach(cat => {
                     let sectionHtml = `
                         <section>
-                            <div class="flex items-center gap-3 mb-5">
-                                <span class="h-px flex-grow bg-white/5"></span>
-                                <h2 class="text-[10px] mono font-bold text-gray-500 tracking-[0.3em] uppercase">${cat.category}</h2>
-                                <span class="h-px flex-grow bg-white/5"></span>
+                            <div class="flex items-center gap-4 mb-6">
+                                <h2 class="category-header uppercase">${cat.category}</h2>
+                                <div class="h-[2px] flex-grow bg-gradient-to-r from-yellow-400/50 to-transparent"></div>
                             </div>
-                            <div class="grid gap-3">
+                            <div class="grid gap-4">
                     `;
 
                     cat.links.forEach(link => {
                         const isFlaticon = link.icon.includes('fi-');
                         const iconDisplay = isFlaticon 
-                            ? `<i class="${link.icon} text-lg" style="color: ${link.iconColor || 'inherit'}"></i>`
-                            : `<span class="text-lg">${link.icon}</span>`;
+                            ? `<i class="${link.icon} text-xl" style="color: ${link.iconColor || '#FACC15'}"></i>`
+                            : `<span class="text-2xl">${link.icon}</span>`;
 
+                        // Sub-links lebih besar
                         let subLinksHtml = '';
                         if (link.subLinks && link.subLinks.length > 0) {
-                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-4 ml-12">`;
+                            subLinksHtml = `<div class="flex flex-wrap gap-3 mt-5 pt-4 border-t border-white/[0.05]">`;
                             link.subLinks.forEach(sub => {
                                 subLinksHtml += `
-                                    <a href="${sub.url}" class="sub-link mono text-[9px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-2">
-                                        <i class="fi fi-sr-folder text-[10px]"></i> ${sub.label}
+                                    <a href="${sub.url}" class="pill-link px-5 py-2.5 rounded-xl flex items-center gap-2">
+                                        <i class="fi fi-sr-folder-open"></i> ${sub.label}
                                     </a>`;
                             });
                             subLinksHtml += `</div>`;
                         }
 
                         sectionHtml += `
-                            <div class="glass-card rounded-[24px] p-4 group">
-                                <div class="flex items-center">
-                                    <!-- Index -->
-                                    <div class="w-8 mono text-[10px] text-gray-700 font-bold group-hover:text-yellow-500/50 transition-colors">
-                                        ${String(globalCounter++).padStart(2, '0')}
+                            <div class="work-card rounded-[28px] p-5 shadow-xl">
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center flex-grow gap-4">
+                                        <!-- Nomor Urut Terbaca -->
+                                        <div class="num-badge w-10">
+                                            ${String(globalCounter++).padStart(2, '0')}
+                                        </div>
+                                        
+                                        <!-- Kotak Ikon -->
+                                        <a href="${link.url}" target="_blank" class="flex-shrink-0 w-14 h-14 bg-white/[0.03] rounded-[20px] flex items-center justify-center border border-white/10">
+                                            ${iconDisplay}
+                                        </a>
+                                        
+                                        <!-- Teks Utama -->
+                                        <a href="${link.url}" target="_blank" class="flex-grow">
+                                            <h3 class="text-[16px] font-extrabold text-white leading-tight uppercase">${link.title}</h3>
+                                            ${link.info ? `<p class="text-[12px] font-medium text-gray-500 mt-1">${link.info}</p>` : ''}
+                                        </a>
                                     </div>
-                                    
-                                    <!-- Icon Box -->
-                                    <a href="${link.url}" target="_blank" class="flex-shrink-0 w-11 h-11 bg-black/40 rounded-xl flex items-center justify-center mr-4 shadow-inner group-hover:bg-yellow-500/10 transition-colors">
-                                        ${iconDisplay}
-                                    </a>
-                                    
-                                    <!-- Content -->
-                                    <a href="${link.url}" target="_blank" class="flex-grow">
-                                        <h3 class="text-sm font-bold text-gray-200 tracking-tight group-hover:text-white transition-colors">${link.title}</h3>
-                                        ${link.info ? `<p class="text-[10px] text-gray-600 mt-0.5 leading-relaxed">${link.info}</p>` : ''}
-                                    </a>
 
-                                    <!-- Status & Action -->
-                                    <div class="flex items-center gap-4 ml-2">
-                                        ${link.status ? `<span class="filter grayscale group-hover:grayscale-0 transition-all text-xs">${link.status}</span>` : ''}
-                                        <div class="h-8 w-8 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white/5 transition-all">
-                                            <svg class="w-3 h-3 text-gray-700 group-hover:text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7M5 5l7 7-7 7"></path>
-                                            </svg>
+                                    <!-- Status & Arrow -->
+                                    <div class="flex items-center gap-3">
+                                        ${link.status ? `<span class="text-lg">${link.status}</span>` : ''}
+                                        <div class="text-gray-700">
+                                            <i class="fi fi-sr-angle-small-right text-xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -164,7 +186,7 @@
                     container.innerHTML += sectionHtml;
                 });
             } catch (error) {
-                container.innerHTML = `<div class="text-center mono text-[10px] text-red-500">ERROR_FETCH_FAILED</div>`;
+                container.innerHTML = `<div class="text-center font-bold text-red-500">KONEKSI GAGAL</div>`;
             }
         }
 
