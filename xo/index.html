@@ -6,8 +6,9 @@
     <title>Halaman Kerja CV. KSB</title>
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Flaticon All-in-One CDN -->
+    <!-- Ikon Pack: Flaticon & FontAwesome 6 -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <!-- Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -16,7 +17,7 @@
         :root {
             --bg-main: #000000;
             --card-surface: #121214;
-            --accent-yellow: #FACC15; /* Tailwind yellow-400 */
+            --accent-yellow: #FACC15;
         }
         
         body { 
@@ -26,7 +27,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Card Style - Lebih Bold & Solid */
         .work-card {
             background-color: var(--card-surface);
             border: 1px solid rgba(255, 255, 255, 0.08);
@@ -38,12 +38,11 @@
             background-color: #1a1a1c;
         }
 
-        /* Sub-link - Diperbesar & lebih jelas */
         .pill-link {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #d1d1d6;
-            font-size: 13px; /* Ukuran font ditingkatkan */
+            font-size: 13px;
             font-weight: 600;
             transition: 0.2s;
         }
@@ -54,16 +53,15 @@
             border-color: var(--accent-yellow);
         }
 
-        /* Badge Nomor - Bold & Terbaca */
+        /* PERBAIKAN: Nomor Urut Lebih Terang */
         .num-badge {
             font-family: 'Inter', sans-serif;
             font-weight: 800;
-            color: #3a3a3c;
-            font-size: 20px; /* Diperbesar signifikan */
+            color: #71717a; /* Diubah dari #3a3a3c ke warna abu yang lebih terang */
+            font-size: 20px;
             letter-spacing: -0.05em;
         }
 
-        /* Kategori - Dipertebal */
         .category-header {
             font-weight: 800;
             letter-spacing: 0.05em;
@@ -71,19 +69,17 @@
             font-size: 14px;
         }
 
-        /* Ikon Fix */
-        i[class^="fi-"] {
+        /* Fix alignment untuk semua jenis ikon */
+        .icon-container i {
             display: flex !important;
             align-items: center;
             justify-content: center;
-            line-height: 0;
         }
     </style>
 </head>
 <body class="p-6 md:p-12 pb-24">
 
     <div class="max-w-xl mx-auto">
-        <!-- Header Modern -->
         <header class="mb-12 flex items-center gap-4">
             <div class="bg-yellow-400 h-14 w-14 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgb(250,204,21,0.3)] rotate-3">
                 <span class="font-extrabold text-black text-2xl">XO</span>
@@ -94,15 +90,12 @@
             </div>
         </header>
 
-        <!-- Container Utama -->
         <div id="link-container" class="space-y-12">
-            <!-- Loading State -->
             <div class="py-20 text-center">
                 <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent"></div>
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="mt-20 pt-8 border-t border-white/10 text-center">
             <p class="text-[11px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO • Management System</p>
         </footer>
@@ -113,7 +106,6 @@
             try {
                 const response = await fetch('/api/base');
                 const categories = await response.json();
-                
                 const container = document.getElementById('link-container');
                 container.innerHTML = '';
 
@@ -130,19 +122,21 @@
                     `;
 
                     cat.links.forEach(link => {
-                        const isFlaticon = link.icon.includes('fi-');
-                        const iconDisplay = isFlaticon 
-                            ? `<i class="${link.icon} text-xl" style="color: ${link.iconColor || '#FACC15'}"></i>`
-                            : `<span class="text-2xl">${link.icon}</span>`;
+                        // Logika deteksi ikon: Flaticon (fi-), FontAwesome (fa-), atau Emoji/Text
+                        let iconDisplay = '';
+                        if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
+                            iconDisplay = `<i class="${link.icon} text-xl" style="color: ${link.iconColor || '#FACC15'}"></i>`;
+                        } else {
+                            iconDisplay = `<span class="text-xl font-black text-yellow-400">${link.icon}</span>`;
+                        }
 
-                        // Sub-links lebih besar
                         let subLinksHtml = '';
                         if (link.subLinks && link.subLinks.length > 0) {
                             subLinksHtml = `<div class="flex flex-wrap gap-3 mt-5 pt-4 border-t border-white/[0.05]">`;
                             link.subLinks.forEach(sub => {
                                 subLinksHtml += `
                                     <a href="${sub.url}" class="pill-link px-5 py-2.5 rounded-xl flex items-center gap-2">
-                                        <i class="fi fi-sr-folder-open"></i> ${sub.label}
+                                        <i class="fa-solid fa-folder-open text-[10px]"></i> ${sub.label}
                                     </a>`;
                             });
                             subLinksHtml += `</div>`;
@@ -152,28 +146,24 @@
                             <div class="work-card rounded-[28px] p-5 shadow-xl">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center flex-grow gap-4">
-                                        <!-- Nomor Urut Terbaca -->
                                         <div class="num-badge w-10">
                                             ${String(globalCounter++).padStart(2, '0')}
                                         </div>
                                         
-                                        <!-- Kotak Ikon -->
-                                        <a href="${link.url}" target="_blank" class="flex-shrink-0 w-14 h-14 bg-white/[0.03] rounded-[20px] flex items-center justify-center border border-white/10">
+                                        <a href="${link.url}" target="_blank" class="icon-container flex-shrink-0 w-14 h-14 bg-white/[0.03] rounded-[20px] flex items-center justify-center border border-white/10">
                                             ${iconDisplay}
                                         </a>
                                         
-                                        <!-- Teks Utama -->
                                         <a href="${link.url}" target="_blank" class="flex-grow">
-                                            <h3 class="text-[16px] font-extrabold text-white leading-tight">${link.title}</h3>
+                                            <h3 class="text-[16px] font-extrabold text-white leading-tight uppercase tracking-tight">${link.title}</h3>
                                             ${link.info ? `<p class="text-[12px] font-medium text-gray-500 mt-1">${link.info}</p>` : ''}
                                         </a>
                                     </div>
 
-                                    <!-- Status & Arrow -->
                                     <div class="flex items-center gap-3">
                                         ${link.status ? `<span class="text-lg">${link.status}</span>` : ''}
                                         <div class="text-gray-700">
-                                            <i class="fi fi-sr-angle-small-right text-xl"></i>
+                                            <i class="fa-solid fa-chevron-right text-sm"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -186,10 +176,9 @@
                     container.innerHTML += sectionHtml;
                 });
             } catch (error) {
-                container.innerHTML = `<div class="text-center font-bold text-red-500">KONEKSI GAGAL</div>`;
+                container.innerHTML = `<div class="text-center font-bold text-red-500">GAGAL MEMUAT DATA</div>`;
             }
         }
-
         fetchLinks();
     </script>
 </body>
