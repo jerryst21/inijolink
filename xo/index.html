@@ -5,32 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Kerja CV. KSB</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Flaticon Uicons CDN -->
-    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Update CDN Flaticon ke versi yang lebih stabil -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.4.2/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'JetBrains Mono', monospace; background-color: #121212; color: #e0e0e0; }
-        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); }
-        .sub-link { background: rgba(255, 255, 255, 0.08); transition: all 0.2s; }
-        .sub-link:hover { background: rgba(255, 255, 255, 0.2); color: white; }
+        :root {
+            --bg-color: #0d0d0d;
+            --card-bg: #161616;
+            --accent: #eab308; /* yellow-500 */
+        }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: var(--bg-color); 
+            color: #a3a3a3;
+            -webkit-font-smoothing: antialiased;
+        }
+        .mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Smooth UI Elements */
+        .glass-card { 
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: rgba(234, 179, 8, 0.3);
+            transform: translateY(-2px);
+            background-color: #1c1c1c;
+        }
+        
+        .sub-link { 
+            background: rgba(255, 255, 255, 0.03); 
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.2s ease; 
+        }
+        .sub-link:hover { 
+            background: var(--accent); 
+            color: black;
+            border-color: var(--accent);
+        }
+
+        /* Fix for Flaticon */
+        i[class^="fi-"] {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+            line-height: 1;
+        }
     </style>
 </head>
-<body class="p-4 md:p-8">
+<body class="p-5 md:p-12">
 
-    <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-10">
-            <div class="bg-yellow-500 w-16 h-16 mx-auto mb-4 rounded-lg flex items-center justify-center font-bold text-black text-2xl shadow-lg shadow-yellow-500/20">
-                X.O
+    <div class="max-w-xl mx-auto">
+        <!-- Brand Header -->
+        <div class="flex items-center justify-between mb-12">
+            <div>
+                <h1 class="text-white text-xl font-bold tracking-tight">Dashboard Kerja</h1>
+                <p class="text-[11px] mono text-yellow-500/80 tracking-widest uppercase mt-1">CV. KARYA SEMESTA BERSAMA</p>
             </div>
-            <h1 class="text-2xl md:text-3xl font-bold tracking-tighter text-white uppercase">Halaman Kerja CV. KSB</h1>
+            <div class="h-12 w-12 bg-yellow-500 rounded-2xl flex items-center justify-center shadow-[0_0_20px_rgba(234,179,8,0.2)]">
+                <span class="font-black text-black text-lg">XO</span>
+            </div>
         </div>
 
-        <div id="link-container" class="space-y-8">
-            <div class="text-center py-10 animate-pulse text-gray-500 text-xs">Menghubungkan ke Database...</div>
+        <!-- Links Container -->
+        <div id="link-container" class="space-y-10">
+            <div class="flex flex-col items-center py-20 space-y-4">
+                <div class="w-6 h-6 border-2 border-yellow-500/20 border-t-yellow-500 rounded-full animate-spin"></div>
+                <p class="text-[10px] mono tracking-widest text-gray-600">MENYIAPKAN AKSES...</p>
+            </div>
         </div>
 
-        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase tracking-widest">
-            &copy; 2026 INIJO Link - Management System
+        <!-- System Footer -->
+        <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-[9px] mono text-gray-600 tracking-tighter">INIJO LINK V2.0 // STABLE_BUILD_2026</p>
+            <div class="flex gap-4">
+                <div class="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse"></div>
+                <span class="text-[9px] mono text-gray-600">SYSTEM_ONLINE</span>
+            </div>
         </div>
     </div>
 
@@ -43,49 +95,64 @@
                 const container = document.getElementById('link-container');
                 container.innerHTML = '';
 
-                let globalCounter = 1; // Untuk nomor urut otomatis
+                let globalCounter = 1;
 
                 categories.forEach(cat => {
                     let sectionHtml = `
                         <section>
-                            <h2 class="text-[10px] font-bold text-yellow-500 mb-4 tracking-[0.2em] uppercase border-l-2 border-yellow-500 pl-3">${cat.category}</h2>
+                            <div class="flex items-center gap-3 mb-5">
+                                <span class="h-px flex-grow bg-white/5"></span>
+                                <h2 class="text-[10px] mono font-bold text-gray-500 tracking-[0.3em] uppercase">${cat.category}</h2>
+                                <span class="h-px flex-grow bg-white/5"></span>
+                            </div>
                             <div class="grid gap-3">
                     `;
 
                     cat.links.forEach(link => {
-                        // Logika deteksi Icon (Flaticon vs Teks)
                         const isFlaticon = link.icon.includes('fi-');
                         const iconDisplay = isFlaticon 
-                            ? `<i class="${link.icon}" style="color: ${link.iconColor || 'inherit'}"></i>`
-                            : link.icon;
+                            ? `<i class="${link.icon} text-lg" style="color: ${link.iconColor || 'inherit'}"></i>`
+                            : `<span class="text-lg">${link.icon}</span>`;
 
-                        // Logika Sub-links (Periode)
                         let subLinksHtml = '';
                         if (link.subLinks && link.subLinks.length > 0) {
-                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3 pl-12">`;
+                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-4 ml-12">`;
                             link.subLinks.forEach(sub => {
                                 subLinksHtml += `
-                                    <a href="${sub.url}" class="sub-link text-[10px] px-3 py-1.5 rounded flex items-center gap-1.5 border border-white/5">
-                                        <span>📘</span> ${sub.label}
+                                    <a href="${sub.url}" class="sub-link mono text-[9px] font-bold px-3 py-1.5 rounded-lg flex items-center gap-2">
+                                        <i class="fi fi-sr-folder text-[10px]"></i> ${sub.label}
                                     </a>`;
                             });
                             subLinksHtml += `</div>`;
                         }
 
                         sectionHtml += `
-                            <div class="glass-card rounded-2xl p-4 hover:border-white/20 transition-all">
+                            <div class="glass-card rounded-[24px] p-4 group">
                                 <div class="flex items-center">
-                                    <div class="w-8 text-[10px] text-gray-600 font-bold">${globalCounter++}</div>
-                                    <a href="${link.url}" target="_blank" class="flex-shrink-0 w-9 h-9 bg-white/5 rounded-xl flex items-center justify-center mr-4 text-sm shadow-inner">
+                                    <!-- Index -->
+                                    <div class="w-8 mono text-[10px] text-gray-700 font-bold group-hover:text-yellow-500/50 transition-colors">
+                                        ${String(globalCounter++).padStart(2, '0')}
+                                    </div>
+                                    
+                                    <!-- Icon Box -->
+                                    <a href="${link.url}" target="_blank" class="flex-shrink-0 w-11 h-11 bg-black/40 rounded-xl flex items-center justify-center mr-4 shadow-inner group-hover:bg-yellow-500/10 transition-colors">
                                         ${iconDisplay}
                                     </a>
+                                    
+                                    <!-- Content -->
                                     <a href="${link.url}" target="_blank" class="flex-grow">
-                                        <div class="font-bold text-sm tracking-tight text-gray-200 uppercase">${link.title}</div>
-                                        ${link.info ? `<div class="text-[10px] text-gray-500 mt-0.5">${link.info}</div>` : ''}
+                                        <h3 class="text-sm font-bold text-gray-200 tracking-tight group-hover:text-white transition-colors">${link.title}</h3>
+                                        ${link.info ? `<p class="text-[10px] text-gray-600 mt-0.5 leading-relaxed">${link.info}</p>` : ''}
                                     </a>
-                                    <div class="flex items-center space-x-3 ml-2">
-                                        ${link.status ? `<span class="text-xs">${link.status}</span>` : ''}
-                                        <svg class="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+
+                                    <!-- Status & Action -->
+                                    <div class="flex items-center gap-4 ml-2">
+                                        ${link.status ? `<span class="filter grayscale group-hover:grayscale-0 transition-all text-xs">${link.status}</span>` : ''}
+                                        <div class="h-8 w-8 rounded-full border border-white/5 flex items-center justify-center group-hover:bg-white/5 transition-all">
+                                            <svg class="w-3 h-3 text-gray-700 group-hover:text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7-7 7M5 5l7 7-7 7"></path>
+                                            </svg>
+                                        </div>
                                     </div>
                                 </div>
                                 ${subLinksHtml}
@@ -97,8 +164,7 @@
                     container.innerHTML += sectionHtml;
                 });
             } catch (error) {
-                console.error(error);
-                document.getElementById('link-container').innerHTML = `<div class="text-red-500 text-center text-xs">Gagal memuat data API.</div>`;
+                container.innerHTML = `<div class="text-center mono text-[10px] text-red-500">ERROR_FETCH_FAILED</div>`;
             }
         }
 
