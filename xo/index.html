@@ -5,31 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Kerja CV. KSB</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Flaticon Uicons CDN -->
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/2.1.0/uicons-solid-rounded/css/uicons-solid-rounded.css'>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'JetBrains Mono', monospace; background-color: #121212; color: #e0e0e0; }
-        .glass-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+        .glass-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .sub-link { background: rgba(255, 255, 255, 0.08); transition: all 0.2s; }
+        .sub-link:hover { background: rgba(255, 255, 255, 0.2); color: white; }
     </style>
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-2xl mx-auto">
-        <!-- Header -->
         <div class="text-center mb-10">
             <div class="bg-yellow-500 w-16 h-16 mx-auto mb-4 rounded-lg flex items-center justify-center font-bold text-black text-2xl shadow-lg shadow-yellow-500/20">
                 X.O
             </div>
-            <h1 class="text-2xl md:text-3xl font-bold tracking-tighter text-white">HALAMAN KERJA CV. KSB</h1>
+            <h1 class="text-2xl md:text-3xl font-bold tracking-tighter text-white uppercase">Halaman Kerja CV. KSB</h1>
         </div>
 
-        <!-- Container Link -->
         <div id="link-container" class="space-y-8">
-            <!-- Data akan dimuat di sini oleh JavaScript -->
-            <div class="text-center py-10 animate-pulse text-gray-500">Memuat akses kerja...</div>
+            <div class="text-center py-10 animate-pulse text-gray-500 text-xs">Menghubungkan ke Database...</div>
         </div>
 
-        <!-- Footer -->
-        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-xs text-gray-600">
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center text-[10px] text-gray-600 uppercase tracking-widest">
             &copy; 2026 INIJO Link - Management System
         </div>
     </div>
@@ -43,29 +43,53 @@
                 const container = document.getElementById('link-container');
                 container.innerHTML = '';
 
+                let globalCounter = 1; // Untuk nomor urut otomatis
+
                 categories.forEach(cat => {
                     let sectionHtml = `
                         <section>
-                            <h2 class="text-xs font-bold text-yellow-500 mb-4 tracking-widest uppercase border-l-4 border-yellow-500 pl-3">${cat.category}</h2>
-                            <div class="grid gap-2">
+                            <h2 class="text-[10px] font-bold text-yellow-500 mb-4 tracking-[0.2em] uppercase border-l-2 border-yellow-500 pl-3">${cat.category}</h2>
+                            <div class="grid gap-3">
                     `;
 
                     cat.links.forEach(link => {
+                        // Logika deteksi Icon (Flaticon vs Teks)
+                        const isFlaticon = link.icon.includes('fi-');
+                        const iconDisplay = isFlaticon 
+                            ? `<i class="${link.icon}" style="color: ${link.iconColor || 'inherit'}"></i>`
+                            : link.icon;
+
+                        // Logika Sub-links (Periode)
+                        let subLinksHtml = '';
+                        if (link.subLinks && link.subLinks.length > 0) {
+                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3 pl-12">`;
+                            link.subLinks.forEach(sub => {
+                                subLinksHtml += `
+                                    <a href="${sub.url}" class="sub-link text-[10px] px-3 py-1.5 rounded flex items-center gap-1.5 border border-white/5">
+                                        <span>📘</span> ${sub.label}
+                                    </a>`;
+                            });
+                            subLinksHtml += `</div>`;
+                        }
+
                         sectionHtml += `
-                            <a href="${link.url}" target="_blank" class="glass-card flex items-center p-4 rounded-xl hover:bg-white/10 transition-all active:scale-[0.98]">
-                                <div class="w-8 text-xs text-gray-500 font-bold">${link.no}</div>
-                                <div class="flex-shrink-0 w-8 h-8 bg-gray-800 rounded flex items-center justify-center mr-4 text-sm">
-                                    ${link.icon}
+                            <div class="glass-card rounded-2xl p-4 hover:border-white/20 transition-all">
+                                <div class="flex items-center">
+                                    <div class="w-8 text-[10px] text-gray-600 font-bold">${globalCounter++}</div>
+                                    <a href="${link.url}" target="_blank" class="flex-shrink-0 w-9 h-9 bg-white/5 rounded-xl flex items-center justify-center mr-4 text-sm shadow-inner">
+                                        ${iconDisplay}
+                                    </a>
+                                    <a href="${link.url}" target="_blank" class="flex-grow">
+                                        <div class="font-bold text-sm tracking-tight text-gray-200 uppercase">${link.title}</div>
+                                        ${link.info ? `<div class="text-[10px] text-gray-500 mt-0.5">${link.info}</div>` : ''}
+                                    </a>
+                                    <div class="flex items-center space-x-3 ml-2">
+                                        ${link.status ? `<span class="text-xs">${link.status}</span>` : ''}
+                                        <svg class="w-3 h-3 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7"></path></svg>
+                                    </div>
                                 </div>
-                                <div class="flex-grow font-bold text-sm tracking-tight text-gray-200">
-                                    ${link.title}
-                                </div>
-                                <div class="flex items-center space-x-3">
-                                    ${link.info ? `<span class="text-[10px] bg-gray-700 px-2 py-1 rounded text-gray-300">${link.info}</span>` : ''}
-                                    ${link.status ? `<span class="text-xs">${link.status}</span>` : ''}
-                                    <svg class="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                </div>
-                            </a>
+                                ${subLinksHtml}
+                            </div>
                         `;
                     });
 
@@ -73,7 +97,8 @@
                     container.innerHTML += sectionHtml;
                 });
             } catch (error) {
-                document.getElementById('link-container').innerHTML = `<div class="text-red-500 text-center">Gagal memuat data. Periksa koneksi atau file API.</div>`;
+                console.error(error);
+                document.getElementById('link-container').innerHTML = `<div class="text-red-500 text-center text-xs">Gagal memuat data API.</div>`;
             }
         }
 
