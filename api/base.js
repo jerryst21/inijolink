@@ -49,7 +49,7 @@ export default function handler(req, res) {
     {
       category: "CATATAN",
       links: [
-        { title: "Keterangan Akses", icon: "fa-solid fa-circle-info", iconColor: "#39B44A", info: "🟢 Kasir</br>🔵 Accounting" },
+        { title: "Keterangan Akses", icon: "fa-solid fa-circle-info", info: "🟢 Kasir</br>🔵 Accounting" },
       ]
     }
   ];
