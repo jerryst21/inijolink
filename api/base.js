@@ -4,7 +4,7 @@ export default function handler(req, res) {
       category: "TUGAS HARIAN",
       links: [
         { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757" }, 
-        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-shield-halved", iconColor: "#1e90ff" },
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff" },
         { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500" },
         { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4" },
         { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7" },
@@ -15,7 +15,7 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota", url: "https://inijo.vercel.app/arsip/arsipxo862.html", icon: "fa-solid fa-box-archive" }, 
-        { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-chart-line", status: "🔵",
+        { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY" }
