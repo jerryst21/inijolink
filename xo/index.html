@@ -5,12 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Halaman Kerja CV. KSB</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Ikon Pack: Flaticon & FontAwesome 6 -->
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <!-- Google Font: Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
@@ -27,23 +23,27 @@
             -webkit-font-smoothing: antialiased;
         }
 
+        /* Card Dibuat Lebih Tipis */
         .work-card {
             background-color: var(--card-surface);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.2s ease-out;
+            padding: 0.75rem 1rem !important; /* Padding lebih kecil */
         }
 
         .work-card:active {
-            transform: scale(0.97);
+            transform: scale(0.98);
             background-color: #1a1a1c;
         }
 
+        /* Pill Link Lebih Rapat */
         .pill-link {
             background: rgba(255, 255, 255, 0.07);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: #d1d1d6;
-            font-size: 13px;
+            font-size: 12px; /* Font sedikit diperkecil */
             font-weight: 600;
+            padding: 0.4rem 0.8rem !important; /* Padding rapat */
             transition: 0.2s;
         }
 
@@ -53,12 +53,11 @@
             border-color: var(--accent-yellow);
         }
 
-        /* PERBAIKAN: Nomor Urut Lebih Terang */
         .num-badge {
             font-family: 'Inter', sans-serif;
             font-weight: 800;
-            color: #71717a; /* Diubah dari #3a3a3c ke warna abu yang lebih terang */
-            font-size: 20px;
+            color: #71717a;
+            font-size: 16px; /* Ukuran angka disesuaikan */
             letter-spacing: -0.05em;
         }
 
@@ -66,10 +65,9 @@
             font-weight: 800;
             letter-spacing: 0.05em;
             color: #FFFFFF;
-            font-size: 14px;
+            font-size: 12px; /* Lebih kecil agar elegan */
         }
 
-        /* Fix alignment untuk semua jenis ikon */
         .icon-container i {
             display: flex !important;
             align-items: center;
@@ -77,27 +75,24 @@
         }
     </style>
 </head>
-<body class="p-6 md:p-12 pb-24">
-
-    <div class="max-w-xl mx-auto">
-        <header class="mb-12 flex items-center gap-4">
-            <div class="bg-yellow-400 h-14 w-14 rounded-2xl flex items-center justify-center shadow-[0_8px_30px_rgb(250,204,21,0.3)] rotate-3">
-                <span class="font-extrabold text-black text-2xl">XO</span>
+<body class="p-4 md:p-8 pb-16"> <div class="max-w-md mx-auto"> <header class="mb-8 flex items-center gap-3">
+            <div class="bg-yellow-400 h-10 w-10 rounded-xl flex items-center justify-center shadow-[0_4px_20px_rgb(250,204,21,0.2)] rotate-3">
+                <span class="font-extrabold text-black text-lg">XO</span>
             </div>
             <div>
-                <h1 class="text-2xl font-extrabold tracking-tight">Dashboard Kerja</h1>
-                <p class="text-yellow-400 font-bold text-xs uppercase tracking-widest opacity-80">CV. Kawan Sejahtera Bersama</p>
+                <h1 class="text-xl font-extrabold tracking-tight">Dashboard Kerja</h1>
+                <p class="text-yellow-400 font-bold text-[10px] uppercase tracking-widest opacity-80">CV. Kawan Sejahtera Bersama</p>
             </div>
         </header>
 
-        <div id="link-container" class="space-y-12">
-            <div class="py-20 text-center">
-                <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent"></div>
+        <div id="link-container" class="space-y-8">
+            <div class="py-10 text-center">
+                <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent"></div>
             </div>
         </div>
 
-        <footer class="mt-20 pt-8 border-t border-white/10 text-center">
-            <p class="text-[11px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO • Management System</p>
+        <footer class="mt-12 pt-6 border-t border-white/10 text-center">
+            <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO • Management System</p>
         </footer>
     </div>
 
@@ -114,56 +109,55 @@
                 categories.forEach(cat => {
                     let sectionHtml = `
                         <section>
-                            <div class="flex items-center gap-4 mb-6">
+                            <div class="flex items-center gap-3 mb-4">
                                 <h2 class="category-header uppercase">${cat.category}</h2>
-                                <div class="h-[2px] flex-grow bg-gradient-to-r from-yellow-400/50 to-transparent"></div>
+                                <div class="h-[1px] flex-grow bg-gradient-to-r from-yellow-400/30 to-transparent"></div>
                             </div>
-                            <div class="grid gap-4">
-                    `;
+                            <div class="grid gap-2"> `;
 
                     cat.links.forEach(link => {
-                        // Logika deteksi ikon: Flaticon (fi-), FontAwesome (fa-), atau Emoji/Text
                         let iconDisplay = '';
                         if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
-                            iconDisplay = `<i class="${link.icon} text-xl" style="color: ${link.iconColor || '#FACC15'}"></i>`;
+                            iconDisplay = `<i class="${link.icon} text-lg" style="color: ${link.iconColor || '#FACC15'}"></i>`;
                         } else {
-                            iconDisplay = `<span class="text-xl font-black text-yellow-400">${link.icon}</span>`;
+                            iconDisplay = `<span class="text-lg font-black text-yellow-400">${link.icon}</span>`;
                         }
 
                         let subLinksHtml = '';
                         if (link.subLinks && link.subLinks.length > 0) {
-                            subLinksHtml = `<div class="flex flex-wrap gap-3 mt-5 pt-4 border-t border-white/[0.05]">`;
+                            // Border atas dan margin sub-link dikurangi
+                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/[0.05]">`;
                             link.subLinks.forEach(sub => {
                                 subLinksHtml += `
-                                    <a href="${sub.url}" class="pill-link px-5 py-2.5 rounded-xl flex items-center gap-2">
-                                        <i class="fa-solid fa-folder-open text-[10px]"></i> ${sub.label}
+                                    <a href="${sub.url}" class="pill-link rounded-lg flex items-center gap-1.5">
+                                        <i class="fa-solid fa-folder-open text-[9px]"></i> ${sub.label}
                                     </a>`;
                             });
                             subLinksHtml += `</div>`;
                         }
 
                         sectionHtml += `
-                            <div class="work-card rounded-[28px] p-5 shadow-xl">
+                            <div class="work-card rounded-[20px] shadow-lg">
                                 <div class="flex items-center justify-between">
-                                    <div class="flex items-center flex-grow gap-4">
-                                        <div class="num-badge w-10">
+                                    <div class="flex items-center flex-grow gap-3">
+                                        <div class="num-badge w-7">
                                             ${String(globalCounter++).padStart(2, '0')}
                                         </div>
                                         
-                                        <a href="${link.url}" target="_blank" class="icon-container flex-shrink-0 w-14 h-14 bg-white/[0.03] rounded-[20px] flex items-center justify-center border border-white/10">
+                                        <a href="${link.url}" target="_blank" class="icon-container flex-shrink-0 w-11 h-11 bg-white/[0.03] rounded-2xl flex items-center justify-center border border-white/10">
                                             ${iconDisplay}
                                         </a>
                                         
                                         <a href="${link.url}" target="_blank" class="flex-grow">
-                                            <h3 class="text-[16px] font-extrabold text-white leading-tight tracking-tight">${link.title}</h3>
-                                            ${link.info ? `<p class="text-[12px] font-medium text-gray-500 mt-1">${link.info}</p>` : ''}
+                                            <h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
+                                            ${link.info ? `<p class="text-[11px] font-medium text-gray-500 mt-0.5">${link.info}</p>` : ''}
                                         </a>
                                     </div>
 
-                                    <div class="flex items-center gap-3">
-                                        ${link.status ? `<span class="text-lg">${link.status}</span>` : ''}
-                                        <div class="text-gray-700">
-                                            <i class="fa-solid fa-chevron-right text-sm"></i>
+                                    <div class="flex items-center gap-2">
+                                        ${link.status ? `<span class="text-sm">${link.status}</span>` : ''}
+                                        <div class="text-gray-800">
+                                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
                                         </div>
                                     </div>
                                 </div>
