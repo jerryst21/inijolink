@@ -3,22 +3,28 @@ export default function handler(req, res) {
     {
       category: "TUGAS HARIAN",
       links: [
-        { title: "Pembukuan", url: "#", icon: "fa-solid fa-money-check", iconColor: "#ff4757" }, 
-        { title: "BCA - VPN", url: "#", icon: "fa-solid fa-shield-halved", iconColor: "#1e90ff" },
+        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757" }, 
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-shield-halved", iconColor: "#1e90ff" },
         { title: "BNIDIRECT CASH", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500" },
-        { title: "QLOLA By BRI", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#002147" },
-        { title: "Kopra By Mandiri", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#55A9DC" },
-        { title: "Kas Kantor", url: "#", icon: "📗", status: "🟢",
+        { title: "QLOLA By BRI", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4" },
+        { title: "Kopra By Mandiri", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7" },
+        { title: "Kas Kantor", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "📗", status: "🟢",
           subLinks: [
-            { label: "2025", url: "#" },
-            { label: "2026", url: "#" }
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY" }
           ]
         },
-        { title: "Arsip Nota", url: "#", icon: "📗" }, 
-        { title: "Rekap Sales", url: "#", icon: "📗", status: "🔵",
+        { title: "Arsip Nota", url: "https://inijo.vercel.app/arsip/arsipxo862.html", icon: "📗" }, 
+        { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY", icon: "📗", status: "🔵",
           subLinks: [
-            { label: "2025", url: "#" },
-            { label: "2026", url: "#" }
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY" }
+          ]
+        },
+        { title: "Stok Gudang & Freezer 2026", url: "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM", icon: "📗", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/19tZ6qHSSbhjlWqPBMjtr15gWhV9dOMg5YJIENGuMjA0" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM" }
           ]
         },
       ]
@@ -26,13 +32,18 @@ export default function handler(req, res) {
     {
       category: "TUGAS BULANAN",
       links: [
-        { title: "BPJS Ketenagakerjaan", url: "#", icon: "fa-solid fa-hands-holding-circle", iconColor: "#80EF80", info: "Jatuh tempo tgl 10" },
-        { title: "Perhitungan Gaji", url: "#", icon: "📗", status: "🔵",
-          subLinks: [
-            { label: "2025", url: "#" },
-            { label: "2026", url: "#" }
-          ]
-        },
+        { title: "BPJS Ketenagakerjaan", url: "https://sipp.bpjsketenagakerjaan.go.id/", icon: "fa-solid fa-hands-holding-circle", iconColor: "#80EF80", info: "Jatuh tempo tgl 10" },
+        { title: "Perhitungan Gaji", url: "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", icon: "📗", status: "🔵"},
+		{ title: "Rekapan Insentif", url: "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg", icon: "📗", status: "🔵"},
+		{ title: "Laporan Laba Rugi", url: "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ", icon: "📗", status: "🔵"},
+		{ title: "Profit Sharing", url: "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE", icon: "📗", status: "🔵"},
+      ]
+    },
+    {
+      category: "TUGAS TAHUNAN",
+      links: [
+        { title: "THR Idul Fitri", url: "", icon: "📗", info: "7 hari sebelum hari raya" },
+        { title: "THR Natal", url: "", icon: "📗", info: "7 hari sebelum hari raya"},
       ]
     }
   ];
