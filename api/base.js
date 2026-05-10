@@ -53,7 +53,62 @@ export default function handler(req, res) {
     {
       category: "CATATAN",
       links: [
-        { title: "Keterangan Akses", icon: "fa-solid fa-circle-info", info: "🟢 Kasir</br>🔵 Accounting" },
+        { title: "Keterangan Akses", icon: "fa-solid fa-user-lock", info: "🟢 Kasir</br>🔵 Accounting" },
+      ]
+    }
+  ];
+  
+  // DATA UNTUK PT. BINTANG MULIA MANADO BMM)
+  const dataBMM = [
+    {
+      category: "TUGAS HARIAN",
+      links: [
+        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🔵" }, 
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
+        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
+        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
+        { title: "Kas Kantor", url: "", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
+          subLinks: [
+            { label: "2025", url: "" },
+            { label: "2026", url: "" }
+          ]
+        },
+        { title: "Arsip Nota", url: "", icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Rekap Sales", url: "", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "" },
+            { label: "2026", url: "" }
+          ]
+        },
+        { title: "Stok Gudang & Freezer 2026", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "" },
+            { label: "2026", url: "" }
+          ]
+        },
+      ]
+    },
+    {
+      category: "TUGAS BULANAN",
+      links: [
+        { title: "BPJS Ketenagakerjaan", url: "", icon: "fa-solid fa-hands-holding-circle", iconColor: "#39B44A", info: "Jatuh tempo tgl 10", status: "🔵" },
+        { title: "Perhitungan Gaji", url: "", icon: "fa-solid fa-money-check-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Rekapan Insentif", url: "", icon: "fa-solid fa-hand-holding-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Laporan Laba Rugi", url: "", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Profit Sharing", url: "", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
+      ]
+    },
+    {
+      category: "TUGAS TAHUNAN",
+      links: [
+        { title: "THR Idul Fitri", url: "", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+        { title: "THR Natal", url: "", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+      ]
+    },
+    {
+      category: "CATATAN",
+      links: [
+        { title: "Keterangan Akses", icon: "fa-solid fa-user-lock", info: "🟢 Kasir</br>🔵 Accounting" },
       ]
     }
   ];
@@ -93,7 +148,7 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota Ring Road", url: "https://inijotool.vercel.app/arsip/arsiprr78.html", icon: "fa-solid fa-box-archive", status: "🟡" }, 
-        { title: "Daftar Aktiva", url: "", icon: "fa-solid fa-calculator", status: "🔵" }, 
+        { title: "Daftar Aktiva 🚧", url: "", icon: "fa-solid fa-calculator", status: "🔵" }, 
         { title: "Laporan BBM 2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", icon: "fa-solid fa-gas-pump fuel", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1JH-QSMUvzINLnBf6Aar0rp_wN5Ef2akP5ZxznGZy3Ao" },
@@ -136,8 +191,8 @@ export default function handler(req, res) {
     {
       category: "TUGAS TAHUNAN",
       links: [
-        { title: "THR Idul Fitri", url: "", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
-        { title: "THR Natal", url: "", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+        { title: "THR Idul Fitri 🚧", url: "", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+        { title: "THR Natal 🚧", url: "", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
       ]
     },
     {
@@ -154,6 +209,8 @@ export default function handler(req, res) {
   // Logika Filter Eksplisit
   if (id === 'mma') {
     res.status(200).json(dataMMA);
+  if (id === 'bmm') {
+    res.status(200).json(dataBMM);
   } else if (id === 'ksb') {
     res.status(200).json(dataKSB);
   } else {
