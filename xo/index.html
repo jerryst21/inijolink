@@ -27,7 +27,7 @@
             background-color: var(--card-surface);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.2s ease-out;
-            padding: 0.75rem 1rem !important;
+            padding: 0.5rem 1rem !important; /* Padding atas bawah diperkecil */
         }
 
         .work-card:active {
@@ -55,7 +55,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 800;
             color: #71717a;
-            font-size: 16px;
+            font-size: 14px; /* Sedikit diperkecil agar proporsional */
             letter-spacing: -0.05em;
         }
 
@@ -76,7 +76,7 @@
 <body class="p-4 md:p-8 pb-16"> 
     <div class="max-w-md mx-auto"> 
         <header class="mb-8">
-            <h1 class="text-xl font-extrabold tracking-tight">Dashboard Kerja</h1>
+            <h1 class="text-xl font-extrabold tracking-tight">Halaman Kerja</h1>
             <p class="text-yellow-400 font-bold text-[10px] uppercase tracking-widest opacity-80">CV. Kawan Sejahtera Bersama</p>
         </header>
 
@@ -87,7 +87,7 @@
         </div>
 
         <footer class="mt-12 pt-6 border-t border-white/10 text-center">
-            <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO • Management System</p>
+            <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO</p>
         </footer>
     </div>
 
@@ -112,20 +112,20 @@
 
                     cat.links.forEach(link => {
                         let iconDisplay = '';
+                        // Icon size diperkecil ke text-base (kurang lebih 80% dari text-lg)
                         if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
-                            iconDisplay = `<i class="${link.icon} text-lg" style="color: ${link.iconColor || '#FACC15'}"></i>`;
+                            iconDisplay = `<i class="${link.icon} text-base" style="color: ${link.iconColor || '#FACC15'}"></i>`;
                         } else {
-                            iconDisplay = `<span class="text-lg font-black text-yellow-400">${link.icon}</span>`;
+                            iconDisplay = `<span class="text-base font-black text-yellow-400">${link.icon}</span>`;
                         }
 
-                        // Logika untuk menonaktifkan link jika URL kosong
                         const hasUrl = link.url && link.url !== "";
                         const wrapperTag = hasUrl ? 'a' : 'div';
                         const wrapperAttr = hasUrl ? `href="${link.url}" target="_blank"` : '';
 
                         let subLinksHtml = '';
                         if (link.subLinks && link.subLinks.length > 0) {
-                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3">`;
+                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-2">`;
                             link.subLinks.forEach(sub => {
                                 const subHasUrl = sub.url && sub.url !== "";
                                 if (subHasUrl) {
@@ -144,16 +144,16 @@
                         }
 
                         sectionHtml += `
-                            <div class="work-card rounded-[20px] shadow-lg">
+                            <div class="work-card rounded-[18px] shadow-lg">
                                 <div class="flex items-start gap-3">
-                                    <div class="num-badge w-7 pt-2">
+                                    <div class="num-badge w-6 pt-2">
                                         ${String(globalCounter++).padStart(2, '0')}
                                     </div>
                                     
                                     <div class="flex-grow">
                                         <div class="flex items-center justify-between">
                                             <div class="flex items-center gap-3">
-                                                <${wrapperTag} ${wrapperAttr} class="icon-container flex-shrink-0 w-11 h-11 bg-white/[0.03] rounded-2xl flex items-center justify-center border border-white/10">
+                                                <${wrapperTag} ${wrapperAttr} class="icon-container flex-shrink-0 w-9 h-9 bg-white/[0.03] rounded-xl flex items-center justify-center border border-white/10">
                                                     ${iconDisplay}
                                                 </${wrapperTag}>
                                                 
