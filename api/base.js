@@ -5,9 +5,9 @@ export default function handler(req, res) {
       links: [
         { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757" }, 
         { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-shield-halved", iconColor: "#1e90ff" },
-        { title: "BNIDIRECT CASH", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500" },
-        { title: "QLOLA By BRI", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4" },
-        { title: "Kopra By Mandiri", url: "#", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7" },
+        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500" },
+        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4" },
+        { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7" },
         { title: "Kas Kantor", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "📗", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to" },
@@ -42,8 +42,8 @@ export default function handler(req, res) {
     {
       category: "TUGAS TAHUNAN",
       links: [
-        { title: "THR Idul Fitri", url: "", icon: "📗", info: "7 hari sebelum hari raya" },
-        { title: "THR Natal", url: "", icon: "📗", info: "7 hari sebelum hari raya"},
+        { title: "THR Idul Fitri", url: "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", icon: "📗", info: "7 hari sebelum hari raya" },
+        { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "📗", info: "7 hari sebelum hari raya"},
       ]
     }
   ];
