@@ -7,11 +7,11 @@ export default function handler(req, res) {
     {
       category: "TUGAS HARIAN",
       links: [
-        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🟢" }, 
-        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🟢" },
-        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🟢" },
-        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🟢" },
-        { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7", status: "🟢" },
+        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🔵" }, 
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
+        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
+        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
+        { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7", status: "🔵" },
         { title: "Kas Kantor", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to" },
@@ -46,8 +46,8 @@ export default function handler(req, res) {
     {
       category: "TUGAS TAHUNAN",
       links: [
-        { title: "THR Idul Fitri", url: "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🟢" },
-        { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🟢" },
+        { title: "THR Idul Fitri", url: "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+        { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
       ]
     },
     {
@@ -63,10 +63,10 @@ export default function handler(req, res) {
     {
       category: "TUGAS HARIAN",
       links: [
-        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🟢" }, 
-        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🟢" },
-        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🟢" },
-        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🟢" },
+        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🔵" }, 
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
+        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
+        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
         { title: "Kas Kantor Politeknik", url: "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1gmUNGyt9-C4FLZH6U1ZPDnSRHvEAJs7Op4xLQqKeM8k" },
@@ -80,21 +80,21 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota Politeknik", url: "https://inijotool.vercel.app/arsip/arsippoli77.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
-        { title: "Kas Kantor Ring Road", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
+        { title: "Kas Kantor Ring Road", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟡",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1FdM6N8XIDg7DidMdcjL0Hc7DSE7t5kY3P5HWnKX9D3o" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I" }
           ]
         },
-        { title: "Rekapan Penjualan Ring Road 2026", url: "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
+        { title: "Rekapan Penjualan Ring Road 2026", url: "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟡",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1SHdfcPi_2SDTJmEj-8kkZHoe5rC_UaYV75elTSoaMSM" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg" }
           ]
         },
-        { title: "Arsip Nota Ring Road", url: "https://inijotool.vercel.app/arsip/arsiprr78.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
-        { title: "Daftar Aktiva", url: "", icon: "fa-solid fa-box-archive", status: "🟢" }, 
-        { title: "Laporan BBM 2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+        { title: "Arsip Nota Ring Road", url: "https://inijotool.vercel.app/arsip/arsiprr78.html", icon: "fa-solid fa-box-archive", status: "🟡" }, 
+        { title: "Daftar Aktiva", url: "", icon: "fa-solid fa-box-archive", status: "🔵" }, 
+        { title: "Laporan BBM 2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", icon: "fa-solid fa-boxes-stacked", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1JH-QSMUvzINLnBf6Aar0rp_wN5Ef2akP5ZxznGZy3Ao" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U" }
@@ -112,7 +112,7 @@ export default function handler(req, res) {
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1JPxYByIrLv0PH36lN3FFDWcpVuQ8qDi30juSow0VD7c" }
           ]
         },
-        { title: "Rekapan Rewards 2026", url: "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+        { title: "Rekapan Rewards 2026", url: "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk", icon: "fa-solid fa-gift", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1ufF5-9Jr0UnrIk7gnLwRA8B2BCWqPHCEL744frFG72A" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk" }
@@ -136,17 +136,17 @@ export default function handler(req, res) {
     {
       category: "TUGAS TAHUNAN",
       links: [
-        { title: "THR Idul Fitri", url: "", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🟢" },
-        { title: "THR Natal", url: "", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🟢" },
+        { title: "THR Idul Fitri", url: "", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
+        { title: "THR Natal", url: "", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya", status: "🔵" },
       ]
     },
     {
       category: "CATATAN",
       links: [
-        { title: "Rekening Bank Politeknik", icon: "fa-solid fa-circle-info", info: "BCA 0269237777</br>BNI 327150558</br>BRI 200301000273304" },
-		{ title: "Rekening Bank Ring Road", icon: "fa-solid fa-circle-info", info: "BCA 0265188899</br>BNI 3271505580</br>BRI 200301889999567" },
-		{ title: "Rekening Bank Oli & Gas", icon: "fa-solid fa-circle-info", info: "BNI 3271505580" },
-        { title: "Keterangan Akses", icon: "fa-solid fa-circle-info", info: "🟢 Kasir</br>🔵 Accounting" },
+        { title: "Rekening Bank Politeknik", icon: "fa-solid fa-building-columns", info: "BCA 0269237777</br>BNI 327150558</br>BRI 200301000273304" },
+		{ title: "Rekening Bank Ring Road", icon: "fa-solid fa-building-columns", info: "BCA 0265188899</br>BNI 3271505580</br>BRI 200301889999567" },
+		{ title: "Rekening Bank Oli & Gas", icon: "fa-solid fa-building-columns", info: "BNI 3271505580" },
+        { title: "Keterangan Akses", icon: "fa-solid fa-user-lock", info: "🟢 Admin Politeknik</br>🟡 Admin Ring Road</br>🔵 Accounting" },
       ]
     }
   ];
