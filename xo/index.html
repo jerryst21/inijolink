@@ -115,56 +115,61 @@
                             </div>
                             <div class="grid gap-2"> `;
 
-                    cat.links.forEach(link => {
-                        let iconDisplay = '';
-                        if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
-                            iconDisplay = `<i class="${link.icon} text-lg" style="color: ${link.iconColor || '#FACC15'}"></i>`;
-                        } else {
-                            iconDisplay = `<span class="text-lg font-black text-yellow-400">${link.icon}</span>`;
-                        }
+					cat.links.forEach(link => {
+						let iconDisplay = '';
+						if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
+							iconDisplay = `<i class="${link.icon} text-lg" style="color: ${link.iconColor || '#FACC15'}"></i>`;
+						} else {
+							iconDisplay = `<span class="text-lg font-black text-yellow-400">${link.icon}</span>`;
+						}
 
-                        let subLinksHtml = '';
-                        if (link.subLinks && link.subLinks.length > 0) {
-                            // Border atas dan margin sub-link dikurangi
-                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3 pt-3 border-t border-white/[0.05]">`;
-                            link.subLinks.forEach(sub => {
-                                subLinksHtml += `
-                                    <a href="${sub.url}" class="pill-link rounded-lg flex items-center gap-1.5">
-                                        <i class="fa-solid fa-folder-open text-[9px]"></i> ${sub.label}
-                                    </a>`;
-                            });
-                            subLinksHtml += `</div>`;
-                        }
+						let subLinksHtml = '';
+						if (link.subLinks && link.subLinks.length > 0) {
+							// Hapus border-t agar lebih bersih karena sekarang menyatu di bawah teks
+							subLinksHtml = `<div class="flex flex-wrap gap-2 mt-3">`;
+							link.subLinks.forEach(sub => {
+								subLinksHtml += `
+									<a href="${sub.url}" class="pill-link rounded-lg flex items-center gap-1.5">
+										<i class="fa-solid fa-folder-open text-[9px]"></i> ${sub.label}
+									</a>`;
+							});
+							subLinksHtml += `</div>`;
+						}
 
-                        sectionHtml += `
-                            <div class="work-card rounded-[20px] shadow-lg">
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center flex-grow gap-3">
-                                        <div class="num-badge w-7">
-                                            ${String(globalCounter++).padStart(2, '0')}
-                                        </div>
-                                        
-                                        <a href="${link.url}" target="_blank" class="icon-container flex-shrink-0 w-11 h-11 bg-white/[0.03] rounded-2xl flex items-center justify-center border border-white/10">
-                                            ${iconDisplay}
-                                        </a>
-                                        
-                                        <a href="${link.url}" target="_blank" class="flex-grow">
-                                            <h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
-                                            ${link.info ? `<p class="text-[11px] font-medium text-gray-500 mt-0.5">${link.info}</p>` : ''}
-                                        </a>
-                                    </div>
+						sectionHtml += `
+							<div class="work-card rounded-[20px] shadow-lg">
+								<div class="flex items-start gap-3">
+									<div class="num-badge w-7 pt-2">
+										${String(globalCounter++).padStart(2, '0')}
+									</div>
+									
+									<div class="flex-grow">
+										<div class="flex items-center justify-between">
+											<div class="flex items-center gap-3">
+												<a href="${link.url}" target="_blank" class="icon-container flex-shrink-0 w-11 h-11 bg-white/[0.03] rounded-2xl flex items-center justify-center border border-white/10">
+													${iconDisplay}
+												</a>
+												
+												<a href="${link.url}" target="_blank">
+													<h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
+													${link.info ? `<p class="text-[11px] font-medium text-gray-500 mt-0.5">${link.info}</p>` : ''}
+												</a>
+											</div>
 
-                                    <div class="flex items-center gap-2">
-                                        ${link.status ? `<span class="text-sm">${link.status}</span>` : ''}
-                                        <div class="text-gray-800">
-                                            <i class="fa-solid fa-chevron-right text-[10px]"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                                ${subLinksHtml}
-                            </div>
-                        `;
-                    });
+											<div class="flex items-center gap-2">
+												${link.status ? `<span class="text-sm">${link.status}</span>` : ''}
+												<div class="text-gray-800">
+													<i class="fa-solid fa-chevron-right text-[10px]"></i>
+												</div>
+											</div>
+										</div>
+
+										${subLinksHtml}
+									</div>
+								</div>
+							</div>
+						`;
+					});
 
                     sectionHtml += `</div></section>`;
                     container.innerHTML += sectionHtml;
