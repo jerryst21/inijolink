@@ -27,7 +27,7 @@
             background-color: var(--card-surface);
             border: 1px solid rgba(255, 255, 255, 0.08);
             transition: all 0.2s ease-out;
-            padding: 0.5rem 1rem !important; /* Padding atas bawah diperkecil */
+            padding: 0.5rem 1rem !important;
         }
 
         .work-card:active {
@@ -55,7 +55,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 800;
             color: #71717a;
-            font-size: 14px; /* Sedikit diperkecil agar proporsional */
+            font-size: 14px;
             letter-spacing: -0.05em;
         }
 
@@ -112,11 +112,11 @@
 
                     cat.links.forEach(link => {
                         let iconDisplay = '';
-                        // Icon size diperkecil ke text-base (kurang lebih 80% dari text-lg)
+                        // Mengubah default color menjadi #FFFFFF (Putih) jika link.iconColor tidak ada
                         if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
-                            iconDisplay = `<i class="${link.icon} text-base" style="color: ${link.iconColor || '#FACC15'}"></i>`;
+                            iconDisplay = `<i class="${link.icon} text-base" style="color: ${link.iconColor || '#FFFFFF'}"></i>`;
                         } else {
-                            iconDisplay = `<span class="text-base font-black text-yellow-400">${link.icon}</span>`;
+                            iconDisplay = `<span class="text-base font-black text-white">${link.icon}</span>`;
                         }
 
                         const hasUrl = link.url && link.url !== "";
