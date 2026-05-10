@@ -46,6 +46,7 @@ export default function handler(req, res) {
         { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya"},
       ]
     },
+	{
       category: "CATATAN",
       links: [
         { title: "Keterangan Status", icon: "<i class="fa-solid fa-circle-info"></i>", iconColor: "#39B44A", info: "🟢 Kasir</br>🔵 Accounting" }
