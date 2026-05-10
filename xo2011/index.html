@@ -95,7 +95,7 @@
     <script>
         async function fetchLinks() {
             try {
-                const response = await fetch('/api/base');
+                const response = await fetch('/api/base?id=mma');
                 const categories = await response.json();
                 const container = document.getElementById('link-container');
                 container.innerHTML = '';
