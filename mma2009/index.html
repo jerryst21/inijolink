@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Halaman Kerja PT. MMA</title>
+    <link rel="icon" href="uploads/2026-03-08-dashboardicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/@flaticon/flaticon-uicons@3.3.1/css/all/all.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-main: #000000;
+            --card-surface: #121214;
+            --accent-yellow: #FACC15;
+        }
+        
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .work-card {
+            background-color: var(--card-surface);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease-out;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .work-card:active {
+            transform: scale(0.98);
+            background-color: #1a1a1c;
+        }
+
+        .pill-link {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #d1d1d6;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 0.4rem 0.8rem !important;
+            transition: 0.2s;
+        }
+
+        .pill-link:hover {
+            background: var(--accent-yellow);
+            color: #000000;
+            border-color: var(--accent-yellow);
+        }
+
+        .num-badge {
+            font-family: 'Inter', sans-serif;
+            font-weight: 800;
+            color: #71717a;
+            font-size: 14px;
+            letter-spacing: -0.05em;
+        }
+
+        .category-header {
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            color: #FFFFFF;
+            font-size: 12px;
+        }
+
+        .icon-container i {
+            display: flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 pb-16"> 
+    <div class="max-w-md mx-auto"> 
+        <header class="mb-8">
+            <h1 class="text-xl font-extrabold tracking-tight">Halaman Kerja</h1>
+            <p class="text-yellow-400 font-bold text-[10px] uppercase tracking-widest opacity-80">PT. Mutiara Mitra Abadi</p>
+        </header>
+
+        <div id="link-container" class="space-y-8">
+            <div class="py-10 text-center">
+                <div class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-yellow-400 border-r-transparent"></div>
+            </div>
+        </div>
+
+        <footer class="mt-12 pt-6 border-t border-white/10 text-center">
+            <p class="text-[10px] font-bold text-gray-600 tracking-widest uppercase">© 2026 INIJO</p>
+        </footer>
+    </div>
+
+    <script>
+        async function fetchLinks() {
+            try {
+                const response = await fetch('/api/base?id=ksb');
+                const categories = await response.json();
+                const container = document.getElementById('link-container');
+                container.innerHTML = '';
+
+                let globalCounter = 1;
+
+                categories.forEach(cat => {
+                    let sectionHtml = `
+                        <section>
+                            <div class="flex items-center gap-3 mb-4">
+                                <h2 class="category-header uppercase">${cat.category}</h2>
+                                <div class="h-[1px] flex-grow bg-gradient-to-r from-yellow-400/30 to-transparent"></div>
+                            </div>
+                            <div class="grid gap-2"> `;
+
+                    cat.links.forEach(link => {
+                        let iconDisplay = '';
+                        // Mengubah default color menjadi #FFFFFF (Putih) jika link.iconColor tidak ada
+                        if (link.icon.includes('fi-') || link.icon.includes('fa-')) {
+                            iconDisplay = `<i class="${link.icon} text-base" style="color: ${link.iconColor || '#FFFFFF'}"></i>`;
+                        } else {
+                            iconDisplay = `<span class="text-base font-black text-white">${link.icon}</span>`;
+                        }
+
+                        const hasUrl = link.url && link.url !== "";
+                        const wrapperTag = hasUrl ? 'a' : 'div';
+                        const wrapperAttr = hasUrl ? `href="${link.url}" target="_blank"` : '';
+
+                        let subLinksHtml = '';
+                        if (link.subLinks && link.subLinks.length > 0) {
+                            subLinksHtml = `<div class="flex flex-wrap gap-2 mt-2">`;
+                            link.subLinks.forEach(sub => {
+                                const subHasUrl = sub.url && sub.url !== "";
+                                if (subHasUrl) {
+                                    subLinksHtml += `
+                                        <a href="${sub.url}" target="_blank" class="pill-link rounded-lg flex items-center gap-1.5">
+                                            <i class="fa-solid fa-file text-[9px]"></i> ${sub.label}
+                                        </a>`;
+                                } else {
+                                    subLinksHtml += `
+                                        <div class="pill-link rounded-lg flex items-center gap-1.5 opacity-50 cursor-not-allowed">
+                                            <i class="fa-solid fa-file text-[9px]"></i> ${sub.label}
+                                        </div>`;
+                                }
+                            });
+                            subLinksHtml += `</div>`;
+                        }
+
+                        sectionHtml += `
+                            <div class="work-card rounded-[18px] shadow-lg">
+                                <div class="flex items-start gap-3">
+                                    <div class="num-badge w-6 pt-2">
+                                        ${String(globalCounter++).padStart(2, '0')}
+                                    </div>
+                                    
+                                    <div class="flex-grow">
+                                        <div class="flex items-center justify-between">
+                                            <div class="flex items-center gap-3">
+                                                <${wrapperTag} ${wrapperAttr} class="icon-container flex-shrink-0 w-9 h-9 bg-white/[0.03] rounded-xl flex items-center justify-center border border-white/10">
+                                                    ${iconDisplay}
+                                                </${wrapperTag}>
+                                                
+                                                <${wrapperTag} ${wrapperAttr}>
+                                                    <h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
+                                                    ${link.info ? `<p class="text-[11px] font-medium text-gray-300 mt-0.5">${link.info}</p>` : ''}
+                                                </${wrapperTag}>
+                                            </div>
+
+                                            <div class="flex items-center gap-2">
+                                                ${link.status ? `<span class="text-sm">${link.status}</span>` : ''}
+                                                <div class="text-gray-800">
+                                                    <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        ${subLinksHtml}
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    });
+
+                    sectionHtml += `</div></section>`;
+                    container.innerHTML += sectionHtml;
+                });
+            } catch (error) {
+                container.innerHTML = `<div class="text-center font-bold text-red-500">GAGAL MEMUAT DATA</div>`;
+            }
+        }
+        fetchLinks();
+    </script>
+</body>
+</html>
