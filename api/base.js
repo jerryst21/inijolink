@@ -209,7 +209,7 @@ export default function handler(req, res) {
   // Logika Filter Eksplisit
   if (id === 'mma') {
     res.status(200).json(dataMMA);
-  if (id === 'bmm') {
+  } else if (id === 'bmm') {
     res.status(200).json(dataBMM);
   } else if (id === 'ksb') {
     res.status(200).json(dataKSB);
