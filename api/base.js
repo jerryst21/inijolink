@@ -3,11 +3,11 @@ export default function handler(req, res) {
     {
       category: "TUGAS HARIAN",
       links: [
-        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🟢" }, 
-        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🟢" },
-        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🟢" },
-        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🟢" },
-        { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7", status: "🟢" },
+        { title: "Pembukuan", url: "https://greengroup.manager.io/", icon: "fa-solid fa-money-check", iconColor: "#ff4757", status: "🔵" }, 
+        { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
+        { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
+        { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
+        { title: "Kopra By Mandiri", url: "https://koprabymandiri.com/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#0096C7", status: "🔵" },
         { title: "Kas Kantor", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to" },
