@@ -15,7 +15,7 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota", url: "https://inijo.vercel.app/arsip/arsipxo862.html", icon: "fa-solid fa-box-archive" }, 
-        { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🔵",
+        { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY" }
@@ -44,6 +44,11 @@ export default function handler(req, res) {
       links: [
         { title: "THR Idul Fitri", url: "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya" },
         { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya"},
+      ]
+    },
+      category: "CATATAN",
+      links: [
+        { title: "Keterangan Status", icon: "<i class="fa-solid fa-circle-info"></i>", iconColor: "#39B44A", info: "🟢 Kasir</br>🔵 Accounting" }
       ]
     }
   ];
