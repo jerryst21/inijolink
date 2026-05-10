@@ -21,7 +21,7 @@ export default function handler(req, res) {
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY" }
           ]
         },
-        { title: "Stok Gudang & Freezer 2026", url: "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM", icon: "📗", status: "🔵",
+        { title: "Stok Gudang & Freezer 2026", icon: "📗", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/19tZ6qHSSbhjlWqPBMjtr15gWhV9dOMg5YJIENGuMjA0" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM" }
