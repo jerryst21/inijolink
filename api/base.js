@@ -67,7 +67,7 @@ export default function handler(req, res) {
         { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
         { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
         { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
-        { title: "Kas Kantor Politeknik", url: "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
+        { title: "Kas Kantor Politeknik 2026", url: "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1gmUNGyt9-C4FLZH6U1ZPDnSRHvEAJs7Op4xLQqKeM8k" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo" }
@@ -80,7 +80,7 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota Politeknik", url: "https://inijotool.vercel.app/arsip/arsippoli77.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
-        { title: "Kas Kantor Ring Road", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟡",
+        { title: "Kas Kantor Ring Road 2026", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟡",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1FdM6N8XIDg7DidMdcjL0Hc7DSE7t5kY3P5HWnKX9D3o" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I" }
@@ -93,8 +93,8 @@ export default function handler(req, res) {
           ]
         },
         { title: "Arsip Nota Ring Road", url: "https://inijotool.vercel.app/arsip/arsiprr78.html", icon: "fa-solid fa-box-archive", status: "🟡" }, 
-        { title: "Daftar Aktiva", url: "", icon: "fa-solid fa-box-archive", status: "🔵" }, 
-        { title: "Laporan BBM 2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", icon: "fa-solid fa-boxes-stacked", iconColor: "#0F9D58", status: "🔵",
+        { title: "Daftar Aktiva", url: "", icon: "fa-solid fa-calculator", status: "🔵" }, 
+        { title: "Laporan BBM 2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", icon: "fa-solid fa-gas-pump fuel", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1JH-QSMUvzINLnBf6Aar0rp_wN5Ef2akP5ZxznGZy3Ao" },
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U" }
@@ -118,7 +118,7 @@ export default function handler(req, res) {
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk" }
           ]
         },
-        { title: "Profit Sharing", url: "", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Profit Sharing", url: "https://docs.google.com/spreadsheets/d/1HU1dMhkjm4VlP6xoMl2vyCtCANNt1mAfLKSEETj2M78", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
         { title: "Laporan Laba Rugi Politeknik 2026", url: "https://docs.google.com/spreadsheets/d/1G0iQZBfWgv5lwCbsA3HNdYWyyDT8kN9Pprcw0f4eDOA", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/1VBn28Ky6vT4rgiHpjazLPsfo1MUQprysrgb6BQRHu_s" },
