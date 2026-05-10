@@ -34,15 +34,9 @@ export default function handler(req, res) {
       links: [
         { title: "BPJS Ketenagakerjaan", url: "https://sipp.bpjsketenagakerjaan.go.id/", icon: "fa-solid fa-hands-holding-circle", iconColor: "#39B44A", info: "Jatuh tempo tgl 10" },
         { title: "Perhitungan Gaji", url: "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", icon: "fa-solid fa-money-check-dollar", iconColor: "#0F9D58", status: "🔵"},
-		{ title: "Rekapan Insentif", url: "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg", icon: "fa-solid fa-hand-holding-dollar", iconColor: "#0F9D58", status: "🔵"},
-		{ title: "Laporan Laba Rugi", url: "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵"},
-		{ title: "Profit Sharing", url: "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
-      ]
-    },
-    {
-      category: ""CATATAN",",
-      links: [
-        { title: "Keterangan Status", icon: "<i class="fa-solid fa-circle-info"></i>", iconColor: "#39B44A", info: "🟢 Kasir🔵 Accounting" },
+        { title: "Rekapan Insentif", url: "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg", icon: "fa-solid fa-hand-holding-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Laporan Laba Rugi", url: "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Profit Sharing", url: "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
       ]
     },
     {
@@ -50,6 +44,12 @@ export default function handler(req, res) {
       links: [
         { title: "THR Idul Fitri", url: "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", icon: "fa-solid fa-mosque", iconColor: "#0F9D58", info: "7 hari sebelum hari raya" },
         { title: "THR Natal", url: "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", icon: "fa-solid fa-holly-berry", iconColor: "#0F9D58", info: "7 hari sebelum hari raya"},
+      ]
+    },
+    {
+      category: "CATATAN",
+      links: [
+        { title: "Keterangan Status", icon: "fa-solid fa-circle-info", iconColor: "#39B44A", info: "🟢 Kasir🔵 Accounting" },
       ]
     }
   ];
