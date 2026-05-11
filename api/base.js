@@ -18,7 +18,7 @@ export default function handler(req, res) {
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY" }
           ]
         },
-        { title: "Arsip Nota", url: "https://inijo.vercel.app/arsip/arsipxo862.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Arsip Nota", url: "https://inijotool.vercel.app/arsip/arsipxo862.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
         { title: "Rekap Sales", url: "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
