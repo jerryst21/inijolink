@@ -48,7 +48,17 @@
       "category": "TUGAS BULANAN",
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-        { "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", "icon": "fa-solid fa-money-check-dollar", "iconColor": "#0F9D58", "status": "🔵" },
+        { 
+          "title": "Perhitungan Gaji 2026", 
+          "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", 
+          "icon": "fa-solid fa-money-check-dollar", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/19BDFRRpDNDACdLVBaNHwGz2ExzXybDqeNoaPdYWEDGE" },
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s" }
+          ]
+        },
         { 
           "title": "Rekapan Insentif 2026", 
           "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY", 
