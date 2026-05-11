@@ -58,7 +58,7 @@ export default function handler(req, res) {
     }
   ];
   
-  // DATA UNTUK PT. BINTANG MULIA MANADO BMM)
+  // DATA UNTUK PT. BINTANG MULIA MANADO (BMM)
   const dataBMM = [
     {
       category: "TUGAS HARIAN",
@@ -67,35 +67,60 @@ export default function handler(req, res) {
         { title: "BCA - VPN", url: "https://vpn.klikbca.com/+CSCOE+/logon.html", icon: "fa-solid fa-money-bill-transfer", iconColor: "#1e90ff", status: "🔵" },
         { title: "BNIDIRECT CASH", url: "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", icon: "fa-solid fa-money-bill-transfer", iconColor: "#FFA500", status: "🔵" },
         { title: "QLOLA By BRI", url: "https://qlola.bri.co.id/", icon: "fa-solid fa-money-bill-transfer", iconColor: "#ADE8F4", status: "🔵" },
-        { title: "Kas Kantor", url: "", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
+        { title: "Kas Kantor", url: "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8", icon: "fa-solid fa-cash-register", iconColor: "#0F9D58", status: "🟢",
           subLinks: [
-            { label: "2025", url: "" },
-            { label: "2026", url: "" }
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1jI9_f2EhGQriHX4ubQbWQXnDpS6h9dYx8GmK-bZnEvk" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8" }
           ]
         },
-        { title: "Arsip Nota", url: "", icon: "fa-solid fa-box-archive", status: "🟢" }, 
-        { title: "Rekap Sales", url: "", icon: "fa-solid fa-chart-line", iconColor: "#0F9D58", status: "🔵",
+        { title: "Arsip Nota", url: "https://inijotool.vercel.app/arsip/arsipeden12.html", icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Bill Room 2026", url: "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA", icon: "fa-solid fa-box-archive", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
-            { label: "2025", url: "" },
-            { label: "2026", url: "" }
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1NviWsH2hct3yqoohX8Ud3XGXZuFZB_rQJnaXNuTv2nA" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA" }
           ]
         },
-        { title: "Stok Gudang & Freezer 2026", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+        { title: "Billing", url: "https://docs.google.com/spreadsheets/d/10avKWhR_fxa15Cj8w4gC-qg9gqeuh7n9R5hsMHvHXzY, icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Data Maintenance", url: "https://docs.google.com/spreadsheets/d/1DiinsFR3LWWs2X_rqyjH_C_nAIEoJ1jbbv_ZQJ330ug", icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Stok Gudang di Hotel 2026 🚧", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
-            { label: "2025", url: "" },
-            { label: "2026", url: "" }
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1-F3wekA6g1yRpEHVYDfesZcbf5z75ZptuZjap2mnYQ0" },
+            { label: "2026 🚧", url: "" }
           ]
-        },
+        },  
+		title: "Stok Gudang di Wonasa 2026 🚧", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/17Fz7u-XkAKqhmyaFEXoWIJXs14JlrLqgXa_nIHBQPSw" },
+            { label: "2026 🚧", url: "" }
+          ]
+        },        
+        { title: "Daftar Aktiva Tetap", url: "https://docs.google.com/spreadsheets/d/16GcbcBB2qfh3ItV41tLwgti62OTOKHwDyiLEkOO6NWA", icon: "fa-solid fa-box-archive", status: "🔵" }, 
       ]
     },
     {
       category: "TUGAS BULANAN",
       links: [
-        { title: "BPJS Ketenagakerjaan", url: "", icon: "fa-solid fa-hands-holding-circle", iconColor: "#39B44A", info: "Jatuh tempo tgl 10", status: "🔵" },
-        { title: "Perhitungan Gaji", url: "", icon: "fa-solid fa-money-check-dollar", iconColor: "#0F9D58", status: "🔵"},
-        { title: "Rekapan Insentif", url: "", icon: "fa-solid fa-hand-holding-dollar", iconColor: "#0F9D58", status: "🔵"},
-        { title: "Laporan Laba Rugi", url: "", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵"},
+        { title: "BPJS Ketenagakerjaan", url: "https://sipp.bpjsketenagakerjaan.go.id/", icon: "fa-solid fa-hands-holding-circle", iconColor: "#39B44A", info: "Jatuh tempo tgl 10", status: "🔵" },
+		{ title: "Laporan Gaji 2026", url: "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs", icon: "fa-solid fa-money-check-dollar", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1-onNA4iBhH8mC82OOEDRJKS1Dc6x0xvgdMGFDoCjv3k" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs" }
+          ]
+        },
+		{ title: "Perhitungan Insentif 2026", url: "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M", icon: "fa-solid fa-hand-holding-dollar", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1ZjGg2y44q_4WnkLXw09zHzR_Dmi7ExoZz3QraHgPoLg" },
+            { label: "2026", url: "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M" }
+          ]
+        },
         { title: "Profit Sharing", url: "", icon: "fa-solid fa-scale-balanced", iconColor: "#0F9D58", status: "🔵"},
+        { title: "Rincian Pembayaran Biaya Laundry", url: "https://docs.google.com/spreadsheets/d/15tLWmMK8Bd5GbkWcvYDoebDdT8y_EYRWw5K-z6J_68g", icon: "a-solid fa-droplet water", iconColor: "#3498db", status: "🔵"},
+		{ title: "Laporan Laba Rugi 2026 🚧", url: "", icon: "fa-solid fa-file-invoice-dollar", iconColor: "#0F9D58", status: "🔵",
+          subLinks: [
+            { label: "2025", url: "https://docs.google.com/spreadsheets/d/1lh2X9GGS_hIIF8dBF-e7_NJnqU1c2yk4vfgW6XpCZDk" },
+            { label: "2026 🚧", url: "" }
+          ]
+        },
       ]
     },
     {
