@@ -94,7 +94,8 @@
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Keterangan Akses", "icon": "fa-solid fa-user-lock", "info": "🟢 Kasir</br>🔵 Accounting" }
+        { "title": "Keterangan Akses", "icon": "fa-solid fa-user-lock", "info": "🟢 Kasir</br>🔵 Accounting" },
+		{ "title": "Kode Akses", "url": "https://inijo.vercel.app/access/accesscodesindry.html", "icon": "fa-solid fa-user-lock" }
       ]
     }
   ],
