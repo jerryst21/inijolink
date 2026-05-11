@@ -80,7 +80,7 @@ export default function handler(req, res) {
             { label: "2026", url: "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA" }
           ]
         },
-        { title: "Billing", url: "https://docs.google.com/spreadsheets/d/10avKWhR_fxa15Cj8w4gC-qg9gqeuh7n9R5hsMHvHXzY, icon: "fa-solid fa-box-archive", status: "🟢" }, 
+        { title: "Billing", url: "https://docs.google.com/spreadsheets/d/10avKWhR_fxa15Cj8w4gC-qg9gqeuh7n9R5hsMHvHXzY", icon: "fa-solid fa-box-archive", status: "🟢" }, 
         { title: "Data Maintenance", url: "https://docs.google.com/spreadsheets/d/1DiinsFR3LWWs2X_rqyjH_C_nAIEoJ1jbbv_ZQJ330ug", icon: "fa-solid fa-box-archive", status: "🟢" }, 
         { title: "Stok Gudang di Hotel 2026 🚧", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
@@ -88,7 +88,7 @@ export default function handler(req, res) {
             { label: "2026 🚧", url: "" }
           ]
         },  
-		title: "Stok Gudang di Wonasa 2026 🚧", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
+		{ title: "Stok Gudang di Wonasa 2026 🚧", url: "", icon: "fa-solid fa-warehouse", iconColor: "#0F9D58", status: "🔵",
           subLinks: [
             { label: "2025", url: "https://docs.google.com/spreadsheets/d/17Fz7u-XkAKqhmyaFEXoWIJXs14JlrLqgXa_nIHBQPSw" },
             { label: "2026 🚧", url: "" }
