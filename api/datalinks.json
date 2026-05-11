@@ -22,13 +22,13 @@
         { "title": "Arsip Nota", "url": "https://inijotool.vercel.app/arsip/arsipxo862.html", "icon": "fa-solid fa-box-archive", "status": "🟢" },
         { 
           "title": "Rekap Sales", 
-          "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY", 
+          "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU", 
           "icon": "fa-solid fa-chart-line", 
           "iconColor": "#0F9D58", 
           "status": "🔵",
           "subLinks": [
             { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY" }
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU" }
           ]
         },
         { 
@@ -49,8 +49,28 @@
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
         { "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", "icon": "fa-solid fa-money-check-dollar", "iconColor": "#0F9D58", "status": "🔵" },
-        { "title": "Rekapan Insentif", "url": "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg", "icon": "fa-solid fa-hand-holding-dollar", "iconColor": "#0F9D58", "status": "🔵" },
-        { "title": "Laporan Laba Rugi", "url": "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ", "icon": "fa-solid fa-file-invoice-dollar", "iconColor": "#0F9D58", "status": "🔵" },
+        { 
+          "title": "Rekapan Insentif 2026", 
+          "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY", 
+          "icon": "fa-solid fa-hand-holding-dollar", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg" },
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY" }
+          ]
+        },
+        { 
+          "title": "Laporan Laba Rugi 2026", 
+          "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8", 
+          "icon": "fa-solid fa-file-invoice-dollar", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ" },
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8" }
+          ]
+        },
         { "title": "Profit Sharing", "url": "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE", "icon": "fa-solid fa-scale-balanced", "iconColor": "#0F9D58", "status": "🔵" }
       ]
     },
