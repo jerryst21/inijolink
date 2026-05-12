@@ -48,6 +48,7 @@
       "category": "TUGAS BULANAN",
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
+		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-stamp", "iconColor": "#2980b9", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah", "status": "🔵" },
         { 
           "title": "Perhitungan Gaji 2026", 
           "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", 
@@ -161,6 +162,7 @@
       "category": "TUGAS BULANAN",
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
+		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-stamp", "iconColor": "#2980b9", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah", "status": "🔵" },
         { 
           "title": "Laporan Gaji 2026", 
           "url": "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs", 
