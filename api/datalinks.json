@@ -386,7 +386,7 @@
           "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8", 
           "icon": "fa-solid fa-qrcode", 
           "iconColor": "#0F9D58", 
-          "status": "🔵",
+          "status": "",
           "subLinks": [
             { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1mhVc0iXkypXBXkzrz9gUnlB4spKspcTKOiZ7gp25fl0" },
             { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
@@ -398,7 +398,7 @@
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
           "icon": "fa-solid fa-file-invoice-dollar", 
           "iconColor": "#869B7E", 
-          "status": "🔵",
+          "status": "",
           "subLinks": [
             { "label": "2023", "url": "https://docs.google.com/spreadsheets/d/18mJpaes5OxlGRjfoiQ3k-g3tpDM2856z-JylXZfhi-U/edit?gid=693797476#gid=693797476" },
             { "label": "2023 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSM-WRGZAHQ1aKKDCU-jftDhzj9XBsP1lUgPHrB6bz2bKoYa7rLQG7EBALXHDXwYT2_nwBVaNgn6SA8/pubhtml" },
@@ -432,7 +432,8 @@
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Rekening Bank", "icon": "fa-solid fa-building-columns", "info": "BCA 0269120888 (Dana masuk EDC/QRIS)</br>BNI 2605238886 an Siska W" },
+        { "title": "Lokasi", "icon": "fa-solid fa-map-location-dot", "info": "Jalan Hasanuddin No .24</br>(Samping Holland Bakery)</br>Kel. Singkil Satu, Kec. Singkil</br>Kota Manado, Sulawesi Utara 95234" },
+		{ "title": "Rekening Bank", "icon": "fa-solid fa-building-columns", "info": "BCA 0269120888 (Dana masuk EDC/QRIS)</br>BNI 2605238886 an Siska W" },
         { "title": "Meter Listrik Mesin", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5794</br>an Jerry S Tombokan" },
         { "title": "Meter Listrik Lampu & AC", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5760</br>an Jerry S Tombokan" },
         { "title": "Meter Listrik Kost", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1003-5364</br>an Tan Djok Lian" },
