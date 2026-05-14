@@ -3,7 +3,7 @@
     {
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-money-check", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "M", "iconColor": "#ff4757", "status": "🔵" },
         { "title": "BCA - VPN", "url": "https://vpn.klikbca.com/+CSCOE+/logon.html", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#1e90ff", "status": "🔵" },
         { "title": "BNIDIRECT CASH", "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#FFA500", "status": "🔵" },
         { "title": "QLOLA By BRI", "url": "https://qlola.bri.co.id/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#ADE8F4", "status": "🔵" },
