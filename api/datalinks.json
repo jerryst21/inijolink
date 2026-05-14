@@ -1,6 +1,7 @@
 {
   "ksb": [
     {
+	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA XO SUKI",
       "category": "TUGAS HARIAN",
       "links": [
         { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-m", "iconColor": "#ff4757", "status": "🔵" },
@@ -102,6 +103,7 @@
   ],
   "bmm": [
     {
+	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA EDEN",
       "category": "TUGAS HARIAN",
       "links": [
         { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-m", "iconColor": "#ff4757", "status": "🔵" },
@@ -217,6 +219,7 @@
   ],
   "mma": [
     {
+	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA SPBU",
       "category": "TUGAS HARIAN",
       "links": [
         { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-money-check", "iconColor": "#ff4757", "status": "🔵" },
@@ -351,9 +354,93 @@
       ]
     }
   ],
+  "inijo": [ 
+    { 
+	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
+      "category": "TUGAS HARIAN",
+      "links": [
+        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-solid fa-s", "iconColor": "#0088FF"},
+        { 
+          "title": "Rekap Harian Owner", 
+          "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link", 
+          "icon": "", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "🌐 Input Rekap Harian", "url": "https://forms.fillout.com/t/wxvuNAovukus" }
+          ]
+        },
+		{ "title": "Transaksi Non-Tunai (Admin)", "url": "https://inijo.vercel.app/admin23.html", "icon": "", "iconColor": "#ff4757" },
+		{ "title": "Transaksi Non-Tunai (Kasir)", "url": "https://inijo.vercel.app/cashless265.html", "icon": "", "iconColor": "#ff4757" },
+		{ "title": "Arsip Nota Inijo 🚧", "url": "", "icon": "", "iconColor": "#ff4757" },
+		{ "title": "Daftar Audit 🚧", "url": "", "icon": "", "iconColor": "#ff4757" }
+      ]
+    },
+    {
+      "category": "TUGAS BULANAN",
+      "links": [
+        { 
+          "title": "EDC & Transfer", 
+          "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8", 
+          "icon": "", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1mhVc0iXkypXBXkzrz9gUnlB4spKspcTKOiZ7gp25fl0" },
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
+          ]
+        },
+		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "", "iconColor": "#ff4757" },
+        { 
+          "title": "Laporan Keuangan", 
+          "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
+          "icon": "", 
+          "iconColor": "#0F9D58", 
+          "status": "🔵",
+          "subLinks": [
+            { "label": "2023", "url": "https://docs.google.com/spreadsheets/d/18mJpaes5OxlGRjfoiQ3k-g3tpDM2856z-JylXZfhi-U/edit?gid=693797476#gid=693797476" },
+            { "label": "2023 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSM-WRGZAHQ1aKKDCU-jftDhzj9XBsP1lUgPHrB6bz2bKoYa7rLQG7EBALXHDXwYT2_nwBVaNgn6SA8/pubhtml" },
+            { "label": "2024", "url": "https://docs.google.com/spreadsheets/d/1J54DyIok6QOPU56TjhJqk4U0NA4JwT-o3dov8gXuMso/edit?gid=68551595#gid=68551595" },
+            { "label": "2024 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjLle_6pAUO3XdvIlaUrgWYgJYjnDzG1qkSYcGPQqt07efK829zbQdCJRhbQkQ1OWTsDvZ2pO6DmgY/pubhtml" },
+            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1Z96aKNBNdxNqlO8TnqtxycKEg4y8NaqpYqFBB4CsijU/edit?gid=68551595#gid=68551595" },
+            { "label": "2025 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT5pB1pz_86ZCDvIm_GHguHeWWulQpli_zkPej8xHsqzQmeoep3-iucjbG46Iw74t_b2hqpKYiLuGhp/pubhtml" },
+            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik" }
+            { "label": "2026 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzDARIEFEweR7QmDBY2bQyxNcFhU6gHOMkwBpKlW9q7Hx0LCdZ9ZyqQ9_kbDyfhbJV09LuFxwgPiQp/pubhtml" }
+          ]
+        }
+      ]
+    },
+    {
+      "category": "TUGAS TAHUNAN",
+      "links": [
+        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Reward Konsumen Akhir Tahun", "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ", "icon": "", "iconColor": "#ff4757" }
+      ]
+    },
+    {
+      "category": "TUGAS BERKALA",
+      "links": [
+        { "title": "Template Kwitansi Pembayaran Kost", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Formulir Penghuni Kost", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Invoice Kerjasama Laundry", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Daftar Reminder Customer", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" }
+      ]
+    },
+    {
+      "category": "CATATAN",
+      "links": [
+        { "title": "Rekening Bank", "icon": "fa-solid fa-building-columns", "info": "BCA 0269120888 (Dana masuk EDC/QRIS)</br>BNI 2605238886 an Siska W" },
+        { "title": "Meter Listrik Mesin", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5794</br>an Jerry S Tombokan" },
+        { "title": "Meter Listrik Lampu & AC", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5760</br>an Jerry S Tombokan" },
+        { "title": "Meter Listrik Kost", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1003-5364</br>an Tan Djok Lian" },
+        { "title": "Meter Air (PAM)", "icon": "fa-solid fa-droplet water", "iconColor": "#3498db", "info": "Nomor Pelanggan 0106951 an Jerry Semuel Tombokan</br>Alamat Jl. Hasanudin No 4</br>Gol: NB: 0.5" },
+        { "title": "IndiBiz", "icon": "fa-solid fa-wifi net", "iconColor": "#3498db", "info": "Nomor Telp: 0431-7199-777</br>Nomor ID Pelanggan: 172307821229</br>Registrasi an Jerry S Tombokan" }
+      ]
+    }
+  ],
   "template": [ 
     { 
-	  "_comment": "TEMPLATE: LIST LINKS HALAMAN KERJA",
+	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️TEMPLATE: LIST LINKS HALAMAN KERJA",
       "category": "Category 1",
       "links": [
         { "title": "Link 1", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
