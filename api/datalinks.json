@@ -359,7 +359,9 @@
 	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-brands fa-sellcast", "iconColor": "#0088FF"},
+        { "title": "Inijo Laundry", "url": "https://inijolaundry.com/", "icon": "fa-solid fa-water" },
+		{ "title": "Ramalan Cuaca", "url": "https://inijolaundry.com/cuaca/ramalan.html", "icon": "fa-solid fa-cloud-sun" },
+		{ "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-brands fa-sellcast", "iconColor": "#0088FF"},
         { 
           "title": "Rekap Harian Owner", 
           "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link", 
