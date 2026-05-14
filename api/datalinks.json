@@ -394,7 +394,7 @@
         { 
           "title": "Laporan Keuangan", 
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
-          "icon": "fa-file-invoice-dollar", 
+          "icon": "fa-solid fa-file-invoice-dollar", 
           "iconColor": "#0F9D58", 
           "status": "🔵",
           "subLinks": [
