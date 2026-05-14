@@ -359,11 +359,11 @@
 	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-solid fa-s", "iconColor": "#0088FF"},
+        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-brands fa-sellcast", "iconColor": "#0088FF"},
         { 
           "title": "Rekap Harian Owner", 
           "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link", 
-          "icon": "fa-solid fa-n", 
+          "icon": "fa-brands fa-notion", 
           "iconColor": "", 
           "status": "",
           "subLinks": [
