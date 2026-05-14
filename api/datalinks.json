@@ -390,12 +390,12 @@
             { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
           ]
         },
-		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "fa-solid fa-money-check-dollar", "iconColor": "#ff4757" },
+		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "fa-regular fa-file-excel", "iconColor": "#0F9D58" },
         { 
           "title": "Laporan Keuangan", 
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
           "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#0F9D58", 
+          "iconColor": "#869B7E", 
           "status": "🔵",
           "subLinks": [
             { "label": "2023", "url": "https://docs.google.com/spreadsheets/d/18mJpaes5OxlGRjfoiQ3k-g3tpDM2856z-JylXZfhi-U/edit?gid=693797476#gid=693797476" },
@@ -413,17 +413,17 @@
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "fa-solid fa-chart-pie" },
+        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "fa-solid fa-chart-pie", "iconColor": "#869B7E" },
         { "title": "Reward Konsumen Akhir Tahun", "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ", "icon": "fa-solid fa-gift", "iconColor": "#f1c40f" }
       ]
     },
     {
       "category": "TUGAS BERKALA",
       "links": [
-        { "title": "Template Kwitansi Pembayaran Kost 🚧", "url": "", "icon": "fa-solid fa-copy" },
-        { "title": "Formulir Penghuni Kost 🚧", "url": "", "icon": "fa-solid fa-id-card-clip" },
-        { "title": "Invoice Kerjasama Laundry 🚧", "url": "", "icon": "fa-solid fa-file-invoice" },
-        { "title": "Daftar Reminder Customer 🚧", "url": "", "icon": "fa-solid fa-bell-concierge" }
+        { "title": "Template Kwitansi Pembayaran Kost 🚧", "url": "", "icon": "fa-solid fa-copy", "iconColor": "#0F9D58" },
+        { "title": "Formulir Penghuni Kost 🚧", "url": "", "icon": "fa-solid fa-house-user", "iconColor": "#0F9D58" },
+        { "title": "Invoice Kerjasama Laundry 🚧", "url": "", "icon": "fa-solid fa-file-invoice", "iconColor": "#0F9D58" },
+        { "title": "Daftar Reminder Customer 🚧", "url": "", "icon": "fa-solid fa-bell-concierge", "iconColor": "#FF4500" }
       ]
     },
     {
@@ -434,7 +434,7 @@
         { "title": "Meter Listrik Lampu & AC", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5760</br>an Jerry S Tombokan" },
         { "title": "Meter Listrik Kost", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1003-5364</br>an Tan Djok Lian" },
         { "title": "Meter Air (PAM)", "icon": "fa-solid fa-droplet water", "iconColor": "#3498db", "info": "Nomor Pelanggan 0106951 an Jerry Semuel Tombokan</br>Alamat Jl. Hasanudin No 4</br>Gol: NB: 0.5" },
-        { "title": "IndiBiz", "icon": "fa-solid fa-wifi net", "iconColor": "#3498db", "info": "Nomor Telp: 0431-7199-777</br>Nomor ID Pelanggan: 172307821229</br>Registrasi an Jerry S Tombokan" }
+        { "title": "IndiBiz", "icon": "fa-solid fa-wifi net", "iconColor": "#4CAF50", "info": "Nomor Telp: 0431-7199-777</br>Nomor ID Pelanggan: 172307821229</br>Registrasi an Jerry S Tombokan" }
       ]
     }
   ],
