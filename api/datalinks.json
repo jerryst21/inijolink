@@ -352,8 +352,8 @@
     }
   ],
   "template": [ 
-    // TEMPLATE: LIST LINKS HALAMAN KERJA
     { 
+	  "_comment": "TEMPLATE: LIST LINKS HALAMAN KERJA",
       "category": "Category 1",
       "links": [
         { "title": "Link 1", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
