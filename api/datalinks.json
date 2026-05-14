@@ -359,21 +359,21 @@
 	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-solid fa-s", "iconColor": "#0088FF"},
+        { "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-brands fa-sellcast", "iconColor": "#0088FF"},
         { 
           "title": "Rekap Harian Owner", 
           "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link", 
-          "icon": "", 
-          "iconColor": "#0F9D58", 
-          "status": "🔵",
+          "icon": "fa-brands fa-notion", 
+          "iconColor": "", 
+          "status": "",
           "subLinks": [
-            { "label": "🌐 Input Rekap Harian", "url": "https://forms.fillout.com/t/wxvuNAovukus" }
+            { "label": "📝 Input Rekap Harian", "url": "https://forms.fillout.com/t/wxvuNAovukus" }
           ]
         },
-		{ "title": "Transaksi Non-Tunai (Admin)", "url": "https://inijo.vercel.app/admin23.html", "icon": "", "iconColor": "#ff4757" },
-		{ "title": "Transaksi Non-Tunai (Kasir)", "url": "https://inijo.vercel.app/cashless265.html", "icon": "", "iconColor": "#ff4757" },
-		{ "title": "Arsip Nota Inijo 🚧", "url": "", "icon": "", "iconColor": "#ff4757" },
-		{ "title": "Daftar Audit 🚧", "url": "", "icon": "", "iconColor": "#ff4757" }
+		{ "title": "Transaksi Non-Tunai (Admin)", "url": "https://inijo.vercel.app/admin23.html", "icon": "fa-solid fa-qrcode", "iconColor": "#ff4757" },
+		{ "title": "Transaksi Non-Tunai (Kasir)", "url": "https://inijo.vercel.app/cashless265.html", "icon": "fa-solid fa-qrcode", "iconColor": "#ff4757" },
+		{ "title": "Arsip Nota Inijo 🚧", "url": "", "icon": "fa-solid fa-box-archive", "iconColor": "#ff4757" },
+		{ "title": "Daftar Audit 🚧", "url": "", "icon": "fa-solid fa-magnifying-glass-dollar", "iconColor": "#ff4757" }
       ]
     },
     {
@@ -382,7 +382,7 @@
         { 
           "title": "EDC & Transfer", 
           "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8", 
-          "icon": "", 
+          "icon": "fa-solid fa-qrcode", 
           "iconColor": "#0F9D58", 
           "status": "🔵",
           "subLinks": [
@@ -390,11 +390,11 @@
             { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
           ]
         },
-		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "", "iconColor": "#ff4757" },
+		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "fa-money-check-dollar", "iconColor": "#ff4757" },
         { 
           "title": "Laporan Keuangan", 
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
-          "icon": "", 
+          "icon": "fa-file-invoice-dollar", 
           "iconColor": "#0F9D58", 
           "status": "🔵",
           "subLinks": [
@@ -413,17 +413,17 @@
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { "title": "Reward Konsumen Akhir Tahun", "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ", "icon": "", "iconColor": "#ff4757" }
+        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "fa-solid fa-chart-pie" },
+        { "title": "Reward Konsumen Akhir Tahun", "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ", "icon": "fa-hand-holding-dollar", "iconColor": "#f1c40f" }
       ]
     },
     {
       "category": "TUGAS BERKALA",
       "links": [
-        { "title": "Template Kwitansi Pembayaran Kost", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { "title": "Formulir Penghuni Kost", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { "title": "Invoice Kerjasama Laundry", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { "title": "Daftar Reminder Customer", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" }
+        { "title": "Template Kwitansi Pembayaran Kost 🚧", "url": "", "icon": "fa-solid fa-copy", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Formulir Penghuni Kost 🚧", "url": "", "icon": "fa-solid fa-id-card-clip", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Invoice Kerjasama Laundry 🚧", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
+        { "title": "Daftar Reminder Customer 🚧", "url": "", "icon": "fa-solid fa-bell-concierge", "iconColor": "#ff4757", "status": "🔵" }
       ]
     },
     {
