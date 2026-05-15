@@ -392,7 +392,13 @@
             { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
           ]
         },
+		{ "title": "Daftar Karyawan", "url": "https://inijo.vercel.app/cashless265.html", "icon": "fa-brands fa-notion" },
 		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "fa-regular fa-file-excel", "iconColor": "#0F9D58" },
+          "subLinks": [
+            { "label": "📝 Input Gaji", "url": "https://forms.fillout.com/t/vefqkrhyAXus" }
+          ]
+        },
+	    { "title": "Data Payroll", "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link", "icon": "fa-brands fa-notion" },
         { 
           "title": "Laporan Keuangan", 
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
@@ -423,10 +429,10 @@
       "category": "TUGAS BERKALA",
       "links": [
         { "title": "Data Pelamar", "url": "https://inijo.vercel.app/pelamar8467.html", "icon": "fa-solid fa-user-plus" },
-		{ "title": "Template Kwitansi Pembayaran Kost 🚧", "url": "", "icon": "fa-solid fa-copy", "iconColor": "#0F9D58" },
-        { "title": "Formulir Penghuni Kost 🚧", "url": "", "icon": "fa-solid fa-house-user", "iconColor": "#0F9D58" },
-        { "title": "Invoice Kerjasama Laundry 🚧", "url": "", "icon": "fa-solid fa-file-invoice", "iconColor": "#0F9D58" },
-        { "title": "Daftar Reminder Customer 🚧", "url": "", "icon": "fa-solid fa-bell-concierge", "iconColor": "#FF4500" }
+		{ "title": "Template Kwitansi Pembayaran Kost", "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8", "icon": "fa-solid fa-copy", "iconColor": "#0F9D58" },
+        { "title": "Formulir Penghuni Kost", "url": "https://docs.google.com/spreadsheets/d/1xdEP7HrA01hT3eOe9zrnPFk8X4YZ7fAonNyoiLAv2NY", "icon": "fa-solid fa-house-user", "iconColor": "#0F9D58" },
+        { "title": "Invoice Kerjasama Laundry", "url": "https://docs.google.com/spreadsheets/d/1yd8rStU1uuNgMewGN1qTW3BSF_zTZtEEH_SWwk11kuU", "icon": "fa-solid fa-file-invoice", "iconColor": "#0F9D58" },
+        { "title": "Daftar Reminder Customer", "url": "https://docs.google.com/spreadsheets/d/18qXYz5tuWvdP4V5L7v6O0Q35BB1IxjWSXidSCG12nkw", "icon": "fa-solid fa-bell-concierge", "iconColor": "#FF4500" }
       ]
     },
     {
