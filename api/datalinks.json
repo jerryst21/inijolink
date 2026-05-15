@@ -398,7 +398,7 @@
             { "label": "📝 Input Gaji", "url": "https://forms.fillout.com/t/vefqkrhyAXus" }
           ]
         },
-	    { "title": "Data Payroll", "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link", "icon": "fa-brands fa-notion" },
+	    { "title": "Data Payroll", "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link", "icon": "fa-brands fa-notion", "status": "" },
         { 
           "title": "Laporan Keuangan", 
           "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
