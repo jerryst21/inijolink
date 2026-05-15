@@ -146,24 +146,22 @@
 
                         sectionHtml += `
                             <div class="work-card rounded-[18px] shadow-lg">
-                                <div class="flex items-center gap-3">
-                                    <div class="num-badge w-6">
-                                        ${String(globalCounter++).padStart(2, '0')}
-                                    </div>
-                                    
-                                    <div class="flex-grow">
-                                        <div class="flex items-center justify-between">
-                                            <div class="flex items-center gap-3">
-                                                <${wrapperTag} ${wrapperAttr} class="icon-container flex-shrink-0 w-9 h-9 bg-white/[0.03] rounded-xl flex items-center justify-center border border-white/10">
-                                                    ${iconDisplay}
-                                                </${wrapperTag}>
-                                                
-                                                <${wrapperTag} ${wrapperAttr}>
-                                                    <h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
-                                                    ${link.info ? `<p class="text-[11px] font-medium text-gray-300 mt-0.5">${link.info}</p>` : ''}
-                                                </${wrapperTag}>
-                                            </div>
-
+                                    <div class="flex items-center gap-3">
+                                        
+                                        <div class="num-badge w-6 flex-shrink-0">
+                                            ${String(globalCounter++).padStart(2, '0')}
+                                        </div>
+                                        
+                                        <${wrapperTag} ${wrapperAttr} class="icon-container flex-shrink-0 w-9 h-9 bg-white/[0.03] rounded-xl flex items-center justify-center border border-white/10">
+                                            ${iconDisplay}
+                                        </${wrapperTag}>
+                                        
+                                        <div class="flex-grow flex items-center justify-between">
+                                            <${wrapperTag} ${wrapperAttr}>
+                                                <h3 class="text-[14px] font-bold text-white leading-tight tracking-tight">${link.title}</h3>
+                                                ${link.info ? `<p class="text-[11px] font-medium text-gray-300 mt-0.5">${link.info}</p>` : ''}
+                                            </${wrapperTag}>
+                            
                                             <div class="flex items-center gap-2">
                                                 ${link.status ? `<span class="text-sm">${link.status}</span>` : ''}
                                                 <div class="text-gray-800">
@@ -171,12 +169,12 @@
                                                 </div>
                                             </div>
                                         </div>
-
-                                        ${subLinksHtml}
+                                    </div>
+                            
+                                    <div class="ml-18"> ${subLinksHtml}
                                     </div>
                                 </div>
-                            </div>
-                        `;
+                            `;
                     });
 
                     sectionHtml += `</div></section>`;
