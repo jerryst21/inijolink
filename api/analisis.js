@@ -1,8 +1,8 @@
 const fetch = require('node-fetch');
 
 // Konfigurasi Repositori GitHub Kamu
-const GITHUB_USER = 'jst-github-username'; // ◄ UBAH dengan username GitHub kamu
-const GITHUB_REPO = 'inijo-link';         // ◄ UBAH dengan nama repositori kamu
+const GITHUB_USER = 'jerryst21'; // ◄ UBAH dengan username GitHub kamu
+const GITHUB_REPO = 'inijolink';         // ◄ UBAH dengan nama repositori kamu
 const FILE_PATH = 'inijo2023/financedata.json';
 
 module.exports = async (req, res) => {
