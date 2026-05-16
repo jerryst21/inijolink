@@ -40,10 +40,13 @@
                 </h1>
                 <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Statistik & Kontrol Payroll Bulanan</p>
             </div>
-            <div>
+            <div class="flex items-center gap-3">
                 <select id="tahun-filter" class="bg-[#121214] border border-white/10 text-white text-xs rounded-xl px-3 py-2 font-semibold focus:outline-none focus:border-yellow-400 cursor-pointer min-w-[100px]">
                     <option value="">Semua Tahun</option>
                 </select>
+                <a href="inijo2023/updatefinanceinijo73.html" class="bg-[#121214] hover:bg-zinc-800 border border-white/10 hover:border-yellow-400 text-white text-xs rounded-xl px-3 py-2 font-semibold flex items-center gap-1.5 transition-colors duration-200">
+                    <i class="fa-solid fa-pen-to-square text-yellow-400"></i> Update Data
+                </a>
             </div>
         </header>
 
@@ -101,7 +104,7 @@
                 </h2>
                 <span class="text-[10px] text-gray-500 font-bold tracking-tight">Hover grafik untuk detail angka</span>
             </div>
-            
+             
             <div id="chart" class="w-full"></div>
         </div>
     </div>
@@ -117,9 +120,9 @@
 
         function setSummaryDefault() {
             if (dataTersaring.length === 0) return;
-            
+             
             const dataUntukRataRata = dataTersaring.length > 1 ? dataTersaring.slice(0, -1) : dataTersaring; 
-            
+             
             const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + ((item.bruto || 0) - (item.diskon || 0)), 0);
             const totalNota = dataUntukRataRata.reduce((sum, item) => sum + (item.nota || 0), 0);
             const totalDiskon = dataUntukRataRata.reduce((sum, item) => sum + (item.diskon || 0), 0);
@@ -130,18 +133,18 @@
 
             const rerataBruto = totalBrutoBersih / totalBulan;
             const rerataPayroll = totalPayroll / totalBulan;
-            
-            // Perhitungan rasio persentase rata-rata payroll terhadap rata-rata bruto
-            const rasioPersenRerata = rerataBruto > 0 ? Math.round((rerataPayroll / rerataBruto) * 100) : 0;
+             
+            // Perhitungan rasio persentase rata-rata payroll terhadap rata-rata bruto (2 Digit Desimal)
+            const rasioPersenRerata = rerataBruto > 0 ? ((rerataPayroll / rerataBruto) * 100).toFixed(2) : "0.00";
 
             document.getElementById('kpi-bruto').innerText = formatRupiah(rerataBruto);
             document.getElementById('kpi-nota').innerText = Math.round(totalNota / totalBulan).toLocaleString('id-ID') + " /bln";
             document.getElementById('kpi-diskon').innerText = formatRupiah(totalDiskon / totalBulan);
             document.getElementById('kpi-produksi').innerText = `${Math.round(totalKg / totalBulan).toLocaleString('id-ID')} Kg / ${Math.round(totalSatuan / totalBulan)} Pcs`;
-            
-            // Menampilkan nominal rata-rata beserta persentasenya (contoh: Rp 15.000.000 (25%))
+             
+            // Menampilkan nominal rata-rata beserta persentasenya (contoh: Rp 15.000.000 (25.00%))
             document.getElementById('kpi-payroll').innerText = `${formatRupiah(rerataPayroll)} (${rasioPersenRerata}%)`;
-            
+             
             for(let i=1; i<=5; i++) {
                 document.getElementById(`label-bulan-${i}`).innerText = "Rerata Bulan Penuh (Excl. Bulan Berjalan)";
             }
@@ -150,13 +153,13 @@
         function updateKpiCards(index) {
             const selected = dataTersaring[index];
             if (!selected) return;
-            
+             
             document.getElementById('kpi-bruto').innerText = formatRupiah((selected.bruto || 0) - (selected.diskon || 0));
             document.getElementById('kpi-nota').innerText = (selected.nota || 0).toLocaleString('id-ID') + " Transaksi";
             document.getElementById('kpi-diskon').innerText = formatRupiah(selected.diskon || 0);
             document.getElementById('kpi-produksi').innerText = `${(selected.kg || 0).toLocaleString('id-ID')} Kg / ${selected.satuan || 0} Pcs`;
             document.getElementById('kpi-payroll').innerText = formatRupiah(selected.payroll || 0);
-            
+             
             for(let i=1; i<=5; i++) {
                 document.getElementById(`label-bulan-${i}`).innerText = `Data Bulan: ${selected.bulan || '-'}`;
             }
@@ -166,11 +169,11 @@
             try {
                 const response = await fetch('/api/analisis');
                 const result = await response.json();
-                
+                 
                 if (result.success && Array.isArray(result.data)) {
                     omsetData = result.data;
                     dataTersaring = [...omsetData];
-                    
+                     
                     buatListTahunOtomatis();
                     inialisasiGrafikDinamis();
                     setSummaryDefault();
@@ -211,7 +214,7 @@
                 } else {
                     dataTersaring = [...omsetData];
                 }
-                
+                 
                 inialisasiGrafikDinamis();
                 setSummaryDefault();
             });
@@ -228,7 +231,7 @@
             const seriBruto = dataTersaring.map(item => (item.bruto || 0) - (item.diskon || 0));
             const seriPayroll = dataTersaring.map(item => item.payroll || 0);
             const seriTargetPayroll = dataTersaring.map(item => (item.bruto || 0) * 0.3);
-        
+         
             const options = {
                 chart: {
                     type: 'area',
@@ -323,11 +326,12 @@
                         if (!data) return '';
                         
                         const hitungBruto = (data.bruto || 0) - (data.diskon || 0);
-                        const persenPayroll = data.bruto > 0 ? Math.round((data.payroll / data.bruto) * 100) : 0;
+                        // Menggunakan .toFixed(2) agar rasio di tooltip juga tampil 2 digit desimal
+                        const persenPayroll = data.bruto > 0 ? ((data.payroll / data.bruto) * 100).toFixed(2) : "0.00";
                         
                         let statusBudget = `<span class="text-emerald-400 font-extrabold ml-1">(AMAN)</span>`;
                         let borderStatusColor = "border-emerald-500/30";
-                        if(persenPayroll > 30) {
+                        if(parseFloat(persenPayroll) > 30) {
                             statusBudget = `<span class="text-red-500 font-extrabold ml-1 animate-pulse">(LEBIH)</span>`;
                             borderStatusColor = "border-red-500/40";
                         }
@@ -336,7 +340,7 @@
                             <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[240px] text-xs">
                                 <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px] flex justify-between items-center">
                                     <span>${data.bulan || '-'}</span>
-                                    ${persenPayroll > 0 ? `<span>Rasio Gaji: ${persenPayroll}%</span>` : ''}
+                                    ${parseFloat(persenPayroll) > 0 ? `<span>Rasio Gaji: ${persenPayroll}%</span>` : ''}
                                 </div>
                                 <div class="space-y-1.5 text-white">
                                     <div class="flex justify-between gap-4">
