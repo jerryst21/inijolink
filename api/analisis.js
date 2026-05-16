@@ -28,7 +28,7 @@ module.exports = async (req, res) => {
                 const contentText = Buffer.from(fileInfo.content, 'base64').toString('utf-8');
                 return res.status(200).json({ success: true, data: JSON.parse(contentText) });
             } else {
-                return res.status(responseGet.status).json({ success: false, message: 'Gagal mengambil data dari GitHub.' });
+                return res.status(responseGet.status).json({ success: false, message: 'Gagal mengambil data.' });
             }
         } catch (error) {
             return res.status(500).json({ success: false, message: error.message });
@@ -72,9 +72,9 @@ module.exports = async (req, res) => {
             });
 
             if (responsePut.status === 200 || responsePut.status === 201) {
-                return res.status(200).json({ success: true, message: 'Semua perubahan data berhasil disimpan ke GitHub!' });
+                return res.status(200).json({ success: true, message: 'Semua perubahan data berhasil disimpan!' });
             } else {
-                return res.status(responsePut.status).json({ success: false, message: 'Gagal melakukan commit perubahan ke GitHub.' });
+                return res.status(responsePut.status).json({ success: false, message: 'Gagal melakukan commit perubahan.' });
             }
         } catch (error) {
             return res.status(500).json({ success: false, message: error.message });
