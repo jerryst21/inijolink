@@ -128,11 +128,19 @@
             const totalPayroll = dataUntukRataRata.reduce((sum, item) => sum + (item.payroll || 0), 0);
             const totalBulan = dataUntukRataRata.length;
 
-            document.getElementById('kpi-bruto').innerText = formatRupiah(totalBrutoBersih / totalBulan);
+            const rerataBruto = totalBrutoBersih / totalBulan;
+            const rerataPayroll = totalPayroll / totalBulan;
+            
+            // Perhitungan rasio persentase rata-rata payroll terhadap rata-rata bruto
+            const rasioPersenRerata = rerataBruto > 0 ? Math.round((rerataPayroll / rerataBruto) * 100) : 0;
+
+            document.getElementById('kpi-bruto').innerText = formatRupiah(rerataBruto);
             document.getElementById('kpi-nota').innerText = Math.round(totalNota / totalBulan).toLocaleString('id-ID') + " /bln";
             document.getElementById('kpi-diskon').innerText = formatRupiah(totalDiskon / totalBulan);
             document.getElementById('kpi-produksi').innerText = `${Math.round(totalKg / totalBulan).toLocaleString('id-ID')} Kg / ${Math.round(totalSatuan / totalBulan)} Pcs`;
-            document.getElementById('kpi-payroll').innerText = formatRupiah(totalPayroll / totalBulan);
+            
+            // Menampilkan nominal rata-rata beserta persentasenya (contoh: Rp 15.000.000 (25%))
+            document.getElementById('kpi-payroll').innerText = `${formatRupiah(rerataPayroll)} (${rasioPersenRerata}%)`;
             
             for(let i=1; i<=5; i++) {
                 document.getElementById(`label-bulan-${i}`).innerText = "Rerata Bulan Penuh (Excl. Bulan Berjalan)";
@@ -180,7 +188,6 @@
 
             omsetData.forEach(item => {
                 if (item.bulan) {
-                    // Mencari 2 digit angka di akhir string (misal: "Jan 24" -> "24")
                     const cocok = item.bulan.trim().match(/\d{2}$/);
                     if (cocok) {
                         setTahun.add(cocok[0]);
@@ -188,20 +195,18 @@
                 }
             });
 
-            // Mengurutkan tahun dari yang terbaru
             const listTahunUrut = Array.from(setTahun).sort((a, b) => b - a);
 
             listTahunUrut.forEach(duaDigitTahun => {
                 const option = document.createElement('option');
                 option.value = duaDigitTahun; 
-                option.textContent = "20" + duaDigitTahun; // Menampilkan "2024"
+                option.textContent = "20" + duaDigitTahun;
                 selectTahun.appendChild(option);
             });
 
             selectTahun.addEventListener('change', (e) => {
-                const tahunDipilih = e.target.value; // Berisi dua digit seperti "24"
+                const tahunDipilih = e.target.value;
                 if (tahunDipilih) {
-                    // Memastikan string bulan diakhiri dengan dua digit tahun yang dipilih
                     dataTersaring = omsetData.filter(item => item.bulan && item.bulan.trim().endsWith(tahunDipilih));
                 } else {
                     dataTersaring = [...omsetData];
