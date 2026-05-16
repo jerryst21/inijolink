@@ -335,37 +335,37 @@
                                 </div>
                                 <div class="space-y-1.5 text-white">
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-orange-400 w-3"></i> Omset:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">💰 <span class="ml-1">Omset:</span></span>
                                         <span class="font-bold text-orange-400 font-mono">${formatRupiah(data.bruto || 0)}</span>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-tags text-red-400 w-3"></i> Diskon:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">🏷️ <span class="ml-1">Diskon:</span></span>
                                         <span class="font-bold text-red-400 font-mono">${formatRupiah(data.diskon || 0)}</span>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-yellow-400 w-3"></i> Bruto:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">💳 <span class="ml-1">Bruto:</span></span>
                                         <span class="font-bold text-yellow-400 font-mono">${formatRupiah(hitungBruto)}</span>
                                     </div>
                                     
                                     <div class="border-t border-white/5 my-1"></div>
                                     
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-receipt text-sky-400 w-3"></i> Nota:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">📄 <span class="ml-1">Nota:</span></span>
                                         <span class="font-bold text-sky-400 font-mono">${(data.nota || 0).toLocaleString('id-ID')} Txs</span>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-weight-scale text-emerald-400 w-3"></i> Berat:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">⚖️ <span class="ml-1">Berat:</span></span>
                                         <span class="font-bold text-emerald-400 font-mono">${(data.kg || 0).toLocaleString('id-ID')} Kg</span>
                                     </div>
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-shirt text-blue-400 w-3"></i> Satuan:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">👕 <span class="ml-1">Satuan:</span></span>
                                         <span class="font-bold text-blue-400 font-mono">${(data.satuan || 0).toLocaleString('id-ID')} Pcs</span>
                                     </div>
 
                                     <div class="border-t border-white/5 my-1"></div>
 
                                     <div class="flex justify-between gap-4">
-                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-users-gear text-purple-400 w-3"></i> Payroll:</span>
+                                        <span class="text-gray-400 flex items-center gap-1.5">⚙️ <span class="ml-1">Payroll:</span></span>
                                         <span class="font-bold text-purple-400 font-mono">${formatRupiah(data.payroll || 0)}</span>
                                     </div>
                                     <div class="flex justify-between gap-4 text-[10px] bg-white/5 p-1 rounded-md mt-1">
