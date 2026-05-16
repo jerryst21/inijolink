@@ -94,17 +94,11 @@
         </div>
 
         <div class="dashboard-card p-4 md:p-6 rounded-[24px]">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 mb-4">
+            <div class="flex justify-between items-center mb-4">
                 <h2 class="text-xs font-extrabold text-gray-400 uppercase tracking-widest flex items-center gap-2">
                     <i class="fa-solid fa-chart-line text-yellow-400"></i> Analisa Finansial vs Beban Gaji (Target Max 30%)
                 </h2>
-                
-                <div class="flex bg-white/5 p-1 rounded-xl border border-white/5 self-end sm:self-auto text-[11px] font-bold">
-                    <button id="filter-all" onclick="filterTahun('ALL')" class="px-3 py-1 rounded-lg transition-all text-yellow-400 bg-white/5">SEMUA</button>
-                    <button id="filter-2024" onclick="filterTahun('2024')" class="px-3 py-1 rounded-lg transition-all text-gray-400 hover:text-white">2024</button>
-                    <button id="filter-2025" onclick="filterTahun('2025')" class="px-3 py-1 rounded-lg transition-all text-gray-400 hover:text-white">2025</button>
-                    <button id="filter-2026" onclick="filterTahun('2026')" class="px-3 py-1 rounded-lg transition-all text-gray-400 hover:text-white">2026</button>
-                </div>
+                <span class="text-[10px] text-gray-500 font-bold tracking-tight">Hover grafik untuk detail angka</span>
             </div>
             
             <div id="chart" class="w-full"></div>
@@ -112,29 +106,17 @@
     </div>
 
     <script>
-        // Array penampung data dinamis
         let omsetData = [];
-        let dataTerfilter = []; 
         let chartInstance = null;
-        let tahunAktif = 'ALL';
 
         const formatRupiah = (angka) => {
             return 'Rp ' + Math.round(angka).toLocaleString('id-ID');
         };
 
-        // Fungsi Menampilkan Data Default Rata-Rata (Mengecualikan Bulan Berjalan)
         function setSummaryDefault() {
-            if (dataTerfilter.length === 0) {
-                document.getElementById('kpi-bruto').innerText = "-";
-                document.getElementById('kpi-nota').innerText = "-";
-                document.getElementById('kpi-diskon').innerText = "-";
-                document.getElementById('kpi-produksi').innerText = "-";
-                document.getElementById('kpi-payroll').innerText = "-";
-                return;
-            }
+            if (omsetData.length === 0) return;
             
-            // Ambil semua data terfilter kecuali baris terakhir (bulan berjalan) jika data lebih dari 1 baris
-            const dataUntukRataRata = dataTerfilter.length > 1 ? dataTerfilter.slice(0, -1) : dataTerfilter; 
+            const dataUntukRataRata = omsetData.length > 1 ? omsetData.slice(0, -1) : omsetData; 
             
             const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + ((item.bruto || 0) - (item.diskon || 0)), 0);
             const totalNota = dataUntukRataRata.reduce((sum, item) => sum + (item.nota || 0), 0);
@@ -144,7 +126,6 @@
             const totalPayroll = dataUntukRataRata.reduce((sum, item) => sum + (item.payroll || 0), 0);
             const totalBulan = dataUntukRataRata.length;
 
-            // Render hasil pembagian rata-rata ke KPI Card
             document.getElementById('kpi-bruto').innerText = formatRupiah(totalBrutoBersih / totalBulan);
             document.getElementById('kpi-nota').innerText = Math.round(totalNota / totalBulan).toLocaleString('id-ID') + " /bln";
             document.getElementById('kpi-diskon').innerText = formatRupiah(totalDiskon / totalBulan);
@@ -152,12 +133,12 @@
             document.getElementById('kpi-payroll').innerText = formatRupiah(totalPayroll / totalBulan);
             
             for(let i=1; i<=5; i++) {
-                document.getElementById(`label-bulan-${i}`).innerText = tahunAktif === 'ALL' ? "Rerata Bulan Penuh (Excl. Bulan Berjalan)" : `Rerata Thn ${tahunAktif} (Excl. Bulan Berjalan)`;
+                document.getElementById(`label-bulan-${i}`).innerText = "Rerata Bulan Penuh (Excl. Bulan Berjalan)";
             }
         }
 
         function updateKpiCards(index) {
-            const selected = dataTerfilter[index];
+            const selected = omsetData[index];
             if (!selected) return;
             
             document.getElementById('kpi-bruto').innerText = formatRupiah((selected.bruto || 0) - (selected.diskon || 0));
@@ -171,54 +152,6 @@
             }
         }
 
-        // UPDATE LOGIKA FILTER: Menyesuaikan dengan format akhiran tahun dua digit ("Jan 24")
-        function filterTahun(tahun) {
-            tahunAktif = tahun;
-            
-            const listTombol = ['ALL', '2024', '2025', '2026'];
-            listTombol.forEach(t => {
-                const btn = document.getElementById(`filter-${t.toLowerCase()}`);
-                if(t === tahun) {
-                    btn.className = "px-3 py-1 rounded-lg transition-all text-yellow-400 bg-white/5";
-                } else {
-                    btn.className = "px-3 py-1 rounded-lg transition-all text-gray-400 hover:text-white";
-                }
-            });
-
-            if (tahun === 'ALL') {
-                dataTerfilter = [...omsetData];
-            } else {
-                // Mengambil 2 digit terakhir tahun (contoh: '2024' menjadi '24')
-                const duaDigitTahun = tahun.slice(-2); 
-                dataTerfilter = omsetData.filter(item => {
-                    const stringBulan = (item.bulan || '').toString();
-                    // Mencocokkan apakah string diakhiri dengan space + 2 digit tahun (contoh: "Jan 24")
-                    return stringBulan.endsWith(" " + duaDigitTahun);
-                });
-            }
-
-            // Update grafik ApexCharts
-            if (chartInstance) {
-                const kategoriBulan = dataTerfilter.map(item => item.bulan || '-');
-                const seriBruto = dataTerfilter.map(item => (item.bruto || 0) - (item.diskon || 0));
-                const seriPayroll = dataTerfilter.map(item => item.payroll || 0);
-                const seriTargetPayroll = dataTerfilter.map(item => (item.bruto || 0) * 0.3);
-
-                chartInstance.updateOptions({
-                    xaxis: { categories: kategoriBulan }
-                });
-
-                chartInstance.updateSeries([
-                    { name: 'Bruto (Pendapatan)', data: seriBruto },
-                    { name: 'Payroll Aktual', data: seriPayroll },
-                    { name: 'Target Max Payroll (30%)', data: seriTargetPayroll }
-                ]);
-            }
-
-            setSummaryDefault();
-        }
-
-        // Fungsi Utama untuk Mengambil Data Real-Time
         async function muatDataFinansialAsli() {
             try {
                 const response = await fetch('/api/analisis');
@@ -226,7 +159,6 @@
                 
                 if (result.success && Array.isArray(result.data)) {
                     omsetData = result.data;
-                    dataTerfilter = [...omsetData];
                     
                     const statusEl = document.getElementById('status-mode');
                     statusEl.className = "flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase";
@@ -253,10 +185,10 @@
         }
 
         function inialisasiGrafikDinamis() {
-            const kategoriBulan = dataTerfilter.map(item => item.bulan || '-');
-            const seriBruto = dataTerfilter.map(item => (item.bruto || 0) - (item.diskon || 0));
-            const seriPayroll = dataTerfilter.map(item => item.payroll || 0);
-            const seriTargetPayroll = dataTerfilter.map(item => (item.bruto || 0) * 0.3);
+            const kategoriBulan = omsetData.map(item => item.bulan || '-');
+            const seriBruto = omsetData.map(item => (item.bruto || 0) - (item.diskon || 0));
+            const seriPayroll = omsetData.map(item => item.payroll || 0);
+            const seriTargetPayroll = omsetData.map(item => (item.bruto || 0) * 0.3);
         
             const options = {
                 chart: {
@@ -313,7 +245,7 @@
                     dashArray: [0, 0, 5]
                 },
                 fill: {
-                    type: ['gradient', 'solid', 'solid'],
+                    type: 'gradient',
                     gradient: {
                         shadeIntensity: 1,
                         opacityFrom: 0.35,
@@ -338,7 +270,7 @@
                     shared: true,
                     intersect: false,
                     custom: function({ series, seriesIndex, dataPointIndex, w }) {
-                        const data = dataTerfilter[dataPointIndex];
+                        const data = omsetData[dataPointIndex];
                         if (!data) return '';
                         
                         const hitungBruto = (data.bruto || 0) - (data.diskon || 0);
