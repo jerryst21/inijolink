@@ -40,9 +40,21 @@
                 </h1>
                 <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Statistik & Kontrol Payroll Bulanan</p>
             </div>
-            <div id="status-mode" class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
-                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-                Menghubungkan...
+            
+            <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto justify-start sm:justify-end">
+                <div class="relative">
+                    <select id="filter-tahun" onchange="filterDataPerTahun()" class="bg-[#121214] border border-white/10 text-white text-xs rounded-xl px-4 py-2 pr-8 font-semibold focus:outline-none focus:border-yellow-400 appearance-none cursor-pointer min-w-[100px]">
+                        <option value="Semua">Semua</option>
+                    </select>
+                    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-400">
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                    </div>
+                </div>
+
+                <div id="status-mode" class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
+                    <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                    Menghubungkan...
+                </div>
             </div>
         </header>
 
@@ -106,7 +118,8 @@
     </div>
 
     <script>
-        let omsetData = [];
+        let omsetDataMaster = []; // Menyimpan data asli dari API
+        let omsetDataFiltered = []; // Menyimpan data hasil filter tahun
         let chartInstance = null;
 
         const formatRupiah = (angka) => {
@@ -114,9 +127,12 @@
         };
 
         function setSummaryDefault() {
-            if (omsetData.length === 0) return;
+            if (omsetDataFiltered.length === 0) {
+                resetKpiCardsToZero();
+                return;
+            }
             
-            const dataUntukRataRata = omsetData.length > 1 ? omsetData.slice(0, -1) : omsetData; 
+            const dataUntukRataRata = omsetDataFiltered.length > 1 ? omsetDataFiltered.slice(0, -1) : omsetDataFiltered; 
             
             const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + ((item.bruto || 0) - (item.diskon || 0)), 0);
             const totalNota = dataUntukRataRata.reduce((sum, item) => sum + (item.nota || 0), 0);
@@ -137,8 +153,19 @@
             }
         }
 
+        function resetKpiCardsToZero() {
+            document.getElementById('kpi-bruto').innerText = formatRupiah(0);
+            document.getElementById('kpi-nota').innerText = "0 /bln";
+            document.getElementById('kpi-diskon').innerText = formatRupiah(0);
+            document.getElementById('kpi-produksi').innerText = "0 Kg / 0 Pcs";
+            document.getElementById('kpi-payroll').innerText = formatRupiah(0);
+            for(let i=1; i<=5; i++) {
+                document.getElementById(`label-bulan-${i}`).innerText = "Tidak ada data tahun ini";
+            }
+        }
+
         function updateKpiCards(index) {
-            const selected = omsetData[index];
+            const selected = omsetDataFiltered[index];
             if (!selected) return;
             
             document.getElementById('kpi-bruto').innerText = formatRupiah((selected.bruto || 0) - (selected.diskon || 0));
@@ -158,14 +185,14 @@
                 const result = await response.json();
                 
                 if (result.success && Array.isArray(result.data)) {
-                    omsetData = result.data;
+                    omsetDataMaster = result.data;
                     
                     const statusEl = document.getElementById('status-mode');
                     statusEl.className = "flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase";
                     statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Database Live`;
                     
-                    inialisasiGrafikDinamis();
-                    setSummaryDefault();
+                    ekstrakDanIsiFilterTahun();
+                    filterDataPerTahun();
                 } else {
                     gagalMemuatData("Format Data Error");
                 }
@@ -184,11 +211,53 @@
             }
         }
 
+        function ekstrakDanIsiFilterTahun() {
+            const selectTahun = document.getElementById('filter-tahun');
+            const setTahun = new Set();
+
+            omsetDataMaster.forEach(item => {
+                if (item.bulan) {
+                    // Ekstrak 4 digit angka terakhir dari string bulan (misal "Januari 2026" atau "01-2026")
+                    const cocok = item.bulan.match(/\d{4}/);
+                    if (cocok) {
+                        setTahun.add(cocok[0]);
+                    }
+                }
+            });
+
+            // Urutkan tahun dari yang terbaru
+            const daftarTahunUrut = Array.from(setTahun).sort((a, b) => b - a);
+            
+            // Masukkan ke dropdown pilihan select tanpa menghapus opsi "Semua"
+            selectTahun.innerHTML = '<option value="Semua">Semua</option>';
+            daftarTahunUrut.forEach(tahun => {
+                const opt = document.createElement('option');
+                opt.value = tahun;
+                opt.innerText = tahun;
+                selectTahun.appendChild(opt);
+            });
+        }
+
+        function filterDataPerTahun() {
+            const tahunTerpilih = document.getElementById('filter-tahun').value;
+
+            if (tahunTerpilih === "Semua") {
+                omsetDataFiltered = [...omsetDataMaster];
+            } else {
+                omsetDataFiltered = omsetDataMaster.filter(item => {
+                    return item.bulan && item.bulan.includes(tahunTerpilih);
+                });
+            }
+
+            inialisasiGrafikDinamis();
+            setSummaryDefault();
+        }
+
         function inialisasiGrafikDinamis() {
-            const kategoriBulan = omsetData.map(item => item.bulan || '-');
-            const seriBruto = omsetData.map(item => (item.bruto || 0) - (item.diskon || 0));
-            const seriPayroll = omsetData.map(item => item.payroll || 0);
-            const seriTargetPayroll = omsetData.map(item => (item.bruto || 0) * 0.3);
+            const kategoriBulan = omsetDataFiltered.map(item => item.bulan || '-');
+            const seriBruto = omsetDataFiltered.map(item => (item.bruto || 0) - (item.diskon || 0));
+            const seriPayroll = omsetDataFiltered.map(item => item.payroll || 0);
+            const seriTargetPayroll = omsetDataFiltered.map(item => (item.bruto || 0) * 0.3);
         
             const options = {
                 chart: {
@@ -248,21 +317,18 @@
                     type: ['gradient', 'solid', 'solid'],
                     gradient: {
                         shadeIntensity: 1,
-                        opacityFrom: [0.35, 1, 1], // Mengatur opacity atas untuk masing-masing line
-                        opacityTo: [0.01, 1, 1],   // Mengatur opacity bawah untuk masing-masing line
+                        opacityFrom: [0.35, 1, 1],
+                        opacityTo: [0.01, 1, 1],
                         stops: [0, 100],
                         colorStops: [
-                            // Series 1: Bruto (Pendapatan) -> Kuning dengan Gradien
                             [
                                 { offset: 0, color: '#FACC15', opacity: 0.35 },
                                 { offset: 100, color: '#FACC15', opacity: 0.01 }
                             ],
-                            // Series 2: Payroll Aktual -> Solid Ungu (tanpa gradien pudar)
                             [
                                 { offset: 0, color: '#A78BFA', opacity: 1 },
                                 { offset: 100, color: '#A78BFA', opacity: 1 }
                             ],
-                            // Series 3: Target Max Payroll -> Solid Putih/Abu (tanpa gradien pudar)
                             [
                                 { offset: 0, color: '#E4E4E7', opacity: 1 },
                                 { offset: 100, color: '#E4E4E7', opacity: 1 }
@@ -283,7 +349,7 @@
                     shared: true,
                     intersect: false,
                     custom: function({ series, seriesIndex, dataPointIndex, w }) {
-                        const data = omsetData[dataPointIndex];
+                        const data = omsetDataFiltered[dataPointIndex];
                         if (!data) return '';
                         
                         const hitungBruto = (data.bruto || 0) - (data.diskon || 0);
@@ -348,6 +414,9 @@
                 }
             };
         
+            if (chartInstance) {
+                chartInstance.destroy(); // Hancurkan chart lama agar tidak tumpang tindih saat di-render ulang
+            }
             chartInstance = new ApexCharts(document.querySelector("#chart"), options);
             chartInstance.render();
         }
