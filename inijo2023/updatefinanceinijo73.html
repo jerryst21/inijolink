@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Data Finansial INIJO Laundry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex items-center justify-center p-4">
+
+    <div class="bg-slate-800 p-6 rounded-2xl shadow-xl w-full max-w-md border border-slate-700">
+        <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-700">
+            <div class="bg-teal-500 text-slate-900 p-2 rounded-lg text-xl font-bold">
+                <i class="fa-solid fa-file-invoice-dollar"></i>
+            </div>
+            <div>
+                <h1 class="text-xl font-bold tracking-wide">INIJO LAUNDRY</h1>
+                <p class="text-xs text-slate-400">Input Data Keuangan Bulanan</p>
+            </div>
+        </div>
+
+        <form id="financeForm" class="space-y-4">
+            
+            <div class="bg-slate-850 p-3 rounded-xl border border-dashed border-teal-500/30 mb-2">
+                <label class="block text-xs font-semibold text-teal-400 uppercase tracking-wider mb-1">
+                    <i class="fa-solid fa-lock mr-1"></i> PIN Otorisasi Vercel
+                </label>
+                <input type="password" id="pin" required maxlength="6" placeholder="Masukkan 6 digit PIN" 
+                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-lg font-mono tracking-widest focus:outline-none focus:border-teal-500 transition-colors">
+            </div>
+
+            <div>
+                <label class="block text-sm font-medium text-slate-300 mb-1">Bulan & Tahun</label>
+                <input type="text" id="bulan" required placeholder="Contoh: Mei 2026 atau Jun 2026" 
+                    class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Omset Bruto (Rp)</label>
+                    <input type="number" id="bruto" required placeholder="0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Total Diskon (Rp)</label>
+                    <input type="number" step="0.01" id="diskon" required placeholder="0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Total Nota (Pcs)</label>
+                    <input type="number" id="nota" required placeholder="0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Total Kg</label>
+                    <input type="number" step="0.1" id="kg" required placeholder="0.0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Total Satuan</label>
+                    <input type="number" id="satuan" required placeholder="0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-1">Total Payroll (Rp)</label>
+                    <input type="number" id="payroll" required placeholder="0" 
+                        class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-teal-500 transition-colors">
+                </div>
+            </div>
+
+            <div id="statusMessage" class="hidden p-3 rounded-lg text-sm font-medium text-center transition-all"></div>
+
+            <button type="submit" id="btnSubmit" 
+                class="w-full bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold py-3 px-4 rounded-xl shadow-lg transform active:scale-[0.98] transition-all flex items-center justify-center space-x-2">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                <span>Simpan & Commit ke GitHub</span>
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('financeForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const btnSubmit = document.getElementById('btnSubmit');
+            const statusMessage = document.getElementById('statusMessage');
+
+            // Reset komponen status pesan
+            statusMessage.classList.add('hidden');
+            statusMessage.className = "p-3 rounded-lg text-sm font-medium text-center transition-all";
+
+            // Animasi Loading tombol saat memproses data
+            btnSubmit.disabled = true;
+            btnSubmit.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Sedang Menyimpan Data...</span>`;
+            btnSubmit.className = "w-full bg-slate-600 text-slate-400 font-bold py-3 px-4 rounded-xl cursor-not-allowed flex items-center justify-center space-x-2";
+
+            // Ekstrak data dari formulir HTML
+            const pinCode = document.getElementById('pin').value;
+            const payloadData = {
+                bulan: document.getElementById('bulan').value,
+                bruto: Number(document.getElementById('bruto').value),
+                nota: Number(document.getElementById('nota').value),
+                diskon: Number(document.getElementById('diskon').value),
+                kg: Number(document.getElementById('kg').value),
+                satuan: Number(document.getElementById('satuan').value),
+                payroll: Number(document.getElementById('payroll').value)
+            };
+
+            try {
+                // Menembak Serverless Function Vercel Proxy API yang kita buat
+                const response = await fetch('/api/analisis', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        pin: pinCode,
+                        dataBaru: payloadData
+                    })
+                });
+
+                const result = await response.json();
+
+                if (response.status === 200 && result.success) {
+                    // Berhasil dimasukkan & dicommit ke GitHub
+                    statusMessage.innerText = result.message;
+                    statusMessage.classList.remove('hidden');
+                    statusMessage.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border', 'border-emerald-500/30');
+                    
+                    // Reset isi Form input (Kecuali PIN untuk memudahkan input bulan berikutnya)
+                    document.getElementById('bulan').value = '';
+                    document.getElementById('bruto').value = '';
+                    document.getElementById('nota').value = '';
+                    document.getElementById('diskon').value = '';
+                    document.getElementById('kg').value = '';
+                    document.getElementById('satuan').value = '';
+                    document.getElementById('payroll').value = '';
+                } else {
+                    // Gagal diproses oleh API (Bisa karena PIN salah atau Token bermasalah)
+                    statusMessage.innerText = `Gagal: ${result.message}`;
+                    statusMessage.classList.remove('hidden');
+                    statusMessage.classList.add('bg-rose-500/10', 'text-rose-400', 'border', 'border-rose-500/30');
+                }
+
+            } catch (error) {
+                // Terjadi masalah jaringan saat melakukan fetch
+                statusMessage.innerText = "Gagal terhubung ke server Vercel. Periksa koneksi internetmu.";
+                statusMessage.classList.remove('hidden');
+                statusMessage.classList.add('bg-rose-500/10', 'text-rose-400', 'border', 'border-rose-500/30');
+            } finally {
+                // Mengembalikan tombol submit ke keadaan normal setelah proses selesai
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = `<i class="fa-solid fa-cloud-arrow-up"></i> <span>Simpan & Commit ke GitHub</span>`;
+                btnSubmit.className = "w-full bg-teal-500 hover:bg-teal-600 text-slate-900 font-bold py-3 px-4 rounded-xl shadow-lg transform active:scale-[0.98] transition-all flex items-center justify-center space-x-2";
+            }
+        });
+    </script>
+</body>
+</html>
