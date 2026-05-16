@@ -48,7 +48,7 @@
 
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
-                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Omset</p>
+                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Bruto</p>
                 <h3 id="kpi-bruto" class="text-lg md:text-xl font-black text-yellow-400 mt-1 tracking-tight mono-text">-</h3>
                 <p id="label-bulan-1" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-yellow-400/10 text-2xl transition-colors duration-300">
@@ -127,7 +127,8 @@
         function setSummaryDefault() {
             const dataUntukRataRata = omsetData.slice(0, -1); 
             
-            const totalBruto = dataUntukRataRata.reduce((sum, item) => sum + item.bruto, 0);
+            // Sekarang menghitung total Bruto asli (bruto - diskon)
+            const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + (item.bruto - item.diskon), 0);
             const totalNota = dataUntukRataRata.reduce((sum, item) => sum + item.nota, 0);
             const totalDiskon = dataUntukRataRata.reduce((sum, item) => sum + item.diskon, 0);
             const totalKg = dataUntukRataRata.reduce((sum, item) => sum + item.kg, 0);
@@ -135,7 +136,7 @@
             const totalBulan = dataUntukRataRata.length;
 
             // Render hasil pembagian rata-rata ke KPI Card
-            document.getElementById('kpi-bruto').innerText = formatRupiah(Math.round(totalBruto / totalBulan));
+            document.getElementById('kpi-bruto').innerText = formatRupiah(Math.round(totalBrutoBersih / totalBulan));
             document.getElementById('kpi-nota').innerText = Math.round(totalNota / totalBulan).toLocaleString('id-ID') + " /bln";
             document.getElementById('kpi-diskon').innerText = formatRupiah(Math.round(totalDiskon / totalBulan));
             document.getElementById('kpi-produksi').innerText = `${Math.round(totalKg / totalBulan).toLocaleString('id-ID')} Kg / ${Math.round(totalSatuan / totalBulan)} Pcs`;
@@ -147,7 +148,8 @@
 
         function updateKpiCards(index) {
             const selected = omsetData[index];
-            document.getElementById('kpi-bruto').innerText = formatRupiah(selected.bruto);
+            // Update nilai bruto di kpi-card sesuai dengan kalkulasi grafik
+            document.getElementById('kpi-bruto').innerText = formatRupiah(selected.bruto - selected.diskon);
             document.getElementById('kpi-nota').innerText = selected.nota.toLocaleString('id-ID') + " Transaksi";
             document.getElementById('kpi-diskon').innerText = formatRupiah(selected.diskon);
             document.getElementById('kpi-produksi').innerText = `${selected.kg.toLocaleString('id-ID')} Kg / ${selected.satuan} Pcs`;
@@ -239,7 +241,7 @@
             },
             theme: { mode: 'dark' },
             
-            // CUSTOM MULTI-DATA TOOLTIP (Urutan: Omset, Diskon, Bruto, Berat, Satuan)
+            // CUSTOM MULTI-DATA TOOLTIP (Tukar Warna: Omset Orange, Bruto Kuning)
             tooltip: {
                 theme: 'dark',
                 shared: true,
@@ -254,16 +256,16 @@
                             </div>
                             <div class="space-y-1.5 text-white">
                                 <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-yellow-400 w-3"></i> Omset:</span>
-                                    <span class="font-bold text-yellow-400 font-mono">${formatRupiah(data.bruto)}</span>
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-orange-400 w-3"></i> Omset:</span>
+                                    <span class="font-bold text-orange-400 font-mono">${formatRupiah(data.bruto)}</span>
                                 </div>
                                 <div class="flex justify-between gap-4">
                                     <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-tags text-red-400 w-3"></i> Diskon:</span>
                                     <span class="font-bold text-red-400 font-mono">${formatRupiah(data.diskon)}</span>
                                 </div>
                                 <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-orange-400 w-3"></i> Bruto:</span>
-                                    <span class="font-bold text-orange-400 font-mono">${formatRupiah(hitungBruto)}</span>
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-yellow-400 w-3"></i> Bruto:</span>
+                                    <span class="font-bold text-yellow-400 font-mono">${formatRupiah(hitungBruto)}</span>
                                 </div>
                                 <div class="flex justify-between gap-4">
                                     <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-weight-scale text-emerald-400 w-3"></i> Berat:</span>
