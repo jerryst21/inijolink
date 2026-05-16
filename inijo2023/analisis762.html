@@ -40,9 +40,9 @@
                 </h1>
                 <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Omset & Kontrol Payroll Bulanan</p>
             </div>
-            <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
-                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                Mode Mock Data
+            <div id="status-mode" class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+                Menghubungkan...
             </div>
         </header>
 
@@ -50,7 +50,7 @@
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
                 <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Bruto</p>
                 <h3 id="kpi-bruto" class="text-lg md:text-xl font-black text-yellow-400 mt-1 tracking-tight mono-text">-</h3>
-                <p id="label-bulan-1" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <p id="label-bulan-1" class="text-[9px] text-gray-500 font-medium mt-1">Memuat...</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-yellow-400/10 text-2xl transition-colors duration-300">
                     <i class="fa-solid fa-wallet"></i>
                 </div>
@@ -59,7 +59,7 @@
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
                 <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Total Nota</p>
                 <h3 id="kpi-nota" class="text-lg md:text-xl font-black text-white mt-1 tracking-tight mono-text">-</h3>
-                <p id="label-bulan-2" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <p id="label-bulan-2" class="text-[9px] text-gray-500 font-medium mt-1">Memuat...</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-white/10 text-2xl transition-colors duration-300">
                     <i class="fa-solid fa-receipt"></i>
                 </div>
@@ -68,7 +68,7 @@
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
                 <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Diskon</p>
                 <h3 id="kpi-diskon" class="text-lg md:text-xl font-black text-red-400 mt-1 tracking-tight mono-text">-</h3>
-                <p id="label-bulan-3" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <p id="label-bulan-3" class="text-[9px] text-gray-500 font-medium mt-1">Memuat...</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-red-400/10 text-2xl transition-colors duration-300">
                     <i class="fa-solid fa-tags"></i>
                 </div>
@@ -77,7 +77,7 @@
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
                 <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Berat / Satuan</p>
                 <h3 id="kpi-produksi" class="text-base md:text-lg font-black text-emerald-400 mt-1 tracking-tight mono-text">-</h3>
-                <p id="label-bulan-4" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <p id="label-bulan-4" class="text-[9px] text-gray-500 font-medium mt-1">Memuat...</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-emerald-400/10 text-2xl transition-colors duration-300">
                     <i class="fa-solid fa-weight-scale"></i>
                 </div>
@@ -86,7 +86,7 @@
             <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group col-span-2 md:col-span-1">
                 <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Payroll Karyawan</p>
                 <h3 id="kpi-payroll" class="text-lg md:text-xl font-black text-purple-400 mt-1 tracking-tight mono-text">-</h3>
-                <p id="label-bulan-5" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <p id="label-bulan-5" class="text-[9px] text-gray-500 font-medium mt-1">Memuat...</p>
                 <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-purple-400/10 text-2xl transition-colors duration-300">
                     <i class="fa-solid fa-users-gear"></i>
                 </div>
@@ -106,27 +106,9 @@
     </div>
 
     <script>
-        // LIST DATA JSON MOCK
-        const omsetData = [
-            { "bulan": "Des 2024", "bruto": 79913400, "nota": 1106,  "diskon": 797236.8, "kg": 6972, "satuan": 483, "payroll": 28735000 },
-            { "bulan": "Jan 2025", "bruto": 89355200, "nota": 1204, "diskon": 725438.4, "kg": 7393.4, "satuan": 725, "payroll": 22091500 },
-            { "bulan": "Feb 2025", "bruto": 75947300, "nota": 1039,  "diskon": 432224.8, "kg": 6435.2, "satuan": 536, "payroll": 24129000 },
-            { "bulan": "Mar 2025", "bruto": 91150300, "nota": 1210, "diskon": 616829.6, "kg": 7645.9, "satuan": 641, "payroll": 26027000 },
-            { "bulan": "Apr 2025", "bruto": 84763200, "nota": 1139, "diskon": 467351.2, "kg": 7082.4, "satuan": 590, "payroll": 24143000 },
-            { "bulan": "Mei 2025", "bruto": 81420100, "nota": 1087, "diskon": 1077960, "kg": 6895.1, "satuan": 574, "payroll": 21437000 },
-            { "bulan": "Jun 2025", "bruto": 90463800, "nota": 1192, "diskon": 747600, "kg": 7281, "satuan": 720, "payroll": 26020800 },
-            { "bulan": "Jul 2025", "bruto": 87899700, "nota": 1176, "diskon": 1135000, "kg": 7328.8, "satuan": 674, "payroll": 22253500 },
-            { "bulan": "Agu 2025", "bruto": 84217700, "nota": 1143,  "diskon": 1206200, "kg": 7071, "satuan": 587, "payroll": 19505500 },
-            { "bulan": "Sep 2025", "bruto": 82681700, "nota": 1076, "diskon": 806400, "kg": 6802, "satuan": 640, "payroll": 21697000 },
-            { "bulan": "Okt 2025", "bruto": 82539000, "nota": 1134, "diskon": 724800, "kg": 7045.8, "satuan": 553, "payroll": 19300500 },
-            { "bulan": "Nov 2025", "bruto": 84028100, "nota": 1113, "diskon": 947200, "kg": 7347.6, "satuan": 466, "payroll": 20412500 },
-            { "bulan": "Des 2025", "bruto": 94042200, "nota": 1214, "diskon": 655200, "kg": 8246.8, "satuan": 593, "payroll": 32608000 },
-            { "bulan": "Jan 2026", "bruto": 87829700, "nota": 1106, "diskon": 527200, "kg": 7331.5, "satuan": 612, "payroll": 23813500 },
-            { "bulan": "Feb 2026", "bruto": 85619200, "nota": 1078, "diskon": 567200, "kg": 7233.6, "satuan": 545, "payroll": 24491500 },
-            { "bulan": "Mar 2026", "bruto": 91435700, "nota": 1190,  "diskon": 678400, "kg": 7918.5, "satuan": 547, "payroll": 19298500 },
-            { "bulan": "Apr 2026", "bruto": 80414300, "nota": 1055, "diskon": 721600, "kg": 6686.8, "satuan": 566, "payroll": 17156500 },
-            { "bulan": "Mei 2026", "bruto": 40385400, "nota": 541,  "diskon": 340800, "kg": 3558.6, "satuan": 242, "payroll": 12115620 } 
-        ];
+        // Array penampung data dinamis dari GitHub
+        let omsetData = [];
+        let chartInstance = null;
 
         const formatRupiah = (angka) => {
             return 'Rp ' + Math.round(angka).toLocaleString('id-ID');
@@ -134,14 +116,17 @@
 
         // Fungsi Menampilkan Data Default Rata-Rata (Mengecualikan Bulan Berjalan)
         function setSummaryDefault() {
-            const dataUntukRataRata = omsetData.slice(0, -1); 
+            if (omsetData.length === 0) return;
             
-            const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + (item.bruto - item.diskon), 0);
-            const totalNota = dataUntukRataRata.reduce((sum, item) => sum + item.nota, 0);
-            const totalDiskon = dataUntukRataRata.reduce((sum, item) => sum + item.diskon, 0);
-            const totalKg = dataUntukRataRata.reduce((sum, item) => sum + item.kg, 0);
-            const totalSatuan = dataUntukRataRata.reduce((sum, item) => sum + item.satuan, 0);
-            const totalPayroll = dataUntukRataRata.reduce((sum, item) => sum + item.payroll, 0);
+            // Ambil semua data kecuali baris terakhir (bulan berjalan) jika data lebih dari 1 baris
+            const dataUntukRataRata = omsetData.length > 1 ? omsetData.slice(0, -1) : omsetData; 
+            
+            const totalBrutoBersih = dataUntukRataRata.reduce((sum, item) => sum + ((item.bruto || 0) - (item.diskon || 0)), 0);
+            const totalNota = dataUntukRataRata.reduce((sum, item) => sum + (item.nota || 0), 0);
+            const totalDiskon = dataUntukRataRata.reduce((sum, item) => sum + (item.diskon || 0), 0);
+            const totalKg = dataUntukRataRata.reduce((sum, item) => sum + (item.kg || 0), 0);
+            const totalSatuan = dataUntukRataRata.reduce((sum, item) => sum + (item.satuan || 0), 0);
+            const totalPayroll = dataUntukRataRata.reduce((sum, item) => sum + (item.payroll || 0), 0);
             const totalBulan = dataUntukRataRata.length;
 
             // Render hasil pembagian rata-rata ke KPI Card
@@ -158,159 +143,194 @@
 
         function updateKpiCards(index) {
             const selected = omsetData[index];
+            if (!selected) return;
             
-            document.getElementById('kpi-bruto').innerText = formatRupiah(selected.bruto - selected.diskon);
-            document.getElementById('kpi-nota').innerText = selected.nota.toLocaleString('id-ID') + " Transaksi";
-            document.getElementById('kpi-diskon').innerText = formatRupiah(selected.diskon);
-            document.getElementById('kpi-produksi').innerText = `${selected.kg.toLocaleString('id-ID')} Kg / ${selected.satuan} Pcs`;
-            document.getElementById('kpi-payroll').innerText = formatRupiah(selected.payroll);
+            document.getElementById('kpi-bruto').innerText = formatRupiah((selected.bruto || 0) - (selected.diskon || 0));
+            document.getElementById('kpi-nota').innerText = (selected.nota || 0).toLocaleString('id-ID') + " Transaksi";
+            document.getElementById('kpi-diskon').innerText = formatRupiah(selected.diskon || 0);
+            document.getElementById('kpi-produksi').innerText = `${(selected.kg || 0).toLocaleString('id-ID')} Kg / ${selected.satuan || 0} Pcs`;
+            document.getElementById('kpi-payroll').innerText = formatRupiah(selected.payroll || 0);
             
             for(let i=1; i<=5; i++) {
-                document.getElementById(`label-bulan-${i}`).innerText = `Data Bulan: ${selected.bulan}`;
+                document.getElementById(`label-bulan-${i}`).innerText = `Data Bulan: ${selected.bulan || '-'}`;
             }
         }
 
-        const kategoriBulan = omsetData.map(item => item.bulan);
-        const seriBruto = omsetData.map(item => item.bruto - item.diskon);
-        const seriPayroll = omsetData.map(item => item.payroll);
-        // Garis batas dinamis 30% dari bruto kotor
-        const seriTargetPayroll = omsetData.map(item => item.bruto * 0.3);
-
-        const options = {
-            chart: {
-                type: 'area',
-                height: 350,
-                toolbar: { show: false },
-                background: 'transparent',
-                foreColor: '#71717a',
-                events: {
-                    dataPointMouseEnter: function(event, chartContext, config) {
-                        if (config.dataPointIndex > -1) {
-                            updateKpiCards(config.dataPointIndex);
-                        }
-                    },
-                    mouseLeave: function() {
-                        setSummaryDefault();
-                    }
-                }
-            },
-            // Menampilkan Multi-Line Data
-            series: [
-                { name: 'Bruto (Pendapatan)', type: 'area', data: seriBruto },
-                { name: 'Payroll Aktual', type: 'line', data: seriPayroll },
-                { name: 'Target Max Payroll (30%)', type: 'line', data: seriTargetPayroll }
-            ],
-            annotations: {
-                yaxis: [{
-                    y: 80000000,
-                    borderColor: '#EF4444',
-                    strokeDashArray: 5,
-                    borderWidth: 2,
-                    label: {
-                        borderColor: '#EF4444',
-                        style: { color: '#FFF', background: '#EF4444', fontWeight: '700', fontSize: '10px' },
-                        text: '80JT'
-                    }
-                }]
-            },
-            xaxis: {
-                categories: kategoriBulan,
-                axisBorder: { show: false },
-                axisTicks: { show: false },
-            },
-            yaxis: {
-                labels: {
-                    formatter: function (value) {
-                        return (value / 1000000) + " Jt";
-                    }
-                }
-            },
-            stroke: {
-                curve: 'smooth',
-                width: [3, 3, 2],
-                dashArray: [0, 0, 5] // Membuat baris target ke-3 menjadi garis putus-putus
-            },
-            fill: {
-                type: ['gradient', 'solid', 'solid'],
-                gradient: {
-                    shadeIntensity: 1,
-                    opacityFrom: 0.35,
-                    opacityTo: 0.01,
-                    stops: [0, 100],
-                    colorStops: [
-                        { offset: 0, color: '#FACC15', opacity: 0.35 },
-                        { offset: 100, color: '#FACC15', opacity: 0.01 }
-                    ]
-                }
-            },
-            dataLabels: { enabled: false },
-            grid: {
-                borderColor: 'rgba(255, 255, 255, 0.05)',
-                strokeDashArray: 4,
-                padding: { right: 20, left: 10 }
-            },
-            theme: { mode: 'dark' },
-            colors: ['#FACC15', '#A78BFA', '#E4E4E7'], // Kuning (Bruto), Ungu (Payroll Aktual), Putih (Target)
-            
-            // CUSTOM MULTI-DATA TOOLTIP DETEKSI STATUS OTOMATIS
-            tooltip: {
-                theme: 'dark',
-                shared: true,
-                intersect: false,
-                custom: function({ series, seriesIndex, dataPointIndex, w }) {
-                    const data = omsetData[dataPointIndex];
-                    const hitungBruto = data.bruto - data.diskon;
+        // Fungsi Utama untuk Mengambil Data Real-Time
+        async function muatDataFinansialAsli() {
+            try {
+                const response = await fetch('/api/analisis');
+                const result = await response.json();
+                
+                if (result.success && Array.isArray(result.data)) {
+                    omsetData = result.data;
                     
-                    // Hitung persentase payroll aktual terhadap total omset kotor
-                    const persenPayroll = data.bruto > 0 ? Math.round((data.payroll / data.bruto) * 100) : 0;
+                    // Ganti indikator header menjadi Live Mode
+                    const statusEl = document.getElementById('status-mode');
+                    statusEl.className = "flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase";
+                    statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Database Live`;
                     
-                    // Kondisi penentuan status budget aman atau tidak (Batas 30%)
-                    let statusBudget = `<span class="text-emerald-400 font-extrabold ml-1">(AMAN)</span>`;
-                    let borderStatusColor = "border-emerald-500/30";
-                    if(persenPayroll > 30) {
-                        statusBudget = `<span class="text-red-500 font-extrabold ml-1 animate-pulse">(LEBIH)</span>`;
-                        borderStatusColor = "border-red-500/40";
-                    }
-
-                    return `
-                        <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[220px] text-xs">
-                            <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px] flex justify-between items-center">
-                                <span>${data.bulan}</span>
-                                ${persenPayroll > 0 ? `<span>Rasio: ${persenPayroll}%</span>` : ''}
-                            </div>
-                            <div class="space-y-1.5 text-white">
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-orange-400 w-3"></i> Omset:</span>
-                                    <span class="font-bold text-orange-400 font-mono">${formatRupiah(data.bruto)}</span>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-tags text-red-400 w-3"></i> Diskon:</span>
-                                    <span class="font-bold text-red-400 font-mono">${formatRupiah(data.diskon)}</span>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-yellow-400 w-3"></i> Bruto:</span>
-                                    <span class="font-bold text-yellow-400 font-mono">${formatRupiah(hitungBruto)}</span>
-                                </div>
-                                <div class="border-t border-white/5 my-1"></div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-users-gear text-purple-400 w-3"></i> Payroll:</span>
-                                    <span class="font-bold text-purple-400 font-mono">${formatRupiah(data.payroll)}</span>
-                                </div>
-                                <div class="flex justify-between gap-4 text-[10px] bg-white/5 p-1 rounded-md mt-1">
-                                    <span class="text-gray-400">Status Beban:</span>
-                                    <span class="font-mono">${persenPayroll}% dari Omset ${statusBudget}</span>
-                                </div>
-                            </div>
-                        </div>
-                    `;
+                    // Olah dan petakan data untuk kebutuhan grafik ApexCharts
+                    inialisasiGrafikDinamis();
+                    setSummaryDefault();
+                } else {
+                    gagalMemuatData("Format Data Error");
                 }
+            } catch (err) {
+                gagalMemuatData("Koneksi API Gagal");
             }
-        };
+        }
 
+        function gagalMemuatData(pesan) {
+            const statusEl = document.getElementById('status-mode');
+            statusEl.className = "flex items-center gap-2 bg-rose-500/10 border border-rose-500/20 text-rose-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase";
+            statusEl.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-rose-400"></span> ${pesan}`;
+            
+            for(let i=1; i<=5; i++) {
+                document.getElementById(`label-bulan-${i}`).innerText = "Gagal memuat data";
+            }
+        }
+
+        function inialisasiGrafikDinamis() {
+            const kategoriBulan = omsetData.map(item => item.bulan || '-');
+            const seriBruto = omsetData.map(item => (item.bruto || 0) - (item.diskon || 0));
+            const seriPayroll = omsetData.map(item => item.payroll || 0);
+            const seriTargetPayroll = omsetData.map(item => (item.bruto || 0) * 0.3);
+
+            const options = {
+                chart: {
+                    type: 'area',
+                    height: 350,
+                    toolbar: { show: false },
+                    background: 'transparent',
+                    foreColor: '#71717a',
+                    events: {
+                        dataPointMouseEnter: function(event, chartContext, config) {
+                            if (config.dataPointIndex > -1) {
+                                updateKpiCards(config.dataPointIndex);
+                            }
+                        },
+                        mouseLeave: function() {
+                            setSummaryDefault();
+                        }
+                    }
+                },
+                series: [
+                    { name: 'Bruto (Pendapatan)', type: 'area', data: seriBruto },
+                    { name: 'Payroll Aktual', type: 'line', data: seriPayroll },
+                    { name: 'Target Max Payroll (30%)', type: 'line', data: seriTargetPayroll }
+                ],
+                annotations: {
+                    yaxis: [{
+                        y: 80000000,
+                        borderColor: '#EF4444',
+                        strokeDashArray: 5,
+                        borderWidth: 2,
+                        label: {
+                            borderColor: '#EF4444',
+                            style: { color: '#FFF', background: '#EF4444', fontWeight: '700', fontSize: '10px' },
+                            text: '80JT'
+                        }
+                    }]
+                },
+                xaxis: {
+                    categories: kategoriBulan,
+                    axisBorder: { show: false },
+                    axisTicks: { show: false },
+                },
+                yaxis: {
+                    labels: {
+                        formatter: function (value) {
+                            return (value / 1000000) + " Jt";
+                        }
+                    }
+                },
+                stroke: {
+                    curve: 'smooth',
+                    width: [3, 3, 2],
+                    dashArray: [0, 0, 5]
+                },
+                fill: {
+                    type: ['gradient', 'solid', 'solid'],
+                    gradient: {
+                        shadeIntensity: 1,
+                        opacityFrom: 0.35,
+                        opacityTo: 0.01,
+                        stops: [0, 100],
+                        colorStops: [
+                            { offset: 0, color: '#FACC15', opacity: 0.35 },
+                            { offset: 100, color: '#FACC15', opacity: 0.01 }
+                        ]
+                    }
+                },
+                dataLabels: { enabled: false },
+                grid: {
+                    borderColor: 'rgba(255, 255, 255, 0.05)',
+                    strokeDashArray: 4,
+                    padding: { right: 20, left: 10 }
+                },
+                theme: { mode: 'dark' },
+                colors: ['#FACC15', '#A78BFA', '#E4E4E7'],
+                tooltip: {
+                    theme: 'dark',
+                    shared: true,
+                    intersect: false,
+                    custom: function({ series, seriesIndex, dataPointIndex, w }) {
+                        const data = omsetData[dataPointIndex];
+                        if (!data) return '';
+                        
+                        const hitungBruto = (data.bruto || 0) - (data.diskon || 0);
+                        const persenPayroll = data.bruto > 0 ? Math.round((data.payroll / data.bruto) * 100) : 0;
+                        
+                        let statusBudget = `<span class="text-emerald-400 font-extrabold ml-1">(AMAN)</span>`;
+                        let borderStatusColor = "border-emerald-500/30";
+                        if(persenPayroll > 30) {
+                            statusBudget = `<span class="text-red-500 font-extrabold ml-1 animate-pulse">(LEBIH)</span>`;
+                            borderStatusColor = "border-red-500/40";
+                        }
+
+                        return `
+                            <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[220px] text-xs">
+                                <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px] flex justify-between items-center">
+                                    <span>${data.bulan || '-'}</span>
+                                    ${persenPayroll > 0 ? `<span>Rasio: ${persenPayroll}%</span>` : ''}
+                                </div>
+                                <div class="space-y-1.5 text-white">
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-orange-400 w-3"></i> Omset:</span>
+                                        <span class="font-bold text-orange-400 font-mono">${formatRupiah(data.bruto || 0)}</span>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-tags text-red-400 w-3"></i> Diskon:</span>
+                                        <span class="font-bold text-red-400 font-mono">${formatRupiah(data.diskon || 0)}</span>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-yellow-400 w-3"></i> Bruto:</span>
+                                        <span class="font-bold text-yellow-400 font-mono">${formatRupiah(hitungBruto)}</span>
+                                    </div>
+                                    <div class="border-t border-white/5 my-1"></div>
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-users-gear text-purple-400 w-3"></i> Payroll:</span>
+                                        <span class="font-bold text-purple-400 font-mono">${formatRupiah(data.payroll || 0)}</span>
+                                    </div>
+                                    <div class="flex justify-between gap-4 text-[10px] bg-white/5 p-1 rounded-md mt-1">
+                                        <span class="text-gray-400">Status Beban:</span>
+                                        <span class="font-mono">${persenPayroll}% dari Omset ${statusBudget}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+            };
+
+            chartInstance = new ApexCharts(document.querySelector("#chart"), options);
+            chartInstance.render();
+        }
+
+        // Eksekusi penarikan data begitu halaman siap diakses
         window.onload = () => {
-            const chart = new ApexCharts(document.querySelector("#chart"), options);
-            chart.render();
-            setSummaryDefault();
+            muatDataFinansialAsli();
         };
     </script>
 </body>
