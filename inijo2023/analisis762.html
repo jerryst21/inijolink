@@ -196,7 +196,7 @@
             const seriBruto = omsetData.map(item => (item.bruto || 0) - (item.diskon || 0));
             const seriPayroll = omsetData.map(item => item.payroll || 0);
             const seriTargetPayroll = omsetData.map(item => (item.bruto || 0) * 0.3);
-
+        
             const options = {
                 chart: {
                     type: 'area',
@@ -204,6 +204,11 @@
                     toolbar: { show: false },
                     background: 'transparent',
                     foreColor: '#71717a',
+                    // --- TAMBAHKAN BLOK INI UNTUK MATIKAN ZOOM ---
+                    zoom: {
+                        enabled: false
+                    },
+                    // ---------------------------------------------
                     events: {
                         dataPointMouseEnter: function(event, chartContext, config) {
                             if (config.dataPointIndex > -1) {
@@ -288,7 +293,7 @@
                             statusBudget = `<span class="text-red-500 font-extrabold ml-1 animate-pulse">(LEBIH)</span>`;
                             borderStatusColor = "border-red-500/40";
                         }
-
+        
                         return `
                             <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[220px] text-xs">
                                 <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px] flex justify-between items-center">
@@ -323,7 +328,7 @@
                     }
                 }
             };
-
+        
             chartInstance = new ApexCharts(document.querySelector("#chart"), options);
             chartInstance.render();
         }
