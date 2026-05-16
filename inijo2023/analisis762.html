@@ -38,7 +38,7 @@
                 <h1 class="text-2xl font-black tracking-tight flex items-center gap-2">
                     <span class="text-yellow-400">INIJO</span> Analisa Keuangan
                 </h1>
-                <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Omset & Kontrol Payroll Bulanan</p>
+                <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Statistik & Kontrol Payroll Bulanan</p>
             </div>
             <div id="status-mode" class="flex items-center gap-2 bg-amber-500/10 border border-amber-500/20 text-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
                 <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
@@ -204,11 +204,9 @@
                     toolbar: { show: false },
                     background: 'transparent',
                     foreColor: '#71717a',
-                    // --- TAMBAHKAN BLOK INI UNTUK MATIKAN ZOOM ---
                     zoom: {
                         enabled: false
                     },
-                    // ---------------------------------------------
                     events: {
                         dataPointMouseEnter: function(event, chartContext, config) {
                             if (config.dataPointIndex > -1) {
@@ -295,10 +293,10 @@
                         }
         
                         return `
-                            <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[220px] text-xs">
+                            <div class="bg-[#121214] border ${borderStatusColor} rounded-xl p-3 shadow-2xl min-w-[240px] text-xs">
                                 <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px] flex justify-between items-center">
                                     <span>${data.bulan || '-'}</span>
-                                    ${persenPayroll > 0 ? `<span>Rasio: ${persenPayroll}%</span>` : ''}
+                                    ${persenPayroll > 0 ? `<span>Rasio Gaji: ${persenPayroll}%</span>` : ''}
                                 </div>
                                 <div class="space-y-1.5 text-white">
                                     <div class="flex justify-between gap-4">
@@ -313,7 +311,24 @@
                                         <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-yellow-400 w-3"></i> Bruto:</span>
                                         <span class="font-bold text-yellow-400 font-mono">${formatRupiah(hitungBruto)}</span>
                                     </div>
+                                    
                                     <div class="border-t border-white/5 my-1"></div>
+                                    
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-receipt text-sky-400 w-3"></i> Nota:</span>
+                                        <span class="font-bold text-sky-400 font-mono">${(data.nota || 0).toLocaleString('id-ID')} Txs</span>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-weight-scale text-emerald-400 w-3"></i> Berat:</span>
+                                        <span class="font-bold text-emerald-400 font-mono">${(data.kg || 0).toLocaleString('id-ID')} Kg</span>
+                                    </div>
+                                    <div class="flex justify-between gap-4">
+                                        <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-shirt text-blue-400 w-3"></i> Satuan:</span>
+                                        <span class="font-bold text-blue-400 font-mono">${(data.satuan || 0).toLocaleString('id-ID')} Pcs</span>
+                                    </div>
+
+                                    <div class="border-t border-white/5 my-1"></div>
+
                                     <div class="flex justify-between gap-4">
                                         <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-users-gear text-purple-400 w-3"></i> Payroll:</span>
                                         <span class="font-bold text-purple-400 font-mono">${formatRupiah(data.payroll || 0)}</span>
