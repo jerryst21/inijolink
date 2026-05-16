@@ -1,5 +1,86 @@
 [
   {
+    "bulan": "Jan 2024",
+    "bruto": 63961200,
+    "diskon": 1529100,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 17774000
+  },
+  {
+    "bulan": "Feb 2024",
+    "bruto": 69523300,
+    "diskon": 1239150,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 17350000
+  },
+  {
+    "bulan": "Mar 2024",
+    "bruto": 74390300,
+    "diskon": 946600,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 18106000
+  },
+  {
+    "bulan": "Apr 2024",
+    "bruto": 69653901,
+    "diskon": 1010150,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 25901000
+  },
+  {
+    "bulan": "Mei 2024",
+    "bruto": 65796052,
+    "diskon": 1859850,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 19647000
+  },
+  {
+    "bulan": "Jun 2024",
+    "bruto": 66756000,
+    "diskon": 1238000,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 18037000
+  },
+  {
+    "bulan": "Jul 2024",
+    "bruto": 69150000,
+    "diskon": 992800,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 19872000
+  },
+  {
+    "bulan": "Agu 2024",
+    "bruto": 71786100,
+    "diskon": 1082400,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 18587000
+  },
+  {
+    "bulan": "Sep 2024",
+    "bruto": 70646800,
+    "diskon": ,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 18137000
+  },
+  {
     "bulan": "Okt 2024",
     "bruto": 76390100,
     "diskon": 1327800,
