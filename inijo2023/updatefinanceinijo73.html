@@ -9,39 +9,39 @@
     <style>
         /* Style untuk memberikan feedback visual saat baris sedang di-drag */
         .drag-over {
-            border-top: 2px solid #f59e0b !important;
-            background-color: rgba(245, 158, 11, 0.05);
+            border-top: 2px solid #facc15 !important;
+            background-color: rgba(250, 204, 21, 0.05);
         }
         .dragging {
             opacity: 0.5;
-            background-color: rgba(245, 158, 11, 0.1);
+            background-color: rgba(250, 204, 21, 0.1);
         }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen p-4 md:p-8">
+<body class="bg-neutral-950 text-neutral-100 min-h-screen p-4 md:p-8">
 
-    <div class="max-w-7xl mx-auto bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
+    <div class="max-w-7xl mx-auto bg-neutral-900 p-6 rounded-2xl shadow-xl border border-neutral-800">
         
-        <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-6 mb-6 border-b border-slate-700 gap-4">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-6 mb-6 border-b border-neutral-800 gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-amber-500 text-slate-900 p-2 rounded-lg text-xl font-bold">
+                <div class="bg-yellow-400 text-neutral-950 p-2 rounded-lg text-xl font-bold">
                     <i class="fa-solid fa-table-list"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide">INIJO LAUNDRY</h1>
-                    <p class="text-xs text-slate-400">Database JSON Editor Finansial</p>
+                    <h1 class="text-xl font-bold tracking-wide text-yellow-400">INIJO LAUNDRY</h1>
+                    <p class="text-xs text-neutral-400">Database JSON Editor Finansial</p>
                 </div>
             </div>
             
             <div class="flex flex-wrap items-center gap-3">
                 <input type="password" id="pin" maxlength="6" placeholder="Masukkan PIN Vercel" 
-                    class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-sm font-mono focus:outline-none focus:border-amber-500 w-40">
+                    class="bg-neutral-950 border border-neutral-800 rounded-lg px-3 py-2 text-center text-sm font-mono focus:outline-none focus:border-yellow-400 w-40">
                 
-                <button onclick="tambahBarisBaru()" class="bg-slate-700 hover:bg-slate-600 text-amber-400 text-sm font-semibold py-2 px-4 rounded-xl transition-all flex items-center space-x-2">
+                <button onclick="tambahBarisBaru()" class="bg-neutral-800 hover:bg-neutral-700 text-yellow-400 text-sm font-semibold py-2 px-4 rounded-xl transition-all flex items-center space-x-2">
                     <i class="fa-solid fa-plus"></i> <span>Tambah Bulan</span>
                 </button>
 
-                <button id="btnSimpan" onclick="simpanPerubahanMassal()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-sm font-bold py-2 px-5 rounded-xl shadow-lg transition-all flex items-center space-x-2">
+                <button id="btnSimpan" onclick="simpanPerubahanMassal()" class="bg-yellow-400 hover:bg-yellow-500 text-neutral-950 text-sm font-bold py-2 px-5 rounded-xl shadow-lg transition-all flex items-center space-x-2">
                     <i class="fa-solid fa-floppy-disk"></i> <span>Simpan Semua</span>
                 </button>
             </div>
@@ -49,10 +49,10 @@
 
         <div id="statusMessage" class="hidden mb-4 p-3 rounded-lg text-sm text-center"></div>
 
-        <div class="overflow-x-auto rounded-xl border border-slate-700">
+        <div class="overflow-x-auto rounded-xl border border-neutral-800">
             <table class="w-full text-left border-collapse">
                 <thead>
-                    <tr class="bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-700">
+                    <tr class="bg-neutral-950 text-neutral-400 text-xs uppercase tracking-wider border-b border-neutral-800">
                         <th class="p-3 text-center w-10">Urut</th>
                         <th class="p-3 text-center w-12">No</th>
                         <th class="p-3 w-32">Bulan</th>
@@ -65,9 +65,9 @@
                         <th class="p-3 text-center w-16">Aksi</th>
                     </tr>
                 </thead>
-                <tbody id="jsonTableBody" class="divide-y divide-slate-700 text-sm">
+                <tbody id="jsonTableBody" class="divide-y divide-neutral-800 text-sm">
                     <tr>
-                        <td colspan="10" class="p-8 text-center text-slate-500"><i class="fa-solid fa-spinner animate-spin mr-2"></i> Sedang mengambil data dari GitHub...</td>
+                        <td colspan="10" class="p-8 text-center text-neutral-500"><i class="fa-solid fa-spinner animate-spin mr-2"></i> Sedang mengambil data dari GitHub...</td>
                     </tr>
                 </tbody>
             </table>
@@ -122,12 +122,12 @@
         function renderTabel() {
             const tbody = document.getElementById('jsonTableBody');
             if (localDataList.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="10" class="p-8 text-center text-slate-500">Tidak ada data. Silakan klik Tambah Bulan.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="10" class="p-8 text-center text-neutral-500">Tidak ada data. Silakan klik Tambah Bulan.</td></tr>`;
                 return;
             }
 
             tbody.innerHTML = localDataList.map((item, index) => `
-                <tr class="hover:bg-slate-750/40 transition-colors" 
+                <tr class="hover:bg-neutral-800/50 transition-colors" 
                     draggable="true" 
                     data-index="${index}"
                     ondragstart="handleDragStart(event)" 
@@ -137,18 +137,18 @@
                     ondrop="handleDrop(event)" 
                     ondragend="handleDragEnd(event)">
                     
-                    <td class="p-2 text-center cursor-grab active:cursor-grabbing text-slate-500 hover:text-amber-400">
+                    <td class="p-2 text-center cursor-grab active:cursor-grabbing text-neutral-500 hover:text-yellow-400">
                         <i class="fa-solid fa-grip-vertical"></i>
                     </td>
                     
-                    <td class="p-2 text-center text-slate-500 font-mono text-xs nomor-urut">${index + 1}</td>
-                    <td class="p-2"><input type="text" value="${item.bulan || ''}" onchange="localDataList[${index}].bulan = this.value" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.bruto)}" oninput="handleInputFormat(this, ${index}, 'bruto')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.diskon, true)}" oninput="handleInputFormat(this, ${index}, 'diskon', true)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.nota)}" oninput="handleInputFormat(this, ${index}, 'nota')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.kg, true)}" oninput="handleInputFormat(this, ${index}, 'kg', true)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.satuan)}" oninput="handleInputFormat(this, ${index}, 'satuan')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.payroll)}" oninput="handleInputFormat(this, ${index}, 'payroll')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2 text-center text-neutral-500 font-mono text-xs nomor-urut">${index + 1}</td>
+                    <td class="p-2"><input type="text" value="${item.bulan || ''}" onchange="localDataList[${index}].bulan = this.value" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.bruto)}" oninput="handleInputFormat(this, ${index}, 'bruto')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.diskon, true)}" oninput="handleInputFormat(this, ${index}, 'diskon', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.nota)}" oninput="handleInputFormat(this, ${index}, 'nota')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.kg, true)}" oninput="handleInputFormat(this, ${index}, 'kg', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.satuan)}" oninput="handleInputFormat(this, ${index}, 'satuan')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.payroll)}" oninput="handleInputFormat(this, ${index}, 'payroll')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
                     <td class="p-2 text-center">
                         <button onclick="hapusBaris(${index})" class="text-rose-400 hover:text-rose-500 p-1 transition-colors" title="Hapus Bulan ini">
                             <i class="fa-regular fa-trash-can text-base"></i>
@@ -232,8 +232,6 @@
             btnSimpan.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Menyimpan...</span>`;
             
             try {
-                // Di sini data localDataList otomatis sudah berupa angka murni (tanpa titik separator)
-                // karena fungsi handleInputFormat langsung membersihkan string sebelum masuk array memori.
                 const response = await fetch('/api/analisis', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
