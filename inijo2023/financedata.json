@@ -1,20 +1,182 @@
 [
-  { "bulan": "Des 2024", "bruto": 79913400, "nota": 1106, "diskon": 797236.8, "kg": 6972, "satuan": 483, "payroll": 28735000 },
-  { "bulan": "Jan 2025", "bruto": 89355200, "nota": 1204, "diskon": 725438.4, "kg": 7393.4, "satuan": 725, "payroll": 22091500 },
-  { "bulan": "Feb 2025", "bruto": 75947300, "nota": 1039, "diskon": 432224.8, "kg": 6435.2, "satuan": 536, "payroll": 24129000 },
-  { "bulan": "Mar 2025", "bruto": 91150300, "nota": 1210, "diskon": 616829.6, "kg": 7645.9, "satuan": 641, "payroll": 26027000 },
-  { "bulan": "Apr 2025", "bruto": 84763200, "nota": 1139, "diskon": 467351.2, "kg": 7082.4, "satuan": 590, "payroll": 24143000 },
-  { "bulan": "Mei 2025", "bruto": 81420100, "nota": 1087, "diskon": 1077960, "kg": 6895.1, "satuan": 574, "payroll": 21437000 },
-  { "bulan": "Jun 2025", "bruto": 90463800, "nota": 1192, "diskon": 747600, "kg": 7281, "satuan": 720, "payroll": 26020800 },
-  { "bulan": "Jul 2025", "bruto": 87899700, "nota": 1176, "diskon": 1135000, "kg": 7328.8, "satuan": 674, "payroll": 22253500 },
-  { "bulan": "Agu 2025", "bruto": 84217700, "nota": 1143, "diskon": 1206200, "kg": 7071, "satuan": 587, "payroll": 19505500 },
-  { "bulan": "Sep 2025", "bruto": 82681700, "nota": 1076, "diskon": 806400, "kg": 6802, "satuan": 640, "payroll": 21697000 },
-  { "bulan": "Okt 2025", "bruto": 82539000, "nota": 1134, "diskon": 724800, "kg": 7045.8, "satuan": 553, "payroll": 19300500 },
-  { "bulan": "Nov 2025", "bruto": 84028100, "nota": 1113, "diskon": 947200, "kg": 7347.6, "satuan": 466, "payroll": 20412500 },
-  { "bulan": "Des 2025", "bruto": 94042200, "nota": 1214, "diskon": 655200, "kg": 8246.8, "satuan": 593, "payroll": 32608000 },
-  { "bulan": "Jan 2026", "bruto": 87829700, "nota": 1106, "diskon": 527200, "kg": 7331.5, "satuan": 612, "payroll": 23813500 },
-  { "bulan": "Feb 2026", "bruto": 85619200, "nota": 1078, "diskon": 567200, "kg": 7233.6, "satuan": 545, "payroll": 24491500 },
-  { "bulan": "Mar 2026", "bruto": 91435700, "nota": 1190, "diskon": 678400, "kg": 7918.5, "satuan": 547, "payroll": 19298500 },
-  { "bulan": "Apr 2026", "bruto": 80414300, "nota": 1055, "diskon": 721600, "kg": 6686.8, "satuan": 566, "payroll": 17156500 },
-  { "bulan": "Mei 2026", "bruto": 40385400, "nota": 541, "diskon": 340800, "kg": 3558.6, "satuan": 242, "payroll": 12115620 }
+  {
+    "bulan": "Okt 2024",
+    "bruto": 76390100,
+    "diskon": 1327800,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 20533000
+  },
+  {
+    "bulan": "Nov 2024",
+    "bruto": 78425900,
+    "diskon": 1228800,
+    "nota": 0,
+    "kg": 0,
+    "satuan": 0,
+    "payroll": 20439000
+  },
+  {
+    "bulan": "Des 2024",
+    "bruto": 79913400,
+    "nota": 1106,
+    "diskon": 797236.8,
+    "kg": 6972,
+    "satuan": 483,
+    "payroll": 28735000
+  },
+  {
+    "bulan": "Jan 2025",
+    "bruto": 89355200,
+    "nota": 1204,
+    "diskon": 725438.4,
+    "kg": 7393.4,
+    "satuan": 725,
+    "payroll": 22091500
+  },
+  {
+    "bulan": "Feb 2025",
+    "bruto": 75947300,
+    "nota": 1039,
+    "diskon": 432224.8,
+    "kg": 6435.2,
+    "satuan": 536,
+    "payroll": 24129000
+  },
+  {
+    "bulan": "Mar 2025",
+    "bruto": 91150300,
+    "nota": 1210,
+    "diskon": 616829.6,
+    "kg": 7645.9,
+    "satuan": 641,
+    "payroll": 26027000
+  },
+  {
+    "bulan": "Apr 2025",
+    "bruto": 84763200,
+    "nota": 1139,
+    "diskon": 467351.2,
+    "kg": 7082.4,
+    "satuan": 590,
+    "payroll": 24143000
+  },
+  {
+    "bulan": "Mei 2025",
+    "bruto": 81420100,
+    "nota": 1087,
+    "diskon": 1077960,
+    "kg": 6895.1,
+    "satuan": 574,
+    "payroll": 21437000
+  },
+  {
+    "bulan": "Jun 2025",
+    "bruto": 90463800,
+    "nota": 1192,
+    "diskon": 747600,
+    "kg": 7281,
+    "satuan": 720,
+    "payroll": 26020800
+  },
+  {
+    "bulan": "Jul 2025",
+    "bruto": 87899700,
+    "nota": 1176,
+    "diskon": 1135000,
+    "kg": 7328.8,
+    "satuan": 674,
+    "payroll": 22253500
+  },
+  {
+    "bulan": "Agu 2025",
+    "bruto": 84217700,
+    "nota": 1143,
+    "diskon": 1206200,
+    "kg": 7071,
+    "satuan": 587,
+    "payroll": 19505500
+  },
+  {
+    "bulan": "Sep 2025",
+    "bruto": 82681700,
+    "nota": 1076,
+    "diskon": 806400,
+    "kg": 6802,
+    "satuan": 640,
+    "payroll": 21697000
+  },
+  {
+    "bulan": "Okt 2025",
+    "bruto": 82539000,
+    "nota": 1134,
+    "diskon": 724800,
+    "kg": 7045.8,
+    "satuan": 553,
+    "payroll": 19300500
+  },
+  {
+    "bulan": "Nov 2025",
+    "bruto": 84028100,
+    "nota": 1113,
+    "diskon": 947200,
+    "kg": 7347.6,
+    "satuan": 466,
+    "payroll": 20412500
+  },
+  {
+    "bulan": "Des 2025",
+    "bruto": 94042200,
+    "nota": 1214,
+    "diskon": 655200,
+    "kg": 8246.8,
+    "satuan": 593,
+    "payroll": 32608000
+  },
+  {
+    "bulan": "Jan 2026",
+    "bruto": 87829700,
+    "nota": 1106,
+    "diskon": 527200,
+    "kg": 7331.5,
+    "satuan": 612,
+    "payroll": 23813500
+  },
+  {
+    "bulan": "Feb 2026",
+    "bruto": 85619200,
+    "nota": 1078,
+    "diskon": 567200,
+    "kg": 7233.6,
+    "satuan": 545,
+    "payroll": 24491500
+  },
+  {
+    "bulan": "Mar 2026",
+    "bruto": 91435700,
+    "nota": 1190,
+    "diskon": 678400,
+    "kg": 7918.5,
+    "satuan": 547,
+    "payroll": 19298500
+  },
+  {
+    "bulan": "Apr 2026",
+    "bruto": 80414300,
+    "nota": 1055,
+    "diskon": 721600,
+    "kg": 6686.8,
+    "satuan": 566,
+    "payroll": 17156500
+  },
+  {
+    "bulan": "Mei 2026",
+    "bruto": 40385400,
+    "nota": 541,
+    "diskon": 340800,
+    "kg": 3558.6,
+    "satuan": 242,
+    "payroll": 12115620
+  }
 ]
