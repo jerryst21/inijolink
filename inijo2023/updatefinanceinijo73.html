@@ -6,14 +6,25 @@
     <title>JSON Editor Finansial INIJO Laundry</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Style untuk memberikan feedback visual saat baris sedang di-drag */
+        .drag-over {
+            border-top: 2px solid #f59e0b !important;
+            background-color: rgba(245, 158, 11, 0.05);
+        }
+        .dragging {
+            opacity: 0.5;
+            background-color: rgba(245, 158, 11, 0.1);
+        }
+    </style>
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen p-4 md:p-8">
 
-    <div class="max-w-6xl mx-auto bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
+    <div class="max-w-7xl mx-auto bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700">
         
         <div class="flex flex-col md:flex-row md:items-center md:justify-between pb-6 mb-6 border-b border-slate-700 gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-teal-500 text-slate-900 p-2 rounded-lg text-xl font-bold">
+                <div class="bg-amber-500 text-slate-900 p-2 rounded-lg text-xl font-bold">
                     <i class="fa-solid fa-table-list"></i>
                 </div>
                 <div>
@@ -24,13 +35,13 @@
             
             <div class="flex flex-wrap items-center gap-3">
                 <input type="password" id="pin" maxlength="6" placeholder="Masukkan PIN Vercel" 
-                    class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-sm font-mono focus:outline-none focus:border-teal-500 w-40">
+                    class="bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-center text-sm font-mono focus:outline-none focus:border-amber-500 w-40">
                 
-                <button onclick="tambahBaris Baru()" class="bg-slate-700 hover:bg-slate-600 text-teal-400 text-sm font-semibold py-2 px-4 rounded-xl transition-all flex items-center space-x-2">
+                <button onclick="tambahBarisBaru()" class="bg-slate-700 hover:bg-slate-600 text-amber-400 text-sm font-semibold py-2 px-4 rounded-xl transition-all flex items-center space-x-2">
                     <i class="fa-solid fa-plus"></i> <span>Tambah Bulan</span>
                 </button>
 
-                <button id="btnSimpan" onclick="simpanPerubahanMassal()" class="bg-teal-500 hover:bg-teal-600 text-slate-900 text-sm font-bold py-2 px-5 rounded-xl shadow-lg transition-all flex items-center space-x-2">
+                <button id="btnSimpan" onclick="simpanPerubahanMassal()" class="bg-amber-500 hover:bg-amber-600 text-slate-900 text-sm font-bold py-2 px-5 rounded-xl shadow-lg transition-all flex items-center space-x-2">
                     <i class="fa-solid fa-floppy-disk"></i> <span>Simpan Semua</span>
                 </button>
             </div>
@@ -42,6 +53,7 @@
             <table class="w-full text-left border-collapse">
                 <thead>
                     <tr class="bg-slate-900/50 text-slate-400 text-xs uppercase tracking-wider border-b border-slate-700">
+                        <th class="p-3 text-center w-10">Urut</th>
                         <th class="p-3 text-center w-12">No</th>
                         <th class="p-3 w-32">Bulan</th>
                         <th class="p-3">Omset Bruto</th>
@@ -55,7 +67,7 @@
                 </thead>
                 <tbody id="jsonTableBody" class="divide-y divide-slate-700 text-sm">
                     <tr>
-                        <td colspan="9" class="p-8 text-center text-slate-500"><i class="fa-solid fa-spinner animate-spin mr-2"></i> Sedang mengambil data dari GitHub...</td>
+                        <td colspan="10" class="p-8 text-center text-slate-500"><i class="fa-solid fa-spinner animate-spin mr-2"></i> Sedang mengambil data dari GitHub...</td>
                     </tr>
                 </tbody>
             </table>
@@ -64,6 +76,31 @@
 
     <script>
         let localDataList = [];
+        let dragSrcEl = null;
+
+        // Fungsi format ribuan (Format Indonesia dengan titik)
+        function formatRibuan(angka, isDecimal = false) {
+            if (angka === undefined || angka === null || isNaN(angka)) return '0';
+            let stringAngka = angka.toString().replace(/[^0-9.-]/g, '');
+            let parts = stringAngka.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            return isDecimal && parts[1] ? parts.join(',') : parts[0];
+        }
+
+        // Fungsi membersihkan format ribuan menjadi angka murni kembali
+        function bersihkanAngka(string) {
+            if (!string) return 0;
+            // Ubah titik ribuan menjadi hilang, dan koma desimal menjadi titik desimal
+            let bersih = string.replace(/\./g, '').replace(/,/g, '.');
+            return Number(bersih) || 0;
+        }
+
+        // Handle perubahan input saat user mengetik untuk otomatis pasang separator
+        function handleInputFormat(input, index, key, isDecimal = false) {
+            let nilaiBersih = bersihkanAngka(input.value);
+            input.value = formatRibuan(nilaiBersih, isDecimal);
+            localDataList[index][key] = nilaiBersih;
+        }
 
         // Ambil data pertama kali saat halaman di-load
         async function muatDataDariGitHub() {
@@ -85,20 +122,33 @@
         function renderTabel() {
             const tbody = document.getElementById('jsonTableBody');
             if (localDataList.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="9" class="p-8 text-center text-slate-500">Tidak ada data. Silakan klik Tambah Bulan.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="10" class="p-8 text-center text-slate-500">Tidak ada data. Silakan klik Tambah Bulan.</td></tr>`;
                 return;
             }
 
             tbody.innerHTML = localDataList.map((item, index) => `
-                <tr class="hover:bg-slate-750/40 transition-colors">
-                    <td class="p-2 text-center text-slate-500 font-mono text-xs">${index + 1}</td>
-                    <td class="p-2"><input type="text" value="${item.bulan || ''}" onchange="updateCell(${index}, 'bulan', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none"></td>
-                    <td class="p-2"><input type="number" value="${item.bruto || 0}" onchange="updateCell(${index}, 'bruto', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
-                    <td class="p-2"><input type="number" step="0.01" value="${item.diskon || 0}" onchange="updateCell(${index}, 'diskon', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
-                    <td class="p-2"><input type="number" value="${item.nota || 0}" onchange="updateCell(${index}, 'nota', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
-                    <td class="p-2"><input type="number" step="0.1" value="${item.kg || 0}" onchange="updateCell(${index}, 'kg', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
-                    <td class="p-2"><input type="number" value="${item.satuan || 0}" onchange="updateCell(${index}, 'satuan', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
-                    <td class="p-2"><input type="number" value="${item.payroll || 0}" onchange="updateCell(${index}, 'payroll', this.value)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-teal-500/50 outline-none font-mono"></td>
+                <tr class="hover:bg-slate-750/40 transition-colors" 
+                    draggable="true" 
+                    data-index="${index}"
+                    ondragstart="handleDragStart(event)" 
+                    ondragover="handleDragOver(event)" 
+                    ondragenter="handleDragEnter(event)" 
+                    ondragleave="handleDragLeave(event)" 
+                    ondrop="handleDrop(event)" 
+                    ondragend="handleDragEnd(event)">
+                    
+                    <td class="p-2 text-center cursor-grab active:cursor-grabbing text-slate-500 hover:text-amber-400">
+                        <i class="fa-solid fa-grip-vertical"></i>
+                    </td>
+                    
+                    <td class="p-2 text-center text-slate-500 font-mono text-xs nomor-urut">${index + 1}</td>
+                    <td class="p-2"><input type="text" value="${item.bulan || ''}" onchange="localDataList[${index}].bulan = this.value" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.bruto)}" oninput="handleInputFormat(this, ${index}, 'bruto')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.diskon, true)}" oninput="handleInputFormat(this, ${index}, 'diskon', true)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.nota)}" oninput="handleInputFormat(this, ${index}, 'nota')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.kg, true)}" oninput="handleInputFormat(this, ${index}, 'kg', true)" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.satuan)}" oninput="handleInputFormat(this, ${index}, 'satuan')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.payroll)}" oninput="handleInputFormat(this, ${index}, 'payroll')" class="w-full bg-slate-900/60 border border-slate-700 rounded px-2 py-1 focus:border-amber-500/50 outline-none font-mono text-right"></td>
                     <td class="p-2 text-center">
                         <button onclick="hapusBaris(${index})" class="text-rose-400 hover:text-rose-500 p-1 transition-colors" title="Hapus Bulan ini">
                             <i class="fa-regular fa-trash-can text-base"></i>
@@ -108,16 +158,55 @@
             `).join('');
         }
 
-        // Simpan inputan sel tabel langsung ke memori lokal variable JavaScript
-        function updateCell(index, key, value) {
-            localDataList[index][key] = (key === 'bulan') ? value : Number(value);
+        // ================= DRAG AND DROP HANDLER SYSTEM =================
+        function handleDragStart(e) {
+            dragSrcEl = e.currentTarget;
+            dragSrcEl.classList.add('dragging');
+            e.dataTransfer.effectAllowed = 'move';
+            e.dataTransfer.setData('text/plain', dragSrcEl.getAttribute('data-index'));
         }
+
+        function handleDragOver(e) {
+            if (e.preventDefault) e.preventDefault();
+            return false;
+        }
+
+        function handleDragEnter(e) {
+            let row = e.currentTarget;
+            if (row !== dragSrcEl) row.classList.add('drag-over');
+        }
+
+        function handleDragLeave(e) {
+            e.currentTarget.classList.remove('drag-over');
+        }
+
+        function handleDrop(e) {
+            if (e.stopPropagation) e.stopPropagation();
+            
+            let targetRow = e.currentTarget;
+            let fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
+            let toIndex = parseInt(targetRow.getAttribute('data-index'), 10);
+
+            if (fromIndex !== toIndex) {
+                // Susun ulang array lokal berdasarkan hasil pergeseran user
+                const targetData = localDataList.splice(fromIndex, 1)[0];
+                localDataList.splice(toIndex, 0, targetData);
+                // Render ulang agar urutan nomor dan input sinkron kembali
+                renderTabel();
+            }
+            return false;
+        }
+
+        function handleDragEnd(e) {
+            e.currentTarget.classList.remove('dragging');
+            document.querySelectorAll('#jsonTableBody tr').forEach(row => row.classList.remove('drag-over'));
+        }
+        // =================================================================
 
         // Tambah baris kosong baru di bagian paling bawah tabel
         function tambahBarisBaru() {
             localDataList.push({ bulan: '', bruto: 0, diskon: 0, nota: 0, kg: 0, satuan: 0, payroll: 0 });
             renderTabel();
-            // Otomatis scroll fokus ke baris paling baru
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
 
@@ -139,11 +228,12 @@
                 return;
             }
 
-            // Animasi Loading saat proses commit berjalan
             btnSimpan.disabled = true;
             btnSimpan.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Menyimpan...</span>`;
             
             try {
+                // Di sini data localDataList otomatis sudah berupa angka murni (tanpa titik separator)
+                // karena fungsi handleInputFormat langsung membersihkan string sebelum masuk array memori.
                 const response = await fetch('/api/analisis', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
