@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INIJO - Dashboard Omset</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+    <style>
+        :root {
+            --bg-main: #000000;
+            --card-surface: #121214;
+            --accent-yellow: #FACC15;
+        }
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: var(--bg-main); 
+            color: #FFFFFF;
+            -webkit-font-smoothing: antialiased;
+        }
+        .dashboard-card {
+            background-color: var(--card-surface);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+        }
+        .mono-text {
+            font-family: 'Roboto Mono', monospace;
+        }
+    </style>
+</head>
+<body class="p-4 md:p-8 min-h-screen flex items-center justify-center">
+
+    <div class="max-w-4xl w-full space-y-6">
+        <header class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-b border-white/10 pb-6">
+            <div>
+                <h1 class="text-2xl font-black tracking-tight flex items-center gap-2">
+                    <span class="text-yellow-400">INIJO</span> Financial Analytics
+                </h1>
+                <p class="text-gray-500 font-bold text-[10px] uppercase tracking-widest mt-1">Grafik Omset Bulanan Terintegrasi</p>
+            </div>
+            <div class="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-wide uppercase">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                Mode Mock Data
+            </div>
+        </header>
+
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3">
+            <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
+                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Omset</p>
+                <h3 id="kpi-bruto" class="text-lg md:text-xl font-black text-yellow-400 mt-1 tracking-tight mono-text">-</h3>
+                <p id="label-bulan-1" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-yellow-400/10 text-2xl transition-colors duration-300">
+                    <i class="fa-solid fa-wallet"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
+                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Total Nota</p>
+                <h3 id="kpi-nota" class="text-lg md:text-xl font-black text-white mt-1 tracking-tight mono-text">-</h3>
+                <p id="label-bulan-2" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-white/10 text-2xl transition-colors duration-300">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
+                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Diskon</p>
+                <h3 id="kpi-diskon" class="text-lg md:text-xl font-black text-red-400 mt-1 tracking-tight mono-text">-</h3>
+                <p id="label-bulan-3" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-red-400/10 text-2xl transition-colors duration-300">
+                    <i class="fa-solid fa-tags"></i>
+                </div>
+            </div>
+
+            <div class="dashboard-card p-4 rounded-2xl relative overflow-hidden group">
+                <p class="text-[10px] font-extrabold text-gray-500 uppercase tracking-wider">Berat / Satuan</p>
+                <h3 id="kpi-produksi" class="text-base md:text-lg font-black text-emerald-400 mt-1 tracking-tight mono-text">-</h3>
+                <p id="label-bulan-4" class="text-[9px] text-gray-500 font-medium mt-1">Semua Bulan</p>
+                <div class="absolute right-3 bottom-3 text-white/5 group-hover:text-emerald-400/10 text-2xl transition-colors duration-300">
+                    <i class="fa-solid fa-weight-scale"></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="dashboard-card p-4 md:p-6 rounded-[24px]">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xs font-extrabold text-gray-400 uppercase tracking-widest flex items-center gap-2">
+                    <i class="fa-solid fa-chart-line text-yellow-400"></i> Tren Pertumbuhan Omset
+                </h2>
+                <span class="text-[10px] text-gray-500 font-bold tracking-tight">Hover grafik untuk detail angka</span>
+            </div>
+            
+            <div id="chart" class="w-full"></div>
+        </div>
+    </div>
+
+    <script>
+        // LIST DATA JSON MOCK
+        const omsetData = [
+            { "bulan": "Des 2024", "bruto": 79913400, "nota": 1106,  "diskon": 797236.8, "kg": 6972, "satuan": 483 },
+            { "bulan": "Jan 2025", "bruto": 89355200, "nota": 1204, "diskon": 725438.4, "kg": 7393.4, "satuan": 725 },
+            { "bulan": "Feb 2025", "bruto": 75947300, "nota": 1039,  "diskon": 432224.8, "kg": 6435.2, "satuan": 536 },
+            { "bulan": "Mar 2025", "bruto": 91150300, "nota": 1210, "diskon": 616829.6, "kg": 7645.9, "satuan": 641 },
+            { "bulan": "Apr 2025", "bruto": 84763200, "nota": 1139, "diskon": 467351.2, "kg": 7082.4, "satuan": 590 },
+            { "bulan": "Mei 2025", "bruto": 81420100, "nota": 1087, "diskon": 1077960, "kg": 6895.1, "satuan": 574 },
+            { "bulan": "Jun 2025", "bruto": 90463800, "nota": 1192, "diskon": 747600, "kg": 7281, "satuan": 720 },
+            { "bulan": "Jul 2025", "bruto": 87899700, "nota": 1176, "diskon": 1135000, "kg": 7328.8, "satuan": 674 },
+            { "bulan": "Agu 2025", "bruto": 84217700, "nota": 1143,  "diskon": 1206200, "kg": 7071, "satuan": 587 },
+            { "bulan": "Sep 2025", "bruto": 82681700, "nota": 1076, "diskon": 806400, "kg": 6802, "satuan": 640 },
+            { "bulan": "Okt 2025", "bruto": 82539000, "nota": 1134, "diskon": 724800, "kg": 7045.8, "satuan": 553 },
+            { "bulan": "Nov 2025", "bruto": 84028100, "nota": 1113, "diskon": 947200, "kg": 7347.6, "satuan": 466 },
+            { "bulan": "Des 2025", "bruto": 94042200, "nota": 1214, "diskon": 655200, "kg": 8246.8, "satuan": 593 },
+            { "bulan": "Jan 2026", "bruto": 87829700, "nota": 1106, "diskon": 527200, "kg": 7331.5, "satuan": 612 },
+            { "bulan": "Feb 2026", "bruto": 85619200, "nota": 1078, "diskon": 567200, "kg": 7233.6, "satuan": 545 },
+            { "bulan": "Mar 2026", "bruto": 91435700, "nota": 1190,  "diskon": 678400, "kg": 7918.5, "satuan": 547 },
+            { "bulan": "Apr 2026", "bruto": 80414300, "nota": 1055, "diskon": 721600, "kg": 6686.8, "satuan": 566 },
+            { "bulan": "Mei 2026", "bruto": 40385400, "nota": 541,  "diskon": 340800, "kg": 3558.6, "satuan": 242 }
+        ];
+
+        const formatRupiah = (angka) => {
+            return 'Rp ' + angka.toLocaleString('id-ID');
+        };
+
+        // Fungsi Menampilkan Data Default Rata-Rata (Mengecualikan Bulan Berjalan)
+        function setSummaryDefault() {
+            const dataUntukRataRata = omsetData.slice(0, -1); 
+            
+            const totalBruto = dataUntukRataRata.reduce((sum, item) => sum + item.bruto, 0);
+            const totalNota = dataUntukRataRata.reduce((sum, item) => sum + item.nota, 0);
+            const totalDiskon = dataUntukRataRata.reduce((sum, item) => sum + item.diskon, 0);
+            const totalKg = dataUntukRataRata.reduce((sum, item) => sum + item.kg, 0);
+            const totalSatuan = dataUntukRataRata.reduce((sum, item) => sum + item.satuan, 0);
+            const totalBulan = dataUntukRataRata.length;
+
+            // Render hasil pembagian rata-rata ke KPI Card
+            document.getElementById('kpi-bruto').innerText = formatRupiah(Math.round(totalBruto / totalBulan));
+            document.getElementById('kpi-nota').innerText = Math.round(totalNota / totalBulan).toLocaleString('id-ID') + " /bln";
+            document.getElementById('kpi-diskon').innerText = formatRupiah(Math.round(totalDiskon / totalBulan));
+            document.getElementById('kpi-produksi').innerText = `${Math.round(totalKg / totalBulan).toLocaleString('id-ID')} Kg / ${Math.round(totalSatuan / totalBulan)} Pcs`;
+            
+            for(let i=1; i<=4; i++) {
+                document.getElementById(`label-bulan-${i}`).innerText = "Rerata Bulan Penuh (Excl. Bulan Berjalan)";
+            }
+        }
+
+        function updateKpiCards(index) {
+            const selected = omsetData[index];
+            document.getElementById('kpi-bruto').innerText = formatRupiah(selected.bruto);
+            document.getElementById('kpi-nota').innerText = selected.nota.toLocaleString('id-ID') + " Transaksi";
+            document.getElementById('kpi-diskon').innerText = formatRupiah(selected.diskon);
+            document.getElementById('kpi-produksi').innerText = `${selected.kg.toLocaleString('id-ID')} Kg / ${selected.satuan} Pcs`;
+            
+            for(let i=1; i<=4; i++) {
+                document.getElementById(`label-bulan-${i}`).innerText = `Data Bulan: ${selected.bulan}`;
+            }
+        }
+
+        const kategoriBulan = omsetData.map(item => item.bulan);
+        // Data yang ditampilkan di grafik adalah bruto (omset - diskon)
+        const seriBruto = omsetData.map(item => item.bruto - item.diskon);
+
+        const options = {
+            chart: {
+                type: 'area',
+                height: 350,
+                toolbar: { show: false },
+                background: 'transparent',
+                foreColor: '#71717a',
+                events: {
+                    dataPointMouseEnter: function(event, chartContext, config) {
+                        if (config.dataPointIndex > -1) {
+                            updateKpiCards(config.dataPointIndex);
+                        }
+                    },
+                    mouseLeave: function() {
+                        setSummaryDefault();
+                    }
+                }
+            },
+            series: [{
+                name: 'Bruto',
+                data: seriBruto
+            }],
+            annotations: {
+                yaxis: [{
+                    y: 80000000,
+                    borderColor: '#EF4444',
+                    strokeDashArray: 5,
+                    borderWidth: 2,
+                    label: {
+                        borderColor: '#EF4444',
+                        style: {
+                            color: '#FFF',
+                            background: '#EF4444',
+                            fontWeight: '700',
+                            fontSize: '10px'
+                        },
+                        text: '80JT'
+                    }
+                }]
+            },
+            xaxis: {
+                categories: kategoriBulan,
+                axisBorder: { show: false },
+                axisTicks: { show: false },
+            },
+            yaxis: {
+                labels: {
+                    formatter: function (value) {
+                        return (value / 1000000) + " Jt";
+                    }
+                }
+            },
+            stroke: {
+                curve: 'smooth',
+                width: 3,
+                colors: ['#FACC15']
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    opacityFrom: 0.45,
+                    opacityTo: 0.02,
+                    stops: [0, 100],
+                    colorStops: [
+                        { offset: 0, color: '#FACC15', opacity: 0.45 },
+                        { offset: 100, color: '#FACC15', opacity: 0.02 }
+                    ]
+                }
+            },
+            dataLabels: { enabled: false },
+            grid: {
+                borderColor: 'rgba(255, 255, 255, 0.05)',
+                strokeDashArray: 4,
+                padding: { right: 20, left: 10 }
+            },
+            theme: { mode: 'dark' },
+            
+            // CUSTOM MULTI-DATA TOOLTIP (Urutan: Omset, Diskon, Bruto, Berat, Satuan)
+            tooltip: {
+                theme: 'dark',
+                shared: true,
+                intersect: false,
+                custom: function({ series, seriesIndex, dataPointIndex, w }) {
+                    const data = omsetData[dataPointIndex];
+                    const hitungBruto = data.bruto - data.diskon;
+                    return `
+                        <div class="bg-[#121214] border border-white/10 rounded-xl p-3 shadow-2xl min-w-[180px] text-xs">
+                            <div class="text-gray-400 font-extrabold border-b border-white/10 pb-1.5 mb-2 uppercase tracking-wide text-[10px]">
+                                ${data.bulan}
+                            </div>
+                            <div class="space-y-1.5 text-white">
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-money-bill-wave text-yellow-400 w-3"></i> Omset:</span>
+                                    <span class="font-bold text-yellow-400 font-mono">${formatRupiah(data.bruto)}</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-tags text-red-400 w-3"></i> Diskon:</span>
+                                    <span class="font-bold text-red-400 font-mono">${formatRupiah(data.diskon)}</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-wallet text-orange-400 w-3"></i> Bruto:</span>
+                                    <span class="font-bold text-orange-400 font-mono">${formatRupiah(hitungBruto)}</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-weight-scale text-emerald-400 w-3"></i> Berat:</span>
+                                    <span class="font-bold text-emerald-400 font-mono">${data.kg.toLocaleString('id-ID')} Kg</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-gray-400 flex items-center gap-1.5"><i class="fa-solid fa-shirt text-cyan-400 w-3"></i> Satuan:</span>
+                                    <span class="font-bold text-cyan-400 font-mono">${data.satuan} Pcs</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
+            },
+            colors: ['#FACC15']
+        };
+
+        window.onload = () => {
+            const chart = new ApexCharts(document.querySelector("#chart"), options);
+            chart.render();
+            setSummaryDefault();
+        };
+    </script>
+</body>
+</html>
