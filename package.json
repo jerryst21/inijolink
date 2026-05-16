@@ -1,0 +1,11 @@
+{
+  "name": "inijo-link",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "echo 'Selesai'"
+  },
+  "dependencies": {
+    "node-fetch": "^2.7.0"
+  }
+}
