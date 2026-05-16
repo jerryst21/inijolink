@@ -111,7 +111,7 @@
                     localDataList = result.data;
                     renderTabel();
                 } else {
-                    tampilkanPesan('Gagal mengambil data dari repositori GitHub.', 'error');
+                    tampilkanPesan('Gagal mengambil data dari repositori.', 'error');
                 }
             } catch (err) {
                 tampilkanPesan('Gagal terhubung ke API.', 'error');
@@ -218,7 +218,7 @@
             }
         }
 
-        // Kirim seluruh data yang sudah diubah ke API -> Commit ke GitHub
+        // Kirim seluruh data yang sudah diubah ke API -> Commit
         async function simpanPerubahanMassal() {
             const pinCode = document.getElementById('pin').value;
             const btnSimpan = document.getElementById('btnSimpan');
