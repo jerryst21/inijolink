@@ -245,15 +245,28 @@
                     dashArray: [0, 0, 5]
                 },
                 fill: {
-                    type: 'gradient',
+                    type: ['gradient', 'solid', 'solid'],
                     gradient: {
                         shadeIntensity: 1,
-                        opacityFrom: 0.35,
-                        opacityTo: 0.01,
+                        opacityFrom: [0.35, 1, 1], // Mengatur opacity atas untuk masing-masing line
+                        opacityTo: [0.01, 1, 1],   // Mengatur opacity bawah untuk masing-masing line
                         stops: [0, 100],
                         colorStops: [
-                            { offset: 0, color: '#FACC15', opacity: 0.35 },
-                            { offset: 100, color: '#FACC15', opacity: 0.01 }
+                            // Series 1: Bruto (Pendapatan) -> Kuning dengan Gradien
+                            [
+                                { offset: 0, color: '#FACC15', opacity: 0.35 },
+                                { offset: 100, color: '#FACC15', opacity: 0.01 }
+                            ],
+                            // Series 2: Payroll Aktual -> Solid Ungu (tanpa gradien pudar)
+                            [
+                                { offset: 0, color: '#A78BFA', opacity: 1 },
+                                { offset: 100, color: '#A78BFA', opacity: 1 }
+                            ],
+                            // Series 3: Target Max Payroll -> Solid Putih/Abu (tanpa gradien pudar)
+                            [
+                                { offset: 0, color: '#E4E4E7', opacity: 1 },
+                                { offset: 100, color: '#E4E4E7', opacity: 1 }
+                            ]
                         ]
                     }
                 },
