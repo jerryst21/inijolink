@@ -6,6 +6,9 @@
     <title>Editor Data Performa Outlet</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Sans+Mono:wght@200..900&display=swap" rel="stylesheet">
     <style>
         /* Style untuk memberikan feedback visual saat baris sedang di-drag */
         .drag-over {
@@ -15,6 +18,10 @@
         .dragging {
             opacity: 0.5;
             background-color: rgba(250, 204, 21, 0.1);
+        }
+        /* Menerapkan font Reddit Sans Mono khusus untuk tabel */
+        .tabel-custom-font {
+            font-family: 'Reddit Sans Mono', monospace !important;
         }
     </style>
 </head>
@@ -50,18 +57,18 @@
         <div id="statusMessage" class="hidden mb-4 p-3 rounded-lg text-sm text-center"></div>
 
         <div class="overflow-x-auto rounded-xl border border-neutral-800">
-            <table class="w-full text-left border-collapse">
+            <table class="w-full text-left border-collapse tabel-custom-font">
                 <thead>
                     <tr class="bg-neutral-950 text-neutral-400 text-xs uppercase tracking-wider border-b border-neutral-800">
                         <th class="p-3 text-center w-10">Urut</th>
                         <th class="p-3 text-center w-12">No</th>
-                        <th class="p-3 w-32">Bulan</th>
-                        <th class="p-3">Omset Bruto</th>
-                        <th class="p-3">Total Diskon</th>
-                        <th class="p-3">Total Nota</th>
-                        <th class="p-3">Total Kg</th>
-                        <th class="p-3">Satuan</th>
-                        <th class="p-3">Total Payroll</th>
+                        <th class="p-3 w-28">Bulan</th>
+                        <th class="p-3 w-[140px]">Omset Bruto</th>
+                        <th class="p-3 w-[120px]">Total Diskon</th>
+                        <th class="p-3 w-[100px]">Total Nota</th>
+                        <th class="p-3 w-[100px]">Total Kg</th>
+                        <th class="p-3 w-[100px]">Satuan</th>
+                        <th class="p-3 w-[140px]">Total Payroll</th>
                         <th class="p-3 text-center w-16">Aksi</th>
                     </tr>
                 </thead>
@@ -141,14 +148,14 @@
                         <i class="fa-solid fa-grip-vertical"></i>
                     </td>
                     
-                    <td class="p-2 text-center text-neutral-500 font-mono text-xs nomor-urut">${index + 1}</td>
+                    <td class="p-2 text-center text-neutral-500 text-xs nomor-urut">${index + 1}</td>
                     <td class="p-2"><input type="text" value="${item.bulan || ''}" onchange="localDataList[${index}].bulan = this.value" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.bruto)}" oninput="handleInputFormat(this, ${index}, 'bruto')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.diskon, true)}" oninput="handleInputFormat(this, ${index}, 'diskon', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.nota)}" oninput="handleInputFormat(this, ${index}, 'nota')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.kg, true)}" oninput="handleInputFormat(this, ${index}, 'kg', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.satuan)}" oninput="handleInputFormat(this, ${index}, 'satuan')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
-                    <td class="p-2"><input type="text" value="${formatRibuan(item.payroll)}" oninput="handleInputFormat(this, ${index}, 'payroll')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none font-mono text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.bruto)}" oninput="handleInputFormat(this, ${index}, 'bruto')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.diskon, true)}" oninput="handleInputFormat(this, ${index}, 'diskon', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.nota)}" oninput="handleInputFormat(this, ${index}, 'nota')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.kg, true)}" oninput="handleInputFormat(this, ${index}, 'kg', true)" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.satuan)}" oninput="handleInputFormat(this, ${index}, 'satuan')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
+                    <td class="p-2"><input type="text" value="${formatRibuan(item.payroll)}" oninput="handleInputFormat(this, ${index}, 'payroll')" class="w-full bg-neutral-950 border border-neutral-800 rounded px-2 py-1 focus:border-yellow-400/50 outline-none text-right"></td>
                     <td class="p-2 text-center">
                         <button onclick="hapusBaris(${index})" class="text-rose-400 hover:text-rose-500 p-1 transition-colors" title="Hapus Bulan ini">
                             <i class="fa-regular fa-trash-can text-base"></i>
@@ -166,83 +173,50 @@
             e.dataTransfer.setData('text/plain', dragSrcEl.getAttribute('data-index'));
         }
 
-        function handleDragOver(e) {
-            if (e.preventDefault) e.preventDefault();
-            return false;
-        }
-
-        function handleDragEnter(e) {
-            let row = e.currentTarget;
-            if (row !== dragSrcEl) row.classList.add('drag-over');
-        }
-
-        function handleDragLeave(e) {
-            e.currentTarget.classList.remove('drag-over');
-        }
-
+        // ... Sisa script drag and drop serta simpan data tetap sama tanpa perubahan ...
+        function handleDragOver(e) { if (e.preventDefault) e.preventDefault(); return false; }
+        function handleDragEnter(e) { let row = e.currentTarget; if (row !== dragSrcEl) row.classList.add('drag-over'); }
+        function handleDragLeave(e) { e.currentTarget.classList.remove('drag-over'); }
         function handleDrop(e) {
             if (e.stopPropagation) e.stopPropagation();
-            
             let targetRow = e.currentTarget;
             let fromIndex = parseInt(e.dataTransfer.getData('text/plain'), 10);
             let toIndex = parseInt(targetRow.getAttribute('data-index'), 10);
-
             if (fromIndex !== toIndex) {
-                // Susun ulang array lokal berdasarkan hasil pergeseran user
                 const targetData = localDataList.splice(fromIndex, 1)[0];
                 localDataList.splice(toIndex, 0, targetData);
-                // Render ulang agar urutan nomor dan input sinkron kembali
                 renderTabel();
             }
             return false;
         }
-
         function handleDragEnd(e) {
             e.currentTarget.classList.remove('dragging');
             document.querySelectorAll('#jsonTableBody tr').forEach(row => row.classList.remove('drag-over'));
         }
-        // =================================================================
-
-        // Tambah baris kosong baru di bagian paling bawah tabel
         function tambahBarisBaru() {
             localDataList.push({ bulan: '', bruto: 0, diskon: 0, nota: 0, kg: 0, satuan: 0, payroll: 0 });
             renderTabel();
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
-
-        // Hapus salah satu baris dari memori lokal sebelum disimpan permanen
         function hapusBaris(index) {
             if(confirm(`Hapus baris data nomor ${index + 1}?`)) {
                 localDataList.splice(index, 1);
                 renderTabel();
             }
         }
-
-        // Kirim seluruh data yang sudah diubah ke API -> Commit
         async function simpanPerubahanMassal() {
             const pinCode = document.getElementById('pin').value;
             const btnSimpan = document.getElementById('btnSimpan');
-
-            if (!pinCode) {
-                alert('Kamu wajib memasukkan PIN otorisasi terlebih dahulu!');
-                return;
-            }
-
+            if (!pinCode) { alert('Kamu wajib memasukkan PIN otorisasi terlebih dahulu!'); return; }
             btnSimpan.disabled = true;
             btnSimpan.innerHTML = `<i class="fa-solid fa-spinner animate-spin"></i> <span>Menyimpan...</span>`;
-            
             try {
                 const response = await fetch('/api/analisis', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        pin: pinCode,
-                        dataSemua: localDataList
-                    })
+                    body: JSON.stringify({ pin: pinCode, dataSemua: localDataList })
                 });
-
                 const result = await response.json();
-
                 if (response.status === 200 && result.success) {
                     tampilkanPesan(result.message, 'success');
                 } else {
@@ -255,21 +229,15 @@
                 btnSimpan.innerHTML = `<i class="fa-solid fa-floppy-disk"></i> <span>Simpan Semua</span>`;
             }
         }
-
         function tampilkanPesan(text, tipe) {
             const el = document.getElementById('statusMessage');
             el.innerText = text;
             el.className = "mb-4 p-3 rounded-lg text-sm text-center font-medium border";
-            if (tipe === 'success') {
-                el.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30');
-            } else {
-                el.classList.add('bg-rose-500/10', 'text-rose-400', 'border-rose-500/30');
-            }
+            if (tipe === 'success') { el.classList.add('bg-emerald-500/10', 'text-emerald-400', 'border-emerald-500/30'); } 
+            else { el.classList.add('bg-rose-500/10', 'text-rose-400', 'border-rose-500/30'); }
             el.classList.remove('hidden');
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-
-        // Jalankan pengambilan data otomatis saat user membuka dashboard
         muatDataDariGitHub();
     </script>
 </body>
