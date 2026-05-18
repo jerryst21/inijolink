@@ -46,39 +46,30 @@
   },
   {
     "bulan": "Okt 23",
-    "bruto": 76256300,
-    "diskon": 1327800,
-    "nota": 1132,
-    "kg": 6590,
-    "satuan": 525,
+    "bruto": 46322850,
+    "diskon": 1333900,
+    "nota": 692,
+    "kg": 4302,
+    "satuan": 256,
     "payroll": 15437000
   },
   {
     "bulan": "Nov 23",
-    "bruto": 78425900,
-    "diskon": 1228800,
-    "nota": 1146,
-    "kg": 7005,
-    "satuan": 504,
+    "bruto": 54463602,
+    "diskon": 1337300,
+    "nota": 818,
+    "kg": 5091,
+    "satuan": 394,
     "payroll": 15691000
   },
   {
     "bulan": "Des 23",
-    "bruto": 79913400,
-    "diskon": 837600,
-    "nota": 1106,
-    "kg": 6972,
-    "satuan": 485,
+    "bruto": 62714700,
+    "diskon": 1397400,
+    "nota": 945,
+    "kg": 5838,
+    "satuan": 441,
     "payroll": 18368000
-  },
-  {
-    "bulan": "Mei 24",
-    "bruto": 65796052,
-    "diskon": 1859850,
-    "nota": 995,
-    "kg": 5972,
-    "satuan": 418,
-    "payroll": 19647000
   },
   {
     "bulan": "Jan 24",
@@ -115,6 +106,15 @@
     "kg": 6147,
     "satuan": 467,
     "payroll": 25901000
+  },
+  {
+    "bulan": "Mei 24",
+    "bruto": 65796052,
+    "diskon": 1859850,
+    "nota": 995,
+    "kg": 5972,
+    "satuan": 418,
+    "payroll": 19647000
   },
   {
     "bulan": "Jun 24",
