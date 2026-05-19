@@ -50,7 +50,7 @@
       "category": "TUGAS BULANAN",
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-		{ "title": "BPJS Kesehatan", "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1", "icon": "fa-solid fa-notes-medical", "iconColor": "#e53e3e", "info": "Jatuh tempo tgl 10", "status": "🔵" },
+		{ "title": "BPJS Kesehatan", "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1", "icon": "fa-solid fa-notes-medical", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
 		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-file-contract", "iconColor": "#c0392b", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)", "status": "🔵" },
         { 
           "title": "Perhitungan Gaji 2026", 
