@@ -5,6 +5,7 @@
       "category": "TUGAS HARIAN",
       "links": [
         { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-m", "iconColor": "#ff4757", "status": "🔵" },
+		{ "title": "Buku Menu XO", "url": "https://www.canva.com/design/DAHFHqDg1XE/lOSxj1kvUeEKHUgylk76Og/view?utm_content=DAHFHqDg1XE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb24b2047ce", "icon": "fa-solid fa-book-open-reader" },
         { "title": "BCA - VPN", "url": "https://vpn.klikbca.com/+CSCOE+/logon.html", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#1e90ff", "status": "🔵" },
         { "title": "BNIDIRECT CASH", "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#FFA500", "status": "🔵" },
         { "title": "QLOLA By BRI", "url": "https://qlola.bri.co.id/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#ADE8F4", "status": "🔵" },
@@ -49,6 +50,7 @@
       "category": "TUGAS BULANAN",
       "links": [
         { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
+		{ "title": "BPJS Kesehatan", "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1", "icon": "fa-solid fa-notes-medical", "iconColor": "#e53e3e", "info": "Jatuh tempo tgl 10", "status": "🔵" },
 		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-file-contract", "iconColor": "#c0392b", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)", "status": "🔵" },
         { 
           "title": "Perhitungan Gaji 2026", 
