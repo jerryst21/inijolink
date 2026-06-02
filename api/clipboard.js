@@ -4,9 +4,14 @@ export default async function handler(req, res) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
+  // 1. Debugging Environment Variables
   if (!supabaseUrl || !supabaseAnonKey) {
     return res.status(500).json({ 
-      error: "Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variable in Vercel." 
+      error: "Missing environment variables di Vercel",
+      debug: { 
+        hasUrl: !!supabaseUrl, 
+        hasKey: !!supabaseAnonKey 
+      }
     });
   }
 
@@ -18,7 +23,7 @@ export default async function handler(req, res) {
   };
 
   // ------------------------------------
-  // METODE: GET (Membaca data)
+  // METODE: GET
   // ------------------------------------
   if (req.method === "GET") {
     try {
@@ -28,8 +33,11 @@ export default async function handler(req, res) {
       });
 
       if (!response.ok) {
-        const errData = await response.json();
-        return res.status(response.status).json({ error: errData.message });
+        const errText = await response.text();
+        return res.status(response.status).json({ 
+          error: "Supabase GET Error", 
+          supabaseRawMessage: errText 
+        });
       }
 
       const data = await response.json();
@@ -42,61 +50,57 @@ export default async function handler(req, res) {
 
       return res.status(200).json(mappedItems);
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      return res.status(500).json({ error: "Crash di GET handler", message: error.message });
     }
   }
 
   // ------------------------------------
-  // METODE: POST (Menyimpan / Sinkronisasi Data)
+  // METODE: POST
   // ------------------------------------
   if (req.method === "POST") {
     try {
-      // FIX 1: Deteksi otomatis apakah data berupa array langsung atau objek { items }
+      // 2. Debugging Data dari Frontend (index.html)
       let items = [];
       if (Array.isArray(req.body)) {
         items = req.body;
       } else if (req.body && Array.isArray(req.body.items)) {
         items = req.body.items;
       } else {
-        return res.status(400).json({ error: "Format data tidak valid. Harus berupa array." });
+        return res.status(400).json({ 
+          error: "Format data salah. Bukan array.", 
+          receivedBody: req.body 
+        });
       }
 
       const limitedItems = items.slice(0, 100);
 
-      // LANGKAH 1: Kosongkan data lama di Supabase (No History)
+      // LANGKAH 1: Hapus data lama (DELETE)
       const deleteResponse = await fetch(url, {
         method: "DELETE",
         headers: headers
       });
 
       if (!deleteResponse.ok) {
-        const errData = await deleteResponse.json();
-        return res.status(deleteResponse.status).json({ error: "Gagal membersihkan data lama: " + errData.message });
+        const errText = await deleteResponse.text();
+        return res.status(deleteResponse.status).json({ 
+          error: "Gagal membersihkan data lama (DELETE)", 
+          supabaseStatus: deleteResponse.status,
+          supabaseRawMessage: errText 
+        });
       }
 
       if (limitedItems.length === 0) {
         return res.status(200).json([]);
       }
 
-      // LANGKAH 2: Format ulang data agar sesuai dengan kolom Supabase
-      const rowsToInsert = limitedItems.map(item => {
-        const row = {
-          text: item.text,
-          pinned: item.pinned === true
-        };
+      // LANGKAH 2: Mapping data baris baru
+      const rowsToInsert = limitedItems.map(item => ({
+        text: item.text || "",
+        pinned: item.pinned === true,
+        ...(item.createdAt && !isNaN(Date.parse(item.createdAt)) ? { created_at: item.createdAt } : {})
+      }));
 
-        // FIX 2: Jangan kirim ID teks bawaan frontend agar tidak merusak tipe data UUID di Supabase.
-        // Biarkan database Supabase menggenerasikannya secara otomatis demi keamanan ekstra.
-        
-        // Cek jika ada tanggal bawaan yang valid, gunakan tanggal tersebut
-        if (item.createdAt && !isNaN(Date.parse(item.createdAt))) {
-          row.created_at = item.createdAt;
-        }
-
-        return row;
-      });
-
-      // LANGKAH 3: Masukkan data baru secara massal
+      // LANGKAH 3: Simpan data baru (POST ke Supabase)
       const insertResponse = await fetch(url, {
         method: "POST",
         headers: {
@@ -107,13 +111,16 @@ export default async function handler(req, res) {
       });
 
       if (!insertResponse.ok) {
-        const errData = await insertResponse.json();
-        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data baru: " + errData.message });
+        const errText = await insertResponse.text();
+        return res.status(insertResponse.status).json({ 
+          error: "Gagal menyimpan data baru (POST)", 
+          supabaseStatus: insertResponse.status,
+          supabaseRawMessage: errText, // Menampilkan detail error asli dari Supabase
+          payloadSent: rowsToInsert    // Menampilkan bentuk data yang kita kirim
+        });
       }
 
       const insertedData = await insertResponse.json();
-
-      // Urutkan kembali data terbaru untuk dikembalikan ke frontend
       const savedItems = insertedData
         .map(item => ({
           id: item.id,
@@ -123,10 +130,13 @@ export default async function handler(req, res) {
         }))
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-      // Kembalikan data dalam bentuk Array langsung agar index.html tidak bingung
       return res.status(200).json(savedItems);
     } catch (error) {
-      return res.status(500).json({ error: error.message });
+      return res.status(500).json({ 
+        error: "Crash di POST handler", 
+        message: error.message,
+        stack: error.stack
+      });
     }
   }
 
