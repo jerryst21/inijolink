@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cloud Clipboard Personal</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen text-gray-800 font-sans">
+
+  <div class="max-w-2xl mx-auto px-4 py-8">
+    <header class="flex justify-between items-center mb-6">
+      <h1 class="text-2xl font-bold text-indigo-600">☁️ Cloud Clipboard</h1>
+      <div class="space-x-2">
+        <button id="btn-refresh" class="bg-gray-200 hover:bg-gray-300 px-3 py-1.5 rounded-lg text-sm font-medium transition">
+          🔄 Refresh
+        </button>
+        <button id="btn-clear-all" class="bg-red-100 hover:bg-red-200 text-red-600 px-3 py-1.5 rounded-lg text-sm font-medium transition">
+          🗑️ Clear Unpinned
+        </button>
+      </div>
+    </header>
+
+    <main class="space-y-6">
+      <section class="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
+        <textarea id="input-text" rows="4" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-y" placeholder="Tempel atau ketik teks clipboard di sini..."></textarea>
+        <div class="mt-3 flex justify-end">
+          <button id="btn-save" class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-2 rounded-lg font-medium transition">
+            Simpan ke Cloud
+          </button>
+        </div>
+      </section>
+
+      <div id="loading-status" class="text-center text-sm text-gray-500 hidden">Memproses data...</div>
+
+      <section>
+        <h2 class="text-lg font-semibold mb-3">History Clipboard</h2>
+        <div id="clipboard-list" class="space-y-3">
+          <div class="text-center py-8 text-gray-400 text-sm">Belum ada history.</div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // State aplikasi lokal
+    let clipboardItems = [];
+
+    // DOM Elements
+    const inputText = document.getElementById('input-text');
+    const btnSave = document.getElementById('btn-save');
+    const btnRefresh = document.getElementById('btn-refresh');
+    const btnClearAll = document.getElementById('btn-clear-all');
+    const clipboardList = document.getElementById('clipboard-list');
+    const loadingStatus = document.getElementById('loading-status');
+
+    // Menampilkan/menyembunyikan loading status
+    function toggleLoading(show) {
+      if (show) loadingStatus.classList.remove('hidden');
+      else loadingStatus.classList.add('hidden');
+    }
+
+    // Mengambil data dari Vercel Function (GET)
+    async function fetchClipboard() {
+      toggleLoading(true);
+      try {
+        const res = await fetch('/api/clipboard');
+        if (res.ok) {
+          clipboardItems = await res.json();
+          renderList();
+        } else {
+          alert('Gagal memuat data clipboard.');
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        toggleLoading(false);
+      }
+    }
+
+    // Mengirim data ke Vercel Function (POST)
+    async function saveClipboard(updatedItems) {
+      toggleLoading(true);
+      try {
+        const res = await fetch('/api/clipboard', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ items: updatedItems })
+        });
+        if (res.ok) {
+          const data = await res.json();
+          clipboardItems = data.items;
+          renderList();
+        } else {
+          alert('Gagal menyimpan data ke cloud.');
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        toggleLoading(false);
+      }
+    }
+
+    // Merender item ke layar dengan aturan Pinned berada di atas
+    function renderList() {
+      clipboardList.innerHTML = '';
+      
+      if (clipboardItems.length === 0) {
+        clipboardList.innerHTML = '<div class="text-center py-8 text-gray-400 text-sm">Belum ada history.</div>';
+        return;
+      }
+
+      // Sortir: Pinned = true di atas, lalu berdasarkan tanggal terbaru
+      const sortedItems = [...clipboardItems].sort((a, b) => {
+        return (b.pinned - a.pinned) || new Date(b.createdAt) - new Date(a.createdAt);
+      });
+
+      sortedItems.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = `p-4 rounded-xl shadow-sm border transition flex flex-col justify-between gap-3 ${
+          item.pinned ? 'bg-yellow-50/70 border-yellow-300' : 'bg-white border-gray-200'
+        }`;
+
+        // Format tanggal lokal
+        const dateFormatted = new Date(item.createdAt).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
+
+        itemEl.innerHTML = `
+          <div class="whitespace-pre-wrap break-words text-sm md:text-base">${escapeHTML(item.text)}</div>
+          <div class="flex justify-between items-center border-t pt-2 border-gray-100 text-xs text-gray-400">
+            <span>📅 ${dateFormatted}</span>
+            <div class="space-x-2 flex">
+              <button onclick="copyText('${escapeJS(item.text)}', this)" class="bg-gray-100 hover:bg-indigo-100 hover:text-indigo-600 px-2.5 py-1 rounded font-medium transition text-gray-600">
+                📋 Copy
+              </button>
+              <button onclick="togglePin('${item.id}')" class="px-2.5 py-1 rounded font-medium transition ${
+                item.pinned ? 'bg-yellow-200 text-yellow-800 hover:bg-yellow-300' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              }">
+                📌 ${item.pinned ? 'Unpin' : 'Pin'}
+              </button>
+              <button onclick="deleteItem('${item.id}')" class="bg-gray-100 hover:bg-red-100 hover:text-red-600 px-2.5 py-1 rounded font-medium transition text-gray-600">
+                ❌ Hapus
+              </button>
+            </div>
+          </div>
+        `;
+        clipboardList.appendChild(itemEl);
+      });
+    }
+
+    // Aksi: Simpan Item Baru
+    btnSave.addEventListener('click', () => {
+      const text = inputText.value.trim();
+      if (!text) return;
+
+      const newItem = {
+        id: 'id-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
+        text: text,
+        createdAt: new Date().toISOString(),
+        pinned: false
+      };
+
+      const updated = [newItem, ...clipboardItems];
+      saveClipboard(updated);
+      inputText.value = ''; // Kosongkan input otomatis
+    });
+
+    // Aksi: Toggle Pin/Unpin
+    function togglePin(id) {
+      const updated = clipboardItems.map(item => {
+        if (item.id === id) item.pinned = !item.pinned;
+        return item;
+      });
+      saveClipboard(updated);
+    }
+
+    // Aksi: Hapus per Item
+    function deleteItem(id) {
+      if (confirm('Hapus item ini?')) {
+        const updated = clipboardItems.filter(item => item.id !== id);
+        saveClipboard(updated);
+      }
+    }
+
+    // Aksi: Bersihkan semua yang tidak di-pin
+    btnClearAll.addEventListener('click', () => {
+      if (confirm('Hapus semua item yang tidak di-pin?')) {
+        const updated = clipboardItems.filter(item => item.pinned === true);
+        saveClipboard(updated);
+      }
+    });
+
+    // Aksi: Refresh Manual
+    btnRefresh.addEventListener('click', fetchClipboard);
+
+    // Fungsi Pembantu: Salin teks ke clipboard browser asli
+    function copyText(text, buttonEl) {
+      navigator.clipboard.writeText(text).then(() => {
+        const originalText = buttonEl.innerText;
+        buttonEl.innerText = '✅ Copied!';
+        buttonEl.classList.add('bg-green-100', 'text-green-700');
+        setTimeout(() => {
+          buttonEl.innerText = originalText;
+          buttonEl.classList.remove('bg-green-100', 'text-green-700');
+        }, 1500);
+      }).catch(err => alert('Gagal menyalin teks: ' + err));
+    }
+
+    // Utilities untuk keamanan XSS sederhana
+    function escapeHTML(str) {
+      return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+    }
+    function escapeJS(str) {
+      return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
+    }
+
+    // Load data pertama kali saat halaman dibuka
+    window.addEventListener('DOMContentLoaded', fetchClipboard);
+  </script>
+</body>
+</html>
