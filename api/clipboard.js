@@ -106,7 +106,11 @@ export default async function handler(req, res) {
         }))
         .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
 
-      return res.status(200).json(savedItems);
+      // Mengembalikan data yang dibungkus dalam objek 'items' dan status 'success'
+      return res.status(200).json({ 
+        success: true, 
+        items: savedItems 
+      });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
