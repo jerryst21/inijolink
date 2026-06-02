@@ -113,7 +113,7 @@
       }
     }
 
-    // Merender item ke layar dengan aturan Pinned berada di atas
+    // Merender item ke layar
     function renderList() {
       clipboardList.innerHTML = '';
       
@@ -122,14 +122,14 @@
         return;
       }
 
-      // Sortir: Pinned = true di atas, lalu berdasarkan tanggal terbaru 
+      // UPDATE LOGIKA: Sekarang murni disortir berdasarkan tanggal terbaru (pinned tidak dipaksa ke atas)
       const sortedItems = [...clipboardItems].sort((a, b) => {
-        return (b.pinned - a.pinned) || new Date(b.createdAt) - new Date(a.createdAt);
+        return new Date(b.createdAt) - new Date(a.createdAt);
       });
 
       sortedItems.forEach(item => {
         const itemEl = document.createElement('div');
-        // Optimasi visual card untuk mobile layar sentuh
+        // Item yang di-pin tetap berwarna menonjol agar mudah dikenali secara visual
         itemEl.className = `p-4 rounded-2xl shadow-sm border transition-all flex flex-col justify-between ${
           item.pinned ? 'bg-amber-50/60 border-amber-300 ring-1 ring-amber-300' : 'bg-white border-gray-200'
         }`;
@@ -164,7 +164,7 @@
       });
     }
 
-    // Aksi: Simpan Item Baru [cite: 19]
+    // Aksi: Simpan Item Baru
     btnSave.addEventListener('click', () => {
       const text = inputText.value.trim();
       if (!text) return;
@@ -178,11 +178,11 @@
 
       const updated = [newItem, ...clipboardItems];
       saveClipboard(updated);
-      inputText.value = ''; // Kosongkan input otomatis [cite: 20]
+      inputText.value = ''; // Kosongkan input otomatis
       inputText.blur(); // Tutup keyboard mobile setelah simpan
     });
 
-    // Aksi: Toggle Pin/Unpin [cite: 23]
+    // Aksi: Toggle Pin/Unpin
     function togglePin(id) {
       const updated = clipboardItems.map(item => {
         if (item.id === id) item.pinned = !item.pinned;
@@ -191,7 +191,7 @@
       saveClipboard(updated);
     }
 
-    // Aksi: Hapus per Item [cite: 23]
+    // Aksi: Hapus per Item
     function deleteItem(id) {
       if (confirm('Hapus item ini?')) {
         const updated = clipboardItems.filter(item => item.id !== id);
@@ -199,7 +199,7 @@
       }
     }
 
-    // Aksi: Bersihkan semua yang tidak di-pin [cite: 25]
+    // Aksi: Bersihkan semua yang tidak di-pin
     btnClearAll.addEventListener('click', () => {
       if (confirm('Hapus semua item yang tidak di-pin?')) {
         const updated = clipboardItems.filter(item => item.pinned === true);
@@ -207,10 +207,10 @@
       }
     });
 
-    // Aksi: Refresh Manual [cite: 24]
+    // Aksi: Refresh Manual
     btnRefresh.addEventListener('click', fetchClipboard);
 
-    // Fungsi Pembantu: Salin teks ke clipboard browser asli 
+    // Fungsi Pembantu: Salin teks ke clipboard browser asli
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
         showNotification('✅ Teks disalin!');
