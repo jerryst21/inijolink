@@ -1,48 +1,60 @@
 // api/clipboard.js
 
 export default async function handler(req, res) {
-  // Konfigurasi Repositori GitHub Kamu (Hardcoded sesuai request)
-  const GITHUB_USER = 'jerryst21'; 
-  const GITHUB_REPO = 'inijolink';  
-  const FILE_PATH = 'clipboard/text.json';
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
-  // Token keamanan tetap diambil dari environment variable Vercel
-  const token = process.env.GITHUB_PAT;
-
-  if (!token) {
-    return res.status(500).json({ error: "Missing GITHUB_PAT environment variable in Vercel." });
+  // Validasi konfigurasi environment variables di Vercel
+  if (!supabaseUrl || !supabaseAnonKey) {
+    return res.status(500).json({ 
+      error: "Missing SUPABASE_URL or SUPABASE_ANON_KEY environment variable in Vercel." 
+    });
   }
 
-  // Konstruksi URL API GitHub berdasarkan konfigurasi baru
-  const url = `https://api.github.com/repos/${GITHUB_USER}/${GITHUB_REPO}/contents/${FILE_PATH}`;
-  
+  // Base URL untuk tabel 'clipboards' di Supabase REST API
+  const url = `${supabaseUrl}/rest/v1/clipboards`;
+
+  // Header standar untuk otentikasi aman Supabase via Anon Key
   const headers = {
-    Authorization: `token ${token}`,
-    Accept: "application/vnd.github.v3+json",
-    "User-Agent": "Cloud-Clipboard-App",
+    "apikey": supabaseAnonKey,
+    "Authorization": `Bearer ${supabaseAnonKey}`,
+    "Content-Type": "application/json",
   };
 
   // ------------------------------------
-  // METODE: GET (Membaca data clipboard)
+  // METODE: GET (Membaca data dari Supabase)
   // ------------------------------------
   if (req.method === "GET") {
     try {
-      const response = await fetch(url, { headers });
-      
-      if (response.status === 404) {
-        return res.status(200).json([]); // Jika folder/file belum ada, return array kosong
+      // Mengambil data murni diurutkan berdasarkan tanggal terbaru (created_at)
+      const response = await fetch(`${url}?order=created_at.desc`, {
+        method: "GET",
+        headers: headers
+      });
+
+      if (!response.ok) {
+        const errData = await response.json();
+        return res.status(response.status).json({ error: errData.message });
       }
 
       const data = await response.json();
-      const content = Buffer.from(data.content, "base64").toString("utf-8");
-      return res.status(200).json(JSON.parse(content));
+
+      // Format ulang data agar sesuai dengan struktur nama variabel yang dikenali oleh index.html
+      const mappedItems = data.map(item => ({
+        id: item.id,
+        text: item.text,
+        pinned: item.pinned,
+        createdAt: item.created_at
+      }));
+
+      return res.status(200).json(mappedItems);
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
   }
 
   // ------------------------------------
-  // METODE: POST (Mengupdate data clipboard)
+  // METODE: POST (Sinkronisasi Data Baru / Hapus Permanen)
   // ------------------------------------
   if (req.method === "POST") {
     try {
@@ -51,39 +63,70 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "Format data tidak valid. Harus berupa array." });
       }
 
-      // Membatasi maksimum 100 item sesuai kesepakatan PRD agar performa terjaga
+      // Batasi maksimal 100 item untuk menjaga optimasi performa
       const limitedItems = items.slice(0, 100);
 
-      // Ambil SHA file terbaru terlebih dahulu untuk menghindari konflik overwrite di GitHub
-      const getResponse = await fetch(url, { headers });
-      let sha = null;
-      if (getResponse.status !== 404) {
-        const getData = await getResponse.json();
-        sha = getData.sha;
-      }
-
-      const fileContent = JSON.stringify(limitedItems, null, 2);
-      const base64Content = Buffer.from(fileContent).toString("base64");
-
-      const putResponse = await fetch(url, {
-        method: "PUT",
-        headers: {
-          ...headers,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          message: "update clipboard data via Vercel Function",
-          content: base64Content,
-          sha: sha || undefined, // SHA wajib dikirim jika file sudah ada untuk update data
-        }),
+      // LANGKAH 1: Hapus seluruh data lama secara permanen (Sesuai keinginan: No History!)
+      // RLS Policy yang kita buat sebelumnya mengizinkan penghapusan massal tanpa filter.
+      const deleteResponse = await fetch(url, {
+        method: "DELETE",
+        headers: headers
       });
 
-      if (!putResponse.ok) {
-        const errData = await putResponse.json();
-        return res.status(putResponse.status).json({ error: errData.message });
+      if (!deleteResponse.ok) {
+        const errData = await deleteResponse.json();
+        return res.status(deleteResponse.status).json({ error: "Gagal membersihkan data lama: " + errData.message });
       }
 
-      return res.status(200).json({ success: true, items: limitedItems });
+      // Jika data yang dikirim kosong (misal sehabis klik Clear All), langsung selesai
+      if (limitedItems.length === 0) {
+        return res.status(200).json({ success: true, items: [] });
+      }
+
+      // LANGKAH 2: Format ulang data dari frontend agar siap masuk ke kolom tabel Supabase
+      const rowsToInsert = limitedItems.map(item => {
+        const row = {
+          text: item.text,
+          pinned: item.pinned === true
+        };
+        // Jika ID bawaan frontend bukan format ID sementara 'id-xxx', kita pertahankan ID-nya
+        if (item.id && !item.id.startsWith('id-')) {
+          row.id = item.id;
+        }
+        if (item.createdAt) {
+          row.created_at = item.createdAt;
+        }
+        return row;
+      });
+
+      // LANGKAH 3: Mass-insert data baru ke database Supabase
+      const insertResponse = await fetch(url, {
+        method: "POST",
+        headers: {
+          ...headers,
+          "Prefer": "return=representation" // Meminta Supabase mengembalikan data yang sukses disimpan
+        },
+        body: JSON.stringify(rowsToInsert)
+      });
+
+      if (!insertResponse.ok) {
+        const errData = await insertResponse.json();
+        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data baru: " + errData.message });
+      }
+
+      const insertedData = await insertResponse.json();
+
+      // Kembalikan format data ke frontend dalam urutan tanggal terbaru
+      const savedItems = insertedData
+        .map(item => ({
+          id: item.id,
+          text: item.text,
+          pinned: item.pinned,
+          createdAt: item.created_at
+        }))
+        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+
+      return res.status(200).json({ success: true, items: savedItems });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
