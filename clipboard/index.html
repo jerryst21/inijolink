@@ -30,7 +30,7 @@
     <main class="space-y-5">
       
       <section class="bg-white p-4 rounded-2xl shadow-sm border border-gray-200">
-        <textarea id="input-text" rows="4" class="w-full p-3 text-base border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-y placeholder-gray-400 bg-gray-55/50 focus:bg-white transition text-[16px]" placeholder="Tempel atau ketik teks clipboard di sini..."></textarea>
+        <textarea id="input-text" rows="4" class="w-full p-3 text-base border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-none overflow-hidden placeholder-gray-400 bg-gray-55/50 focus:bg-white transition text-[16px]" placeholder="Tempel atau ketik teks clipboard di sini..."></textarea>
         <div class="mt-3 flex justify-end">
           <button id="btn-save" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-6 py-3 rounded-xl font-bold transition shadow-sm shadow-indigo-200">
             Simpan ke Cloud
@@ -67,6 +67,15 @@
     const clipboardList = document.getElementById('clipboard-list');
     const loadingStatus = document.getElementById('loading-status');
     const toast = document.getElementById('toast');
+
+    // BARU: Fungsi untuk mengatur tinggi textarea otomatis mengikuti jumlah teks
+    function autoResizeTextArea() {
+      inputText.style.height = 'auto'; // Reset tinggi ke bawaan agar hitungan baris mengecil akurat
+      inputText.style.height = inputText.scrollHeight + 'px'; // Set sesuai tinggi isi teks asli
+    }
+
+    // Pasang fungsi resize otomatis saat user mengetik atau menempelkan teks
+    inputText.addEventListener('input', autoResizeTextArea);
 
     // Menampilkan/menyembunyikan loading status
     function toggleLoading(show) {
@@ -124,14 +133,13 @@
         return;
       }
 
-      // UPDATE LOGIKA: Sekarang murni disortir berdasarkan tanggal terbaru (pinned tidak dipaksa ke atas)
+      // Murni disortir berdasarkan tanggal terbaru
       const sortedItems = [...clipboardItems].sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
 
       sortedItems.forEach(item => {
         const itemEl = document.createElement('div');
-        // Item yang di-pin tetap berwarna menonjol agar mudah dikenali secara visual
         itemEl.className = `p-4 rounded-2xl shadow-sm border transition-all flex flex-col justify-between ${
           item.pinned ? 'bg-amber-50/60 border-amber-300 ring-1 ring-amber-300' : 'bg-white border-gray-200'
         }`;
@@ -180,7 +188,9 @@
 
       const updated = [newItem, ...clipboardItems];
       saveClipboard(updated);
+      
       inputText.value = ''; // Kosongkan input otomatis
+      autoResizeTextArea(); // UPDATE: Kembalikan ukuran textarea ke semula setelah kosong
       inputText.blur(); // Tutup keyboard mobile setelah simpan
     });
 
@@ -207,7 +217,8 @@
         const updated = clipboardItems.filter(item => item.pinned === true);
         saveClipboard(updated);
       }
-    });
+    }
+  );
 
     // Aksi: Refresh Manual
     btnRefresh.addEventListener('click', fetchClipboard);
