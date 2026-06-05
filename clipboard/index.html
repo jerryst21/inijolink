@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Cloud Clipboard Personal</title>
+  <link rel="icon" href="uploads/2026-06-05-clipboard-icon.png" type="image/png">
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <script src="https://cdn.tailwindcss.com"></script>
@@ -148,7 +149,7 @@
         const dateFormatted = new Date(item.createdAt).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
 
         itemEl.innerHTML = `
-          <div class="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-800 pb-3 select-text select-all">${escapeHTML(item.text)}</div>
+          <div class="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-800 pb-3 select-text">${escapeHTML(item.text)}</div>
           
           <div class="border-t pt-3 border-gray-100 flex flex-col gap-2.5">
             <div class="text-[11px] font-semibold text-gray-400 flex items-center gap-1 px-0.5">
