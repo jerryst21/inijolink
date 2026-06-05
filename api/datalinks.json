@@ -1559,7 +1559,40 @@
           "url": "https://butt.boundless.mayumi.fi/",
           "icon": "fa-solid fa-cart-shopping",
           "iconColor": "#ed375f",
-          "info": "<a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_MINOR'>🏷️ Minor Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_IMPROVED'>🏷️ Improved Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_GREATER'>🏷️ Greater Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_SUPER'>🏷️ Super Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_MEGA'>🏷️ Mega Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=FOOD_TEACHING_PIE_COOKED'>🏷️ Teaching Pie</a></br><a href='https://butt.boundless.mayumi.fi/#item=ITEM_BONE_BASE'>🏷️ Bone</a></br><a href='https://butt.boundless.mayumi.fi/#item=ITEM_ORB_PULSATING'>🏷️ Pulsating Orb</a>"
+          "subLinks": [
+            {
+              "label": "Minor Fast Brew",
+              "url": "https://butt.boundless.mayumi.fi/#item=BREW_FAST_MINOR"
+            },
+            {
+              "label": "Improved Fast Brew",
+              "url": "https://butt.boundless.mayumi.fi/#item=BREW_FAST_IMPROVED"
+            },
+            {
+              "label": "Greater Fast Brew",
+              "url": "https://butt.boundless.mayumi.fi/#item=BREW_FAST_GREATER"
+            },
+            {
+              "label": "Super Fast Brew",
+              "url": "https://butt.boundless.mayumi.fi/#item=BREW_FAST_SUPER"
+            },
+            {
+              "label": "Mega Fast Brew",
+              "url": "https://butt.boundless.mayumi.fi/#item=BREW_FAST_MEGA"
+            },
+            {
+              "label": "Teaching Pie",
+              "url": "https://butt.boundless.mayumi.fi/#item=FOOD_TEACHING_PIE_COOKED"
+            },
+            {
+              "label": "Bone",
+              "url": "https://butt.boundless.mayumi.fi/#item=ITEM_BONE_BASE"
+            },
+            {
+              "label": "Pulsating Orb",
+              "url": "https://butt.boundless.mayumi.fi/#item=ITEM_ORB_PULSATING"
+            }
+          ]
         }
       ]
     }
