@@ -1289,5 +1289,123 @@
         }
       ]
     }
+  ],
+  "jay": [
+    {
+      "category": "MAIN",
+      "links": [
+        {
+          "title": "Jurnal",
+          "url": "https://inijo.vercel.app/jurnal/riwayat624.html",
+          "icon": "fa-solid fa-book"
+        },
+        {
+          "title": "Clipboard",
+          "url": "https://inijolink.vercel.app/clipboard",
+          "icon": "fa-solid fa-clipboard-list"
+        },
+        {
+          "title": "Notion",
+          "url": "https://app.notion.com/p/inijo/Dashboard-615a2a741b074ab4bac6fc4d91daa744",
+          "icon": "fa-brands fa-notion"
+        },
+        {
+          "title": "Gmail",
+          "url": "https://mail.google.com/mail/u/0/#inbox",
+          "icon": "fa-regular fa-envelope"
+        },
+        {
+          "title": "Emoji",
+          "url": "https://emojidb.org/leaf-emojis?utm_source=user_search",
+          "icon": "fa-regular fa-face-grin"
+        },
+        {
+          "title": "BCA VPN",
+          "url": "https://vpn.klikbca.com/+CSCOE+/logon.html",
+          "icon": "fa-solid fa-building-columns",
+          "iconColor": "#4285F4"
+        },
+        {
+          "title": "BNI Direct",
+          "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout",
+          "icon": "fa-solid fa-building-columns",
+          "iconColor": "#FFA500"
+        },
+        {
+          "title": "KlikBCA",
+          "url": "https://ibank.klikbca.com/authentication.do?value(actions)=logout",
+          "icon": "fa-solid fa-building-columns",
+          "iconColor": "#4285F4"
+        },
+        {
+          "title": "INIJO",
+          "url": "https://inijo.vercel.app/",
+          "icon": "fa-solid fa-link",
+          "iconColor": "#FFBF00"
+        },
+        {
+          "title": "INIJO TOOL",
+          "url": "https://inijotool.vercel.app/",
+          "icon": "fa-solid fa-link",
+          "iconColor": "#FFBF00"
+        }
+      ]
+    },
+    {
+      "category": "AI",
+      "links": [
+        {
+          "title": "Gemini",
+          "url": "https://gemini.google.com/u/0/app?pageId=none",
+          "icon": "fa-solid fa-star",
+          "iconColor": "#4285F4",
+          "info": "All Round Tool"
+        },
+        {
+          "title": "Claude",
+          "url": "https://claude.ai/new",
+          "icon": "fa-solid fa-burst",
+          "iconColor": "#D97757",
+          "info": "Untuk Deep Research"
+        },
+        {
+          "title": "ChatGPT",
+          "url": "https://chatgpt.com/?model=auto",
+          "icon": "fa-brands fa-openai"
+        },
+        {
+          "title": "Perplexity",
+          "url": "https://www.perplexity.ai/?login-source=oneTapHome&login-new=true",
+          "icon": "fa-solid fa-asterisk",
+          "info": "Untuk Deep Research"
+        },
+        {
+          "title": "Lumina",
+          "url": "https://ai.byteplus.com/lumina/en/model/image?mode=image",
+          "icon": "fa-solid fa-image"
+        }
+      ]
+    },
+    {
+      "category": "CODING",
+      "links": [
+        {
+          "title": "GitHub",
+          "url": "https://github.com/repos",
+          "icon": "fa-brands fa-github"
+        },
+        {
+          "title": "Vercel",
+          "url": "https://vercel.com/jstombokan-9404s-projects",
+          "icon": "fa-solid fa-square-caret-up"
+        },
+        {
+          "title": "Font Awesome",
+          "url": "https://fontawesome.com/search?ic=free-collection",
+          "icon": "fa-solid fa-font-awesome",
+          "iconColor": "#007bff"
+        }
+      ]
+    }
   ]
 }
