@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JSON Data Links Editor</title>
+    <title>JSON Data Links Editor — XO Suki & SPBU</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -44,7 +44,17 @@
 
         <div v-if="store[activeTab]" class="space-y-4">
             <div class="flex justify-between items-center bg-white p-2.5 rounded-xl shadow-sm border">
-                <span class="text-xs font-semibold text-gray-500 uppercase">Unit Aktif: <span class="text-gray-800 font-bold">{{ activeTab }}</span></span>
+                <div class="flex items-center gap-3">
+                    <span class="text-xs font-semibold text-gray-500 uppercase">Unit Aktif: <span class="text-gray-800 font-bold">{{ activeTab }}</span></span>
+                    <div class="flex gap-1 bg-gray-100 p-0.5 rounded-lg border">
+                        <button @click="moveUnitLeft" :disabled="getUnitIndex() === 0" class="text-gray-500 hover:text-blue-600 hover:bg-white disabled:opacity-20 px-2 py-1 rounded text-xs transition" title="Geser Urutan Unit Ke Kiri (Sebelumnya)">
+                            <i class="fa-solid fa-arrow-left"></i>
+                        </button>
+                        <button @click="moveUnitRight" :disabled="getUnitIndex() === Object.keys(store).length - 1" class="text-gray-500 hover:text-blue-600 hover:bg-white disabled:opacity-20 px-2 py-1 rounded text-xs transition" title="Geser Urutan Unit Ke Kanan (Berikutnya)">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
                 <button @click="addCategory" class="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
                     <i class="fa-solid fa-plus"></i> Tambah Kategori Baru
                 </button>
@@ -60,9 +70,19 @@
                         <label class="block text-[10px] font-bold text-gray-400 uppercase mb-0.5">Komentar / Catatan Internal (Optional)</label>
                         <input type="text" v-model="cat._comment" class="w-full text-xs text-amber-600 font-mono bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:bg-white px-1 py-0.5 rounded transition" placeholder="⚠️ Catatan internal unit...">
                     </div>
-                    <button @click="deleteCategory(catIdx)" class="text-gray-400 hover:text-red-600 p-1.5 transition self-end sm:self-auto" title="Hapus Kategori">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
+                    
+                    <div class="flex gap-1 self-end sm:self-auto items-center">
+                        <button @click="moveCategoryUp(catIdx)" :disabled="catIdx === 0" class="text-gray-400 hover:text-blue-600 disabled:opacity-20 p-1.5 transition" title="Naikkan Kategori">
+                            <i class="fa-solid fa-chevron-up"></i>
+                        </button>
+                        <button @click="moveCategoryDown(catIdx)" :disabled="catIdx === store[activeTab].length - 1" class="text-gray-400 hover:text-blue-600 disabled:opacity-20 p-1.5 transition" title="Turunkan Kategori">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                        <div class="h-4 w-px bg-gray-300 mx-1"></div>
+                        <button @click="deleteCategory(catIdx)" class="text-gray-400 hover:text-red-600 p-1.5 transition" title="Hapus Kategori">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
                 </div>
 
                 <div class="p-3 space-y-3">
@@ -112,13 +132,20 @@
                                 </div>
                             </div>
 
-                            <div class="md:col-span-2">
-                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Info / Jatuh Tempo</label>
-                                <input type="text" v-model="link.info" class="w-full text-xs bg-white border rounded-lg p-1.5 focus:ring-1 focus:ring-blue-500" placeholder="Jatuh tempo...">
+                            <div class="md:col-span-1">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Info</label>
+                                <input type="text" v-model="link.info" class="w-full text-xs bg-white border rounded-lg p-1.5 focus:ring-1 focus:ring-blue-500" placeholder="Info...">
                             </div>
 
-                            <div class="md:col-span-1 flex justify-end gap-1">
-                                <button @click="addSubLink(link)" class="text-[11px] font-bold text-emerald-600 hover:bg-emerald-50 bg-white border border-emerald-200 px-1.5 py-1.5 rounded-lg transition w-full" title="Tambah Sub-link">
+                            <div class="md:col-span-2 flex justify-end gap-1 items-center">
+                                <button @click="moveLinkUp(catIdx, linkIdx)" :disabled="linkIdx === 0" class="text-gray-400 hover:text-blue-600 hover:bg-gray-100 disabled:opacity-20 p-1.5 rounded-lg transition" title="Pindahkan Ke Atas">
+                                    <i class="fa-solid fa-arrow-up text-xs"></i>
+                                </button>
+                                <button @click="moveLinkDown(catIdx, linkIdx)" :disabled="linkIdx === cat.links.length - 1" class="text-gray-400 hover:text-blue-600 hover:bg-gray-100 disabled:opacity-20 p-1.5 rounded-lg transition" title="Pindahkan Ke Bawah">
+                                    <i class="fa-solid fa-arrow-down text-xs"></i>
+                                </button>
+                                <div class="h-4 w-px bg-gray-300 mx-0.5"></div>
+                                <button @click="addSubLink(link)" class="text-[11px] font-bold text-emerald-600 hover:bg-emerald-50 bg-white border border-emerald-200 px-2 py-1.5 rounded-lg transition whitespace-nowrap" title="Tambah Sub-link">
                                     + Sub
                                 </button>
                                 <button @click="deleteLink(catIdx, linkIdx)" class="text-red-500 hover:bg-red-50 border border-transparent p-1.5 rounded-lg transition" title="Hapus Tautan">
@@ -136,6 +163,16 @@
                                 <div class="flex-1 w-full">
                                     <input type="text" v-model="sub.url" class="w-full text-xs font-mono bg-gray-50 border rounded p-1 text-blue-600" placeholder="URL khusus...">
                                 </div>
+                                
+                                <div class="flex gap-0.5 border-l border-r px-1 bg-gray-50 rounded">
+                                    <button @click="moveSubLinkUp(link, subIdx)" :disabled="subIdx === 0" class="text-gray-400 hover:text-blue-600 disabled:opacity-20 px-1 py-0.5 transition" title="Naikkan Sub-link">
+                                        <i class="fa-solid fa-chevron-up text-[10px]"></i>
+                                    </button>
+                                    <button @click="moveSubLinkDown(link, subIdx)" :disabled="subIdx === link.subLinks.length - 1" class="text-gray-400 hover:text-blue-600 disabled:opacity-20 px-1 py-0.5 transition" title="Turunkan Sub-link">
+                                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
+                                    </button>
+                                </div>
+
                                 <button @click="deleteSubLink(link, subIdx)" class="text-gray-400 hover:text-red-600 p-1 transition">
                                     <i class="fa-solid fa-xmark text-xs"></i>
                                 </button>
@@ -166,21 +203,17 @@
         </div>
 
         <div v-if="showDeleteUnitModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-5 space-y-4 animate-fade-in">
+            <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-5 space-y-4 concept-fade-in">
                 <div class="flex items-center gap-3 text-red-600">
                     <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
                     <h3 class="font-bold text-base text-gray-800">Konfirmasi Hapus Unit</h3>
                 </div>
                 <p class="text-xs text-gray-600 leading-relaxed">
-                    Apakah Anda yakin ingin menghapus seluruh unit <strong class="text-red-600 uppercase">"{{ activeTab }}"</strong>? Tindakan ini akan menghapus semua kategori dan data tautan di dalamnya secara permanen dari editor.
+                    Apakah Anda yakin ingin menghapus seluruh unit <strong class="text-red-600 uppercase">"{{ activeTab }}"</strong>? Tindakan ini akan menghapus semua data di dalamnya dari editor.
                 </p>
                 <div class="flex justify-end gap-2 pt-2">
-                    <button @click="showDeleteUnitModal = false" class="px-3 py-1.5 border rounded-lg text-xs font-semibold hover:bg-gray-100 transition">
-                        Batal
-                    </button>
-                    <button @click="deleteActiveUnit" class="px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition">
-                        Ya, Hapus Unit
-                    </button>
+                    <button @click="showDeleteUnitModal = false" class="px-3 py-1.5 border rounded-lg text-xs font-semibold hover:bg-gray-100 transition">Batal</button>
+                    <button @click="deleteActiveUnit" class="px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition">Ya, Hapus Unit</button>
                 </div>
             </div>
         </div>
@@ -192,11 +225,8 @@
                     <button @click="showImportModal = false" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-lg"></i></button>
                 </div>
                 <div class="p-4 flex-1 overflow-y-auto space-y-3">
-                    <p class="text-xs text-gray-500">Salin seluruh teks mentah dari file GitHub Anda dan tempel di kotak bawah ini.</p>
                     <textarea v-model="rawInputJson" class="w-full h-64 border rounded-xl p-3 font-mono text-xs bg-gray-900 text-green-400 focus:ring-2 focus:ring-blue-500 outline-none" placeholder='{\n  "ksb": [...],\n  "mma": [...]\n}'></textarea>
-                    <div v-if="importError" class="p-2.5 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 font-medium">
-                        ⚠️ Error: {{ importError }}
-                    </div>
+                    <div v-if="importError" class="p-2.5 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 font-medium">⚠️ Error: {{ importError }}</div>
                 </div>
                 <div class="p-3 border-t bg-gray-50 flex justify-end gap-2 rounded-b-xl">
                     <button @click="showImportModal = false" class="px-3 py-1.5 border rounded-lg text-xs font-semibold hover:bg-gray-100 transition">Batal</button>
@@ -205,7 +235,7 @@
             </div>
         </div>
 
-        <div v-if="toastMessage" class="fixed top-4 right-4 bg-gray-900 text-white px-4 py-2 rounded-xl shadow-2xl z-50 flex items-center gap-2 animate-bounce text-xs font-medium">
+        <div v-if="toastMessage" class="fixed top-4 right-4 bg-gray-900 text-white px-4 py-2 rounded-xl shadow-2xl z-50 flex items-center gap-2 text-xs font-medium">
             <i class="fa-solid fa-circle-check text-green-400"></i>
             <span>{{ toastMessage }}</span>
         </div>
@@ -216,7 +246,7 @@
 
         createApp({
             setup() {
-                const store = ref({ ksb: [], mma: [], template: [] });
+                const store = ref({ ksb: [], mma: [] });
                 const activeTab = ref('ksb');
                 const showImportModal = ref(false);
                 const showDeleteUnitModal = ref(false);
@@ -227,6 +257,10 @@
                 const showToast = (msg) => {
                     toastMessage.value = msg;
                     setTimeout(() => { toastMessage.value = ''; }, 3000);
+                };
+
+                const getUnitIndex = () => {
+                    return Object.keys(store.value).indexOf(activeTab.value);
                 };
 
                 const openImportModal = () => {
@@ -241,11 +275,6 @@
                         if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
                             throw new Error("Format JSON harus berupa objek root { }");
                         }
-                        for (const key in parsed) {
-                            if (!Array.isArray(parsed[key])) {
-                                throw new Error(`Properti "${key}" harus berupa array kategori.`);
-                            }
-                        }
                         store.value = parsed;
                         const keys = Object.keys(parsed);
                         if (keys.length > 0 && !keys.includes(activeTab.value)) {
@@ -253,9 +282,44 @@
                         }
                         importError.value = null;
                         showImportModal.value = false;
-                        showToast('Data JSON berhasil dimuat ke editor!');
+                        showToast('Data JSON berhasil dimuat!');
                     } catch (e) {
                         importError.value = e.message;
+                    }
+                };
+
+                // Fungsi Rekonstruksi Urutan Objek Key (Unit)
+                const rebuildStore = (orderedKeys) => {
+                    const newStore = {};
+                    orderedKeys.forEach(key => {
+                        newStore[key] = store.value[key];
+                    });
+                    store.value = newStore;
+                };
+
+                // Mengubah Urutan Unit Kerja (Ke Kiri)
+                const moveUnitLeft = () => {
+                    const keys = Object.keys(store.value);
+                    const idx = keys.indexOf(activeTab.value);
+                    if (idx > 0) {
+                        const temp = keys[idx];
+                        keys[idx] = keys[idx - 1];
+                        keys[idx - 1] = temp;
+                        rebuildStore(keys);
+                        showToast(`Urutan unit "${temp}" digeser ke kiri.`);
+                    }
+                };
+
+                // Mengubah Urutan Unit Kerja (Ke Kanan)
+                const moveUnitRight = () => {
+                    const keys = Object.keys(store.value);
+                    const idx = keys.indexOf(activeTab.value);
+                    if (idx < keys.length - 1) {
+                        const temp = keys[idx];
+                        keys[idx] = keys[idx + 1];
+                        keys[idx + 1] = temp;
+                        rebuildStore(keys);
+                        showToast(`Urutan unit "${temp}" digeser ke kanan.`);
                     }
                 };
 
@@ -265,7 +329,7 @@
                 };
 
                 const deleteCategory = (index) => {
-                    if(confirm("Apakah Anda yakin ingin menghapus kategori ini beserta seluruh tautan di dalamnya?")) {
+                    if(confirm("Hapus kategori ini beserta seluruh tautan di dalamnya?")) {
                         store.value[activeTab.value].splice(index, 1);
                         showToast('Kategori dihapus.');
                     }
@@ -282,8 +346,7 @@
                 const addSubLink = (link) => {
                     if (!link.subLinks) link.subLinks = [];
                     let nextYear = "2026";
-                    if(link.subLinks.length === 1 && link.subLinks[0].label === "2025") nextYear = "2026";
-                    else if (link.subLinks.length > 0) {
+                    if(link.subLinks.length > 0) {
                         const lastLabel = parseInt(link.subLinks[link.subLinks.length - 1].label);
                         if(!isNaN(lastLabel)) nextYear = (lastLabel + 1).toString();
                     } else {
@@ -297,23 +360,66 @@
                     if(link.subLinks.length === 0) delete link.subLinks;
                 };
 
+                // Mengubah Urutan Sub-Link (Ke Atas)
+                const moveSubLinkUp = (link, subIdx) => {
+                    if (subIdx > 0) {
+                        const [moved] = link.subLinks.splice(subIdx, 1);
+                        link.subLinks.splice(subIdx - 1, 0, moved);
+                    }
+                };
+
+                // Mengubah Urutan Sub-Link (Ke Bawah)
+                const moveSubLinkDown = (link, subIdx) => {
+                    if (subIdx < link.subLinks.length - 1) {
+                        const [moved] = link.subLinks.splice(subIdx, 1);
+                        link.subLinks.splice(subIdx + 1, 0, moved);
+                    }
+                };
+
+                const moveLinkUp = (catIdx, linkIdx) => {
+                    if (linkIdx > 0) {
+                        const links = store.value[activeTab.value][catIdx].links;
+                        const [movedItem] = links.splice(linkIdx, 1);
+                        links.splice(linkIdx - 1, 0, movedItem);
+                    }
+                };
+
+                const moveLinkDown = (catIdx, linkIdx) => {
+                    const links = store.value[activeTab.value][catIdx].links;
+                    if (linkIdx < links.length - 1) {
+                        const [movedItem] = links.splice(linkIdx, 1);
+                        links.splice(linkIdx + 1, 0, movedItem);
+                    }
+                };
+
+                const moveCategoryUp = (catIdx) => {
+                    if (catIdx > 0) {
+                        const categories = store.value[activeTab.value];
+                        const [movedCat] = categories.splice(catIdx, 1);
+                        categories.splice(catIdx - 1, 0, movedCat);
+                    }
+                };
+
+                const moveCategoryDown = (catIdx) => {
+                    const categories = store.value[activeTab.value];
+                    if (catIdx < categories.length - 1) {
+                        const [movedCat] = categories.splice(catIdx, 1);
+                        categories.splice(catIdx + 1, 0, movedCat);
+                    }
+                };
+
                 const addNewPage = () => {
                     const name = prompt("Masukkan nama unit baru (contoh: bmm, kfc):");
                     if (name && name.trim() !== "") {
                         const cleanKey = name.trim().toLowerCase();
-                        if (store.value[cleanKey]) {
-                            alert("Unit dengan nama tersebut sudah ada!");
-                            return;
-                        }
+                        if (store.value[cleanKey]) return alert("Unit tersebut sudah ada!");
                         store.value[cleanKey] = [];
                         activeTab.value = cleanKey;
                         showToast(`Unit "${cleanKey}" berhasil dibuat!`);
                     }
                 };
 
-                const openDeleteUnitModal = () => {
-                    showDeleteUnitModal.value = true;
-                };
+                const openDeleteUnitModal = () => { showDeleteUnitModal.value = true; };
 
                 const deleteActiveUnit = () => {
                     delete store.value[activeTab.value];
@@ -335,11 +441,7 @@
                                     if (!link.info || link.info.trim() === "") delete link.info;
                                     if (link.subLinks) {
                                         if (link.subLinks.length === 0) delete link.subLinks;
-                                        else {
-                                            link.subLinks.forEach(sub => {
-                                                if(sub.label) sub.label = sub.label.toString();
-                                            });
-                                        }
+                                        else link.subLinks.forEach(sub => { if(sub.label) sub.label = sub.label.toString(); });
                                     }
                                 });
                             }
@@ -352,16 +454,20 @@
                     const finalData = cleanOutputStructure(store.value);
                     const jsonString = JSON.stringify(finalData, null, 2);
                     navigator.clipboard.writeText(jsonString).then(() => {
-                        showToast('JSON Berhasil di-generate & disalin!');
-                    }).catch(err => {
-                        alert('Gagal menyalin teks otomatis.');
-                        console.log(jsonString);
-                    });
+                        showToast('JSON Berhasil disalin!');
+                    }).catch(() => { alert('Gagal menyalin teks otomatis.'); });
                 };
 
                 onMounted(() => { openImportModal(); });
 
-                return { store, activeTab, showImportModal, showDeleteUnitModal, rawInputJson, importError, toastMessage, openImportModal, processImport, addCategory, deleteCategory, addLink, deleteLink, addSubLink, deleteSubLink, addNewPage, openDeleteUnitModal, deleteActiveUnit, exportJSON };
+                return { 
+                    store, activeTab, showImportModal, showDeleteUnitModal, rawInputJson, 
+                    importError, toastMessage, openImportModal, processImport, addCategory, 
+                    deleteCategory, addLink, deleteLink, addSubLink, deleteSubLink, addNewPage, 
+                    openDeleteUnitModal, deleteActiveUnit, exportJSON, getUnitIndex,
+                    moveLinkUp, moveLinkDown, moveCategoryUp, moveCategoryDown,
+                    moveUnitLeft, moveUnitRight, moveSubLinkUp, moveSubLinkDown
+                };
             }
         }).mount('#app');
     </script>
