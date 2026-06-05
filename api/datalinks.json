@@ -513,6 +513,13 @@
           "status": "🔵"
         },
         {
+          "title": "Form Input Penerimaan Politeknik",
+          "url": "https://forms.fillout.com/t/3BAWhXhfrVus?pengawas=453215",
+          "icon": "fa-solid fa-gas-pump",
+          "iconColor": "#f1c40f",
+          "status": "🟢"
+        },
+        {
           "title": "Kas Kantor Politeknik 2026",
           "url": "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo",
           "icon": "fa-solid fa-cash-register",
@@ -551,6 +558,13 @@
           "url": "https://inijotool.vercel.app/arsip/arsippoli77.html",
           "icon": "fa-solid fa-box-archive",
           "status": "🟢"
+        },
+        {
+          "title": "Form Input Penerimaan Politeknik",
+          "url": "https://forms.fillout.com/t/3BAWhXhfrVus?pengawas=68313",
+          "icon": "fa-solid fa-gas-pump",
+          "iconColor": "#f1c40f",
+          "status": "🟡"
         },
         {
           "title": "Kas Kantor Ring Road 2026",
