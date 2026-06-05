@@ -1140,6 +1140,17 @@
           ]
         }
       ]
+    },
+    {
+      "category": "catatan",
+      "links": [
+        {
+          "title": "Rekening Bank",
+          "url": "",
+          "icon": "fa-solid fa-building-columns",
+          "info": "BCA Perpuluhan 026-8310-854</br>BNI Perpuluhan 310-8195-452</br></br>BCA Persembahan 026-3108-547</br>BNI Persembahan 310-8195-474"
+        }
+      ]
     }
   ],
   "template": [
