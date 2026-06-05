@@ -1,47 +1,104 @@
 {
   "ksb": [
     {
-	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA XO SUKI",
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA XO SUKI",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-m", "iconColor": "#ff4757", "status": "🔵" },
-		{ "title": "Buku Menu XO", "url": "https://www.canva.com/design/DAHFHqDg1XE/lOSxj1kvUeEKHUgylk76Og/view?utm_content=DAHFHqDg1XE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb24b2047ce", "icon": "fa-solid fa-book-open-reader" },
-        { "title": "BCA - VPN", "url": "https://vpn.klikbca.com/+CSCOE+/logon.html", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#1e90ff", "status": "🔵" },
-        { "title": "BNIDIRECT CASH", "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#FFA500", "status": "🔵" },
-        { "title": "QLOLA By BRI", "url": "https://qlola.bri.co.id/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#ADE8F4", "status": "🔵" },
-        { "title": "Kopra By Mandiri", "url": "https://koprabymandiri.com/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#0096C7", "status": "🔵" },
-        { 
-          "title": "Kas Kantor", 
-          "url": "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Pembukuan",
+          "url": "https://greengroup.manager.io/",
+          "icon": "fa-solid fa-m",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Buku Menu XO",
+          "url": "https://www.canva.com/design/DAHFHqDg1XE/lOSxj1kvUeEKHUgylk76Og/view?utm_content=DAHFHqDg1XE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hb24b2047ce",
+          "icon": "fa-solid fa-book-open-reader"
+        },
+        {
+          "title": "BCA - VPN",
+          "url": "https://vpn.klikbca.com/+CSCOE+/logon.html",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#1e90ff",
+          "status": "🔵"
+        },
+        {
+          "title": "BNIDIRECT CASH",
+          "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#FFA500",
+          "status": "🔵"
+        },
+        {
+          "title": "QLOLA By BRI",
+          "url": "https://qlola.bri.co.id/",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#ADE8F4",
+          "status": "🔵"
+        },
+        {
+          "title": "Kopra By Mandiri",
+          "url": "https://koprabymandiri.com/",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#0096C7",
+          "status": "🔵"
+        },
+        {
+          "title": "Kas Kantor",
+          "url": "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟢",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1t3RFDYCUSAIz5BlQXPkHeR4GMmIu0DF8gDu9hwYj0to"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1GaDZr_7zTJ2CRQ_fVwOzkdHUaeQwYnYnOr_zLMkarKY"
+            }
           ]
         },
-        { "title": "Arsip Nota", "url": "https://inijotool.vercel.app/arsip/arsipxo862.html", "icon": "fa-solid fa-box-archive", "status": "🟢" },
-        { 
-          "title": "Rekap Sales", 
-          "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU", 
-          "icon": "fa-solid fa-chart-line", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Arsip Nota",
+          "url": "https://inijotool.vercel.app/arsip/arsipxo862.html",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟢"
+        },
+        {
+          "title": "Rekap Sales",
+          "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU",
+          "icon": "fa-solid fa-chart-line",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/16v0TZQZfqfBRWPCY-dTUSiGeafp3kwcBZNtFwevYW2c"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1WYXb13O-kPzxfc7LEKxaiV50HQDvolO4ZMb61D7rUSU"
+            }
           ]
         },
-        { 
-          "title": "Stok Gudang & Freezer 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM", 
-          "icon": "fa-solid fa-warehouse", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Stok Gudang & Freezer 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM",
+          "icon": "fa-solid fa-warehouse",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/19tZ6qHSSbhjlWqPBMjtr15gWhV9dOMg5YJIENGuMjA0" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/19tZ6qHSSbhjlWqPBMjtr15gWhV9dOMg5YJIENGuMjA0"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1Nr6Fb1Fb3VzWTLGbMI2cr9aTgHZgyG3cK2YAjr5ovLM"
+            }
           ]
         }
       ]
@@ -49,158 +106,343 @@
     {
       "category": "TUGAS BULANAN",
       "links": [
-        { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-		{ "title": "BPJS Kesehatan", "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1", "icon": "fa-solid fa-notes-medical", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-file-contract", "iconColor": "#c0392b", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)", "status": "🔵" },
-        { 
-          "title": "Perhitungan Gaji 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s", 
-          "icon": "fa-solid fa-money-check-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "BPJS Ketenagakerjaan",
+          "url": "https://sipp.bpjsketenagakerjaan.go.id/",
+          "icon": "fa-solid fa-hands-holding-circle",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10",
+          "status": "🔵"
+        },
+        {
+          "title": "BPJS Kesehatan",
+          "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1",
+          "icon": "fa-solid fa-notes-medical",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10",
+          "status": "🔵"
+        },
+        {
+          "title": "Atraksi",
+          "url": "https://atraksi-pd.citigov.id/signin",
+          "icon": "fa-solid fa-file-contract",
+          "iconColor": "#c0392b",
+          "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)",
+          "status": "🔵"
+        },
+        {
+          "title": "Perhitungan Gaji 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s",
+          "icon": "fa-solid fa-money-check-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/19BDFRRpDNDACdLVBaNHwGz2ExzXybDqeNoaPdYWEDGE" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/19BDFRRpDNDACdLVBaNHwGz2ExzXybDqeNoaPdYWEDGE"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1HM_qYI_PaIYqEmEF0ziGfiVdGPRTUB0gpRr71VvYw0s"
+            }
           ]
         },
-        { 
-          "title": "Rekapan Insentif 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY", 
-          "icon": "fa-solid fa-hand-holding-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Rekapan Insentif 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY",
+          "icon": "fa-solid fa-hand-holding-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1LwNR2_J4AEK-ZEF1bzKiIthQtJ7QZT1BCG1q7eUxiFg"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1--qBsf_3vXNZNkp7n7YXeQuemYLiBuGJ4ubm69uq5AY"
+            }
           ]
         },
-        { 
-          "title": "Laporan Laba Rugi 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8", 
-          "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Laporan Laba Rugi 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1AbY-31jmbghwq0cB8qHYil_5efMOtdMPZiZQ2NylueQ"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1z5xWN_D_T7CwfN5bWLu8wttcFJ6HR0bq3qu7Qw9_VR8"
+            }
           ]
         },
-        { "title": "Profit Sharing", "url": "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE", "icon": "fa-solid fa-scale-balanced", "iconColor": "#0F9D58", "status": "🔵" }
+        {
+          "title": "Profit Sharing",
+          "url": "https://docs.google.com/spreadsheets/d/18WDqdxnbQP2VNk3Kk665mLmOQ_SRPoWKbsYFZGW8XIE",
+          "icon": "fa-solid fa-scale-balanced",
+          "iconColor": "#0F9D58",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "THR Idul Fitri", "url": "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs", "icon": "fa-solid fa-mosque", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" },
-        { "title": "THR Natal", "url": "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE", "icon": "fa-solid fa-holly-berry", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" }
+        {
+          "title": "THR Idul Fitri",
+          "url": "https://docs.google.com/spreadsheets/d/1xlJIfiN_kcQVUadmv-qqkWO_iOvckk9YGnvklfD_nBs",
+          "icon": "fa-solid fa-mosque",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        },
+        {
+          "title": "THR Natal",
+          "url": "https://docs.google.com/spreadsheets/d/1AEkhjtBaEqmVT4uQ_YBB00z0JfC9IRaJrPnShrkzuUE",
+          "icon": "fa-solid fa-holly-berry",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Keterangan Akses", "icon": "fa-solid fa-user-lock", "info": "🟢 Kasir</br>🔵 Accounting" },
-		{ "title": "Kode Akses", "url": "https://inijo.vercel.app/access/accesscodesindry.html", "icon": "fa-solid fa-user-lock" }
+        {
+          "title": "Keterangan Akses",
+          "icon": "fa-solid fa-user-lock",
+          "info": "🟢 Kasir</br>🔵 Accounting"
+        },
+        {
+          "title": "Kode Akses",
+          "url": "https://inijo.vercel.app/access/accesscodesindry.html",
+          "icon": "fa-solid fa-user-lock"
+        }
       ]
     }
   ],
   "bmm": [
     {
-	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA EDEN",
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA EDEN",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-m", "iconColor": "#ff4757", "status": "🔵" },
-		{ "title": "GuestPro", "url": "https://cloud-pms.guestpro.id/user/login", "icon": "fa-solid fa-shield-halved", "iconColor": "#A2D149", "status": "🔵" },
-        { "title": "BCA - VPN", "url": "https://vpn.klikbca.com/+CSCOE+/logon.html", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#1e90ff", "status": "🔵" },
-        { "title": "BNIDIRECT CASH", "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#FFA500", "status": "🔵" },
-        { "title": "QLOLA By BRI", "url": "https://qlola.bri.co.id/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#ADE8F4", "status": "🔵" },
-        { 
-          "title": "Kas Kantor", 
-          "url": "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Pembukuan",
+          "url": "https://greengroup.manager.io/",
+          "icon": "fa-solid fa-m",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "GuestPro",
+          "url": "https://cloud-pms.guestpro.id/user/login",
+          "icon": "fa-solid fa-shield-halved",
+          "iconColor": "#A2D149",
+          "status": "🔵"
+        },
+        {
+          "title": "BCA - VPN",
+          "url": "https://vpn.klikbca.com/+CSCOE+/logon.html",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#1e90ff",
+          "status": "🔵"
+        },
+        {
+          "title": "BNIDIRECT CASH",
+          "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#FFA500",
+          "status": "🔵"
+        },
+        {
+          "title": "QLOLA By BRI",
+          "url": "https://qlola.bri.co.id/",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#ADE8F4",
+          "status": "🔵"
+        },
+        {
+          "title": "Kas Kantor",
+          "url": "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟢",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1jI9_f2EhGQriHX4ubQbWQXnDpS6h9dYx8GmK-bZnEvk" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1jI9_f2EhGQriHX4ubQbWQXnDpS6h9dYx8GmK-bZnEvk"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1H8gEzf31BYg0YkmddqrJ4EYf0Y_6BWscztVvFDUMtb8"
+            }
           ]
         },
-        { "title": "Arsip Nota", "url": "https://inijotool.vercel.app/arsip/arsipeden12.html", "icon": "fa-solid fa-box-archive", "status": "🟢" },
-        { 
-          "title": "Bill Room 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA", 
-          "icon": "fa-solid fa-box-archive", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Arsip Nota",
+          "url": "https://inijotool.vercel.app/arsip/arsipeden12.html",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟢"
+        },
+        {
+          "title": "Bill Room 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA",
+          "icon": "fa-solid fa-box-archive",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1NviWsH2hct3yqoohX8Ud3XGXZuFZB_rQJnaXNuTv2nA" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1NviWsH2hct3yqoohX8Ud3XGXZuFZB_rQJnaXNuTv2nA"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1QtJyh-nsqYYJbFym30SS8P5vYjH2Dehr45HJV4yYvWA"
+            }
           ]
         },
-        { "title": "Billing", "url": "https://docs.google.com/spreadsheets/d/10avKWhR_fxa15Cj8w4gC-qg9gqeuh7n9R5hsMHvHXzY", "icon": "fa-solid fa-box-archive", "status": "🟢" },
-        { "title": "Data Maintenance", "url": "https://docs.google.com/spreadsheets/d/1DiinsFR3LWWs2X_rqyjH_C_nAIEoJ1jbbv_ZQJ330ug", "icon": "fa-solid fa-box-archive", "status": "🟢" },
-        { 
-          "title": "Stok Gudang di Hotel 2026 🚧", 
-          "url": "", 
-          "icon": "fa-solid fa-warehouse", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Billing",
+          "url": "https://docs.google.com/spreadsheets/d/10avKWhR_fxa15Cj8w4gC-qg9gqeuh7n9R5hsMHvHXzY",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟢"
+        },
+        {
+          "title": "Data Maintenance",
+          "url": "https://docs.google.com/spreadsheets/d/1DiinsFR3LWWs2X_rqyjH_C_nAIEoJ1jbbv_ZQJ330ug",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟢"
+        },
+        {
+          "title": "Stok Gudang di Hotel 2026 🚧",
+          "url": "",
+          "icon": "fa-solid fa-warehouse",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1-F3wekA6g1yRpEHVYDfesZcbf5z75ZptuZjap2mnYQ0" },
-            { "label": "2026 🚧", "url": "" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1-F3wekA6g1yRpEHVYDfesZcbf5z75ZptuZjap2mnYQ0"
+            },
+            {
+              "label": "2026 🚧",
+              "url": ""
+            }
           ]
         },
-        { 
-          "title": "Stok Gudang di Wonasa 2026 🚧", 
-          "url": "", 
-          "icon": "fa-solid fa-warehouse", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Stok Gudang di Wonasa 2026 🚧",
+          "url": "",
+          "icon": "fa-solid fa-warehouse",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/17Fz7u-XkAKqhmyaFEXoWIJXs14JlrLqgXa_nIHBQPSw" },
-            { "label": "2026 🚧", "url": "" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/17Fz7u-XkAKqhmyaFEXoWIJXs14JlrLqgXa_nIHBQPSw"
+            },
+            {
+              "label": "2026 🚧",
+              "url": ""
+            }
           ]
         },
-        { "title": "Daftar Aktiva Tetap", "url": "https://docs.google.com/spreadsheets/d/16GcbcBB2qfh3ItV41tLwgti62OTOKHwDyiLEkOO6NWA", "icon": "fa-solid fa-box-archive", "status": "🔵" }
+        {
+          "title": "Daftar Aktiva Tetap",
+          "url": "https://docs.google.com/spreadsheets/d/16GcbcBB2qfh3ItV41tLwgti62OTOKHwDyiLEkOO6NWA",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "TUGAS BULANAN",
       "links": [
-        { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-		{ "title": "Atraksi", "url": "https://atraksi-pd.citigov.id/signin", "icon": "fa-solid fa-file-contract", "iconColor": "#c0392b", "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)", "status": "🔵" },
-        { 
-          "title": "Laporan Gaji 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs", 
-          "icon": "fa-solid fa-money-check-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "BPJS Ketenagakerjaan",
+          "url": "https://sipp.bpjsketenagakerjaan.go.id/",
+          "icon": "fa-solid fa-hands-holding-circle",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10",
+          "status": "🔵"
+        },
+        {
+          "title": "Atraksi",
+          "url": "https://atraksi-pd.citigov.id/signin",
+          "icon": "fa-solid fa-file-contract",
+          "iconColor": "#c0392b",
+          "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)",
+          "status": "🔵"
+        },
+        {
+          "title": "Laporan Gaji 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs",
+          "icon": "fa-solid fa-money-check-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1-onNA4iBhH8mC82OOEDRJKS1Dc6x0xvgdMGFDoCjv3k" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1-onNA4iBhH8mC82OOEDRJKS1Dc6x0xvgdMGFDoCjv3k"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1ume2rd_NIaKWRjIluiP_fpTOud01WXYuntiHxUZxJRs"
+            }
           ]
         },
-        { 
-          "title": "Perhitungan Insentif 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M", 
-          "icon": "fa-solid fa-hand-holding-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Perhitungan Insentif 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M",
+          "icon": "fa-solid fa-hand-holding-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1ZjGg2y44q_4WnkLXw09zHzR_Dmi7ExoZz3QraHgPoLg" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1ZjGg2y44q_4WnkLXw09zHzR_Dmi7ExoZz3QraHgPoLg"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1MwK0eSLe7tDkK3fozlLJijhw2_A0_lS4VhjpxxU9w2M"
+            }
           ]
         },
-        { "title": "Profit Sharing", "url": "", "icon": "fa-solid fa-scale-balanced", "iconColor": "#0F9D58", "status": "🔵" },
-        { "title": "Rincian Pembayaran Biaya Laundry", "url": "https://docs.google.com/spreadsheets/d/15tLWmMK8Bd5GbkWcvYDoebDdT8y_EYRWw5K-z6J_68g", "icon": "fa-solid fa-droplet", "iconColor": "#3498db", "status": "🔵" },
-        { 
-          "title": "Laporan Laba Rugi 2026 🚧", 
-          "url": "", 
-          "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Profit Sharing",
+          "url": "",
+          "icon": "fa-solid fa-scale-balanced",
+          "iconColor": "#0F9D58",
+          "status": "🔵"
+        },
+        {
+          "title": "Rincian Pembayaran Biaya Laundry",
+          "url": "https://docs.google.com/spreadsheets/d/15tLWmMK8Bd5GbkWcvYDoebDdT8y_EYRWw5K-z6J_68g",
+          "icon": "fa-solid fa-droplet",
+          "iconColor": "#3498db",
+          "status": "🔵"
+        },
+        {
+          "title": "Laporan Laba Rugi 2026 🚧",
+          "url": "",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1lh2X9GGS_hIIF8dBF-e7_NJnqU1c2yk4vfgW6XpCZDk" },
-            { "label": "2026 🚧", "url": "" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1lh2X9GGS_hIIF8dBF-e7_NJnqU1c2yk4vfgW6XpCZDk"
+            },
+            {
+              "label": "2026 🚧",
+              "url": ""
+            }
           ]
         }
       ]
@@ -208,82 +450,169 @@
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "THR Idul Fitri", "url": "", "icon": "fa-solid fa-mosque", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" },
-        { "title": "THR Natal", "url": "", "icon": "fa-solid fa-holly-berry", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" }
+        {
+          "title": "THR Idul Fitri",
+          "url": "",
+          "icon": "fa-solid fa-mosque",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        },
+        {
+          "title": "THR Natal",
+          "url": "",
+          "icon": "fa-solid fa-holly-berry",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Keterangan Akses", "icon": "fa-solid fa-user-lock", "info": "🟢 Kasir</br>🔵 Accounting" }
+        {
+          "title": "Keterangan Akses",
+          "icon": "fa-solid fa-user-lock",
+          "info": "🟢 Kasir</br>🔵 Accounting"
+        }
       ]
     }
   ],
   "mma": [
     {
-	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA SPBU",
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA SPBU",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Pembukuan", "url": "https://greengroup.manager.io/", "icon": "fa-solid fa-money-check", "iconColor": "#ff4757", "status": "🔵" },
-        { "title": "BCA - VPN", "url": "https://vpn.klikbca.com/+CSCOE+/logon.html", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#1e90ff", "status": "🔵" },
-        { "title": "BNIDIRECT CASH", "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#FFA500", "status": "🔵" },
-        { "title": "QLOLA By BRI", "url": "https://qlola.bri.co.id/", "icon": "fa-solid fa-money-bill-transfer", "iconColor": "#ADE8F4", "status": "🔵" },
-        { 
-          "title": "Kas Kantor Politeknik 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Pembukuan",
+          "url": "https://greengroup.manager.io/",
+          "icon": "fa-solid fa-money-check",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "BCA - VPN",
+          "url": "https://vpn.klikbca.com/+CSCOE+/logon.html",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#1e90ff",
+          "status": "🔵"
+        },
+        {
+          "title": "BNIDIRECT CASH",
+          "url": "https://bnidirect.bni.co.id/corp/common/login.do?action=logout",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#FFA500",
+          "status": "🔵"
+        },
+        {
+          "title": "QLOLA By BRI",
+          "url": "https://qlola.bri.co.id/",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#ADE8F4",
+          "status": "🔵"
+        },
+        {
+          "title": "Kas Kantor Politeknik 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟢",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1gmUNGyt9-C4FLZH6U1ZPDnSRHvEAJs7Op4xLQqKeM8k" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1gmUNGyt9-C4FLZH6U1ZPDnSRHvEAJs7Op4xLQqKeM8k"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1xfA8AzSCyGBEbvMDTAl-Q5FsrqIJFJRAZhuaM4XWIzo"
+            }
           ]
         },
-        { 
-          "title": "Rekapan Penjualan Politeknik 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1PcyTO7_xzhxUXQD-Y8X4nIO6_159iSocLP9gFOPH3eE", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Rekapan Penjualan Politeknik 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1PcyTO7_xzhxUXQD-Y8X4nIO6_159iSocLP9gFOPH3eE",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟢",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1E9OO0jeqiELzPrzBUVAg-syOGxbZpNvwyC_z7gwTYtw" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1PcyTO7_xzhxUXQD-Y8X4nIO6_159iSocLP9gFOPH3eE" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1E9OO0jeqiELzPrzBUVAg-syOGxbZpNvwyC_z7gwTYtw"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1PcyTO7_xzhxUXQD-Y8X4nIO6_159iSocLP9gFOPH3eE"
+            }
           ]
         },
-        { "title": "Arsip Nota Politeknik", "url": "https://inijotool.vercel.app/arsip/arsippoli77.html", "icon": "fa-solid fa-box-archive", "status": "🟢" },
-        { 
-          "title": "Kas Kantor Ring Road 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Arsip Nota Politeknik",
+          "url": "https://inijotool.vercel.app/arsip/arsippoli77.html",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟢"
+        },
+        {
+          "title": "Kas Kantor Ring Road 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟡",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1FdM6N8XIDg7DidMdcjL0Hc7DSE7t5kY3P5HWnKX9D3o" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1FdM6N8XIDg7DidMdcjL0Hc7DSE7t5kY3P5HWnKX9D3o"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1Pa8rYFR6m_goigZ__jIGgAu38zvrv8-XFyfrGuNHD-I"
+            }
           ]
         },
-        { 
-          "title": "Rekapan Penjualan Ring Road 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg", 
-          "icon": "fa-solid fa-cash-register", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Rekapan Penjualan Ring Road 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58",
           "status": "🟡",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1SHdfcPi_2SDTJmEj-8kkZHoe5rC_UaYV75elTSoaMSM" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1SHdfcPi_2SDTJmEj-8kkZHoe5rC_UaYV75elTSoaMSM"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1hECbBcbJAfb116iN8aMdah3dcioptXrRrUqqswSGkAg"
+            }
           ]
         },
-        { "title": "Arsip Nota Ring Road", "url": "https://inijotool.vercel.app/arsip/arsiprr78.html", "icon": "fa-solid fa-box-archive", "status": "🟡" },
-        { "title": "Daftar Aktiva 🚧", "url": "", "icon": "fa-solid fa-calculator", "status": "🔵" },
-        { 
-          "title": "Laporan BBM 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U", 
-          "icon": "fa-solid fa-gas-pump", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Arsip Nota Ring Road",
+          "url": "https://inijotool.vercel.app/arsip/arsiprr78.html",
+          "icon": "fa-solid fa-box-archive",
+          "status": "🟡"
+        },
+        {
+          "title": "Daftar Aktiva 🚧",
+          "url": "",
+          "icon": "fa-solid fa-calculator",
+          "status": "🔵"
+        },
+        {
+          "title": "Laporan BBM 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U",
+          "icon": "fa-solid fa-gas-pump",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1JH-QSMUvzINLnBf6Aar0rp_wN5Ef2akP5ZxznGZy3Ao" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1JH-QSMUvzINLnBf6Aar0rp_wN5Ef2akP5ZxznGZy3Ao"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1LKWRfQantQ6BYfVnDuiuCfxwbG2VXwDQZRdJZuoAh7U"
+            }
           ]
         }
       ]
@@ -291,50 +620,87 @@
     {
       "category": "TUGAS BULANAN",
       "links": [
-        { "title": "BPJS Ketenagakerjaan", "url": "https://sipp.bpjsketenagakerjaan.go.id/", "icon": "fa-solid fa-hands-holding-circle", "iconColor": "#39B44A", "info": "Jatuh tempo tgl 10", "status": "🔵" },
-        { 
-          "title": "Perhitungan Gaji", 
-          "url": "https://docs.google.com/spreadsheets/d/1JPxYByIrLv0PH36lN3FFDWcpVuQ8qDi30juSow0VD7c", 
-          "icon": "fa-solid fa-money-check-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "BPJS Ketenagakerjaan",
+          "url": "https://sipp.bpjsketenagakerjaan.go.id/",
+          "icon": "fa-solid fa-hands-holding-circle",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10",
+          "status": "🔵"
+        },
+        {
+          "title": "Perhitungan Gaji",
+          "url": "https://docs.google.com/spreadsheets/d/1JPxYByIrLv0PH36lN3FFDWcpVuQ8qDi30juSow0VD7c",
+          "icon": "fa-solid fa-money-check-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1r6kmQLs4ZrKdHK_YIaBnTu8T-DFfamP2-Osc8f6ml00" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1JPxYByIrLv0PH36lN3FFDWcpVuQ8qDi30juSow0VD7c" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1r6kmQLs4ZrKdHK_YIaBnTu8T-DFfamP2-Osc8f6ml00"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1JPxYByIrLv0PH36lN3FFDWcpVuQ8qDi30juSow0VD7c"
+            }
           ]
         },
-        { 
-          "title": "Rekapan Rewards 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk", 
-          "icon": "fa-solid fa-gift", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Rekapan Rewards 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk",
+          "icon": "fa-solid fa-gift",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1ufF5-9Jr0UnrIk7gnLwRA8B2BCWqPHCEL744frFG72A" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1ufF5-9Jr0UnrIk7gnLwRA8B2BCWqPHCEL744frFG72A"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1oxulK6mQgLe4tv2x-pq9M9n2vRiwVA1R8Fkxrcaoqfk"
+            }
           ]
         },
-        { "title": "Profit Sharing", "url": "https://docs.google.com/spreadsheets/d/1HU1dMhkjm4VlP6xoMl2vyCtCANNt1mAfLKSEETj2M78", "icon": "fa-solid fa-scale-balanced", "iconColor": "#0F9D58", "status": "🔵" },
-        { 
-          "title": "Laporan Laba Rugi Politeknik 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1G0iQZBfWgv5lwCbsA3HNdYWyyDT8kN9Pprcw0f4eDOA", 
-          "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Profit Sharing",
+          "url": "https://docs.google.com/spreadsheets/d/1HU1dMhkjm4VlP6xoMl2vyCtCANNt1mAfLKSEETj2M78",
+          "icon": "fa-solid fa-scale-balanced",
+          "iconColor": "#0F9D58",
+          "status": "🔵"
+        },
+        {
+          "title": "Laporan Laba Rugi Politeknik 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1G0iQZBfWgv5lwCbsA3HNdYWyyDT8kN9Pprcw0f4eDOA",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1VBn28Ky6vT4rgiHpjazLPsfo1MUQprysrgb6BQRHu_s" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1G0iQZBfWgv5lwCbsA3HNdYWyyDT8kN9Pprcw0f4eDOA" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1VBn28Ky6vT4rgiHpjazLPsfo1MUQprysrgb6BQRHu_s"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1G0iQZBfWgv5lwCbsA3HNdYWyyDT8kN9Pprcw0f4eDOA"
+            }
           ]
         },
-        { 
-          "title": "Laporan Laba Rugi Ring Road 2026", 
-          "url": "https://docs.google.com/spreadsheets/d/1oVqpwLKLrsYD_gs9Eo17qTaOwUx6aGx7emFTc5H1-vY", 
-          "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Laporan Laba Rugi Ring Road 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1oVqpwLKLrsYD_gs9Eo17qTaOwUx6aGx7emFTc5H1-vY",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1ajziAFT_XD2_mw-1WfcwQp657yaUEtKPhvERFNvVAWk" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1oVqpwLKLrsYD_gs9Eo17qTaOwUx6aGx7emFTc5H1-vY" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1ajziAFT_XD2_mw-1WfcwQp657yaUEtKPhvERFNvVAWk"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1oVqpwLKLrsYD_gs9Eo17qTaOwUx6aGx7emFTc5H1-vY"
+            }
           ]
         }
       ]
@@ -342,80 +708,183 @@
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "THR Idul Fitri 🚧", "url": "", "icon": "fa-solid fa-mosque", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" },
-        { "title": "THR Natal 🚧", "url": "", "icon": "fa-solid fa-holly-berry", "iconColor": "#0F9D58", "info": "7 hari sebelum hari raya", "status": "🔵" }
+        {
+          "title": "THR Idul Fitri 🚧",
+          "url": "",
+          "icon": "fa-solid fa-mosque",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        },
+        {
+          "title": "THR Natal 🚧",
+          "url": "",
+          "icon": "fa-solid fa-holly-berry",
+          "iconColor": "#0F9D58",
+          "info": "7 hari sebelum hari raya",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Rekening Bank Politeknik", "icon": "fa-solid fa-building-columns", "info": "BCA 0269237777</br>BNI 327150558</br>BRI 200301000273304" },
-        { "title": "Rekening Bank Ring Road", "icon": "fa-solid fa-building-columns", "info": "BCA 0265188899</br>BNI 3271505580</br>BRI 200301889999567" },
-        { "title": "Rekening Bank Oli & Gas", "icon": "fa-solid fa-building-columns", "info": "BNI 3271505580" },
-        { "title": "Keterangan Akses", "icon": "fa-solid fa-user-lock", "info": "🟢 Admin Politeknik</br>🟡 Admin Ring Road</br>🔵 Accounting" }
+        {
+          "title": "Rekening Bank Politeknik",
+          "icon": "fa-solid fa-building-columns",
+          "info": "BCA 0269237777</br>BNI 327150558</br>BRI 200301000273304"
+        },
+        {
+          "title": "Rekening Bank Ring Road",
+          "icon": "fa-solid fa-building-columns",
+          "info": "BCA 0265188899</br>BNI 3271505580</br>BRI 200301889999567"
+        },
+        {
+          "title": "Rekening Bank Oli & Gas",
+          "icon": "fa-solid fa-building-columns",
+          "info": "BNI 3271505580"
+        },
+        {
+          "title": "Keterangan Akses",
+          "icon": "fa-solid fa-user-lock",
+          "info": "🟢 Admin Politeknik</br>🟡 Admin Ring Road</br>🔵 Accounting"
+        }
       ]
     }
   ],
-  "inijo": [ 
-    { 
-	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
+  "inijo": [
+    {
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️HALAMAN KERJA INIJO",
       "category": "TUGAS HARIAN",
       "links": [
-        { "title": "Inijo Laundry", "url": "https://inijolaundry.com/", "icon": "fa-solid fa-water" },
-		{ "title": "Ramalan Cuaca", "url": "https://inijolaundry.com/cuaca/ramalan.html", "icon": "fa-solid fa-cloud-sun" },
-		{ "title": "Smarlink Owner", "url": "https://dashboard.smartlink.id/", "icon": "fa-brands fa-sellcast", "iconColor": "#0088FF"},
-        { 
-          "title": "Rekap Harian Owner", 
-          "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link", 
-          "icon": "fa-brands fa-notion", 
-          "iconColor": "", 
-          "status": "",
+        {
+          "title": "Inijo Laundry",
+          "url": "https://inijolaundry.com/",
+          "icon": "fa-solid fa-water"
+        },
+        {
+          "title": "Ramalan Cuaca",
+          "url": "https://inijolaundry.com/cuaca/ramalan.html",
+          "icon": "fa-solid fa-cloud-sun"
+        },
+        {
+          "title": "Smarlink Owner",
+          "url": "https://dashboard.smartlink.id/",
+          "icon": "fa-brands fa-sellcast",
+          "iconColor": "#0088FF"
+        },
+        {
+          "title": "Rekap Harian Owner",
+          "url": "https://www.notion.so/inijo/15fa7d88a25a80e9a1d4da338624b89e?v=15fa7d88a25a81b4b0d3000c2b2c0d99&source=copy_link",
+          "icon": "fa-brands fa-notion",
           "subLinks": [
-            { "label": "📝 Input Rekap Harian", "url": "https://forms.fillout.com/t/wxvuNAovukus" }
+            {
+              "label": "📝 Input Rekap Harian",
+              "url": "https://forms.fillout.com/t/wxvuNAovukus"
+            }
           ]
         },
-		{ "title": "Transaksi Non-Tunai (Admin)", "url": "https://inijo.vercel.app/admin23.html", "icon": "fa-solid fa-qrcode" },
-		{ "title": "Transaksi Non-Tunai (Kasir)", "url": "https://inijo.vercel.app/cashless265.html", "icon": "fa-solid fa-qrcode" },
-		{ "title": "Arsip Nota Inijo 🚧", "url": "", "icon": "fa-solid fa-box-archive" },
-		{ "title": "Daftar Audit 🚧", "url": "", "icon": "fa-solid fa-magnifying-glass-dollar" }
+        {
+          "title": "Transaksi Non-Tunai (Admin)",
+          "url": "https://inijo.vercel.app/admin23.html",
+          "icon": "fa-solid fa-qrcode"
+        },
+        {
+          "title": "Transaksi Non-Tunai (Kasir)",
+          "url": "https://inijo.vercel.app/cashless265.html",
+          "icon": "fa-solid fa-qrcode"
+        },
+        {
+          "title": "Arsip Nota Inijo 🚧",
+          "url": "",
+          "icon": "fa-solid fa-box-archive"
+        },
+        {
+          "title": "Daftar Audit 🚧",
+          "url": "",
+          "icon": "fa-solid fa-magnifying-glass-dollar"
+        }
       ]
     },
     {
       "category": "TUGAS BULANAN",
       "links": [
-        { 
-          "title": "EDC & Transfer", 
-          "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8", 
-          "icon": "fa-solid fa-qrcode", 
-          "iconColor": "#0F9D58", 
-          "status": "",
+        {
+          "title": "EDC & Transfer",
+          "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8",
+          "icon": "fa-solid fa-qrcode",
+          "iconColor": "#0F9D58",
           "subLinks": [
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1mhVc0iXkypXBXkzrz9gUnlB4spKspcTKOiZ7gp25fl0" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8" }
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1mhVc0iXkypXBXkzrz9gUnlB4spKspcTKOiZ7gp25fl0"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8"
+            }
           ]
         },
-		{ "title": "Daftar Karyawan", "url": "https://inijo.vercel.app/cashless265.html", "icon": "fa-brands fa-notion" },
-		{ "title": "Perhitungan Gaji", "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ", "icon": "fa-regular fa-file-excel", "iconColor": "#0F9D58",
+        {
+          "title": "Daftar Karyawan",
+          "url": "https://inijo.vercel.app/cashless265.html",
+          "icon": "fa-brands fa-notion"
+        },
+        {
+          "title": "Perhitungan Gaji",
+          "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ",
+          "icon": "fa-regular fa-file-excel",
+          "iconColor": "#0F9D58",
           "subLinks": [
-            { "label": "📝 Input Gaji", "url": "https://forms.fillout.com/t/vefqkrhyAXus" }
+            {
+              "label": "📝 Input Gaji",
+              "url": "https://forms.fillout.com/t/vefqkrhyAXus"
+            }
           ]
         },
-	    { "title": "Data Payroll", "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link", "icon": "fa-brands fa-notion", "status": "" },
-        { 
-          "title": "Laporan Keuangan", 
-          "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik", 
-          "icon": "fa-solid fa-file-invoice-dollar", 
-          "iconColor": "#869B7E", 
-          "status": "",
+        {
+          "title": "Data Payroll",
+          "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link",
+          "icon": "fa-brands fa-notion"
+        },
+        {
+          "title": "Laporan Keuangan",
+          "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#869B7E",
           "subLinks": [
-            { "label": "2023", "url": "https://docs.google.com/spreadsheets/d/18mJpaes5OxlGRjfoiQ3k-g3tpDM2856z-JylXZfhi-U/edit?gid=693797476#gid=693797476" },
-            { "label": "2023 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSM-WRGZAHQ1aKKDCU-jftDhzj9XBsP1lUgPHrB6bz2bKoYa7rLQG7EBALXHDXwYT2_nwBVaNgn6SA8/pubhtml" },
-            { "label": "2024", "url": "https://docs.google.com/spreadsheets/d/1J54DyIok6QOPU56TjhJqk4U0NA4JwT-o3dov8gXuMso/edit?gid=68551595#gid=68551595" },
-            { "label": "2024 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjLle_6pAUO3XdvIlaUrgWYgJYjnDzG1qkSYcGPQqt07efK829zbQdCJRhbQkQ1OWTsDvZ2pO6DmgY/pubhtml" },
-            { "label": "2025", "url": "https://docs.google.com/spreadsheets/d/1Z96aKNBNdxNqlO8TnqtxycKEg4y8NaqpYqFBB4CsijU/edit?gid=68551595#gid=68551595" },
-            { "label": "2025 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT5pB1pz_86ZCDvIm_GHguHeWWulQpli_zkPej8xHsqzQmeoep3-iucjbG46Iw74t_b2hqpKYiLuGhp/pubhtml" },
-            { "label": "2026", "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik" },
-            { "label": "2026 📊", "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzDARIEFEweR7QmDBY2bQyxNcFhU6gHOMkwBpKlW9q7Hx0LCdZ9ZyqQ9_kbDyfhbJV09LuFxwgPiQp/pubhtml" }
+            {
+              "label": "2023",
+              "url": "https://docs.google.com/spreadsheets/d/18mJpaes5OxlGRjfoiQ3k-g3tpDM2856z-JylXZfhi-U/edit?gid=693797476#gid=693797476"
+            },
+            {
+              "label": "2023 📊",
+              "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSM-WRGZAHQ1aKKDCU-jftDhzj9XBsP1lUgPHrB6bz2bKoYa7rLQG7EBALXHDXwYT2_nwBVaNgn6SA8/pubhtml"
+            },
+            {
+              "label": "2024",
+              "url": "https://docs.google.com/spreadsheets/d/1J54DyIok6QOPU56TjhJqk4U0NA4JwT-o3dov8gXuMso/edit?gid=68551595#gid=68551595"
+            },
+            {
+              "label": "2024 📊",
+              "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vSjLle_6pAUO3XdvIlaUrgWYgJYjnDzG1qkSYcGPQqt07efK829zbQdCJRhbQkQ1OWTsDvZ2pO6DmgY/pubhtml"
+            },
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1Z96aKNBNdxNqlO8TnqtxycKEg4y8NaqpYqFBB4CsijU/edit?gid=68551595#gid=68551595"
+            },
+            {
+              "label": "2025 📊",
+              "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vT5pB1pz_86ZCDvIm_GHguHeWWulQpli_zkPej8xHsqzQmeoep3-iucjbG46Iw74t_b2hqpKYiLuGhp/pubhtml"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1UshuJ1F06AINmb1J07o9v2nZPvq2PHlv41MM55ej8Ik"
+            },
+            {
+              "label": "2026 📊",
+              "url": "https://docs.google.com/spreadsheets/d/e/2PACX-1vRzDARIEFEweR7QmDBY2bQyxNcFhU6gHOMkwBpKlW9q7Hx0LCdZ9ZyqQ9_kbDyfhbJV09LuFxwgPiQp/pubhtml"
+            }
           ]
         }
       ]
@@ -423,87 +892,359 @@
     {
       "category": "TUGAS TAHUNAN",
       "links": [
-        { "title": "Rekap Financial", "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40", "icon": "fa-solid fa-chart-pie", "iconColor": "#869B7E" },
-        { "title": "Reward Konsumen Akhir Tahun", "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ", "icon": "fa-solid fa-gift", "iconColor": "#f1c40f" }
+        {
+          "title": "Rekap Financial",
+          "url": "https://docs.google.com/spreadsheets/d/1NqeWvt5gHAo_MewXLTHlnAUJB-JM1yyqB6MM5WbPL40",
+          "icon": "fa-solid fa-chart-pie",
+          "iconColor": "#869B7E"
+        },
+        {
+          "title": "Reward Konsumen Akhir Tahun",
+          "url": "https://docs.google.com/spreadsheets/d/13gem4lEgXYxJywJSU4NWkTC3Ulfrg42oauJtd4Hg8OQ",
+          "icon": "fa-solid fa-gift",
+          "iconColor": "#f1c40f"
+        }
       ]
     },
     {
       "category": "TUGAS BERKALA",
       "links": [
-        { "title": "Data Pelamar", "url": "https://inijo.vercel.app/pelamar8467.html", "icon": "fa-solid fa-user-plus" },
-		{ "title": "Template Kwitansi Pembayaran Kost", "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8", "icon": "fa-solid fa-copy", "iconColor": "#0F9D58" },
-        { "title": "Formulir Penghuni Kost", "url": "https://docs.google.com/spreadsheets/d/1xdEP7HrA01hT3eOe9zrnPFk8X4YZ7fAonNyoiLAv2NY", "icon": "fa-solid fa-house-user", "iconColor": "#0F9D58" },
-        { "title": "Invoice Kerjasama Laundry", "url": "https://docs.google.com/spreadsheets/d/1yd8rStU1uuNgMewGN1qTW3BSF_zTZtEEH_SWwk11kuU", "icon": "fa-solid fa-file-invoice", "iconColor": "#0F9D58" },
-        { "title": "Daftar Reminder Customer", "url": "https://docs.google.com/spreadsheets/d/18qXYz5tuWvdP4V5L7v6O0Q35BB1IxjWSXidSCG12nkw", "icon": "fa-solid fa-bell-concierge", "iconColor": "#FF4500" }
+        {
+          "title": "Data Pelamar",
+          "url": "https://inijo.vercel.app/pelamar8467.html",
+          "icon": "fa-solid fa-user-plus"
+        },
+        {
+          "title": "Template Kwitansi Pembayaran Kost",
+          "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8",
+          "icon": "fa-solid fa-copy",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Formulir Penghuni Kost",
+          "url": "https://docs.google.com/spreadsheets/d/1xdEP7HrA01hT3eOe9zrnPFk8X4YZ7fAonNyoiLAv2NY",
+          "icon": "fa-solid fa-house-user",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Invoice Kerjasama Laundry",
+          "url": "https://docs.google.com/spreadsheets/d/1yd8rStU1uuNgMewGN1qTW3BSF_zTZtEEH_SWwk11kuU",
+          "icon": "fa-solid fa-file-invoice",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Daftar Reminder Customer",
+          "url": "https://docs.google.com/spreadsheets/d/18qXYz5tuWvdP4V5L7v6O0Q35BB1IxjWSXidSCG12nkw",
+          "icon": "fa-solid fa-bell-concierge",
+          "iconColor": "#FF4500"
+        }
       ]
     },
     {
       "category": "CATATAN",
       "links": [
-        { "title": "Lokasi", "icon": "fa-solid fa-map-location-dot", "info": "Jalan Hasanuddin No .24</br>(Samping Holland Bakery)</br>Kel. Singkil Satu, Kec. Singkil</br>Kota Manado, Sulawesi Utara 95234" },
-		{ "title": "Rekening Bank", "icon": "fa-solid fa-building-columns", "info": "BCA 0269120888 (Dana masuk EDC/QRIS)</br>BNI 2605238886 an Siska W" },
-        { "title": "Meter Listrik Mesin", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5794</br>an Jerry S Tombokan" },
-        { "title": "Meter Listrik Lampu & AC", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5760</br>an Jerry S Tombokan" },
-        { "title": "Meter Listrik Kost", "icon": "fa-solid fa-bolt-lightning elec", "iconColor": "#f1c40f", "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1003-5364</br>an Tan Djok Lian" },
-        { "title": "Meter Air (PAM)", "icon": "fa-solid fa-droplet water", "iconColor": "#3498db", "info": "Nomor Pelanggan 0106951 an Jerry Semuel Tombokan</br>Alamat Jl. Hasanudin No 4</br>Gol: NB: 0.5" },
-        { "title": "IndiBiz", "icon": "fa-solid fa-wifi net", "iconColor": "#4CAF50", "info": "Nomor Telp: 0431-7199-777</br>Nomor ID Pelanggan: 172307821229</br>Registrasi an Jerry S Tombokan" }
+        {
+          "title": "Lokasi",
+          "icon": "fa-solid fa-map-location-dot",
+          "info": "Jalan Hasanuddin No .24</br>(Samping Holland Bakery)</br>Kel. Singkil Satu, Kec. Singkil</br>Kota Manado, Sulawesi Utara 95234"
+        },
+        {
+          "title": "Rekening Bank",
+          "icon": "fa-solid fa-building-columns",
+          "info": "BCA 0269120888 (Dana masuk EDC/QRIS)</br>BNI 2605238886 an Siska W"
+        },
+        {
+          "title": "Meter Listrik Mesin",
+          "icon": "fa-solid fa-bolt-lightning elec",
+          "iconColor": "#f1c40f",
+          "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5794</br>an Jerry S Tombokan"
+        },
+        {
+          "title": "Meter Listrik Lampu & AC",
+          "icon": "fa-solid fa-bolt-lightning elec",
+          "iconColor": "#f1c40f",
+          "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1061-5760</br>an Jerry S Tombokan"
+        },
+        {
+          "title": "Meter Listrik Kost",
+          "icon": "fa-solid fa-bolt-lightning elec",
+          "iconColor": "#f1c40f",
+          "info": "PLN Token Prabayar B1T 5500 VA</br>No Meter: 3110-1003-5364</br>an Tan Djok Lian"
+        },
+        {
+          "title": "Meter Air (PAM)",
+          "icon": "fa-solid fa-droplet water",
+          "iconColor": "#3498db",
+          "info": "Nomor Pelanggan 0106951 an Jerry Semuel Tombokan</br>Alamat Jl. Hasanudin No 4</br>Gol: NB: 0.5"
+        },
+        {
+          "title": "IndiBiz",
+          "icon": "fa-solid fa-wifi net",
+          "iconColor": "#4CAF50",
+          "info": "Nomor Telp: 0431-7199-777</br>Nomor ID Pelanggan: 172307821229</br>Registrasi an Jerry S Tombokan"
+        }
       ]
     }
   ],
-  "template": [ 
-    { 
-	  "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️TEMPLATE: LIST LINKS HALAMAN KERJA",
-      "category": "Category 1",
+  "gpdi": [
+    {
+      "category": "Perpuluhan",
       "links": [
-        { "title": "Link 1", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { 
-          "title": "Link 2 🚧", 
-          "url": "", 
-          "icon": "", 
-          "iconColor": "#0F9D58", 
-          "status": "🔵",
+        {
+          "title": "Laporan Perpuluhan 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1BHlPtYqVaJXl09CaVTXZ8y7yj41oUOjQ0yDA_Bf_I8w",
+          "icon": "fa-solid fa-book",
+          "iconColor": "#FFBF00",
           "subLinks": [
-            { "label": "sub link 1", "url": "" },
-            { "label": "sub link 2 🚧", "url": "" }
+            {
+              "label": "2019",
+              "url": "https://docs.google.com/spreadsheets/d/190PlPpjfCpfA5W4gynLs9ZiSbYJWz6Dzl1yk-WICf4k"
+            },
+            {
+              "label": "2020",
+              "url": "https://docs.google.com/spreadsheets/d/1uWhBu5zcaKA1xSm4mdAzduXtMBsG7JkCLgkA6-QHowo"
+            },
+            {
+              "label": "2021",
+              "url": "https://docs.google.com/spreadsheets/d/1g3HXlBXMJmSBxuOxsoixmZKfQrB98P4qb5NN59-Z6ew"
+            },
+            {
+              "label": "2022",
+              "url": "https://docs.google.com/spreadsheets/d/18cyoNoLOuPGUfxfEHl1tkWODpmK-dxEGwU-jNPVVdns"
+            },
+            {
+              "label": "2023",
+              "url": "https://docs.google.com/spreadsheets/d/1W9B-YxZdsi3yMsRLI6UwygBfgplbrC10PbxwQMg7cgw"
+            },
+            {
+              "label": "2024",
+              "url": "https://docs.google.com/spreadsheets/d/10lJqiSxznqUpuVvxoM8ggMduamCbMgt-TnS51cmQpPs"
+            },
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1jQlnIYKPD4iRFQTAZRl3fNkADH_3ezuQ_MIkG8eU6l8"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1BHlPtYqVaJXl09CaVTXZ8y7yj41oUOjQ0yDA_Bf_I8w"
+            }
           ]
         },
-        { "title": "Link 1", "url": "", "icon": "", "status": "🔵" }
+        {
+          "title": "Laporan Perpuluhan Warta",
+          "url": "https://docs.google.com/spreadsheets/d/1rJaeVeiQFcmOx0pofdl_jEit9inQLBpf5fJi97T_NvQ",
+          "icon": "fa-solid fa-book",
+          "iconColor": "#FFBF00"
+        },
+        {
+          "title": "Mutasi BCA",
+          "url": "https://docs.google.com/spreadsheets/d/1VpvLpB8BCpSFZYOvru3WhWiJT_Q0v5RXDGy2y1dwzbs",
+          "icon": ""
+        },
+        {
+          "title": "Mutasi BNI",
+          "url": "https://docs.google.com/spreadsheets/d/1P24KbHl1S5QIkVrSj1JDyoLnp05x4kS9Xy_Izp1Ap_o",
+          "icon": ""
+        },
+        {
+          "title": "Perhitungan Perpuluhan untuk Wilayah",
+          "url": "https://docs.google.com/spreadsheets/d/1x6c87AYhEhT6_gyjYyrfv1CNrX4RVKjWFPOM1fIurIo",
+          "icon": "fa-solid fa-church"
+        }
+      ]
+    },
+    {
+      "category": "persembahan",
+      "links": [
+        {
+          "title": "Laporan Persembahan 2026",
+          "url": "https://docs.google.com/spreadsheets/d/1Tl4dOUe3u-nqPIT13hvH4o3QUD0derJlev1OpT1FBWU",
+          "icon": "",
+          "subLinks": [
+            {
+              "label": "2019",
+              "url": "https://docs.google.com/spreadsheets/d/1f26eSqie22cEcorUv6lg1ZssgPBLNEirPtV7S2dkaE4"
+            },
+            {
+              "label": "2020",
+              "url": "https://docs.google.com/spreadsheets/d/1iE-ghucNDvVnkMcuPY7m7X0uhMpcdiXc6jbBaHUmXX4"
+            },
+            {
+              "label": "2021",
+              "url": "https://docs.google.com/spreadsheets/d/15X8VWW3lgmx_u25NugX1ERwyHbFmSK9BxmptuputbWY"
+            },
+            {
+              "label": "2022",
+              "url": "https://docs.google.com/spreadsheets/d/1CIII2yo6snaZ7iwAG1rS7wgCV2UVHsaiyOmhekSto-M"
+            },
+            {
+              "label": "2023",
+              "url": "https://docs.google.com/spreadsheets/d/1MD-B0Xwzp0Z3ivtl6f5XYpop2e_YSmFsEUfa_hey-bk"
+            },
+            {
+              "label": "2024",
+              "url": "https://docs.google.com/spreadsheets/d/1ic_0p5w00X1eunqVakGxqxJsBAYtWoKjGzZbOmI0qK0"
+            },
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1ULKjCOR8RlaKUbCVek4cDJZ3yp8cMrbzpXJG-zKJ5-w"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/1Tl4dOUe3u-nqPIT13hvH4o3QUD0derJlev1OpT1FBWU"
+            }
+          ]
+        },
+        {
+          "title": "Mutasi BCA",
+          "url": "https://docs.google.com/spreadsheets/d/1gXso1-oEo5uCfrXZld5hBHUveGQfJJxmEd_TXz0TM-Q",
+          "icon": ""
+        },
+        {
+          "title": "Mutasi BNI",
+          "url": "https://docs.google.com/spreadsheets/d/1VR8d1ja-5qkToWfXg10PgOj_1W87uIH84fOnNv8NULw",
+          "icon": ""
+        }
+      ]
+    },
+    {
+      "category": "Penerima kasih (pk)",
+      "links": [
+        {
+          "title": "Daftar PK 2026",
+          "url": "https://docs.google.com/spreadsheets/d/10DjZUnuFcHQE7Pg7gWuXaAKJPrH7hM6s0DMYXky9DKA",
+          "icon": "",
+          "subLinks": [
+            {
+              "label": "2022",
+              "url": "https://docs.google.com/spreadsheets/d/1XWMYHSgXBd91_k00bEDoWvvvz06g2t_UecSb6fE7xjQ"
+            },
+            {
+              "label": "2023",
+              "url": "https://docs.google.com/spreadsheets/d/1-oe8uDCsjiYD3iqgfYVpsmb2uVO_R0cec80ki7Mnvew"
+            },
+            {
+              "label": "2024",
+              "url": "https://docs.google.com/spreadsheets/d/1jQ66QLcWDn6SmMnd5GW8IlqDIQA_LKbRD1WVLVgPAEI"
+            },
+            {
+              "label": "2025",
+              "url": "https://docs.google.com/spreadsheets/d/1JZRSA1-m7gr0Xl6zw4ib8zCMvWE50uKRaBL__R2ihWw"
+            },
+            {
+              "label": "2026",
+              "url": "https://docs.google.com/spreadsheets/d/10DjZUnuFcHQE7Pg7gWuXaAKJPrH7hM6s0DMYXky9DKA"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️TEMPLATE: LIST LINKS HALAMAN KERJA",
+      "category": "Category 1",
+      "links": [
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
+          "status": "🔵",
+          "subLinks": [
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
+          ]
+        },
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "Category 2",
       "links": [
-        { "title": "Link 1", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { 
-          "title": "Link 2 🚧", 
-          "url": "", 
-          "icon": "", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "sub link 1", "url": "" },
-            { "label": "sub link 2 🚧", "url": "" }
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
           ]
         },
-        { "title": "Link 1", "url": "", "icon": "", "status": "🔵" }
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
+        }
       ]
     },
     {
       "category": "Category 3",
       "links": [
-        { "title": "Link 1", "url": "", "icon": "", "iconColor": "#ff4757", "status": "🔵" },
-        { 
-          "title": "Link 2 🚧", 
-          "url": "", 
-          "icon": "", 
-          "iconColor": "#0F9D58", 
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
           "status": "🔵",
           "subLinks": [
-            { "label": "sub link 1", "url": "" },
-            { "label": "sub link 2 🚧", "url": "" }
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
           ]
         },
-        { "title": "Link 1", "url": "", "icon": "", "status": "🔵" }
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
+        }
       ]
     }
   ]
