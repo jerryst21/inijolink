@@ -787,12 +787,17 @@
         {
           "title": "Transaksi Non-Tunai (Admin)",
           "url": "https://inijo.vercel.app/admin23.html",
-          "icon": "fa-solid fa-qrcode"
-        },
-        {
-          "title": "Transaksi Non-Tunai (Kasir)",
-          "url": "https://inijo.vercel.app/cashless265.html",
-          "icon": "fa-solid fa-qrcode"
+          "icon": "fa-solid fa-qrcode",
+          "subLinks": [
+            {
+              "label": "Kasir",
+              "url": "https://inijo.vercel.app/cashless265.html"
+            },
+            {
+              "label": "📝 Input Fillout",
+              "url": "https://forms.fillout.com/t/qENdoJR2j3us"
+            }
+          ]
         },
         {
           "title": "Arsip Nota Inijo 🚧",
@@ -800,8 +805,8 @@
           "icon": "fa-solid fa-box-archive"
         },
         {
-          "title": "Daftar Audit 🚧",
-          "url": "",
+          "title": "Daftar Audit",
+          "url": "https://docs.google.com/spreadsheets/d/1vXtT9jR2N5eFRE4zRwwVzWs2d-P1IdT687Gcd0qtZds/edit?gid=0#gid=0",
           "icon": "fa-solid fa-magnifying-glass-dollar"
         }
       ]
@@ -810,7 +815,12 @@
       "category": "TUGAS BULANAN",
       "links": [
         {
-          "title": "EDC & Transfer",
+          "title": "Overview Performance Laundry",
+          "url": "https://inijolink.vercel.app/inijo2023/analisis762.html",
+          "icon": "fa-solid fa-chart-line"
+        },
+        {
+          "title": "EDC & Transfer 2026",
           "url": "https://docs.google.com/spreadsheets/d/1UF9VhrUqnm0Bbp0GDFqzcnNbxoMjrdsx1NSw3sZ6BW8",
           "icon": "fa-solid fa-qrcode",
           "iconColor": "#0F9D58",
@@ -826,11 +836,6 @@
           ]
         },
         {
-          "title": "Daftar Karyawan",
-          "url": "https://inijo.vercel.app/cashless265.html",
-          "icon": "fa-brands fa-notion"
-        },
-        {
           "title": "Perhitungan Gaji",
           "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ",
           "icon": "fa-regular fa-file-excel",
@@ -841,6 +846,11 @@
               "url": "https://forms.fillout.com/t/vefqkrhyAXus"
             }
           ]
+        },
+        {
+          "title": "Daftar Karyawan",
+          "url": "https://inijo.vercel.app/cashless265.html",
+          "icon": "fa-brands fa-notion"
         },
         {
           "title": "Data Payroll",
@@ -1144,6 +1154,11 @@
     {
       "category": "catatan",
       "links": [
+        {
+          "title": "Dokumen Files",
+          "url": "https://inijo.notion.site/DOKUMEN-376a7d88a25a809087cfcc3537cc3752?source=copy_link",
+          "icon": "fa-solid fa-box-archive"
+        },
         {
           "title": "Rekening Bank",
           "url": "",
