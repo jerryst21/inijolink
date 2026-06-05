@@ -416,7 +416,7 @@
         },
         {
           "title": "Profit Sharing",
-          "url": "",
+          "url": "https://docs.google.com/spreadsheets/d/1NUSDAuzXNDs3B67ovMVA9mPr5gio00BeJEuOLyznCq4/edit?gid=15304691#gid=15304691",
           "icon": "fa-solid fa-scale-balanced",
           "iconColor": "#0F9D58",
           "status": "🔵"
@@ -1060,6 +1060,7 @@
           "title": "Laporan Persembahan 2026",
           "url": "https://docs.google.com/spreadsheets/d/1Tl4dOUe3u-nqPIT13hvH4o3QUD0derJlev1OpT1FBWU",
           "icon": "",
+          "iconColor": "#0F9D58",
           "subLinks": [
             {
               "label": "2019",
@@ -1098,7 +1099,8 @@
         {
           "title": "Mutasi BCA",
           "url": "https://docs.google.com/spreadsheets/d/1gXso1-oEo5uCfrXZld5hBHUveGQfJJxmEd_TXz0TM-Q",
-          "icon": ""
+          "icon": "",
+          "iconColor": "#0F9D58"
         },
         {
           "title": "Mutasi BNI",
