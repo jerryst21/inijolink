@@ -1412,6 +1412,48 @@
           "url": "https://fontawesome.com/search?ic=free-collection",
           "icon": "fa-solid fa-font-awesome",
           "iconColor": "#007bff"
+        },
+        {
+          "title": "Flaticon",
+          "url": "https://www.flaticon.com/uicons/interface-icons",
+          "icon": "fa-brands fa-fonticons",
+          "iconColor": "#4EE787"
+        },
+        {
+          "title": "Supabase",
+          "url": "https://supabase.com/dashboard/project/pdzhlpsghhqotzeblrpg",
+          "icon": "fa-solid fa-database",
+          "iconColor": "#00d294"
+        },
+        {
+          "title": "CodePen",
+          "url": "https://codepen.io/pen/?editors=1000",
+          "icon": "fa-solid fa-pen-to-square text-base",
+          "info": "Code Editor with Formatter and Preview"
+        },
+        {
+          "title": "HTML Editor",
+          "url": "https://htmleditor.gitlab.io/",
+          "icon": "fa-solid fa-pen-to-square text-base",
+          "info": "HTML Editor with preview"
+        },
+        {
+          "title": "Compare Text",
+          "url": "https://www.textcompare.org/",
+          "icon": "fa-solid fa-code-compare text-base"
+        },
+        {
+          "title": "Toolpix",
+          "url": "https://toolpix.pythonanywhere.com/free-online-ai-html-editor",
+          "icon": "fa-brands fa-pandora",
+          "iconColor": "#007bff",
+          "info": "HTML Editor"
+        },
+        {
+          "title": "Porkbun",
+          "url": "https://porkbun.com/products/domains",
+          "icon": "fa-solid fa-piggy-bank",
+          "iconColor": "#EF7878"
         }
       ]
     },
