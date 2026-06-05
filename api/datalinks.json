@@ -1169,6 +1169,11 @@
       "category": "catatan",
       "links": [
         {
+          "title": "BAG",
+          "url": "https://ib.bankarthagraha.co.id/",
+          "icon": "fa-solid fa-building-columns"
+        },
+        {
           "title": "Dokumen Files",
           "url": "https://inijo.notion.site/DOKUMEN-376a7d88a25a809087cfcc3537cc3752?source=copy_link",
           "icon": "fa-solid fa-box-archive"
@@ -1382,7 +1387,8 @@
         {
           "title": "Lumina",
           "url": "https://ai.byteplus.com/lumina/en/model/image?mode=image",
-          "icon": "fa-solid fa-image"
+          "icon": "fa-solid fa-image",
+          "info": "Image generator"
         }
       ]
     },
@@ -1392,18 +1398,43 @@
         {
           "title": "GitHub",
           "url": "https://github.com/repos",
-          "icon": "fa-brands fa-github"
+          "icon": "fa-brands fa-github",
+          "info": "Repositories"
         },
         {
           "title": "Vercel",
           "url": "https://vercel.com/jstombokan-9404s-projects",
-          "icon": "fa-solid fa-square-caret-up"
+          "icon": "fa-solid fa-square-caret-up",
+          "info": "Host"
         },
         {
           "title": "Font Awesome",
           "url": "https://fontawesome.com/search?ic=free-collection",
           "icon": "fa-solid fa-font-awesome",
           "iconColor": "#007bff"
+        }
+      ]
+    },
+    {
+      "category": "automation",
+      "links": [
+        {
+          "title": "Fillout",
+          "url": "https://build.fillout.com/home/settings/usage",
+          "icon": "fa-regular fa-pen-to-square",
+          "iconColor": "#f1c40f"
+        },
+        {
+          "title": "Make",
+          "url": "https://www.make.com/en/login",
+          "icon": "fa-brands fa-maxcdn",
+          "iconColor": "#8250C4"
+        },
+        {
+          "title": "Whapi",
+          "url": "https://panel.whapi.cloud/login",
+          "icon": "fa-solid fa-won-sign",
+          "iconColor": "#8250C4"
         }
       ]
     }
