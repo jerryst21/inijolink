@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Data Links Editor</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans min-h-screen pb-24">
+
+    <div id="app" class="container mx-auto px-4 py-4">
+        <header class="mb-4 border-b pb-3 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+            <div>
+                <h1 class="text-xl font-bold text-gray-800">📋 API Data Links Editor</h1>
+                <p class="text-xs text-gray-500">Kelola menu kerja harian, bulanan, tahunan, dan catatan untuk api/datalinks.json</p>
+            </div>
+            <div class="flex gap-2 w-full md:w-auto">
+                <button @click="openImportModal" class="flex-1 md:flex-none bg-blue-600 hover:bg-blue-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-import"></i> Import JSON
+                </button>
+                <button @click="exportJSON" class="flex-1 md:flex-none bg-green-600 hover:bg-green-700 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-file-export"></i> Generate & Copy JSON
+                </button>
+            </div>
+        </header>
+
+        <div class="flex flex-wrap border-b border-gray-200 mb-4 bg-white rounded-lg shadow-sm p-1 gap-1">
+            <button 
+                v-for="(categories, pageKey) in store" 
+                :key="pageKey"
+                @click="activeTab = pageKey"
+                :class="['px-4 py-2 font-bold text-xs tracking-wide uppercase border-b-2 transition flex items-center gap-2 rounded', 
+                         activeTab === pageKey ? 'border-blue-600 text-blue-600 bg-blue-50/50' : 'border-transparent text-gray-500 hover:text-gray-700 hover:bg-gray-50']"
+            >
+                <i :class="pageKey === 'ksb' ? 'fa-solid fa-utensils' : pageKey === 'mma' ? 'fa-solid fa-gas-pump' : 'fa-solid fa-layer-group'"></i>
+                {{ pageKey }} <span class="bg-gray-200 text-gray-700 text-[10px] px-1.5 py-0.5 rounded-full font-normal">{{ categories.length }} Kategori</span>
+            </button>
+            <button @click="addNewPage" class="px-3 py-2 text-gray-400 hover:text-green-600 transition text-xs font-medium">
+                <i class="fa-solid fa-plus"></i> Tambah Unit
+            </button>
+        </div>
+
+        <div v-if="store[activeTab]" class="space-y-4">
+            <div class="flex justify-between items-center bg-white p-2.5 rounded-xl shadow-sm border">
+                <span class="text-xs font-semibold text-gray-500 uppercase">Unit Aktif: <span class="text-gray-800 font-bold">{{ activeTab }}</span></span>
+                <button @click="addCategory" class="bg-blue-50 hover:bg-blue-100 text-blue-700 px-3 py-1.5 rounded-lg text-xs font-bold transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-plus"></i> Tambah Kategori Baru
+                </button>
+            </div>
+
+            <div v-for="(cat, catIdx) in store[activeTab]" :key="catIdx" class="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden">
+                <div class="bg-gray-50 px-4 py-2.5 border-b border-gray-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+                    <div class="w-full sm:w-1/3">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase mb-0.5">Nama Kategori</label>
+                        <input type="text" v-model="cat.category" class="w-full font-bold text-sm text-gray-700 bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:bg-white px-1 py-0.5 rounded transition uppercase" placeholder="NAMA KATEGORI">
+                    </div>
+                    <div class="w-full sm:w-1/2">
+                        <label class="block text-[10px] font-bold text-gray-400 uppercase mb-0.5">Komentar / Catatan Internal (Optional)</label>
+                        <input type="text" v-model="cat._comment" class="w-full text-xs text-amber-600 font-mono bg-transparent border-b border-transparent hover:border-gray-300 focus:border-blue-500 focus:bg-white px-1 py-0.5 rounded transition" placeholder="⚠️ Catatan internal unit...">
+                    </div>
+                    <button @click="deleteCategory(catIdx)" class="text-gray-400 hover:text-red-600 p-1.5 transition self-end sm:self-auto" title="Hapus Kategori">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+
+                <div class="p-3 space-y-3">
+                    <div v-if="!cat.links || cat.links.length === 0" class="text-center py-4 text-gray-400 text-xs border-2 border-dashed rounded-lg">
+                        Belum ada tautan di kategori ini. Klik tombol di bawah untuk menambahkan.
+                    </div>
+
+                    <div v-for="(link, linkIdx) in cat.links" :key="linkIdx" class="p-3 bg-gray-50/50 rounded-xl border border-gray-100 hover:border-gray-300 transition space-y-3">
+                        <div class="grid grid-cols-1 md:grid-cols-12 gap-2 items-end">
+                            <div class="md:col-span-1">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Status</label>
+                                <select v-model="link.status" class="w-full text-xs bg-white border rounded-lg p-1.5 focus:ring-1 focus:ring-blue-500 outline-none">
+                                    <option value="">&lt;kosong&gt;</option>
+                                    <option value="🔵">🔵</option>
+                                    <option value="🟢">🟢</option>
+                                    <option value="🟠">🟠</option>
+                                    <option value="🟡">🟡</option>
+                                    <option value="🔴">🔴</option>
+                                </select>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Judul Tautan</label>
+                                <input type="text" v-model="link.title" class="w-full text-xs bg-white border rounded-lg p-1.5 font-medium focus:ring-1 focus:ring-blue-500" placeholder="Contoh: Pembukuan">
+                            </div>
+
+                            <div class="md:col-span-3">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">URL Web / Google Sheets</label>
+                                <input type="text" v-model="link.url" class="w-full text-xs bg-white border rounded-lg p-1.5 text-blue-600 font-mono focus:ring-1 focus:ring-blue-500" placeholder="https://...">
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Icon Class</label>
+                                <div class="flex gap-1.5 items-center">
+                                    <input type="text" v-model="link.icon" class="w-full text-xs bg-white border rounded-lg p-1.5 font-mono focus:ring-1 focus:ring-blue-500" placeholder="fa-solid fa-m">
+                                    <div v-if="link.icon" class="w-8 h-8 flex items-center justify-center bg-white border rounded-lg text-lg shadow-sm shrink-0" title="Pratinjau Icon">
+                                        <i :class="link.icon" :style="{ color: link.iconColor }"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-1">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Warna Icon</label>
+                                <div class="flex gap-1">
+                                    <input type="color" v-model="link.iconColor" class="w-6 h-8 p-0 border rounded cursor-pointer bg-white">
+                                    <input type="text" v-model="link.iconColor" class="w-full text-[10px] font-mono bg-white border rounded-lg px-0.5 text-center" placeholder="#0F9D58">
+                                </div>
+                            </div>
+
+                            <div class="md:col-span-2">
+                                <label class="block text-[9px] font-bold text-gray-400 uppercase mb-0.5">Info / Jatuh Tempo</label>
+                                <input type="text" v-model="link.info" class="w-full text-xs bg-white border rounded-lg p-1.5 focus:ring-1 focus:ring-blue-500" placeholder="Jatuh tempo...">
+                            </div>
+
+                            <div class="md:col-span-1 flex justify-end gap-1">
+                                <button @click="addSubLink(link)" class="text-[11px] font-bold text-emerald-600 hover:bg-emerald-50 bg-white border border-emerald-200 px-1.5 py-1.5 rounded-lg transition w-full" title="Tambah Sub-link">
+                                    + Sub
+                                </button>
+                                <button @click="deleteLink(catIdx, linkIdx)" class="text-red-500 hover:bg-red-50 border border-transparent p-1.5 rounded-lg transition" title="Hapus Tautan">
+                                    <i class="fa-solid fa-trash text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div v-if="link.subLinks && link.subLinks.length > 0" class="pl-4 border-l-2 border-dashed border-gray-200 space-y-1.5 bg-gray-100/30 p-2 rounded-r-lg">
+                            <span class="block text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-0.5"><i class="fa-solid fa-code-branch"></i> Sub-Tautan Arsip:</span>
+                            <div v-for="(sub, subIdx) in link.subLinks" :key="subIdx" class="flex flex-col sm:flex-row items-center gap-2 bg-white p-1.5 rounded-lg border shadow-sm">
+                                <div class="w-full sm:w-20">
+                                    <input type="text" v-model="sub.label" class="w-full text-xs bg-gray-50 border rounded p-1 font-bold text-center" placeholder="2026">
+                                </div>
+                                <div class="flex-1 w-full">
+                                    <input type="text" v-model="sub.url" class="w-full text-xs font-mono bg-gray-50 border rounded p-1 text-blue-600" placeholder="URL khusus...">
+                                </div>
+                                <button @click="deleteSubLink(link, subIdx)" class="text-gray-400 hover:text-red-600 p-1 transition">
+                                    <i class="fa-solid fa-xmark text-xs"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button @click="addLink(catIdx)" class="w-full py-1.5 bg-white border border-dashed border-gray-300 rounded-xl text-xs text-gray-500 font-semibold hover:border-blue-500 hover:text-blue-600 transition flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-plus-circle"></i> Tambah Item Baru ke "{{ cat.category || 'Kategori Tanpa Nama' }}"
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-6 pb-4 border-t border-dashed mt-8 flex flex-col items-center">
+                <button @click="openDeleteUnitModal" class="bg-red-50 hover:bg-red-100 text-red-600 border border-red-200 px-5 py-2 rounded-xl text-xs font-bold flex items-center gap-2 transition shadow-sm">
+                    <i class="fa-solid fa-trash-can"></i> Hapus Unit "{{ activeTab }}"
+                </button>
+            </div>
+        </div>
+
+        <div class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 px-4 py-2 shadow-xl flex justify-between items-center z-40">
+            <div class="text-[11px] text-gray-500">
+                <i class="fa-solid fa-circle-info text-blue-500"></i> Tip: Klik <strong class="text-gray-700">Generate & Copy JSON</strong> untuk memperbarui data GitHub Anda.
+            </div>
+            <button @click="exportJSON" class="bg-green-600 hover:bg-green-700 text-white px-4 py-1.5 rounded-lg text-xs font-bold shadow-sm transition flex items-center gap-2">
+                <i class="fa-solid fa-copy"></i> Copy Output JSON
+            </button>
+        </div>
+
+        <div v-if="showDeleteUnitModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-xl shadow-2xl max-w-md w-full p-5 space-y-4 animate-fade-in">
+                <div class="flex items-center gap-3 text-red-600">
+                    <i class="fa-solid fa-triangle-exclamation text-2xl"></i>
+                    <h3 class="font-bold text-base text-gray-800">Konfirmasi Hapus Unit</h3>
+                </div>
+                <p class="text-xs text-gray-600 leading-relaxed">
+                    Apakah Anda yakin ingin menghapus seluruh unit <strong class="text-red-600 uppercase">"{{ activeTab }}"</strong>? Tindakan ini akan menghapus semua kategori dan data tautan di dalamnya secara permanen dari editor.
+                </p>
+                <div class="flex justify-end gap-2 pt-2">
+                    <button @click="showDeleteUnitModal = false" class="px-3 py-1.5 border rounded-lg text-xs font-semibold hover:bg-gray-100 transition">
+                        Batal
+                    </button>
+                    <button @click="deleteActiveUnit" class="px-4 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded-lg text-xs font-semibold transition">
+                        Ya, Hapus Unit
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="showImportModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+            <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full flex flex-col max-h-[85vh]">
+                <div class="p-4 border-b flex justify-between items-center bg-gray-50 rounded-t-xl">
+                    <h3 class="font-bold text-base text-gray-800"><i class="fa-solid fa-paste text-blue-500"></i> Paste File datalinks.json Anda</h3>
+                    <button @click="showImportModal = false" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-lg"></i></button>
+                </div>
+                <div class="p-4 flex-1 overflow-y-auto space-y-3">
+                    <p class="text-xs text-gray-500">Salin seluruh teks mentah dari file GitHub Anda dan tempel di kotak bawah ini.</p>
+                    <textarea v-model="rawInputJson" class="w-full h-64 border rounded-xl p-3 font-mono text-xs bg-gray-900 text-green-400 focus:ring-2 focus:ring-blue-500 outline-none" placeholder='{\n  "ksb": [...],\n  "mma": [...]\n}'></textarea>
+                    <div v-if="importError" class="p-2.5 bg-red-50 text-red-700 text-xs rounded-lg border border-red-200 font-medium">
+                        ⚠️ Error: {{ importError }}
+                    </div>
+                </div>
+                <div class="p-3 border-t bg-gray-50 flex justify-end gap-2 rounded-b-xl">
+                    <button @click="showImportModal = false" class="px-3 py-1.5 border rounded-lg text-xs font-semibold hover:bg-gray-100 transition">Batal</button>
+                    <button @click="processImport" class="px-4 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs font-semibold transition">Proses & Muat ke Editor</button>
+                </div>
+            </div>
+        </div>
+
+        <div v-if="toastMessage" class="fixed top-4 right-4 bg-gray-900 text-white px-4 py-2 rounded-xl shadow-2xl z-50 flex items-center gap-2 animate-bounce text-xs font-medium">
+            <i class="fa-solid fa-circle-check text-green-400"></i>
+            <span>{{ toastMessage }}</span>
+        </div>
+    </div>
+
+    <script>
+        const { createApp, ref, onMounted } = Vue;
+
+        createApp({
+            setup() {
+                const store = ref({ ksb: [], mma: [], template: [] });
+                const activeTab = ref('ksb');
+                const showImportModal = ref(false);
+                const showDeleteUnitModal = ref(false);
+                const rawInputJson = ref('');
+                const importError = ref(null);
+                const toastMessage = ref('');
+
+                const showToast = (msg) => {
+                    toastMessage.value = msg;
+                    setTimeout(() => { toastMessage.value = ''; }, 3000);
+                };
+
+                const openImportModal = () => {
+                    rawInputJson.value = JSON.stringify(cleanOutputStructure(store.value), null, 2);
+                    importError.value = null;
+                    showImportModal.value = true;
+                };
+
+                const processImport = () => {
+                    try {
+                        const parsed = JSON.parse(rawInputJson.value);
+                        if (typeof parsed !== 'object' || parsed === null || Array.isArray(parsed)) {
+                            throw new Error("Format JSON harus berupa objek root { }");
+                        }
+                        for (const key in parsed) {
+                            if (!Array.isArray(parsed[key])) {
+                                throw new Error(`Properti "${key}" harus berupa array kategori.`);
+                            }
+                        }
+                        store.value = parsed;
+                        const keys = Object.keys(parsed);
+                        if (keys.length > 0 && !keys.includes(activeTab.value)) {
+                            activeTab.value = keys[0];
+                        }
+                        importError.value = null;
+                        showImportModal.value = false;
+                        showToast('Data JSON berhasil dimuat ke editor!');
+                    } catch (e) {
+                        importError.value = e.message;
+                    }
+                };
+
+                const addCategory = () => {
+                    store.value[activeTab.value].push({ category: "KATEGORI BARU", links: [] });
+                    showToast('Kategori baru ditambahkan!');
+                };
+
+                const deleteCategory = (index) => {
+                    if(confirm("Apakah Anda yakin ingin menghapus kategori ini beserta seluruh tautan di dalamnya?")) {
+                        store.value[activeTab.value].splice(index, 1);
+                        showToast('Kategori dihapus.');
+                    }
+                };
+
+                const addLink = (catIdx) => {
+                    store.value[activeTab.value][catIdx].links.push({ title: "", url: "", icon: "", iconColor: "", status: "", info: "" });
+                };
+
+                const deleteLink = (catIdx, linkIdx) => {
+                    store.value[activeTab.value][catIdx].links.splice(linkIdx, 1);
+                };
+
+                const addSubLink = (link) => {
+                    if (!link.subLinks) link.subLinks = [];
+                    let nextYear = "2026";
+                    if(link.subLinks.length === 1 && link.subLinks[0].label === "2025") nextYear = "2026";
+                    else if (link.subLinks.length > 0) {
+                        const lastLabel = parseInt(link.subLinks[link.subLinks.length - 1].label);
+                        if(!isNaN(lastLabel)) nextYear = (lastLabel + 1).toString();
+                    } else {
+                        nextYear = "2025";
+                    }
+                    link.subLinks.push({ label: nextYear, url: "" });
+                };
+
+                const deleteSubLink = (link, subIdx) => {
+                    link.subLinks.splice(subIdx, 1);
+                    if(link.subLinks.length === 0) delete link.subLinks;
+                };
+
+                const addNewPage = () => {
+                    const name = prompt("Masukkan nama unit baru (contoh: bmm, kfc):");
+                    if (name && name.trim() !== "") {
+                        const cleanKey = name.trim().toLowerCase();
+                        if (store.value[cleanKey]) {
+                            alert("Unit dengan nama tersebut sudah ada!");
+                            return;
+                        }
+                        store.value[cleanKey] = [];
+                        activeTab.value = cleanKey;
+                        showToast(`Unit "${cleanKey}" berhasil dibuat!`);
+                    }
+                };
+
+                const openDeleteUnitModal = () => {
+                    showDeleteUnitModal.value = true;
+                };
+
+                const deleteActiveUnit = () => {
+                    delete store.value[activeTab.value];
+                    const remainingKeys = Object.keys(store.value);
+                    activeTab.value = remainingKeys.length > 0 ? remainingKeys[0] : '';
+                    showDeleteUnitModal.value = false;
+                    showToast('Unit berhasil dihapus!');
+                };
+
+                const cleanOutputStructure = (inputObj) => {
+                    const cleaned = JSON.parse(JSON.stringify(inputObj));
+                    for (const pageKey in cleaned) {
+                        cleaned[pageKey].forEach(cat => {
+                            if (!cat._comment || cat._comment.trim() === "") delete cat._comment;
+                            if (cat.links) {
+                                cat.links.forEach(link => {
+                                    if (!link.iconColor || link.iconColor.trim() === "") delete link.iconColor;
+                                    if (!link.status || link.status.trim() === "") delete link.status;
+                                    if (!link.info || link.info.trim() === "") delete link.info;
+                                    if (link.subLinks) {
+                                        if (link.subLinks.length === 0) delete link.subLinks;
+                                        else {
+                                            link.subLinks.forEach(sub => {
+                                                if(sub.label) sub.label = sub.label.toString();
+                                            });
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                    return cleaned;
+                };
+
+                const exportJSON = () => {
+                    const finalData = cleanOutputStructure(store.value);
+                    const jsonString = JSON.stringify(finalData, null, 2);
+                    navigator.clipboard.writeText(jsonString).then(() => {
+                        showToast('JSON Berhasil di-generate & disalin!');
+                    }).catch(err => {
+                        alert('Gagal menyalin teks otomatis.');
+                        console.log(jsonString);
+                    });
+                };
+
+                onMounted(() => { openImportModal(); });
+
+                return { store, activeTab, showImportModal, showDeleteUnitModal, rawInputJson, importError, toastMessage, openImportModal, processImport, addCategory, deleteCategory, addLink, deleteLink, addSubLink, deleteSubLink, addNewPage, openDeleteUnitModal, deleteActiveUnit, exportJSON };
+            }
+        }).mount('#app');
+    </script>
+</body>
+</html>
