@@ -1297,17 +1297,45 @@
   ],
   "jay": [
     {
+      "category": "TUGAS BERKALA",
+      "links": [
+        {
+          "title": "Tagihan Rutin Wonasa",
+          "url": "",
+          "icon": "fa-solid fa-receipt",
+          "info": "⏰ Jatuh Tempo Tgl 20</br> • Listrik, air dan PAM</br>⏰ Jatuh Tempo Tgl 15</br> • Central Park B2205"
+        },
+        {
+          "title": "Tagihan Rutin Gereja",
+          "url": "",
+          "icon": "fa-solid fa-receipt",
+          "info": "⏰ Jatuh Tempo Tgl 20</br> • Listrik, air dan PAM"
+        },
+        {
+          "title": "Kredit BNI HAVA",
+          "url": "",
+          "icon": "fa-solid fa-money-bill-transfer"
+        }
+      ]
+    },
+    {
       "category": "MAIN",
       "links": [
+        {
+          "title": "Clipboard",
+          "url": "https://inijolink.vercel.app/clipboard",
+          "icon": "fa-solid fa-clipboard-list"
+        },
         {
           "title": "Jurnal",
           "url": "https://inijo.vercel.app/jurnal/riwayat624.html",
           "icon": "fa-solid fa-book"
         },
         {
-          "title": "Clipboard",
-          "url": "https://inijolink.vercel.app/clipboard",
-          "icon": "fa-solid fa-clipboard-list"
+          "title": "Riwayat Medis",
+          "url": "https://inijo.vercel.app/medis/riwayat738.html",
+          "icon": "fa-solid fa-file-medical",
+          "iconColor": "#4285F4"
         },
         {
           "title": "Notion",
@@ -1353,6 +1381,12 @@
           "url": "https://inijotool.vercel.app/",
           "icon": "fa-solid fa-link",
           "iconColor": "#FFBF00"
+        },
+        {
+          "title": "Bioskop Manado",
+          "url": "https://jadwalnonton.com/now-playing",
+          "icon": "fa-solid fa-film",
+          "info": "XXI Mantos 1, 3 & Megamall, Cinepolis Lippo Plaza, Local Cinema"
         }
       ]
     },
@@ -1495,6 +1529,37 @@
           "url": "https://panel.whapi.cloud/login",
           "icon": "fa-solid fa-won-sign",
           "iconColor": "#8250C4"
+        }
+      ]
+    },
+    {
+      "category": "BOUNDLESS",
+      "links": [
+        {
+          "title": "Forum",
+          "url": "https://forum.playboundless.com/",
+          "icon": "fa-solid fa-comments",
+          "iconColor": "#ed375f",
+          "info": "User: Ancient</br>User: Hela"
+        },
+        {
+          "title": "Information Station",
+          "url": "https://boundlessinfo.com/home",
+          "icon": "fa-solid fa-circle-info",
+          "iconColor": "#ed375f"
+        },
+        {
+          "title": "Pricer",
+          "url": "https://boundless.mayumi.fi/recipes/",
+          "icon": "fa-solid fa-tags",
+          "iconColor": "#ed375f"
+        },
+        {
+          "title": "BUTT",
+          "url": "https://butt.boundless.mayumi.fi/",
+          "icon": "fa-solid fa-cart-shopping",
+          "iconColor": "#ed375f",
+          "info": "<a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_MINOR'>🏷️ Minor Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_IMPROVED'>🏷️ Improved Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_GREATER'>🏷️ Greater Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_SUPER'>🏷️ Super Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=BREW_FAST_MEGA'>🏷️ Mega Fast Brew</a></br><a href='https://butt.boundless.mayumi.fi/#item=FOOD_TEACHING_PIE_COOKED'>🏷️ Teaching Pie</a></br><a href='https://butt.boundless.mayumi.fi/#item=ITEM_BONE_BASE'>🏷️ Bone</a></br><a href='https://butt.boundless.mayumi.fi/#item=ITEM_ORB_PULSATING'>🏷️ Pulsating Orb</a>"
         }
       ]
     }
