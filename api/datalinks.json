@@ -1396,10 +1396,22 @@
       "category": "CODING",
       "links": [
         {
+          "title": "Porkbun",
+          "url": "https://porkbun.com/products/domains",
+          "icon": "fa-solid fa-piggy-bank",
+          "iconColor": "#EF7878",
+          "info": "Domain"
+        },
+        {
           "title": "GitHub",
           "url": "https://github.com/repos",
           "icon": "fa-brands fa-github",
           "info": "Repositories"
+        },
+        {
+          "title": "JSON Datalinks Editor",
+          "url": "https://inijolink.vercel.app/datalinkseditor3485.html",
+          "icon": "fa-solid fa-pen-to-square text-base"
         },
         {
           "title": "Vercel",
@@ -1426,10 +1438,9 @@
           "iconColor": "#00d294"
         },
         {
-          "title": "CodePen",
-          "url": "https://codepen.io/pen/?editors=1000",
-          "icon": "fa-solid fa-pen-to-square text-base",
-          "info": "Code Editor with Formatter and Preview"
+          "title": "Compare Text",
+          "url": "https://www.textcompare.org/",
+          "icon": "fa-solid fa-code-compare text-base"
         },
         {
           "title": "HTML Editor",
@@ -1438,9 +1449,10 @@
           "info": "HTML Editor with preview"
         },
         {
-          "title": "Compare Text",
-          "url": "https://www.textcompare.org/",
-          "icon": "fa-solid fa-code-compare text-base"
+          "title": "CodePen",
+          "url": "https://codepen.io/pen/?editors=1000",
+          "icon": "fa-solid fa-pen-to-square text-base",
+          "info": "Code Editor with Formatter and Preview"
         },
         {
           "title": "Toolpix",
@@ -1450,10 +1462,16 @@
           "info": "HTML Editor"
         },
         {
-          "title": "Porkbun",
-          "url": "https://porkbun.com/products/domains",
-          "icon": "fa-solid fa-piggy-bank",
-          "iconColor": "#EF7878"
+          "title": "HTML Beautifier",
+          "url": "https://elementor.com/tools/free-html-beautifier/",
+          "icon": "fa-solid fa-indent",
+          "iconColor": "#ff7be5"
+        },
+        {
+          "title": "HTML Formatter",
+          "url": "https://jsonformatter.org/html-formatter",
+          "icon": "fa-solid fa-pen-to-square text-base",
+          "iconColor": "#18bc9c"
         }
       ]
     },
