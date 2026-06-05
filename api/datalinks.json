@@ -1039,12 +1039,12 @@
         {
           "title": "Mutasi BCA",
           "url": "https://docs.google.com/spreadsheets/d/1VpvLpB8BCpSFZYOvru3WhWiJT_Q0v5RXDGy2y1dwzbs",
-          "icon": ""
+          "icon": "fa-solid fa-book"
         },
         {
           "title": "Mutasi BNI",
           "url": "https://docs.google.com/spreadsheets/d/1P24KbHl1S5QIkVrSj1JDyoLnp05x4kS9Xy_Izp1Ap_o",
-          "icon": ""
+          "icon": "fa-solid fa-book"
         },
         {
           "title": "Perhitungan Perpuluhan untuk Wilayah",
@@ -1059,7 +1059,7 @@
         {
           "title": "Laporan Persembahan 2026",
           "url": "https://docs.google.com/spreadsheets/d/1Tl4dOUe3u-nqPIT13hvH4o3QUD0derJlev1OpT1FBWU",
-          "icon": "",
+          "icon": "fa-solid fa-book",
           "iconColor": "#0F9D58",
           "subLinks": [
             {
@@ -1099,13 +1099,13 @@
         {
           "title": "Mutasi BCA",
           "url": "https://docs.google.com/spreadsheets/d/1gXso1-oEo5uCfrXZld5hBHUveGQfJJxmEd_TXz0TM-Q",
-          "icon": "",
+          "icon": "fa-solid fa-book",
           "iconColor": "#0F9D58"
         },
         {
           "title": "Mutasi BNI",
           "url": "https://docs.google.com/spreadsheets/d/1VR8d1ja-5qkToWfXg10PgOj_1W87uIH84fOnNv8NULw",
-          "icon": ""
+          "icon": "fa-solid fa-book"
         }
       ]
     },
@@ -1148,7 +1148,7 @@
           "title": "Rekening Bank",
           "url": "",
           "icon": "fa-solid fa-building-columns",
-          "info": "BCA Perpuluhan 026-8310-854</br>BNI Perpuluhan 310-8195-452</br></br>BCA Persembahan 026-3108-547</br>BNI Persembahan 310-8195-474"
+          "info": "BCA Perpuluhan 026-8310-854 BNI Perpuluhan 310-8195-452  BCA Persembahan 026-3108-547 BNI Persembahan 310-8195-474"
         }
       ]
     }
