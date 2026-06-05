@@ -1313,8 +1313,9 @@
         },
         {
           "title": "Kredit BNI HAVA",
-          "url": "",
-          "icon": "fa-solid fa-money-bill-transfer"
+          "url": "https://docs.google.com/spreadsheets/d/1ddIIYyUZ_Ull8aCXnnm7NaKZxaGW5tUKawVRLuJGuGE/edit?gid=1512940928#gid=1512940928",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "info": "⏰ Jatuh Tempo Tgl 24"
         }
       ]
     },
