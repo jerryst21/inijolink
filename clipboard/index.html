@@ -105,23 +105,26 @@
     }
 
     // Mengirim data ke Vercel Function (POST)
-    async function saveClipboard(updatedItems) {
+    async function saveClipboard(textValue) {
       toggleLoading(true);
       try {
         const res = await fetch('/api/clipboard', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ items: updatedItems })
+          body: JSON.stringify({ text: textValue }) // Hanya mengirim teks tunggal
         });
         if (res.ok) {
           const data = await res.json();
-          clipboardItems = data.items;
+          // Tambahkan item baru dari server ke baris paling atas state lokal
+          clipboardItems = [data.item, ...clipboardItems];
           renderList();
+          showNotification('✅ Berhasil disimpan ke cloud!');
         } else {
           showNotification('❌ Gagal menyimpan data.');
         }
       } catch (err) {
         console.error(err);
+        showNotification('❌ Terjadi kesalahan jaringan.');
       } finally {
         toggleLoading(false);
       }
@@ -182,19 +185,12 @@
       const text = inputText.value.trim();
       if (!text) return;
 
-      const newItem = {
-        id: 'id-' + Date.now() + '-' + Math.random().toString(36).substr(2, 4),
-        text: text,
-        createdAt: new Date().toISOString(),
-        pinned: false
-      };
-
-      const updated = [newItem, ...clipboardItems];
-      saveClipboard(updated);
+      // Panggil fungsi simpan dengan parameter teks langsung
+      saveClipboard(text);
       
       inputText.value = ''; // Kosongkan input otomatis
-      autoResizeTextArea(); // UPDATE: Kembalikan ukuran textarea ke semula setelah kosong
-      inputText.blur(); // Tutup keyboard mobile setelah simpan
+      autoResizeTextArea(); // Kembalikan ukuran textarea ke semula
+      inputText.blur(); // Tutup keyboard mobile
     });
 
     // Aksi: Toggle Pin/Unpin
