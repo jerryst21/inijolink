@@ -49,69 +49,48 @@ export default async function handler(req, res) {
   // ------------------------------------
   // METODE: POST
   // ------------------------------------
+  // LINE 45-END: UBAH METODE POST MENJADI INSERT TUNGGAL & HAPUS BATASAN 100 ITEM
   if (req.method === "POST") {
     try {
-      let items = [];
-      if (Array.isArray(req.body)) {
-        items = req.body;
-      } else if (req.body && Array.isArray(req.body.items)) {
-        items = req.body.items;
-      } else {
-        return res.status(400).json({ error: "Format data salah. Harus berupa array." });
+      const { text } = req.body;
+
+      if (!text || text.trim() === "") {
+        return res.status(400).json({ error: "Teks tidak boleh kosong" });
       }
 
-      const limitedItems = items.slice(0, 100);
+      // Menyiapkan data satu baris baru untuk di-insert
+      const rowToInsert = {
+        text: text.trim(),
+        pinned: false,
+        created_at: new Date().toISOString()
+      };
 
-      // FIX UTAMA: Menambahkan '?id=not.is.null' sebagai klausa WHERE tiruan.
-      // Ini memerintahkan Supabase menghapus semua baris yang memiliki ID (alias seluruh data di tabel).
-      const deleteResponse = await fetch(`${url}?id=not.is.null`, {
-        method: "DELETE",
-        headers: headers
-      });
-
-      if (!deleteResponse.ok) {
-        const errText = await deleteResponse.text();
-        return res.status(deleteResponse.status).json({ error: "Gagal membersihkan data lama", details: errText });
-      }
-
-      if (limitedItems.length === 0) {
-        return res.status(200).json([]);
-      }
-
-      const rowsToInsert = limitedItems.map(item => ({
-        text: item.text || "",
-        pinned: item.pinned === true,
-        ...(item.createdAt && !isNaN(Date.parse(item.createdAt)) ? { created_at: item.createdAt } : {})
-      }));
-
+      // Langsung POST ke Supabase (Tanpa DELETE massal sebelumnya)
       const insertResponse = await fetch(url, {
         method: "POST",
         headers: {
           ...headers,
-          "Prefer": "return=representation"
+          "Prefer": "return=representation" // Meminta Supabase mengembalikan data yang baru dibuat
         },
-        body: JSON.stringify(rowsToInsert)
+        body: JSON.stringify(rowToInsert)
       });
 
       if (!insertResponse.ok) {
         const errText = await insertResponse.text();
-        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data baru", details: errText });
+        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data ke cloud", details: errText });
       }
 
       const insertedData = await insertResponse.json();
-      const savedItems = insertedData
-        .map(item => ({
-          id: item.id,
-          text: item.text,
-          pinned: item.pinned,
-          createdAt: item.created_at
-        }))
-        .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-
-      // Mengembalikan data yang dibungkus dalam objek 'items' dan status 'success'
+      
+      // Mengembalikan response sukses beserta data item yang baru dibuat
       return res.status(200).json({ 
         success: true, 
-        items: savedItems 
+        item: {
+          id: insertedData[0].id,
+          text: insertedData[0].text,
+          pinned: insertedData[0].pinned,
+          createdAt: insertedData[0].created_at
+        }
       });
     } catch (error) {
       return res.status(500).json({ error: error.message });
