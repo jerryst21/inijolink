@@ -972,6 +972,13 @@
           "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8",
           "icon": "fa-solid fa-copy",
           "iconColor": "#0F9D58"
+        },
+        {
+          "title": " I❤️PDF",
+          "url": "https://www.ilovepdf.com/edit-pdf",
+          "icon": "fa-regular fa-file-pdf",
+          "iconColor": "#e5322d",
+          "info": "Edit PDF untuk attach foto online. Dokumen di Folder Kost Singkil: Data Penghuni Kost v6"
         }
       ]
     },
