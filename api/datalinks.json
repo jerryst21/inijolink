@@ -1187,114 +1187,6 @@
       ]
     }
   ],
-  "template": [
-    {
-      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️TEMPLATE: LIST LINKS HALAMAN KERJA",
-      "category": "Category 1",
-      "links": [
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "iconColor": "#ff4757",
-          "status": "🔵"
-        },
-        {
-          "title": "Link 2 🚧",
-          "url": "",
-          "icon": "",
-          "iconColor": "#0F9D58",
-          "status": "🔵",
-          "subLinks": [
-            {
-              "label": "sub link 1",
-              "url": ""
-            },
-            {
-              "label": "sub link 2 🚧",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "status": "🔵"
-        }
-      ]
-    },
-    {
-      "category": "Category 2",
-      "links": [
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "iconColor": "#ff4757",
-          "status": "🔵"
-        },
-        {
-          "title": "Link 2 🚧",
-          "url": "",
-          "icon": "",
-          "iconColor": "#0F9D58",
-          "status": "🔵",
-          "subLinks": [
-            {
-              "label": "sub link 1",
-              "url": ""
-            },
-            {
-              "label": "sub link 2 🚧",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "status": "🔵"
-        }
-      ]
-    },
-    {
-      "category": "Category 3",
-      "links": [
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "iconColor": "#ff4757",
-          "status": "🔵"
-        },
-        {
-          "title": "Link 2 🚧",
-          "url": "",
-          "icon": "",
-          "iconColor": "#0F9D58",
-          "status": "🔵",
-          "subLinks": [
-            {
-              "label": "sub link 1",
-              "url": ""
-            },
-            {
-              "label": "sub link 2 🚧",
-              "url": ""
-            }
-          ]
-        },
-        {
-          "title": "Link 1",
-          "url": "",
-          "icon": "",
-          "status": "🔵"
-        }
-      ]
-    }
-  ],
   "jay": [
     {
       "category": "TUGAS BERKALA",
@@ -1392,7 +1284,7 @@
       ]
     },
     {
-      "category": "AI",
+      "category": "Artificial intelligence (AI)",
       "links": [
         {
           "title": "Gemini",
@@ -1600,6 +1492,114 @@
               "url": "https://butt.boundless.mayumi.fi/#item=ITEM_ORB_PULSATING"
             }
           ]
+        }
+      ]
+    }
+  ],
+  "template": [
+    {
+      "_comment": "⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️TEMPLATE: LIST LINKS HALAMAN KERJA",
+      "category": "Category 1",
+      "links": [
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
+          "status": "🔵",
+          "subLinks": [
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
+          ]
+        },
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
+        }
+      ]
+    },
+    {
+      "category": "Category 2",
+      "links": [
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
+          "status": "🔵",
+          "subLinks": [
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
+          ]
+        },
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
+        }
+      ]
+    },
+    {
+      "category": "Category 3",
+      "links": [
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "iconColor": "#ff4757",
+          "status": "🔵"
+        },
+        {
+          "title": "Link 2 🚧",
+          "url": "",
+          "icon": "",
+          "iconColor": "#0F9D58",
+          "status": "🔵",
+          "subLinks": [
+            {
+              "label": "sub link 1",
+              "url": ""
+            },
+            {
+              "label": "sub link 2 🚧",
+              "url": ""
+            }
+          ]
+        },
+        {
+          "title": "Link 1",
+          "url": "",
+          "icon": "",
+          "status": "🔵"
         }
       ]
     }
