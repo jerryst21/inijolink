@@ -1,5 +1,3 @@
-// api/clipboard.js
-
 export default async function handler(req, res) {
   const supabaseUrl = process.env.SUPABASE_URL;
   const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
@@ -16,7 +14,7 @@ export default async function handler(req, res) {
   };
 
   // ------------------------------------
-  // METODE: GET
+  // METODE: GET (Ambil Semua Data)
   // ------------------------------------
   if (req.method === "GET") {
     try {
@@ -31,8 +29,6 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
-      
-      // Memastikan data terpetakan dengan benar dari kolom database Supabase
       const mappedItems = data.map(item => ({
         id: item.id,
         text: item.text || "",
@@ -47,9 +43,8 @@ export default async function handler(req, res) {
   }
 
   // ------------------------------------
-  // METODE: POST
+  // METODE: POST (Insert Tunggal - NO OVERWRITE)
   // ------------------------------------
-  // LINE 45-END: UBAH METODE POST MENJADI INSERT TUNGGAL & HAPUS BATASAN 100 ITEM
   if (req.method === "POST") {
     try {
       const { text } = req.body;
@@ -58,31 +53,27 @@ export default async function handler(req, res) {
         return res.status(400).json({ error: "Teks tidak boleh kosong" });
       }
 
-      // Menyiapkan data satu baris baru untuk di-insert
       const rowToInsert = {
         text: text.trim(),
         pinned: false,
         created_at: new Date().toISOString()
       };
 
-      // Langsung POST ke Supabase (Tanpa DELETE massal sebelumnya)
       const insertResponse = await fetch(url, {
         method: "POST",
         headers: {
           ...headers,
-          "Prefer": "return=representation" // Meminta Supabase mengembalikan data yang baru dibuat
+          "Prefer": "return=representation"
         },
         body: JSON.stringify(rowToInsert)
       });
 
       if (!insertResponse.ok) {
         const errText = await insertResponse.text();
-        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data ke cloud", details: errText });
+        return res.status(insertResponse.status).json({ error: "Gagal menyimpan data baru", details: errText });
       }
 
       const insertedData = await insertResponse.json();
-      
-      // Mengembalikan response sukses beserta data item yang baru dibuat
       return res.status(200).json({ 
         success: true, 
         item: {
@@ -92,6 +83,73 @@ export default async function handler(req, res) {
           createdAt: insertedData[0].created_at
         }
       });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  }
+
+  // ------------------------------------
+  // METODE: PATCH (Update Status Pin Berdasarkan ID)
+  // ------------------------------------
+  if (req.method === "PATCH") {
+    try {
+      const { id } = req.query;
+      const { pinned } = req.body;
+
+      if (!id) return res.status(400).json({ error: "ID diperlukan untuk update" });
+
+      const patchResponse = await fetch(`${url}?id=eq.${id}`, {
+        method: "PATCH",
+        headers: headers,
+        body: JSON.stringify({ pinned: pinned === true })
+      });
+
+      if (!patchResponse.ok) {
+        const errText = await patchResponse.text();
+        return res.status(patchResponse.status).json({ error: "Gagal update status pin", details: errText });
+      }
+
+      return res.status(200).json({ success: true });
+    } catch (error) {
+      return res.status(500).json({ error: error.message });
+    }
+  }
+
+  // ------------------------------------
+  // METODE: DELETE (Hapus Item atau Bersihkan Unpinned)
+  // ------------------------------------
+  if (req.method === "DELETE") {
+    try {
+      const { id, clearUnpinned } = req.query;
+
+      // Opsi A: Clear Unpinned (Tombol Clear All)
+      if (clearUnpinned === "true") {
+        const deleteResponse = await fetch(`${url}?pinned=eq.false`, {
+          method: "DELETE",
+          headers: headers
+        });
+
+        if (!deleteResponse.ok) {
+          const errText = await deleteResponse.text();
+          return res.status(deleteResponse.status).json({ error: "Gagal membersihkan item unpinned", details: errText });
+        }
+        return res.status(200).json({ success: true, message: "Semua item unpinned berhasil dihapus" });
+      }
+
+      // Opsi B: Hapus Satu Item Spesifik Berdasarkan ID
+      if (!id) return res.status(400).json({ error: "ID diperlukan untuk menghapus" });
+
+      const deleteResponse = await fetch(`${url}?id=eq.${id}`, {
+        method: "DELETE",
+        headers: headers
+      });
+
+      if (!deleteResponse.ok) {
+        const errText = await deleteResponse.text();
+        return res.status(deleteResponse.status).json({ error: "Gagal menghapus item", details: errText });
+      }
+
+      return res.status(200).json({ success: true, message: "Item berhasil dihapus" });
     } catch (error) {
       return res.status(500).json({ error: error.message });
     }
