@@ -1254,6 +1254,12 @@
           "icon": "fa-brands fa-notion"
         },
         {
+          "title": "Discord",
+          "url": "https://discord.com/channels/503080174200553492/841180140762431539",
+          "icon": "fa-brands fa-discord",
+          "iconColor": "#7289da"
+        },
+        {
           "title": "Gmail",
           "url": "https://mail.google.com/mail/u/0/#inbox",
           "icon": "fa-regular fa-envelope"
