@@ -90,13 +90,15 @@
       try {
         const res = await fetch('/api/clipboard');
         if (res.ok) {
+          // Fase 1: Memastikan data yang diterima langsung disimpan ke state lokal
           clipboardItems = await res.json();
           renderList();
         } else {
-          showNotification('❌ Gagal memuat data.');
+          showNotification('❌ Gagal memuat data dari cloud.');
         }
       } catch (err) {
-        console.error(err);
+        console.error("Fetch error:", err);
+        showNotification('❌ Terjadi kesalahan jaringan.');
       } finally {
         toggleLoading(false);
       }
