@@ -939,18 +939,6 @@
           "icon": "fa-solid fa-user-plus"
         },
         {
-          "title": "Template Kwitansi Pembayaran Kost",
-          "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8",
-          "icon": "fa-solid fa-copy",
-          "iconColor": "#0F9D58"
-        },
-        {
-          "title": "Formulir Penghuni Kost",
-          "url": "https://docs.google.com/spreadsheets/d/1xdEP7HrA01hT3eOe9zrnPFk8X4YZ7fAonNyoiLAv2NY",
-          "icon": "fa-solid fa-house-user",
-          "iconColor": "#0F9D58"
-        },
-        {
           "title": "Invoice Kerjasama Laundry",
           "url": "https://docs.google.com/spreadsheets/d/1yd8rStU1uuNgMewGN1qTW3BSF_zTZtEEH_SWwk11kuU",
           "icon": "fa-solid fa-file-invoice",
@@ -960,7 +948,30 @@
           "title": "Daftar Reminder Customer",
           "url": "https://docs.google.com/spreadsheets/d/18qXYz5tuWvdP4V5L7v6O0Q35BB1IxjWSXidSCG12nkw",
           "icon": "fa-solid fa-bell-concierge",
-          "iconColor": "#FF4500"
+          "iconColor": "#f1c40f"
+        }
+      ]
+    },
+    {
+      "category": "KOST SINGKIL",
+      "links": [
+        {
+          "title": "Formulir Penghuni Kost",
+          "url": "https://docs.google.com/spreadsheets/d/1xdEP7HrA01hT3eOe9zrnPFk8X4YZ7fAonNyoiLAv2NY",
+          "icon": "fa-solid fa-house-user",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Peraturan Rumah Kost Singkil",
+          "url": "https://docs.google.com/document/d/1eE5zp4NLIzH_RmfVVTZ6QNKbfouI06KQU_GF6kOZ6Lk/edit?tab=t.0",
+          "icon": "fa-solid fa-file-contract",
+          "iconColor": "#3086F6"
+        },
+        {
+          "title": "Template Kwitansi Pembayaran Kost",
+          "url": "https://docs.google.com/spreadsheets/d/1PkPt0R2YYr-Bazv4ZWQUIV_ZYfZiiTMqSmpbzQlqdH8",
+          "icon": "fa-solid fa-copy",
+          "iconColor": "#0F9D58"
         }
       ]
     },
