@@ -31,7 +31,8 @@
     <main class="space-y-5">
       
       <section class="bg-white p-4 rounded-2xl shadow-sm border border-gray-200">
-        <textarea id="input-text" rows="4" class="w-full p-3 text-base border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-none overflow-hidden placeholder-gray-400 bg-gray-55/50 focus:bg-white transition text-[16px]" placeholder="Tempel atau ketik teks clipboard di sini..."></textarea>
+        <label for="input-text" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-2">Input Clipboard Baru</label>
+        <textarea id="input-text" rows="4" class="w-full p-3 text-base border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none resize-none overflow-hidden placeholder-gray-400 bg-gray-50 focus:bg-white transition text-[16px]" placeholder="Tempel atau ketik teks clipboard di sini..."></textarea>
         <div class="mt-3 flex justify-end">
           <button id="btn-save" class="w-full sm:w-auto bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-6 py-3 rounded-xl font-bold transition shadow-sm shadow-indigo-200">
             Simpan ke Cloud
@@ -69,10 +70,10 @@
     const loadingStatus = document.getElementById('loading-status');
     const toast = document.getElementById('toast');
 
-    // BARU: Fungsi untuk mengatur tinggi textarea otomatis mengikuti jumlah teks
+    // Fungsi untuk mengatur tinggi textarea otomatis mengikuti jumlah teks
     function autoResizeTextArea() {
-      inputText.style.height = 'auto'; // Reset tinggi ke bawaan agar hitungan baris mengecil akurat
-      inputText.style.height = inputText.scrollHeight + 'px'; // Set sesuai tinggi isi teks asli
+      inputText.style.height = 'auto';
+      inputText.style.height = inputText.scrollHeight + 'px';
     }
 
     // Pasang fungsi resize otomatis saat user mengetik atau menempelkan teks
@@ -90,7 +91,6 @@
       try {
         const res = await fetch('/api/clipboard');
         if (res.ok) {
-          // Fase 1: Memastikan data yang diterima langsung disimpan ke state lokal
           clipboardItems = await res.json();
           renderList();
         } else {
@@ -104,18 +104,18 @@
       }
     }
 
-    // Mengirim data ke Vercel Function (POST)
+    // Mengirim data baru ke Vercel Function (POST)
     async function saveClipboard(textValue) {
       toggleLoading(true);
       try {
         const res = await fetch('/api/clipboard', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ text: textValue }) // Hanya mengirim teks tunggal
+          body: JSON.stringify({ text: textValue })
         });
         if (res.ok) {
           const data = await res.json();
-          // Tambahkan item baru dari server ke baris paling atas state lokal
+          // Masukkan item baru ke posisi paling atas array lokal
           clipboardItems = [data.item, ...clipboardItems];
           renderList();
           showNotification('✅ Berhasil disimpan ke cloud!');
@@ -139,8 +139,10 @@
         return;
       }
 
-      // Murni disortir berdasarkan tanggal terbaru
+      // Selalu urutkan: Pin di atas, lalu berdasarkan tanggal terbaru
       const sortedItems = [...clipboardItems].sort((a, b) => {
+        if (a.pinned && !b.pinned) return -1;
+        if (!a.pinned && b.pinned) return 1;
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
 
@@ -150,7 +152,6 @@
           item.pinned ? 'bg-amber-50/60 border-amber-300 ring-1 ring-amber-300' : 'bg-white border-gray-200'
         }`;
 
-        // Format tanggal lokal
         const dateFormatted = new Date(item.createdAt).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
 
         itemEl.innerHTML = `
@@ -185,39 +186,89 @@
       const text = inputText.value.trim();
       if (!text) return;
 
-      // Panggil fungsi simpan dengan parameter teks langsung
       saveClipboard(text);
       
-      inputText.value = ''; // Kosongkan input otomatis
-      autoResizeTextArea(); // Kembalikan ukuran textarea ke semula
-      inputText.blur(); // Tutup keyboard mobile
+      inputText.value = '';
+      autoResizeTextArea();
+      inputText.blur();
     });
 
-    // Aksi: Toggle Pin/Unpin
-    function togglePin(id) {
-      const updated = clipboardItems.map(item => {
-        if (item.id === id) item.pinned = !item.pinned;
-        return item;
-      });
-      saveClipboard(updated);
-    }
+    // Aksi: Toggle Pin/Unpin via PATCH
+    async function togglePin(id) {
+      const currentItem = clipboardItems.find(item => item.id === id);
+      if (!currentItem) return;
+      
+      const targetPinState = !currentItem.pinned;
 
-    // Aksi: Hapus per Item
-    function deleteItem(id) {
-      if (confirm('Hapus item ini?')) {
-        const updated = clipboardItems.filter(item => item.id !== id);
-        saveClipboard(updated);
+      toggleLoading(true);
+      try {
+        const res = await fetch(`/api/clipboard?id=${id}`, {
+          method: 'PATCH',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ pinned: targetPinState })
+        });
+        
+        if (res.ok) {
+          currentItem.pinned = targetPinState;
+          renderList();
+          showNotification(targetPinState ? '📌 Item di-pin!' : '🔓 Item di-unpin!');
+        } else {
+          showNotification('❌ Gagal mengubah status pin.');
+        }
+      } catch (err) {
+        console.error(err);
+      } finally {
+        toggleLoading(false);
       }
     }
 
-    // Aksi: Bersihkan semua yang tidak di-pin
-    btnClearAll.addEventListener('click', () => {
-      if (confirm('Hapus semua item yang tidak di-pin?')) {
-        const updated = clipboardItems.filter(item => item.pinned === true);
-        saveClipboard(updated);
+    // Aksi: Hapus per Item via DELETE
+    async function deleteItem(id) {
+      if (confirm('Hapus item ini secara permanen dari cloud?')) {
+        toggleLoading(true);
+        try {
+          const res = await fetch(`/api/clipboard?id=${id}`, {
+            method: 'DELETE'
+          });
+          
+          if (res.ok) {
+            clipboardItems = clipboardItems.filter(item => item.id !== id);
+            renderList();
+            showNotification('🗑️ Item berhasil dihapus!');
+          } else {
+            showNotification('❌ Gagal menghapus item.');
+          }
+        } catch (err) {
+          console.error(err);
+        } finally {
+          toggleLoading(false);
+        }
       }
     }
-  );
+
+    // Aksi: Bersihkan semua yang tidak di-pin via DELETE massal terfilter
+    btnClearAll.addEventListener('click', async () => {
+      if (confirm('Hapus semua item yang tidak di-pin dari cloud?')) {
+        toggleLoading(true);
+        try {
+          const res = await fetch('/api/clipboard?clearUnpinned=true', {
+            method: 'DELETE'
+          });
+          
+          if (res.ok) {
+            clipboardItems = clipboardItems.filter(item => item.pinned === true);
+            renderList();
+            showNotification('🗑️ Semua item unpinned dibersihkan!');
+          } else {
+            showNotification('❌ Gagal membersihkan item.');
+          }
+        } catch (err) {
+          console.error(err);
+        } finally {
+          toggleLoading(false);
+        }
+      }
+    });
 
     // Aksi: Refresh Manual
     btnRefresh.addEventListener('click', fetchClipboard);
@@ -225,11 +276,11 @@
     // Fungsi Pembantu: Salin teks ke clipboard browser asli
     function copyText(text) {
       navigator.clipboard.writeText(text).then(() => {
-        showNotification('✅ Teks disalin!');
+        showNotification('📋 Teks disalin!');
       }).catch(err => alert('Gagal menyalin teks: ' + err));
     }
 
-    // Notifikasi Toast Ringan khas Aplikasi Mobile
+    // Notifikasi Toast
     function showNotification(message) {
       toast.innerHTML = message;
       toast.classList.remove('opacity-0');
@@ -240,7 +291,7 @@
       }, 2000);
     }
 
-    // Utilities untuk keamanan XSS sederhana
+    // Utilities untuk keamanan XSS
     function escapeHTML(str) {
       return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
     }
