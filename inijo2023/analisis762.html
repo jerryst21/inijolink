@@ -274,6 +274,24 @@
                     categories: kategoriBulan,
                     axisBorder: { show: false },
                     axisTicks: { show: false },
+                    // Mengaktifkan garis vertikal pemandu saat hover
+                    crosshairs: {
+                        show: true,
+                        stroke: {
+                            color: 'rgba(255, 255, 255, 0.15)',
+                            width: 1,
+                            dashArray: 3,
+                        },
+                    },
+                },
+                // Menampilkan dot/titik penanda di setiap bulan pada line grafik
+                markers: {
+                    size: 4, 
+                    strokeColors: '#121214',
+                    strokeWidth: 2,
+                    hover: {
+                        size: 6
+                    }
                 },
                 yaxis: {
                     labels: {
