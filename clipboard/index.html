@@ -45,10 +45,23 @@
       </div>
 
       <section class="bg-white p-3 rounded-2xl shadow-sm border border-gray-200">
-        <label for="input-search" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Cari di Clipboard (Bisa > 1 kata)</label>
-        <div class="relative">
-          <input type="text" id="input-search" class="w-full p-2.5 pl-9 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 focus:bg-white transition" placeholder="Contoh: password wifi kantor">
-          <span class="absolute left-3 top-3 text-sm">🔍</span>
+        <div class="grid grid-cols-3 gap-2">
+          <div class="col-span-2">
+            <label for="input-search" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Cari Teks (Bisa > 1 kata)</label>
+            <div class="relative">
+              <input type="text" id="input-search" class="w-full p-2.5 pl-8 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 focus:bg-white transition" placeholder="Cari teks...">
+              <span class="absolute left-2.5 top-3 text-xs">🔍</span>
+            </div>
+          </div>
+          
+          <div class="col-span-1">
+            <label for="filter-pin" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Status Pin</label>
+            <select id="filter-pin" class="w-full p-2.5 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 focus:bg-white transition font-medium">
+              <option value="all">🌐 Semua</option>
+              <option value="pinned">📌 Di-pin</option>
+              <option value="unpinned">🔓 Tidak di-pin</option>
+            </select>
+          </div>
         </div>
       </section>
 
@@ -142,23 +155,30 @@
     function renderList() {
       clipboardList.innerHTML = '';
       
-      // 1. Ambil nilai filter search dan pecah menjadi array kata (lowercase)
+      // 1. Filter Pencarian Kata Teks
       const searchQuery = document.getElementById('input-search')?.value.toLowerCase().trim() || '';
       const searchWords = searchQuery.split(/\s+/).filter(word => word.length > 0);
 
-      // 2. Filter item: Semua kata kunci harus ada di dalam teks clipboard
-      const filteredItems = clipboardItems.filter(item => {
+      let filteredItems = clipboardItems.filter(item => {
         const itemTextLower = item.text.toLowerCase();
-        // Memastikan SETIAP kata di searchWords terkandung dalam teks clipboard
         return searchWords.every(word => itemTextLower.includes(word));
       });
+
+      // ---- [BARU] 2. Filter Berdasarkan Status Pinned Dropdown ----
+      const pinFilterValue = document.getElementById('filter-pin')?.value || 'all';
+      if (pinFilterValue === 'pinned') {
+        filteredItems = filteredItems.filter(item => item.pinned === true);
+      } else if (pinFilterValue === 'unpinned') {
+        filteredItems = filteredItems.filter(item => item.pinned === false);
+      }
+      // -------------------------------------------------------------
 
       if (filteredItems.length === 0) {
         clipboardList.innerHTML = '<div class="text-center py-12 bg-white rounded-2xl border border-gray-200 text-gray-400 text-sm">Tidak ada history yang cocok.</div>';
         return;
       }
 
-      // 3. Urutkan MURNI berdasarkan tanggal terbaru (Created At Descending)
+      // 3. Urutkan MURNI berdasarkan tanggal terbaru
       const sortedItems = [...filteredItems].sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
@@ -322,10 +342,16 @@
       // 1. Ambil data pertama kali dari cloud
       fetchClipboard();
       
-      // 2. Pasang event listener pencarian dengan aman karena elemen dijamin sudah ada
+      // 2. Pasang event listener pencarian kata teks
       const searchInput = document.getElementById('input-search');
       if (searchInput) {
         searchInput.addEventListener('input', renderList);
+      }
+
+      // 3. Pasang event listener dropdown status pin
+      const pinFilter = document.getElementById('filter-pin');
+      if (pinFilter) {
+        pinFilter.addEventListener('change', renderList);
       }
     });
   </script>
