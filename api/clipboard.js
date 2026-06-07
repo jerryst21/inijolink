@@ -31,11 +31,13 @@ export default async function handler(req, res) {
       }
 
       const data = await response.json();
+      
+      // Memastikan data terpetakan dengan benar dari kolom database Supabase
       const mappedItems = data.map(item => ({
         id: item.id,
-        text: item.text,
-        pinned: item.pinned,
-        createdAt: item.created_at
+        text: item.text || "",
+        pinned: item.pinned || false,
+        createdAt: item.created_at || new Date().toISOString()
       }));
 
       return res.status(200).json(mappedItems);
