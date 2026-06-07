@@ -44,6 +44,14 @@
         ⏳ Memproses data...
       </div>
 
+      <section class="bg-white p-3 rounded-2xl shadow-sm border border-gray-200">
+        <label for="input-search" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Cari di Clipboard (Bisa > 1 kata)</label>
+        <div class="relative">
+          <input type="text" id="input-search" class="w-full p-2.5 pl-9 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 focus:bg-white transition" placeholder="Contoh: password wifi kantor">
+          <span class="absolute left-3 top-3 text-sm">🔍</span>
+        </div>
+      </section>
+
       <section>
         <h2 class="text-base font-bold text-gray-500 uppercase tracking-wider mb-3 px-1">History Clipboard</h2>
         <div id="clipboard-list" class="space-y-3.5">
@@ -134,18 +142,28 @@
     function renderList() {
       clipboardList.innerHTML = '';
       
-      if (clipboardItems.length === 0) {
-        clipboardList.innerHTML = '<div class="text-center py-12 bg-white rounded-2xl border border-gray-200 text-gray-400 text-sm">Belum ada history.</div>';
+      // 1. Ambil nilai filter search dan pecah menjadi array kata (lowercase)
+      const searchQuery = document.getElementById('input-search')?.value.toLowerCase().trim() || '';
+      const searchWords = searchQuery.split(/\s+/).filter(word => word.length > 0);
+
+      // 2. Filter item: Semua kata kunci harus ada di dalam teks clipboard
+      const filteredItems = clipboardItems.filter(item => {
+        const itemTextLower = item.text.toLowerCase();
+        // Memastikan SETIAP kata di searchWords terkandung dalam teks clipboard
+        return searchWords.every(word => itemTextLower.includes(word));
+      });
+
+      if (filteredItems.length === 0) {
+        clipboardList.innerHTML = '<div class="text-center py-12 bg-white rounded-2xl border border-gray-200 text-gray-400 text-sm">Tidak ada history yang cocok.</div>';
         return;
       }
 
-      // Selalu urutkan: Pin di atas, lalu berdasarkan tanggal terbaru
-      const sortedItems = [...clipboardItems].sort((a, b) => {
-        if (a.pinned && !b.pinned) return -1;
-        if (!a.pinned && b.pinned) return 1;
+      // 3. Urutkan MURNI berdasarkan tanggal terbaru (Created At Descending)
+      const sortedItems = [...filteredItems].sort((a, b) => {
         return new Date(b.createdAt) - new Date(a.createdAt);
       });
 
+      // 4. Render ke HTML
       sortedItems.forEach(item => {
         const itemEl = document.createElement('div');
         itemEl.className = `p-4 rounded-2xl shadow-sm border transition-all flex flex-col justify-between ${
@@ -299,8 +317,17 @@
       return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
     }
 
-    // Load data pertama kali saat halaman dibuka
-    window.addEventListener('DOMContentLoaded', fetchClipboard);
+    // Load data dan pasang listener setelah seluruh komponen halaman selesai dimuat
+    window.addEventListener('DOMContentLoaded', () => {
+      // 1. Ambil data pertama kali dari cloud
+      fetchClipboard();
+      
+      // 2. Pasang event listener pencarian dengan aman karena elemen dijamin sudah ada
+      const searchInput = document.getElementById('input-search');
+      if (searchInput) {
+        searchInput.addEventListener('input', renderList);
+      }
+    });
   </script>
 </body>
 </html>
