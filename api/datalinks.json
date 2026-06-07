@@ -1541,7 +1541,13 @@
           "url": "https://forum.playboundless.com/",
           "icon": "fa-solid fa-comments",
           "iconColor": "#ed375f",
-          "info": "User: Ancient</br>User: Hela"
+          "info": "User: Ancient</br>User: Hela",
+          "subLinks": [
+            {
+              "label": "Pre-built Biome Preview",
+              "url": "https://forum.playboundless.com/t/world-builder-pre-built-biome-preview/48485"
+            }
+          ]
         },
         {
           "title": "Information Station",
