@@ -809,14 +809,20 @@
             },
             {
               "label": "📝 Input Fillout",
-              "url": "https://forms.fillout.com/t/qENdoJR2j3us"
+              "url": "https://forms.fillout.com/t/3FqS4vHoo1us"
             }
           ]
         },
         {
-          "title": "Arsip Nota Inijo 🚧",
+          "title": "Arsip Nota Inijo",
           "url": "",
-          "icon": "fa-solid fa-box-archive"
+          "icon": "fa-solid fa-box-archive",
+          "subLinks": [
+            {
+              "label": "Notion",
+              "url": "https://app.notion.com/p/inijo/209a7d88a25a80c0ab71ce8fa31eb89f?v=209a7d88a25a80f5abf4000c46d1dedf"
+            }
+          ]
         },
         {
           "title": "Daftar Audit",
