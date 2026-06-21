@@ -1472,6 +1472,12 @@
           ]
         },
         {
+          "title": "Boundless Info",
+          "url": "https://boundlessinfo.pages.dev/",
+          "icon": "fa-solid fa-circle-info",
+          "iconColor": "#ed375f"
+        },
+        {
           "title": "Information Station",
           "url": "https://boundlessinfo.com/home",
           "icon": "fa-solid fa-circle-info",
