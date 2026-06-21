@@ -8,6 +8,17 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="googlebot" content="noindex, nofollow">
   <script src="https://cdn.tailwindcss.com"></script>
+  
+	<style>
+	  /* Tambahkan ini di bagian head */
+	  .dark-mode { background-color: #111827; color: #f9fafb; }
+	  .dark-mode .bg-white { background-color: #1f2937; border-color: #374151; color: #f9fafb; }
+	  .dark-mode .bg-gray-50 { background-color: #374151; color: #f9fafb; }
+	  .dark-mode .text-gray-800 { color: #f3f4f6; }
+	  .dark-mode .text-gray-500 { color: #9ca3af; }
+	  .dark-mode .border-gray-200 { border-color: #374151; }
+	  .dark-mode .border-gray-100 { border-color: #4b5563; }
+	</style>
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800 font-sans antialiased pb-12">
 
@@ -17,6 +28,7 @@
         <span>☁️</span> <span class="text-gray-900 font-extrabold">Cloud</span>Clipboard
       </h1>
       <div class="flex items-center gap-1.5">
+		<button id="btn-theme" class="bg-gray-100 hover:bg-gray-200 active:scale-95 px-3 py-2 rounded-xl text-sm font-semibold transition">☀️</button>
         <button id="btn-refresh" class="bg-gray-100 hover:bg-gray-200 active:scale-95 px-3 py-2 rounded-xl text-sm font-semibold transition flex items-center gap-1">
           🔄 <span class="hidden sm:inline">Refresh</span>
         </button>
@@ -49,9 +61,10 @@
           <div class="col-span-2">
             <label for="input-search" class="block text-xs font-bold text-gray-500 uppercase tracking-wider mb-1.5">Cari Teks (Bisa > 1 kata)</label>
             <div class="relative">
-              <input type="text" id="input-search" class="w-full p-2.5 pl-8 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none bg-gray-50 focus:bg-white transition" placeholder="Cari teks...">
-              <span class="absolute left-2.5 top-3 text-xs">🔍</span>
-            </div>
+			  <input type="text" id="input-search" class="w-full p-2.5 pl-8 pr-10 text-sm border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500 outline-none bg-gray-50 transition" placeholder="Cari teks...">
+			  <span class="absolute left-2.5 top-3 text-xs">🔍</span>
+			  <button id="btn-clear-search" class="absolute right-3 top-3 text-xs hover:text-red-500 hidden">❌</button>
+			</div>
           </div>
           
           <div class="col-span-1">
@@ -79,6 +92,27 @@
   </div>
 
   <script>
+		// [BARU] Logika Theme Toggle
+		const btnTheme = document.getElementById('btn-theme');
+		btnTheme.addEventListener('click', () => {
+		  document.body.classList.toggle('dark-mode');
+		  btnTheme.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+		});
+
+		// [BARU] Logika Clear Search Button
+		const btnClearSearch = document.getElementById('btn-clear-search');
+		const searchInput = document.getElementById('input-search');
+
+		searchInput.addEventListener('input', () => {
+		  btnClearSearch.classList.toggle('hidden', searchInput.value.length === 0);
+		});
+
+		btnClearSearch.addEventListener('click', () => {
+		  searchInput.value = '';
+		  btnClearSearch.classList.add('hidden');
+		  renderList(); // Panggil fungsi render untuk reset tampilan
+		});
+  
     // State aplikasi lokal
     let clipboardItems = [];
 
