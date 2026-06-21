@@ -16,13 +16,23 @@
 	  /* Background & Container */
 	  .dark-mode .bg-white { background-color: #1f2937 !important; border-color: #374151 !important; color: #f9fafb !important; }
 	  .dark-mode .bg-gray-50 { background-color: #374151 !important; color: #f9fafb !important; }
+	  .dark-mode .bg-gray-100 { background-color: #374151 !important; color: #e5e7eb !important; }
+	  .dark-mode .bg-red-50 { background-color: #7f1d1d !important; color: #fecaca !important; }
+	  .dark-mode .bg-red-50:hover { background-color: #991b1b !important; }
 
-	  /* Teks */
+	  /* Teks & Placeholder */
 	  .dark-mode .text-gray-800 { color: #f9fafb !important; }
 	  .dark-mode .text-gray-500 { color: #d1d5db !important; }
-	  .dark-mode .text-gray-400 { color: #9ca3af !important; } /* Mengubah warna tanggal */
-	  .dark-mode .text-gray-700 { color: #e5e7eb !important; }
+	  .dark-mode .text-gray-400 { color: #9ca3af !important; }
+	  .dark-mode .text-indigo-700 { color: #c7d2fe !important; }
+	  .dark-mode .text-red-600 { color: #fca5a5 !important; }
+	  .dark-mode .text-red-700 { color: #fca5a5 !important; }
+	  .dark-mode ::placeholder { color: #9ca3af !important; }
 
+	  /* Tombol Khusus (Override Tailwind) */
+	  .dark-mode button.bg-indigo-50 { background-color: #312e81 !important; color: #c7d2fe !important; }
+	  .dark-mode button.bg-indigo-50:hover { background-color: #3730a3 !important; }
+	  
 	  /* Border */
 	  .dark-mode .border-gray-200 { border-color: #374151 !important; }
 	  .dark-mode .border-gray-100 { border-color: #4b5563 !important; }
@@ -30,12 +40,7 @@
 
 	  /* Card Pinned (Amber) */
 	  .dark-mode .bg-amber-50\/60 { background-color: #451a03 !important; }
-	  .dark-mode .bg-amber-200 { background-color: #d97706 !important; color: #ffffff !important; }
-	  
-	  /* Placeholder & Input */
-	  .dark-mode ::placeholder { color: #9ca3af !important; }
-	  .dark-mode .text-indigo-700 { color: #818cf8 !important; } /* Warna tombol Copy */
-	  .dark-mode .bg-indigo-50 { background-color: #312e81 !important; }
+	  .dark-mode .bg-amber-200 { background-color: #b45309 !important; color: #ffffff !important; }
 	</style>
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800 font-sans antialiased pb-12">
