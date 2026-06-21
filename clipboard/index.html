@@ -132,11 +132,12 @@
   </div>
 
   <script>
-		// [BARU] Logika Theme Toggle
 		const btnTheme = document.getElementById('btn-theme');
 		btnTheme.addEventListener('click', () => {
-		  document.body.classList.toggle('dark-mode');
-		  btnTheme.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+		  const isDark = document.body.classList.toggle('dark-mode');
+		  btnTheme.textContent = isDark ? '🌙' : '☀️';
+		  // Menyimpan preferensi ke browser
+		  localStorage.setItem('darkMode', isDark); 
 		});
 
 		// [BARU] Logika Clear Search Button
@@ -413,20 +414,24 @@
 
     // Load data dan pasang listener setelah seluruh komponen halaman selesai dimuat
     window.addEventListener('DOMContentLoaded', () => {
-      // 1. Ambil data pertama kali dari cloud
-      fetchClipboard();
-      
-      // 2. Pasang event listener pencarian kata teks
-      const searchInput = document.getElementById('input-search');
-      if (searchInput) {
-        searchInput.addEventListener('input', renderList);
-      }
-
-      // 3. Pasang event listener dropdown status pin
-      const pinFilter = document.getElementById('filter-pin');
-      if (pinFilter) {
-        pinFilter.addEventListener('change', renderList);
-      }
+		if (localStorage.getItem('darkMode') === 'true') {
+		    document.body.classList.add('dark-mode');
+		    btnTheme.textContent = '🌙';
+		  }
+	      // 1. Ambil data pertama kali dari cloud
+	      fetchClipboard();
+	      
+	      // 2. Pasang event listener pencarian kata teks
+	      const searchInput = document.getElementById('input-search');
+	      if (searchInput) {
+	        searchInput.addEventListener('input', renderList);
+	      }
+	
+	      // 3. Pasang event listener dropdown status pin
+	      const pinFilter = document.getElementById('filter-pin');
+	      if (pinFilter) {
+	        pinFilter.addEventListener('change', renderList);
+	      }
     });
   </script>
 </body>
