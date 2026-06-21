@@ -10,14 +10,24 @@
   <script src="https://cdn.tailwindcss.com"></script>
   
 	<style>
-	  /* Tambahkan ini di bagian head */
-	  .dark-mode { background-color: #111827; color: #f9fafb; }
-	  .dark-mode .bg-white { background-color: #1f2937; border-color: #374151; color: #f9fafb; }
-	  .dark-mode .bg-gray-50 { background-color: #374151; color: #f9fafb; }
-	  .dark-mode .text-gray-800 { color: #f3f4f6; }
-	  .dark-mode .text-gray-500 { color: #9ca3af; }
-	  .dark-mode .border-gray-200 { border-color: #374151; }
-	  .dark-mode .border-gray-100 { border-color: #4b5563; }
+	  /* Base Dark Mode */
+	  .dark-mode { background-color: #111827 !important; color: #f9fafb !important; }
+	  
+	  /* Komponen Kartu & Background */
+	  .dark-mode .bg-white { background-color: #1f2937 !important; border-color: #374151 !important; }
+	  .dark-mode .bg-gray-50 { background-color: #374151 !important; color: #f9fafb !important; }
+	  
+	  /* Perubahan Warna Teks */
+	  .dark-mode .text-gray-800, 
+	  .dark-mode .text-gray-900 { color: #f9fafb !important; }
+	  .dark-mode .text-gray-500 { color: #d1d5db !important; }
+	  
+	  /* Border & Input */
+	  .dark-mode .border-gray-200 { border-color: #374151 !important; }
+	  .dark-mode .border-gray-100 { border-color: #4b5563 !important; }
+	  
+	  /* Fix untuk placeholder textarea/input */
+	  .dark-mode ::placeholder { color: #9ca3af !important; }
 	</style>
 </head>
 <body class="bg-gray-50 min-h-screen text-gray-800 font-sans antialiased pb-12">
