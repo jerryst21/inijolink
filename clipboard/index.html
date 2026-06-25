@@ -268,7 +268,7 @@
         const dateFormatted = new Date(item.createdAt).toLocaleString('id-ID', { dateStyle: 'short', timeStyle: 'short' });
 
         itemEl.innerHTML = `
-          <div class="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-800 pb-3 select-text">${escapeHTML(item.text)}</div>
+          <div class="whitespace-pre-wrap break-words text-[15px] leading-relaxed text-gray-800 pb-3 select-text">${linkify(escapeHTML(item.text))}</div>
           
           <div class="border-t pt-3 border-gray-100 flex flex-col gap-2.5">
             <div class="text-[11px] font-semibold text-gray-400 flex items-center gap-1 px-0.5">
@@ -411,6 +411,11 @@
     function escapeJS(str) {
       return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"').replace(/\n/g, '\\n').replace(/\r/g, '\\r');
     }
+
+	function linkify(text) {
+	  const urlRegex = /(https?:\/\/[^\s]+)/g;
+	  return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-blue-500 hover:underline" rel="noopener noreferrer">$1</a>');
+	}
 
     // Load data dan pasang listener setelah seluruh komponen halaman selesai dimuat
     window.addEventListener('DOMContentLoaded', () => {
