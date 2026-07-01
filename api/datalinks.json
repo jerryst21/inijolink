@@ -955,6 +955,12 @@
           "url": "https://docs.google.com/spreadsheets/d/18qXYz5tuWvdP4V5L7v6O0Q35BB1IxjWSXidSCG12nkw",
           "icon": "fa-solid fa-bell-concierge",
           "iconColor": "#f1c40f"
+        },
+        {
+          "title": "Surat Pernyataan Salah Transfer",
+          "url": "https://docs.google.com/document/d/1UBLwqLg3tHTTN1o_wcWDt6-aqYnxmoDSeIQ2t3YedoM/edit?tab=t.0",
+          "icon": "fa-solid fa-file-pen",
+          "iconColor": "#e5322d"
         }
       ]
     },
