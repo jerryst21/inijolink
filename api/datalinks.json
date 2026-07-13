@@ -859,13 +859,7 @@
           "title": "Perhitungan Gaji",
           "url": "https://docs.google.com/spreadsheets/d/1El1D4_LkfLPp1-pd_ebiezuOpFMfvxkSoZbic9Hp5rQ",
           "icon": "fa-regular fa-file-excel",
-          "iconColor": "#0F9D58",
-          "subLinks": [
-            {
-              "label": "📝 Input Gaji",
-              "url": "https://forms.fillout.com/t/vefqkrhyAXus"
-            }
-          ]
+          "iconColor": "#0F9D58"
         },
         {
           "title": "Daftar Karyawan",
@@ -875,7 +869,13 @@
         {
           "title": "Data Payroll",
           "url": "https://www.notion.so/inijo/181a7d88a25a8079b3d3f7460544ec49?v=222a7d88a25a803799da000cfa0268f5&source=copy_link",
-          "icon": "fa-brands fa-notion"
+          "icon": "fa-brands fa-notion",
+          "subLinks": [
+            {
+              "label": "📝 Input Gaji",
+              "url": "https://forms.fillout.com/t/vefqkrhyAXus"
+            }
+          ]
         },
         {
           "title": "Laporan Keuangan",
