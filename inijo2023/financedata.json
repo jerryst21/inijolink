@@ -330,6 +330,15 @@
     "diskon": 2976600,
     "kg": 7374,
     "satuan": 541,
+    "payroll": 19552000
+  },
+  {
+    "bulan": "Jun 26",
+    "bruto": 80610100,
+    "diskon": 1997300,
+    "nota": 1058,
+    "kg": 6744,
+    "satuan": 524,
     "payroll": 0
   }
 ]
