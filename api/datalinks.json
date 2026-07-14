@@ -1651,5 +1651,97 @@
         }
       ]
     }
+  ],
+  "padel": [
+    {
+      "category": "TUGAS HARIAN",
+      "links": [
+        {
+          "title": "Pembukuan",
+          "url": "https://greengroup.manager.io/",
+          "icon": "fa-solid fa-m",
+          "iconColor": "#ff4757"
+        },
+        {
+          "title": "BCA - VPN",
+          "url": "https://vpn.klikbca.com/+CSCOE+/logon.html",
+          "icon": "fa-solid fa-money-bill-transfer",
+          "iconColor": "#1e90ff"
+        },
+        {
+          "title": "Kas Kecil (Tunai)",
+          "url": "https://docs.google.com/spreadsheets/d/1l9j7Z-t1FhzyoItOEOEWnpHUbvH2s6HPO3Gm88zeYfY/edit?usp=sharing",
+          "icon": "fa-solid fa-cash-register",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Arsip Nota",
+          "url": "https://inijotool.vercel.app/arsip/arsippadel77.html",
+          "icon": "fa-solid fa-box-archive"
+        },
+        {
+          "title": "Laporan Stok",
+          "url": "",
+          "icon": "fa-solid fa-warehouse",
+          "iconColor": "#0F9D58"
+        }
+      ]
+    },
+    {
+      "category": "TUGAS BULANAN",
+      "links": [
+        {
+          "title": "BPJS Ketenagakerjaan",
+          "url": "https://sipp.bpjsketenagakerjaan.go.id/",
+          "icon": "fa-solid fa-hands-holding-circle",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10"
+        },
+        {
+          "title": "BPJS Kesehatan",
+          "url": "https://edabu.bpjs-kesehatan.go.id/Edabu/KC/Login?AspxAutoDetectCookieSupport=1",
+          "icon": "fa-solid fa-notes-medical",
+          "iconColor": "#39B44A",
+          "info": "Jatuh tempo tgl 10"
+        },
+        {
+          "title": "Atraksi",
+          "url": "https://atraksi-pd.citigov.id/signin",
+          "icon": "fa-solid fa-file-contract",
+          "iconColor": "#c0392b",
+          "info": "Pelayanan pelaporan pendapatan dan pembayaran pajak daerah (PB1)"
+        },
+        {
+          "title": "Laporan Gaji",
+          "url": "",
+          "icon": "fa-solid fa-money-check-dollar",
+          "iconColor": "#0F9D58",
+          "subLinks": [
+            {
+              "label": "2026",
+              "url": ""
+            }
+          ]
+        },
+        {
+          "title": "Laporan Insentif",
+          "url": "",
+          "icon": "fa-solid fa-hand-holding-dollar",
+          "iconColor": "#0F9D58"
+        },
+        {
+          "title": "Laporan Laba Rugi",
+          "url": "",
+          "icon": "fa-solid fa-file-invoice-dollar",
+          "iconColor": "#0F9D58",
+          "subLinks": [
+            {
+              "label": "2026",
+              "url": ""
+            }
+          ]
+        }
+      ]
+    }
   ]
 }
