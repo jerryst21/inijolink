@@ -940,6 +940,12 @@
       "category": "TUGAS BERKALA",
       "links": [
         {
+          "title": "Formulir Wawancara Tertulis",
+          "url": "https://docs.google.com/document/d/1ENQUnlfL-mEz23C8ZlJiMXTOJsR2zi2mOIojG1XWARI/edit?tab=t.0",
+          "icon": "fa-solid fa-file-pen",
+          "iconColor": "#0088FF"
+        },
+        {
           "title": "Data Pelamar",
           "url": "https://inijo.vercel.app/pelamar8467.html",
           "icon": "fa-solid fa-user-plus"
